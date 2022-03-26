@@ -16,12 +16,14 @@ public class NewsController : Controller
     }
 
     // GET: News
+    [HttpGet("news")]
     public async Task<IActionResult> Index()
     {
         return View(await _context.News.ToListAsync());
     }
 
     // GET: News/Details/5
+    [HttpGet("news/{id}")]
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null)

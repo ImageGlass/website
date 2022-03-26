@@ -16,12 +16,14 @@ public class ReleaseController : Controller
     }
 
     // GET: Release
+    [HttpGet("releases")]
     public async Task<IActionResult> Index()
     {
         return View(await _context.Releases.ToListAsync());
     }
 
     // GET: Release/Details/5
+    [HttpGet("release/{id}")]
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null)

@@ -16,12 +16,14 @@ public class ThemeController : Controller
     }
 
     // GET: Theme
+    [HttpGet("themes")]
     public async Task<IActionResult> Index()
     {
         return View(await _context.Themes.ToListAsync());
     }
 
     // GET: Theme/Details/5
+    [HttpGet("theme/{id}")]
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null)
