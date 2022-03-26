@@ -8,6 +8,7 @@ builder.Services.AddDbContext<ImageGlassContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRouting(i => i.LowercaseUrls = true);
 
 var app = builder.Build();
 
@@ -29,5 +30,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();
