@@ -1,0 +1,21 @@
+﻿
+@{
+	const string CROWNDIN_KEY = "0b08634573c456476345efa8bad174f2";
+}
+
+
+Language page
+
+<ul>
+	@for (var i = 0; i < @Model.Count; i++)
+	{
+		var item = @Model[i] as LanguageModel;
+
+		<li>
+			<a href="https://api.crowdin.com/api/project/imageglass/download/@(item?.Code).zip?key=@CROWNDIN_KEY">
+				@item?.Name (@item?.Translated_progress%)
+			</a>
+		</li>
+	}
+	
+</ul>
