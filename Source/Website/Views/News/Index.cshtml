@@ -1,7 +1,8 @@
-﻿@model IEnumerable<ImageGlass.Models.NewsModel>
+﻿
+@model PaginatedList<VNews>
 
 @{
-    ViewData["Title"] = "News Index";
+    ViewData["Title"] = "News listing";
 }
 
 <h1>Index</h1>
@@ -13,28 +14,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Slug)
+                NewsId
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                Slug
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Image)
+                Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Image
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Content)
+                Description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Visible)
+                CreatedDate
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
+                UpdatedDate
             </th>
             <th></th>
         </tr>
@@ -42,6 +40,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewsId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Slug)
             </td>
@@ -53,12 +54,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Visible)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)
@@ -75,3 +70,19 @@
 }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-page="@(Model.PageIndex - 1)"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-page="@(Model.PageIndex + 1)"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

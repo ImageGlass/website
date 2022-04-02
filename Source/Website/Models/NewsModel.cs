@@ -13,5 +13,54 @@ public class NewsModel : BaseModel
     public string Image { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string Content { get; set; } = string.Empty;
+}
 
+public class VNews
+{
+    public int NewsId { get; set; }
+    public string Slug { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Image { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public DateTime CreatedDate { get; set; }
+    public DateTime UpdatedDate { get; set; }
+
+    public VNews() { }
+
+    public VNews(NewsModel model)
+    {
+        NewsId = model.NewsId;
+        Slug = model.Slug;
+        Title = model.Title;
+        Image = model.Image;
+        Description = model.Description;
+        CreatedDate = model.CreatedDate;
+        UpdatedDate = model.UpdatedDate;
+    }
+}
+
+public class VNewsDetails
+{
+    public int NewsId { get; set; }
+    public string Slug { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Image { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public string Content { get; set; } = string.Empty;
+    public DateTime CreatedDate { get; set; }
+    public DateTime UpdatedDate { get; set; }
+
+    public VNewsDetails() { }
+
+    public VNewsDetails(NewsModel model)
+    {
+        NewsId = model.NewsId;
+        Slug = model.Slug;
+        Title = model.Title;
+        Image = model.Image;
+        Description = model.Description;
+        Content = model.Content;
+        CreatedDate = model.CreatedDate;
+        UpdatedDate = model.UpdatedDate;
+    }
 }

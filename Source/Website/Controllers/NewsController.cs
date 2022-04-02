@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ImageGlass.Data;
 using ImageGlass.Models;
+using ImageGlass.Utils;
 
 namespace ImageGlass.Controllers;
 
@@ -15,31 +16,58 @@ public class NewsController : Controller
         _context = context;
     }
 
-    // GET: News
+    /// <summary>
+    /// News listing page
+    /// </summary>
+    /// <param name="page"></param>
+    /// <returns></returns>
     [HttpGet("news")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? page)
     {
-        return View(await _context.News.ToListAsync());
+        var pageNumber = page ?? 1;
+        var source = _context.News
+            .Where(i => i.Visible)
+            .OrderByDescending(i => i.CreatedDate)
+            .Select(i => new VNews(i))
+            .AsNoTracking();
+
+        var pList = await PaginatedList<VNews>
+            .CreateAsync(source, pageNumber, 10);
+
+        return View(pList);
     }
 
-    // GET: News/Details/5
+
+    /// <summary>
+    /// News details page
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("news/{id}")]
-    public async Task<IActionResult> Details(int? id)
+    public async Task<IActionResult> Details(int? id, bool? preview)
     {
         if (id == null)
         {
             return NotFound();
         }
 
-        var newsModel = await _context.News
-            .FirstOrDefaultAsync(m => m.NewsId == id);
-        if (newsModel == null)
+        var isPreview = preview ?? false;
+        var model = await _context.News.Where(i =>
+                i.NewsId == id && (isPreview || i.Visible))
+            .Select(i => new VNewsDetails(i))
+            .FirstOrDefaultAsync();
+
+        if (model == null)
         {
             return NotFound();
         }
 
-        return View(newsModel);
+        return View(model);
     }
+
+
+
+
 
     // GET: News/Create
     public IActionResult Create()
@@ -84,7 +112,7 @@ public class NewsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Slug,Title,Image,Description,Content,ID,Visible,CreatedDate,UpdatedDate")] NewsModel newsModel)
+    public async Task<IActionResult> Edit(int id, [Bind("Slug,Title,Image,Description,Content,NewsId,Visible,CreatedDate,UpdatedDate")] NewsModel newsModel)
     {
         if (id != newsModel.NewsId)
         {
