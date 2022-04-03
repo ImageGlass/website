@@ -13,3 +13,18 @@ public class ReleaseImageModel : BaseModel
     public int ReleaseId { get; set; }
     public ReleaseModel Release { get; set; }
 }
+
+
+public class VReleaseImageDetails
+{
+    public int ReleaseImageId { get; set; }
+    public string Link { get; set; } = string.Empty;
+
+    public VReleaseImageDetails() { }
+
+    public VReleaseImageDetails(ReleaseImageModel model)
+    {
+        ReleaseImageId = model.ReleaseImageId;
+        Link = model.Link;
+    }
+}

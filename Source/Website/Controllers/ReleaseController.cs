@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ImageGlass.Data;
 using ImageGlass.Models;
+using ImageGlass.Utils;
 
 namespace ImageGlass.Controllers;
 
@@ -15,31 +16,60 @@ public class ReleaseController : Controller
         _context = context;
     }
 
-    // GET: Release
+    /// <summary>
+    /// Releases listing page
+    /// </summary>
+    /// <param name="page"></param>
+    /// <returns></returns>
     [HttpGet("releases")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? page)
     {
-        return View(await _context.Releases.ToListAsync());
+        var pageNumber = page ?? 1;
+        var source = _context.Releases
+            .Where(i => i.Visible)
+            .OrderByDescending(i => i.CreatedDate)
+            .Select(i => new VRelease(i))
+            .AsNoTracking();
+
+        var pList = await PaginatedList<VRelease>
+            .CreateAsync(source, pageNumber, 10);
+
+        return View(pList);
     }
 
-    // GET: Release/Details/5
+    /// <summary>
+    /// Release details page
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("release/{id}")]
-    public async Task<IActionResult> Details(int? id)
+    public async Task<IActionResult> Details(int? id, bool? preview)
     {
         if (id == null)
         {
             return NotFound();
         }
 
-        var releaseModel = await _context.Releases
-            .FirstOrDefaultAsync(m => m.ReleaseId == id);
-        if (releaseModel == null)
+        var isPreview = preview ?? false;
+        var model = await _context.Releases.Where(i =>
+                i.ReleaseId == id && (isPreview || i.Visible))
+            .Include(i => i.ReleaseImages)
+            .Include(i => i.Downloads)
+            .Select(i => new VReleaseDetails(i, isPreview))
+            .FirstOrDefaultAsync();
+
+        if (model == null)
         {
             return NotFound();
         }
 
-        return View(releaseModel);
+        return View(model);
     }
+
+
+
+
+
 
     // GET: Release/Create
     public IActionResult Create()
