@@ -34,6 +34,9 @@
             <th>
                 UpdatedDate
             </th>
+            <th>
+                IsNewPost
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -60,6 +63,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNewPost)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.NewsId">Edit</a> |

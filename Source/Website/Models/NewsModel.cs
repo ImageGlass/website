@@ -12,6 +12,8 @@ public class NewsModel : BaseModel
     public string Title { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
+
+    // show in view details
     public string Content { get; set; } = string.Empty;
 }
 
@@ -24,6 +26,11 @@ public class VNews
     public string Description { get; set; } = string.Empty;
     public DateTime CreatedDate { get; set; }
     public DateTime UpdatedDate { get; set; }
+
+    /// <summary>
+    /// Posted within <c>7*24</c> hours.
+    /// </summary>
+    public bool IsNewPost => (DateTime.Now - CreatedDate).TotalHours <= (7 * 24);
 
     public VNews() { }
 

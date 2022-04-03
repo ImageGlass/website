@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ImageGlass.Models.ThemeModel>
+﻿@model PaginatedList<ImageGlass.Models.VTheme>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,46 +13,49 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Slug)
+                ThemeId
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                Slug
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Image)
+                Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Image
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Link)
+                Description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Version)
+                Link
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Compatibility)
+                Version
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Author)
+                Compatibility
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                Author
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Website)
+                Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Count)
+                Website
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Visible)
+                Count
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
+                CreatedDate
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
+                UpdatedDate
+            </th>
+            <th>
+                IsNewPost
             </th>
             <th></th>
         </tr>
@@ -60,6 +63,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThemeId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Slug)
             </td>
@@ -94,13 +100,13 @@
                 @Html.DisplayFor(modelItem => item.Count)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Visible)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNewPost)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ThemeId">Edit</a> |
@@ -111,3 +117,19 @@
 }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-page="@(Model.PageIndex - 1)"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-page="@(Model.PageIndex + 1)"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

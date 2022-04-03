@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ImageGlass.Data;
 using ImageGlass.Models;
+using ImageGlass.Utils;
 
 namespace ImageGlass.Controllers;
 
@@ -15,31 +16,60 @@ public class ThemeController : Controller
         _context = context;
     }
 
-    // GET: Theme
+    /// <summary>
+    /// Themes listing page
+    /// </summary>
+    /// <param name="page"></param>
+    /// <returns></returns>
     [HttpGet("themes")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? page)
     {
-        return View(await _context.Themes.ToListAsync());
+        var pageNumber = page ?? 1;
+        var source = _context.Themes
+            .Where(i => i.Visible)
+            .OrderByDescending(i => i.CreatedDate)
+            .Select(i => new VTheme(i))
+            .AsNoTracking();
+
+        var pList = await PaginatedList<VTheme>
+            .CreateAsync(source, pageNumber, 10);
+
+        return View(pList);
     }
 
-    // GET: Theme/Details/5
+    /// <summary>
+    /// Theme details page
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="preview"></param>
+    /// <returns></returns>
     [HttpGet("theme/{id}")]
-    public async Task<IActionResult> Details(int? id)
+    public async Task<IActionResult> Details(int? id, bool? preview)
     {
         if (id == null)
         {
             return NotFound();
         }
 
-        var themeModel = await _context.Themes
-            .FirstOrDefaultAsync(m => m.ThemeId == id);
-        if (themeModel == null)
+        var isPreview = preview ?? false;
+        var model = await _context.Themes.Where(i =>
+                i.ThemeId == id && (isPreview || i.Visible))
+            .Include(i => i.ThemeImages)
+            .Select(i => new VThemeDetails(i, isPreview))
+            .FirstOrDefaultAsync();
+
+        if (model == null)
         {
             return NotFound();
         }
 
-        return View(themeModel);
+        return View(model);
     }
+
+
+
+
+
 
     // GET: Theme/Create
     public IActionResult Create()
