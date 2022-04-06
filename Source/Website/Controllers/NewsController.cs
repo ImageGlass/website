@@ -7,7 +7,7 @@ using ImageGlass.Utils;
 
 namespace ImageGlass.Controllers;
 
-public class NewsController : Controller
+public class NewsController : BaseController
 {
     private readonly ImageGlassContext _context;
 

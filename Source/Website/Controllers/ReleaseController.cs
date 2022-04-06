@@ -7,7 +7,7 @@ using ImageGlass.Utils;
 
 namespace ImageGlass.Controllers;
 
-public class ReleaseController : Controller
+public class ReleaseController : BaseController
 {
     private readonly ImageGlassContext _context;
 

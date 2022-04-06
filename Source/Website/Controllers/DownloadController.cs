@@ -7,7 +7,7 @@ using ImageGlass.Models;
 
 namespace ImageGlass.Controllers;
 
-public class DownloadController : Controller
+public class DownloadController : BaseController
 {
     private readonly ImageGlassContext _context;
 

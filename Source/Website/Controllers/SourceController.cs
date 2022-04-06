@@ -2,7 +2,7 @@
 
 namespace ImageGlass.Controllers;
 
-public class SourceController : Controller
+public class SourceController : BaseController
 {
     public IActionResult Index()
     {

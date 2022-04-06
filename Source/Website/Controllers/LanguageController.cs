@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace ImageGlass.Controllers;
 
-public class LanguageController : Controller
+public class LanguageController : BaseController
 {
     const string CROWNDIN_KEY = "0b08634573c456476345efa8bad174f2";
 
