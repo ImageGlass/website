@@ -1,5 +1,7 @@
 ﻿#nullable disable
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ImageGlass.Models;
 
@@ -19,12 +21,17 @@ public class DownloadModel : BaseModel
 {
     [Key]
     public int DownloadId { get; set; }
+    [Column(TypeName = "text")]
     public string ReleaseCode { get; set; } = "kobe";
     public DownloadType Type { get; set; } = DownloadType.Installer;
     public DownloadArchitecture Architecture { get; set; } = DownloadArchitecture.X64;
+    [Column(TypeName = "text")]
     public string FileType { get; set; } = "msi";
+    [Column(TypeName = "text")]
     public string Link { get; set; } = string.Empty;
+    [Column(TypeName = "text")]
     public string Checksum { get; set; } = string.Empty;
+    [Column(TypeName = "text")]
     public string Size { get; set; } = string.Empty;
     public int Count { get; set; } = 0;
 

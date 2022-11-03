@@ -1,5 +1,7 @@
 ﻿#nullable disable
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ImageGlass.Models;
 
@@ -8,9 +10,13 @@ public class NewsModel : BaseModel
     [Key]
     public int NewsId { get; set; }
     [Required]
+    [Column(TypeName = "text")]
     public string Slug { get; set; }
+    [Column(TypeName = "text")]
     public string Title { get; set; } = string.Empty;
+    [Column(TypeName = "text")]
     public string Image { get; set; } = string.Empty;
+    [Column(TypeName = "text")]
     public string Description { get; set; } = string.Empty;
 
     // show in view details

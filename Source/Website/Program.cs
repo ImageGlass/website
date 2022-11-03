@@ -4,13 +4,23 @@ using ImageGlass.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ImageGlassContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ImageGlassContext")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("ImageGlassContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRouting(i => i.LowercaseUrls = true);
 
 var app = builder.Build();
+
+
+// migrate database on startup
+await using var scope = app.Services.CreateAsyncScope();
+using var db = scope.ServiceProvider.GetService<ImageGlassContext>();
+if (db is not null)
+{
+    await db.Database.MigrateAsync();
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

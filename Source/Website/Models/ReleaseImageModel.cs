@@ -1,5 +1,7 @@
 ﻿#nullable disable
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ImageGlass.Models;
 
@@ -7,6 +9,7 @@ public class ReleaseImageModel : BaseModel
 {
     [Key]
     public int ReleaseImageId { get; set; }
+    [Column(TypeName = "text")]
     public string Link { get; set; } = string.Empty;
 
 
