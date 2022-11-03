@@ -33,9 +33,8 @@ public class LanguageController : BaseController
     {
         var url = $"https://api.crowdin.com/api/project/imageglass/status?key={CROWNDIN_KEY}&json";
 
-        var requestMsg = new HttpRequestMessage(HttpMethod.Get, url);
         using var httpClient = new HttpClient();
-        var response = await httpClient.SendAsync(requestMsg);
+        var response = await httpClient.GetAsync(url);
         var languageList = new List<LanguageModel>();
 
         if (response.IsSuccessStatusCode)
