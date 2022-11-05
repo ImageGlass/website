@@ -1,6 +1,16 @@
 ﻿
-
 @{
+    
+
 }
 
 About page
+
+
+<pre><code>@Html.Raw(JsonHelper.ToJson<PageMetadata>(ViewBag.Metadata))</code></pre>
+
+
+@Html.Raw(ViewBag.Content)
+
+
+
