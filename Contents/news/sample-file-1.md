@@ -1,13 +1,15 @@
-<@@
+```json
+#metadata
 {
-  id: 1,
-  title: 'Sample file 👻',
-  imageUrl: 'https://github.com/ImageGlass/config/raw/main/screenshots/v8.7/8.7_1.jpg?raw=true',
-  description: 'Sample 1: We are glad to announce that ImageGlass website has been opened.',
-  keywords: ['imageglass', 'sample-1'],
-  visible: true,
+  "id": 1,
+  "title": "Sample file 👻",
+  "imageUrl": "https://github.com/ImageGlass/config/raw/main/screenshots/v8.7/8.7_1.jpg?raw=true",
+  "description": "Sample 1: We are glad to announce that ImageGlass website has been opened.",
+  "keywords": ["imageglass", "sample-1"],
+  "visible": true,
 }
-@@>
+#metadata
+```
 
 
 <img width="640" alt="ImageGlass 8.7.11.6" src="https://github.com/ImageGlass/config/raw/main/screenshots/v8.7/8.7_1.jpg?raw=true">
