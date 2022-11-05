@@ -18,9 +18,15 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.10" />
+    <PackageReference Include="Markdig.Signed" Version="0.30.4" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
+    <None Remove="Markdig.Signed" />
+    <None Remove="Utils\PageContent\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\PageContent\" />
   </ItemGroup>
 </Project>
