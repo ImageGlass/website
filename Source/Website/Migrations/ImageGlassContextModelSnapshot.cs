@@ -72,7 +72,7 @@ namespace ImageGlass.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("CustomContentUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedDate")

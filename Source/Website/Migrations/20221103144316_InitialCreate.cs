@@ -19,7 +19,7 @@ namespace ImageGlass.Migrations
                     Title = table.Column<string>(type: "text", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    Content = table.Column<string>(type: "TEXT", nullable: true),
+                    CustomContentUrl = table.Column<string>(type: "TEXT", nullable: true),
                     Visible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)

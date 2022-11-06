@@ -19,9 +19,14 @@ public class NewsModel : BaseModel
     [Column(TypeName = "text")]
     public string Description { get; set; } = string.Empty;
 
-    // show in view details
-    public string Content { get; set; } = string.Empty;
+    /// <summary>
+    /// By default, the content will be fetched from this folder:
+    /// https://github.com/ImageGlass/website-content/tree/main/news/.
+    /// This field allows to use a custom url markdown content.
+    /// </summary>
+    public string CustomContentUrl { get; set; } = string.Empty;
 }
+
 
 public class VNews
 {
@@ -38,6 +43,14 @@ public class VNews
     /// </summary>
     public bool IsNewPost => (DateTime.Now - CreatedDate).TotalHours <= (7 * 24);
 
+    /// <summary>
+    /// By default, the content will be fetched from this folder:
+    /// https://github.com/ImageGlass/website-content/tree/main/news/.
+    /// This field allows to use a custom url markdown content.
+    /// </summary>
+    public string CustomContentUrl { get; set; } = string.Empty;
+
+
     public VNews() { }
 
     public VNews(NewsModel model)
@@ -47,10 +60,12 @@ public class VNews
         Title = model.Title;
         Image = model.Image;
         Description = model.Description;
+        CustomContentUrl = model.CustomContentUrl;
         CreatedDate = model.CreatedDate;
         UpdatedDate = model.UpdatedDate;
     }
 }
+
 
 public class VNewsDetails
 {
@@ -63,6 +78,13 @@ public class VNewsDetails
     public DateTime CreatedDate { get; set; }
     public DateTime UpdatedDate { get; set; }
 
+    /// <summary>
+    /// By default, the content will be fetched from this folder:
+    /// https://github.com/ImageGlass/website-content/tree/main/news/.
+    /// This field allows to use a custom url markdown content.
+    /// </summary>
+    public string CustomContentUrl { get; set; } = string.Empty;
+
     public VNewsDetails() { }
 
     public VNewsDetails(NewsModel model)
@@ -72,7 +94,7 @@ public class VNewsDetails
         Title = model.Title;
         Image = model.Image;
         Description = model.Description;
-        Content = model.Content;
+        CustomContentUrl = model.CustomContentUrl;
         CreatedDate = model.CreatedDate;
         UpdatedDate = model.UpdatedDate;
     }
