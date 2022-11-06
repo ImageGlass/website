@@ -55,4 +55,22 @@ public class BaseController : Controller
 
         return false;
     }
+
+
+    /// <summary>
+    /// Gets id from the slug-id url.
+    /// Example url: "https://imageglass.org/news/hello-world-38" return <c>38</c>.
+    /// </summary>
+    public static int? GetIdFromSlugId(string? slugId)
+    {
+        var strArr = slugId?.Split("-", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var idStr = strArr?.LastOrDefault();
+
+        if (int.TryParse(idStr, out var id))
+        {
+            return id;
+        }
+
+        return null;
+    }
 }
