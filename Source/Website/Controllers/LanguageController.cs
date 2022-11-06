@@ -1,5 +1,8 @@
 ﻿using ImageGlass.Models;
+using ImageGlass.Utils;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Net;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -8,43 +11,64 @@ namespace ImageGlass.Controllers;
 
 public class LanguageController : BaseController
 {
-    const string CROWNDIN_KEY = "0b08634573c456476345efa8bad174f2";
+    private readonly HttpClient _client = new();
 
-    private static JsonSerializerOptions JsonOptions { get; } = new()
+
+    [HttpGet("languages")]
+    public async Task<IActionResult> LanguageListing()
     {
-        PropertyNameCaseInsensitive = true,
-        AllowTrailingCommas = true,
-        WriteIndented = true,
-        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-
-        Converters =
-        {
-            // Write enum value as string
-            new JsonStringEnumConverter(),
-        },
-
-        // ignoring policy
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull,
-        IgnoreReadOnlyProperties = true,
-        IgnoreReadOnlyFields = true,
-    };
-
-    public async Task<IActionResult> Index()
-    {
-        var url = $"https://api.crowdin.com/api/project/imageglass/status?key={CROWNDIN_KEY}&json";
-
-        using var httpClient = new HttpClient();
-        var response = await httpClient.GetAsync(url);
+        var url = $"https://api.crowdin.com/api/project/imageglass/status?key={Constants.CROWNDIN_KEY}&json";
         var languageList = new List<LanguageModel>();
 
-        if (response.IsSuccessStatusCode)
+        try
         {
-            using var contentStream = await response.Content.ReadAsStreamAsync();
+            using var contentStream = await _client.GetStreamAsync(url);
 
-            languageList = await JsonSerializer.DeserializeAsync
-                <List<LanguageModel>>(contentStream, JsonOptions);
+            languageList = await JsonHelper.ParseJsonAsync<List<LanguageModel>>(contentStream);
+        }
+        catch (HttpRequestException ex)
+        {
+            if (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                //
+            }
         }
 
-        return View(languageList);
+
+        // page info
+        ViewData[PageInfo.Title] = "ImageGlass language packs";
+        ViewData[PageInfo.Description] = "Download all language packs of ImageGlass.";
+        ViewData[PageInfo.Keywords] = "imageglass language pack, " + ViewData[PageInfo.Keywords];
+
+
+        return View("LanguageListing", languageList);
+    }
+
+
+    [HttpGet("language/download/{langCode}")]
+    public async Task<IActionResult> DownloadLanguage(string langCode, string? langName)
+    {
+        var url = $"https://api.crowdin.com/api/project/imageglass/download/{langCode}.zip?key={Constants.CROWNDIN_KEY}";
+
+        try
+        {
+            // do not dispose the stream
+            var contentStream = await _client.GetStreamAsync(url);
+
+            var fileName = string.IsNullOrEmpty(langName)
+                ? $"{langCode}.zip"
+                : $"{langName} ({langCode}).zip";
+
+            return File(contentStream, "application/octet-stream", fileName);
+        }
+        catch (HttpRequestException ex)
+        {
+            if (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                //
+            }
+        }
+
+        return Ok();
     }
 }

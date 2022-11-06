@@ -1,0 +1,17 @@
+﻿
+
+<h1>@ViewData[PageInfo.Title]</h1>
+
+<ul>
+    @for (var i = 0; i < @Model.Count; i++)
+    {
+        var item = @Model[i] as LanguageModel;
+
+        <li>
+            <a asp-action="DownloadLanguage" asp-route-langCode="@(item?.Code)"  asp-route-langName="@(item?.Name)">
+                @item?.Name (@item?.Translated_progress%)
+            </a>
+        </li>
+    }
+
+</ul>

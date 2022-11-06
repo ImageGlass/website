@@ -31,7 +31,7 @@ public class BaseController : Controller
         con.ViewData[PageInfo.H1] = "ImageGlass is a lightweight, versatile image viewing application that is designed to take the place of Photo Viewer in Windows 10, 8, 7 and Vista, especially those installations that may have trouble displaying PNG and GIF files in Photo Viewer.";
         
 		con.ViewData[PageInfo.Author] = "Duong Dieu Phap";
-        con.ViewData[PageInfo.Thumbnail] = "";
+        con.ViewData[PageInfo.Thumbnail] = "https://github.com/ImageGlass/config/raw/main/screenshots/v9.0-beta-2/9.0b2_1.jpg";
     }
 
 
