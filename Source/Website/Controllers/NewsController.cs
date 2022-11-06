@@ -1,5 +1,4 @@
-﻿#nullable disable
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ImageGlass.Data;
 using ImageGlass.Models;
@@ -41,26 +40,27 @@ public class NewsController : BaseController
     /// The News details page.
     /// To display the hidden post, use <c>?preview=true</c>.
     /// </summary>
-    [HttpGet("news/{id}")]
-    public async Task<IActionResult> Details(int? id, bool? preview)
+    [HttpGet("news/{slugId}"), ActionName("Details")]
+    public async Task<IActionResult> Details(string? slugId, bool? preview)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
+        var id = GetIdFromSlugId(slugId);
+        if (id is null) return NotFound();
 
         var isPreview = preview ?? false;
         var model = await _context.News.Where(i => i.NewsId == id && (isPreview || i.Visible))
             .Select(i => new VNewsDetails(i))
             .FirstOrDefaultAsync();
 
-        if (model == null)
-        {
-            return NotFound();
-        }
+        if (model == null) return NotFound();
 
+        // page info
+        ViewData[PageInfo.Title] = model.Title;
+        ViewData[PageInfo.Description] = model.Description;
+        ViewData[PageInfo.Thumbnail] = model.Image;
+        ViewData[PageInfo.H1] = string.Empty; // use the content H1
 
-        var markdownContent = await GitHub.GetFileContentAsync($"news/{model.NewsId + 99}.md");
+        // get page content from GitHub
+        var markdownContent = await GitHub.GetFileContentAsync($"news/{model.NewsId}.md");
         var htmlContent = GitHub.ParseMarkdown(markdownContent);
 
         model.Content = htmlContent;

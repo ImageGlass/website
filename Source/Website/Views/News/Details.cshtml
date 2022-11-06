@@ -1,10 +1,5 @@
 ﻿@model ImageGlass.Models.VNewsDetails
 
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Details</h1>
 
 <div>
     <h4>NewsModel</h4>
@@ -60,14 +55,16 @@
 </div>
 
 
-@{
-    if (string.IsNullOrEmpty(@Model?.Content))
-    {
-        @Html.Raw("Content not found!");
+<article>
+    @{
+        if (string.IsNullOrEmpty(@Model?.Content))
+        {
+            @Html.Raw("Content not found!");
+        }
+        else
+        {
+            @Html.Raw(@Model.Content);
+        }
     }
-    else
-    {
-        @Html.Raw(@Model.Content);
-    }
-}
+</article>
 
