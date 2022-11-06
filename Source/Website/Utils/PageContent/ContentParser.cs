@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
 using Markdig;
@@ -17,25 +18,40 @@ public class ContentParser
     public static string IgHost = "imageglass.org";
 
 
-    public static string GitHubRepo = "ImageGlass/website";
-    public static string GitHubBranch = "main";
-    public static string GitHubApiContentUrlPrefix = @$"https://api.github.com/repos/{GitHubRepo}/contents/";
-    public static string GitHubApiRawFileContentUrlPrefix => @$"https://raw.githubusercontent.com/{GitHubRepo}/{GitHubBranch}/";
+    public static string WebsiteContentRepo = "ImageGlass/website-content";
+    public static string RepoBranch = "main";
+    public static string RawFileContentUrlPrefix => @$"https://raw.githubusercontent.com/{WebsiteContentRepo}/{RepoBranch}/";
+    public static string ContentUrlPrefix = @$"https://api.github.com/repos/{WebsiteContentRepo}/contents/";
+
 
 
     /// <summary>
     /// Gets raw content from GitHub folder: /user/repo/Contents/paths...
     /// </summary>
-    public static async Task<string?> GetGitHubRawContentAsync(params string[] paths)
+    /// <param name="paths"></param>
+    /// <returns><c>null</c> if status code is 404.</returns>
+    /// <exception cref="HttpRequestException"></exception>
+    public static async Task<string?> GetGitHubFileContentAsync(params string[] paths)
     {
         var path = string.Join("/", paths) ?? "";
-        var url = new Uri($"{GitHubApiRawFileContentUrlPrefix}{path}");
+        var url = new Uri($"{RawFileContentUrlPrefix}{path}");
 
+        try
+        {
+            using var client = new HttpClient();
+            var rawContent = await client.GetStringAsync(url);
 
-        using var client = new HttpClient();
-        var rawContent = await client.GetStringAsync(url);
+            return rawContent;
+        }
+        catch (HttpRequestException ex)
+        {
+            if (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
 
-        return rawContent;
+            throw new HttpRequestException(ex.Message, ex.InnerException, ex.StatusCode);
+        }
     }
 
 
