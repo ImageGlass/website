@@ -19,7 +19,15 @@ public class UrlController : BaseController
         var contentData = ContentParser.GetPageContentData(rawContent);
 
         var metadata = ContentParser.ParsePageMeta(contentData.MetaJson);
-        var htmlContent = ContentParser.ParseMarkdown(contentData.Content);
+        var htmlContent = ContentParser.ParseMarkdown(@"
+
+::: { .box .box-info }
+Update: All promotional codes are redeemed!
+
+You still can get the store version with a discount price only for today July 20, 2022. See you next year in the 13th anniversary event!
+:::
+
+"); //  contentData.Content);
 
 
         ViewBag.Content = htmlContent;
