@@ -16,11 +16,7 @@ public class ReleaseController : BaseController
         _context = context;
     }
 
-    /// <summary>
-    /// Releases listing page
-    /// </summary>
-    /// <param name="page"></param>
-    /// <returns></returns>
+
     [HttpGet("releases")]
     public async Task<IActionResult> Index(int? page)
     {
@@ -36,6 +32,52 @@ public class ReleaseController : BaseController
 
         return View(pList);
     }
+
+
+    [HttpGet("kobe")]
+    public async Task<IActionResult> KobeReleases(int? page)
+    {
+        var pageNumber = page ?? 1;
+        var source = _context.Releases
+            .Where(i => i.Visible && i.ReleaseType == ReleaseType.Kobe)
+            .OrderByDescending(i => i.CreatedDate)
+            .Select(i => new VRelease(i))
+            .AsNoTracking();
+
+        var pList = await PaginatedList<VRelease>
+            .CreateAsync(source, pageNumber, 10);
+
+        // page info
+        ViewData[PageInfo.Title] = "ImageGlass Kobe releases";
+        ViewData[PageInfo.Keywords] = "imageglass kobe, " + ViewData[PageInfo.Keywords];
+        ViewData[PageInfo.Thumbnail] = "https://github.com/ImageGlass/config/raw/main/screenshots/v9.0-beta-2/9.0b2_1.jpg";
+
+        return View("ReleaseListing", pList);
+    }
+
+
+    [HttpGet("moon")]
+    public async Task<IActionResult> MoonReleases(int? page)
+    {
+        var pageNumber = page ?? 1;
+        var source = _context.Releases
+            .Where(i => i.Visible && i.ReleaseType == ReleaseType.Moon)
+            .OrderByDescending(i => i.CreatedDate)
+            .Select(i => new VRelease(i))
+            .AsNoTracking();
+
+        var pList = await PaginatedList<VRelease>
+            .CreateAsync(source, pageNumber, 10);
+
+        // page info
+        ViewData[PageInfo.Title] = "ImageGlass Moon releases";
+        ViewData[PageInfo.Description] = "ImageGlass Moon is the bleeding-edge (or beta) release of ImageGlass Kobe, is built and shipped to users with the latest state and features of ImageGlass.";
+        ViewData[PageInfo.Keywords] = "imageglass moon, imageglass beta, " + ViewData[PageInfo.Keywords];
+        ViewData[PageInfo.Thumbnail] = "https://github.com/ImageGlass/config/raw/main/screenshots/v9.0-beta-2/9.0b2_1.jpg";
+
+        return View("ReleaseListing", pList);
+    }
+
 
     /// <summary>
     /// Release details page

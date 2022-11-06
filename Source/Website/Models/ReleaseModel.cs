@@ -31,6 +31,12 @@ public class ReleaseModel : BaseModel
     public List<ReleaseImageModel> ReleaseImages { get; set; }
 }
 
+public static class ReleaseType
+{
+    public static string Kobe => "kobe";
+    public static string Moon => "moon";
+}
+
 
 public class VRelease
 {
@@ -109,3 +115,4 @@ public class VReleaseDetails
     }
 
 }
+
