@@ -15,11 +15,11 @@ public class UrlController : BaseController
     [HttpGet("url")]
     public async Task<IActionResult> Index()
     {
-        var rawContent = await ContentParser.GetGitHubFileContentAsync("Contents/news/sample-file-1.md");
-        var contentData = ContentParser.GetPageContentData(rawContent);
+        var rawContent = await GitHub.GetFileContentAsync("Contents/news/sample-file-1.md");
+        var contentData = GitHub.GetPageContentData(rawContent);
 
-        var metadata = ContentParser.ParsePageMeta(contentData.MetaJson);
-        var htmlContent = ContentParser.ParseMarkdown(contentData.Content);
+        var metadata = GitHub.ParsePageMeta(contentData.MetaJson);
+        var htmlContent = GitHub.ParseMarkdown(contentData.Content);
 
 
         ViewBag.Content = htmlContent;

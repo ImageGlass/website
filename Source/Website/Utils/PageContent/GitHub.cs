@@ -11,7 +11,7 @@ using Markdig.Syntax.Inlines;
 
 namespace ImageGlass.Utils;
 
-public class ContentParser
+public class GitHub
 {
     public static string MetaOpenTag = "```json(\\s|\\n)+#metadata";
     public static string MetaCloseTag = "#metadata(\\s|\\n)+```";
@@ -28,12 +28,12 @@ public class ContentParser
     /// <summary>
     /// Gets raw content from GitHub folder: /user/repo/Contents/paths...
     /// </summary>
-    /// <param name="paths"></param>
+    /// <param name="gitHubPaths"></param>
     /// <returns><c>null</c> if status code is 404.</returns>
     /// <exception cref="HttpRequestException"></exception>
-    public static async Task<string?> GetGitHubFileContentAsync(params string[] paths)
+    public static async Task<string?> GetFileContentAsync(params string[] gitHubPaths)
     {
-        var path = string.Join("/", paths) ?? "";
+        var path = string.Join("/", gitHubPaths) ?? "";
         var url = new Uri($"{RawFileContentUrlPrefix}{path}");
 
         try
@@ -152,5 +152,6 @@ public class ContentParser
 
         return html;
     }
+
 }
 

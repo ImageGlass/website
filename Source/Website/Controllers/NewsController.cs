@@ -60,8 +60,8 @@ public class NewsController : BaseController
         }
 
 
-        var markdownContent = await ContentParser.GetGitHubFileContentAsync($"news/{model.NewsId + 99}.md");
-        var htmlContent = ContentParser.ParseMarkdown(markdownContent);
+        var markdownContent = await GitHub.GetFileContentAsync($"news/{model.NewsId + 99}.md");
+        var htmlContent = GitHub.ParseMarkdown(markdownContent);
 
         model.Content = htmlContent;
 
