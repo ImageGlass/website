@@ -15,7 +15,7 @@ public class UrlController : BaseController
     [HttpGet("url")]
     public async Task<IActionResult> Index()
     {
-        var rawContent = await ContentParser.GetGitHubRawContentAsync("Contents/news/sample-file-1.md");
+        var rawContent = await ContentParser.GetGitHubFileContentAsync("Contents/news/sample-file-1.md");
         var contentData = ContentParser.GetPageContentData(rawContent);
 
         var metadata = ContentParser.ParsePageMeta(contentData.MetaJson);

@@ -16,11 +16,10 @@ public class NewsController : BaseController
         _context = context;
     }
 
+
     /// <summary>
-    /// News listing page
+    /// News listing page.
     /// </summary>
-    /// <param name="page"></param>
-    /// <returns></returns>
     [HttpGet("news")]
     public async Task<IActionResult> Index(int? page)
     {
@@ -39,10 +38,9 @@ public class NewsController : BaseController
 
 
     /// <summary>
-    /// News details page
+    /// The News details page.
+    /// To display the hidden post, use <c>?preview=true</c>.
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
     [HttpGet("news/{id}")]
     public async Task<IActionResult> Details(int? id, bool? preview)
     {
@@ -52,8 +50,7 @@ public class NewsController : BaseController
         }
 
         var isPreview = preview ?? false;
-        var model = await _context.News.Where(i =>
-                i.NewsId == id && (isPreview || i.Visible))
+        var model = await _context.News.Where(i => i.NewsId == id && (isPreview || i.Visible))
             .Select(i => new VNewsDetails(i))
             .FirstOrDefaultAsync();
 
@@ -61,6 +58,12 @@ public class NewsController : BaseController
         {
             return NotFound();
         }
+
+
+        var markdownContent = await ContentParser.GetGitHubFileContentAsync($"news/{model.NewsId + 99}.md");
+        var htmlContent = ContentParser.ParseMarkdown(markdownContent);
+
+        model.Content = htmlContent;
 
         return View(model);
     }
@@ -80,7 +83,7 @@ public class NewsController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Slug,Title,Image,Description,Content,ID,Visible,CreatedDate,UpdatedDate")] NewsModel newsModel)
+    public async Task<IActionResult> Create([Bind("Slug,Title,Image,Description,CustomContentUrl,NewsId,Visible,CreatedDate,UpdatedDate")] NewsModel newsModel)
     {
         if (ModelState.IsValid)
         {
@@ -112,7 +115,7 @@ public class NewsController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Slug,Title,Image,Description,Content,NewsId,Visible,CreatedDate,UpdatedDate")] NewsModel newsModel)
+    public async Task<IActionResult> Edit(int id, [Bind("Slug,Title,Image,Description,CustomContentUrl,NewsId,Visible,CreatedDate,UpdatedDate")] NewsModel newsModel)
     {
         if (id != newsModel.NewsId)
         {
