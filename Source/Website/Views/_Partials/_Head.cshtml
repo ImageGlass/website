@@ -15,7 +15,7 @@
 
 @* For Search Indexing *@
 <meta name="robots" content="index, follow">
-<meta name="author" content="@ViewData["_Author"]">
+<meta name="author" content="@ViewData[PageInfo.Author]">
 <meta name="Search Engines" content="www.google.com, www.google.com.vn, www.yahoo.com, www.bing.com">
 <meta name="revisit-after" content="1 hour">
 
@@ -27,20 +27,20 @@
 <link rel="preconnect" href="https://www.google-analytics.com">
 
 @* Site info *@
-<title>@ViewData["_Title"]</title>
-<meta name="description" content="@ViewData["_Description"]">
-<meta name="keywords" content="@ViewData["_Keywords"]">
+<title>@ViewData[PageInfo.Title]</title>
+<meta name="description" content="@ViewData[PageInfo.Description]">
+<meta name="keywords" content="@ViewData[PageInfo.Keywords]">
 
 @* Open Graph Article *@
 <meta property="og:type" content="article">
 <meta property="og:url" content="@Context.Request.GetDisplayUrl()">
-<meta property="og:title" content="@ViewData["_Title"]">
-<meta property="og:image" content="@ViewData["_Thumbnail"]">
-<meta property="og:image:alt" content="@ViewData["_Title"]" />
-<meta property="og:site_name" content="@ViewData["_Sitename"]" />
-<meta property="og:description" content="@ViewData["_Description"]" />
-<meta property="article:tag" content="@ViewData["_Keywords"]" />
-<meta property="article:author" content="@ViewData["_Author"]">
+<meta property="og:title" content="@ViewData[PageInfo.Title]">
+<meta property="og:image" content="@ViewData[PageInfo.Thumbnail]">
+<meta property="og:image:alt" content="@ViewData[PageInfo.Title]" />
+<meta property="og:site_name" content="@ViewData[PageInfo.SiteName]" />
+<meta property="og:description" content="@ViewData[PageInfo.Description]" />
+<meta property="article:tag" content="@ViewData[PageInfo.Keywords]" />
+<meta property="article:author" content="@ViewData[PageInfo.Author]">
 
 @* Facebook info *@
 <meta property="fb:admins" content="100000190054499" />
