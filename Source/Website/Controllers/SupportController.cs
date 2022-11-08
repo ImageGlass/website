@@ -6,6 +6,6 @@ public class SupportController : BaseController
 {
     public IActionResult Index()
     {
-        return View();
+        return View("SupportPage");
     }
 }

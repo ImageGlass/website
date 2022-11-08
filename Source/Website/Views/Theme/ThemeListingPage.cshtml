@@ -28,6 +28,9 @@
                 Description
             </th>
             <th>
+                ThemeType
+            </th>
+            <th>
                 Link
             </th>
             <th>
@@ -79,6 +82,9 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ThemeType)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Link)
             </td>
             <td>
@@ -109,9 +115,7 @@
                 @Html.DisplayFor(modelItem => item.IsNewPost)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ThemeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ThemeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ThemeId">Delete</a>
+                <a asp-action="ThemeDetailPage" asp-route-id="@(item.Slug + "-" + item.ThemeId)">Details</a>
             </td>
         </tr>
 }

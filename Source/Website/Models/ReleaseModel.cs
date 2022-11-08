@@ -16,7 +16,7 @@ public class ReleaseModel : BaseModel
     [Column(TypeName = "text")]
     public string Image { get; set; } = string.Empty;
     [Column(TypeName = "text")]
-    public string ReleaseType { get; set; } = string.Empty;
+    public string ReleaseType { get; set; } = ImageGlass.Models.ReleaseType.Kobe;
     [Column(TypeName = "text")]
     public string Version { get; set; } = string.Empty;
 
@@ -44,7 +44,7 @@ public class VRelease
     public string Slug { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
-    public string ReleaseType { get; set; } = string.Empty;
+    public string ReleaseType { get; set; } = ImageGlass.Models.ReleaseType.Kobe;
     public string Version { get; set; } = string.Empty;
     public DateTime CreatedDate { get; set; }
     public DateTime UpdatedDate { get; set; }

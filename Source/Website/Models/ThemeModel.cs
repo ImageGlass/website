@@ -18,6 +18,8 @@ public class ThemeModel : BaseModel
     [Column(TypeName = "text")]
     public string Description { get; set; } = string.Empty;
     [Column(TypeName = "text")]
+    public string ThemeType { get; set; } = ImageGlass.Models.ThemeType.ThemePack;
+    [Column(TypeName = "text")]
     public string Link { get; set; } = string.Empty;
     [Column(TypeName = "text")]
     public string Version { get; set; } = string.Empty;
@@ -36,6 +38,12 @@ public class ThemeModel : BaseModel
     public List<ThemeImageModel> ThemeImages { get; set; }
 }
 
+public static class ThemeType
+{
+    public static string ThemePack => "theme_pack";
+    public static string ExtensionIcons => "ext_icons";
+}
+
 
 public class VTheme
 {
@@ -44,6 +52,7 @@ public class VTheme
     public string Title { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
+    public string ThemeType { get; set; } = ImageGlass.Models.ThemeType.ThemePack;
     public string Link { get; set; } = string.Empty;
     public string Version { get; set; } = string.Empty;
     public string Compatibility { get; set; } = string.Empty;
@@ -68,6 +77,7 @@ public class VTheme
         Title = model.Title;
         Image = model.Image;
         Description = model.Description;
+        ThemeType = model.ThemeType;
         Link = model.Link;
         Version = model.Version;
         Compatibility = model.Compatibility;
@@ -87,6 +97,7 @@ public class VThemeDetails
     public string Title { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
+    public string ThemeType { get; set; } = ImageGlass.Models.ThemeType.ThemePack;
     public string Link { get; set; } = string.Empty;
     public string Version { get; set; } = string.Empty;
     public string Compatibility { get; set; } = string.Empty;
@@ -110,6 +121,7 @@ public class VThemeDetails
         Title = model.Title;
         Image = model.Image;
         Description = model.Description;
+        ThemeType = model.ThemeType;
         Link = model.Link;
         Version = model.Version;
         Compatibility = model.Compatibility;

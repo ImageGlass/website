@@ -6,6 +6,6 @@ public class AboutController : BaseController
 {
     public IActionResult Index()
     {
-        return View();
+        return View("AboutPage");
     }
 }

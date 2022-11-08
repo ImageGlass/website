@@ -23,7 +23,7 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Keywords] = $"imageglass kobe, {ViewData[PageInfo.Keywords]}";
 
         var pList = await _context.GetVReleaseItems(ReleaseType.Kobe, 10, page ?? 1);
-        return View("ReleaseListing", pList);
+        return View("ReleaseListingPage", pList);
     }
 
 
@@ -36,7 +36,7 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Keywords] = $"imageglass moon, imageglass beta, {ViewData[PageInfo.Keywords]}";
 
         var pList = await _context.GetVReleaseItems(ReleaseType.Moon, 10, page ?? 1);
-        return View("ReleaseListing", pList);
+        return View("ReleaseListingPage", pList);
     }
 
 
@@ -50,11 +50,12 @@ public class ReleaseController : BaseController
         if (model == null) return NotFound();
 
         // page info
-        ViewData[PageInfo.Title] = model.Title;
+        ViewData[PageInfo.Title] = $"{model.Title} | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = $"Download {model.Title}";
         ViewData[PageInfo.Keywords] = $"imageglass {model.Version}, imageglass {model.ReleaseType}, " + ViewData[PageInfo.Keywords];
         ViewData[PageInfo.Thumbnail] = model.Image;
 
-        return View("ReleaseDetails", model);
+        return View("ReleaseDetailPage", model);
     }
 
 

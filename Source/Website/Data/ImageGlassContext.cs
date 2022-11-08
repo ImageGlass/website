@@ -75,7 +75,6 @@ public class ImageGlassContext : DbContext
     }
 
 
-
     public async Task<VReleaseDetails?> GetVReleaseDetails(int id, bool? preview) {
         var isPreview = preview ?? false;
         var model = await Releases
@@ -88,5 +87,31 @@ public class ImageGlassContext : DbContext
         return model;
     }
 
+
+    public async Task<PaginatedList<VTheme>> GetVThemeItems(string themeType, int count = 10, int pageNumber = 1)
+    {
+        var source = Themes
+            .Where(i => i.Visible && i.ThemeType == themeType)
+            .OrderByDescending(i => i.CreatedDate)
+            .Select(i => new VTheme(i))
+            .AsNoTracking();
+
+        var pList = await PaginatedList<VTheme>
+            .CreateAsync(source, pageNumber, count);
+
+        return pList;
+    }
+
+
+    public async Task<VThemeDetails?> GetVThemeDetails(int id, bool? preview) {
+        var isPreview = preview ?? false;
+        var model = await Themes
+            .Where(i => i.ThemeId == id && (isPreview || i.Visible))
+            .Include(i => i.ThemeImages)
+            .Select(i => new VThemeDetails(i, isPreview))
+            .FirstOrDefaultAsync();
+
+        return model;
+    }
 
 }

@@ -1,6 +1,4 @@
-﻿#nullable disable
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using ImageGlass.Data;
 using ImageGlass.Models;
 using ImageGlass.Utils;
@@ -16,165 +14,58 @@ public class ThemeController : BaseController
         _context = context;
     }
 
-    /// <summary>
-    /// Themes listing page
-    /// </summary>
-    /// <param name="page"></param>
-    /// <returns></returns>
+
     [HttpGet("themes")]
-    public async Task<IActionResult> Index(int? page)
+    public IActionResult ThemesPage()
     {
-        var pageNumber = page ?? 1;
-        var source = _context.Themes
-            .Where(i => i.Visible)
-            .OrderByDescending(i => i.CreatedDate)
-            .Select(i => new VTheme(i))
-            .AsNoTracking();
-
-        var pList = await PaginatedList<VTheme>
-            .CreateAsync(source, pageNumber, 10);
-
-        return View(pList);
-    }
-
-    /// <summary>
-    /// Theme details page
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="preview"></param>
-    /// <returns></returns>
-    [HttpGet("theme/{id}")]
-    public async Task<IActionResult> Details(int? id, bool? preview)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var isPreview = preview ?? false;
-        var model = await _context.Themes.Where(i =>
-                i.ThemeId == id && (isPreview || i.Visible))
-            .Include(i => i.ThemeImages)
-            .Select(i => new VThemeDetails(i, isPreview))
-            .FirstOrDefaultAsync();
-
-        if (model == null)
-        {
-            return NotFound();
-        }
-
-        return View(model);
+        return RedirectToAction(nameof(ThemePackListingPage));
     }
 
 
-
-
-
-
-    // GET: Theme/Create
-    public IActionResult Create()
+    [HttpGet("themes/theme-packs")]
+    public async Task<IActionResult> ThemePackListingPage(int? page)
     {
-        return View();
+        // page info
+        ViewData[PageInfo.Title] = $"Theme packs | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = "The beautiful theme packs to change the look and feel of ImageGlass";
+        ViewData[PageInfo.Keywords] = $"imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
+
+        var pList = await _context.GetVThemeItems(ThemeType.ThemePack, 10, page ?? 1);
+
+        return View("ThemeListingPage", pList);
     }
 
-    // POST: Theme/Create
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("ThemeId,Slug,Title,Image,Description,Link,Version,Compatibility,Author,Email,Website,Count,Visible,CreatedDate,UpdatedDate")] ThemeModel themeModel)
+
+    [HttpGet("themes/extension-icon-packs")]
+    public async Task<IActionResult> ExtensionIconListingPage(int? page)
     {
-        if (ModelState.IsValid)
-        {
-            _context.Add(themeModel);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-        return View(themeModel);
+        // page info
+        ViewData[PageInfo.Title] = $"Extension icon packs | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = "The beautiful extension icon packs to change the look and feel of ImageGlass";
+        ViewData[PageInfo.Keywords] = $"imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
+
+        var pList = await _context.GetVThemeItems(ThemeType.ExtensionIcons, 10, page ?? 1);
+
+        return View("ThemeListingPage", pList);
     }
 
-    // GET: Theme/Edit/5
-    public async Task<IActionResult> Edit(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
 
-        var themeModel = await _context.Themes.FindAsync(id);
-        if (themeModel == null)
-        {
-            return NotFound();
-        }
-        return View(themeModel);
+    [HttpGet("theme/{slugId}")]
+    public async Task<IActionResult> ThemeDetailPage(string? slugId, bool? preview)
+    {
+        var id = GetIdFromSlugId(slugId);
+        if (id is null) return NotFound();
+
+        var model = await _context.GetVThemeDetails(id.Value, preview);
+        if (model == null) return NotFound();
+
+        // page info
+        ViewData[PageInfo.Title] = $"{model.Title} | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = $"Download {model.Title} for ImageGlass";
+        ViewData[PageInfo.Keywords] = $"{model.Title}, imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
+        ViewData[PageInfo.Thumbnail] = model.Image;
+
+        return View("ThemeDetailPage", model);
     }
 
-    // POST: Theme/Edit/5
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("ThemeId,Slug,Title,Image,Description,Link,Version,Compatibility,Author,Email,Website,Count,Visible,CreatedDate,UpdatedDate")] ThemeModel themeModel)
-    {
-        if (id != themeModel.ThemeId)
-        {
-            return NotFound();
-        }
-
-        if (ModelState.IsValid)
-        {
-            try
-            {
-                _context.Update(themeModel);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ThemeModelExists(themeModel.ThemeId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return RedirectToAction(nameof(Index));
-        }
-        return View(themeModel);
-    }
-
-    // GET: Theme/Delete/5
-    public async Task<IActionResult> Delete(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var themeModel = await _context.Themes
-            .FirstOrDefaultAsync(m => m.ThemeId == id);
-        if (themeModel == null)
-        {
-            return NotFound();
-        }
-
-        return View(themeModel);
-    }
-
-    // POST: Theme/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int id)
-    {
-        var themeModel = await _context.Themes.FindAsync(id);
-        _context.Themes.Remove(themeModel);
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
-    }
-
-    private bool ThemeModelExists(int id)
-    {
-        return _context.Themes.Any(e => e.ThemeId == id);
-    }
 }

@@ -12,46 +12,55 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">News</a>
+                            <a asp-area="" asp-controller="News" asp-action="Index">News</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Download" asp-action="Index">Download</a>
+                            <a asp-area="" asp-controller="Download" asp-action="Index">Download</a>
 
                             <ul>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Release" asp-action="KobeReleases">Kobe releases</a>
+                                    <a asp-area="" asp-controller="Release" asp-action="KobeReleases">Kobe releases</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Release" asp-action="MoonReleases">Moon releases</a>
+                                    <a asp-area="" asp-controller="Release" asp-action="MoonReleases">Moon releases</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Theme" asp-action="Index">Theme packs</a>
+                                    <a asp-area="" asp-controller="Theme" asp-action="ThemesPage">Themes</a>
+
+                                    <ul>
+                                        <li class="nav-item">
+                                            <a asp-area="" asp-controller="Theme" asp-action="ThemePackListingPage">Theme packs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a asp-area="" asp-controller="Theme" asp-action="ExtensionIconListingPage">Extension icon packs</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Language" asp-action="LanguageListing">Language packs</a>
+                                    <a asp-area="" asp-controller="Language" asp-action="LanguageListing">Language packs</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Docs" asp-action="Index">Docs</a>
+                            <a asp-area="" asp-controller="Docs" asp-action="Index">Docs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Source" asp-action="Index">Source</a>
+                            <a asp-area="" asp-controller="Source" asp-action="Index">Source</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Support" asp-action="Index">Support</a>
+                            <a asp-area="" asp-controller="Support" asp-action="Index">Support</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">About</a>
+                            <a asp-area="" asp-controller="About" asp-action="Index">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Url" asp-action="Index">Url</a>
+                            <a asp-area="" asp-controller="Url" asp-action="Index">Url</a>
                         </li>
                     </ul>
                 </div>
