@@ -1,6 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@model string
 
-<p>Use this page to detail your site's privacy policy.</p>
+
+<article>
+    @{
+        if (string.IsNullOrEmpty(@Model))
+        {
+            @Html.Raw("Content not found!");
+        }
+        else
+        {
+            @Html.Raw(@Model);
+        }
+    }
+</article>

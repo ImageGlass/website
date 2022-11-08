@@ -25,14 +25,18 @@ public class HomeController : BaseController
 
 
     [HttpGet("privacy")]
-    public IActionResult PrivacyPage()
+    public async Task<IActionResult> PrivacyPage()
     {
         // page info
-        ViewData[PageInfo.Title] = $"Privacy | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Title] = $"Privacy information | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "ImageGlass privacy information";
         ViewData[PageInfo.Keywords] = $"imageglass privacy, {ViewData[PageInfo.Keywords]}";
+
+        // get page content from GitHub
+        var markdownContent = await GitHub.GetFileContentAsync("general/privacy.md");
+        var htmlContent = GitHub.ParseMarkdown(markdownContent);
         
-        return View("PrivacyPage");
+        return View("PrivacyPage", htmlContent);
     }
 
 
