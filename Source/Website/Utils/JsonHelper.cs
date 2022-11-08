@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace ImageGlass.Utils;
 
-public partial class JsonHelper
+public class JsonHelper
 {
     private static JsonSerializerOptions JsonOptions { get; } = new()
     {
@@ -109,7 +109,9 @@ public class CustomDateTimeConverter : JsonConverter<DateTime>
 
     public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        return DateTime.ParseExact(reader.GetString(), Format, null);
+        var str = reader.GetString() ?? "";
+
+        return DateTime.ParseExact(str, Format, null);
     }
 }
 
