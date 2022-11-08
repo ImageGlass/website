@@ -31,7 +31,7 @@ public class NewsController : BaseController
         // get news items
         var pList = await _context.GetVNewsItems(10, page ?? 1);
 
-        return View(pList);
+        return View("NewsListingPage", pList);
     }
 
 
@@ -39,8 +39,8 @@ public class NewsController : BaseController
     /// The News details page.
     /// To display the hidden post, use <c>?preview=true</c>.
     /// </summary>
-    [HttpGet("news/{slugId}"), ActionName("Details")]
-    public async Task<IActionResult> Details(string? slugId, bool? preview)
+    [HttpGet("news/{slugId}")]
+    public async Task<IActionResult> NewsDetailPage(string? slugId, bool? preview)
     {
         var id = GetIdFromSlugId(slugId);
         if (id is null) return NotFound();
@@ -60,7 +60,7 @@ public class NewsController : BaseController
 
         model.Content = htmlContent;
 
-        return View(model);
+        return View("NewsDetailPage", model);
     }
 
 
