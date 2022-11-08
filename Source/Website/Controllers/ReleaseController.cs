@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using ImageGlass.Data;
 using ImageGlass.Models;
 using ImageGlass.Utils;
@@ -19,21 +18,11 @@ public class ReleaseController : BaseController
     [HttpGet("kobe")]
     public async Task<IActionResult> KobeReleases(int? page)
     {
-        var pageNumber = page ?? 1;
-        var source = _context.Releases
-            .Where(i => i.Visible && i.ReleaseType == ReleaseType.Kobe)
-            .OrderByDescending(i => i.CreatedDate)
-            .Select(i => new VRelease(i))
-            .AsNoTracking();
-
-        var pList = await PaginatedList<VRelease>
-            .CreateAsync(source, pageNumber, 10);
-
         // page info
-        ViewData[PageInfo.Title] = "ImageGlass Kobe releases";
-        ViewData[PageInfo.Keywords] = "imageglass kobe, " + ViewData[PageInfo.Keywords];
-        ViewData[PageInfo.Thumbnail] = "https://github.com/ImageGlass/config/raw/main/screenshots/v9.0-beta-2/9.0b2_1.jpg";
+        ViewData[PageInfo.Title] = $"Kobe releases | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Keywords] = $"imageglass kobe, {ViewData[PageInfo.Keywords]}";
 
+        var pList = await _context.GetVReleaseItems(ReleaseType.Kobe, 10, page ?? 1);
         return View("ReleaseListing", pList);
     }
 
@@ -41,22 +30,12 @@ public class ReleaseController : BaseController
     [HttpGet("moon")]
     public async Task<IActionResult> MoonReleases(int? page)
     {
-        var pageNumber = page ?? 1;
-        var source = _context.Releases
-            .Where(i => i.Visible && i.ReleaseType == ReleaseType.Moon)
-            .OrderByDescending(i => i.CreatedDate)
-            .Select(i => new VRelease(i))
-            .AsNoTracking();
-
-        var pList = await PaginatedList<VRelease>
-            .CreateAsync(source, pageNumber, 10);
-
         // page info
-        ViewData[PageInfo.Title] = "ImageGlass Moon releases";
+        ViewData[PageInfo.Title] = $"Moon releases | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "ImageGlass Moon is the bleeding-edge (or beta) release of ImageGlass Kobe, is built and shipped to users with the latest state and features of ImageGlass.";
-        ViewData[PageInfo.Keywords] = "imageglass moon, imageglass beta, " + ViewData[PageInfo.Keywords];
-        ViewData[PageInfo.Thumbnail] = "https://github.com/ImageGlass/config/raw/main/screenshots/v9.0-beta-2/9.0b2_1.jpg";
+        ViewData[PageInfo.Keywords] = $"imageglass moon, imageglass beta, {ViewData[PageInfo.Keywords]}";
 
+        var pList = await _context.GetVReleaseItems(ReleaseType.Moon, 10, page ?? 1);
         return View("ReleaseListing", pList);
     }
 
@@ -67,13 +46,7 @@ public class ReleaseController : BaseController
         var id = GetIdFromSlugId(slugId);
         if (id is null) return NotFound();
 
-        var isPreview = preview ?? false;
-        var model = await _context.Releases.Where(i => i.ReleaseId == id && (isPreview || i.Visible))
-            .Include(i => i.ReleaseImages)
-            .Include(i => i.Downloads)
-            .Select(i => new VReleaseDetails(i, isPreview))
-            .FirstOrDefaultAsync();
-
+        var model = await _context.GetVReleaseDetails(id.Value, preview);
         if (model == null) return NotFound();
 
         // page info
