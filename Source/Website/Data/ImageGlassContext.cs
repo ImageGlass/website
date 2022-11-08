@@ -63,8 +63,7 @@ public class ImageGlassContext : DbContext
     public async Task<PaginatedList<VRelease>> GetVReleaseItems(string releaseType, int count = 10, int pageNumber = 1)
     {
         var source = Releases
-            .Where(i => i.Visible
-                && i.ReleaseType.Equals(releaseType, StringComparison.InvariantCultureIgnoreCase))
+            .Where(i => i.Visible && i.ReleaseType == releaseType)
             .OrderByDescending(i => i.CreatedDate)
             .Select(i => new VRelease(i))
             .AsNoTracking();
