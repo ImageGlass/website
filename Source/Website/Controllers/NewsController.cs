@@ -10,6 +10,7 @@ public class NewsController : BaseController
 {
     private readonly ImageGlassContext _context;
 
+    
     public NewsController(ImageGlassContext context)
     {
         _context = context;
@@ -22,15 +23,13 @@ public class NewsController : BaseController
     [HttpGet("news")]
     public async Task<IActionResult> Index(int? page)
     {
-        var pageNumber = page ?? 1;
-        var source = _context.News
-            .Where(i => i.Visible)
-            .OrderByDescending(i => i.CreatedDate)
-            .Select(i => new VNews(i))
-            .AsNoTracking();
+        // page info
+        ViewData[PageInfo.Title] = $"Latest updates | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = "Get the lastest updates of ImageGlass. Read ImageGlass stories and everything in the world.";
+        ViewData[PageInfo.Keywords] = $"imageglass lastest update, imageglass {DateTime.UtcNow.Year}, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await PaginatedList<VNews>
-            .CreateAsync(source, pageNumber, 10);
+        // get news items
+        var pList = await _context.GetVNewsItems(10, page ?? 1);
 
         return View(pList);
     }
@@ -46,11 +45,7 @@ public class NewsController : BaseController
         var id = GetIdFromSlugId(slugId);
         if (id is null) return NotFound();
 
-        var isPreview = preview ?? false;
-        var model = await _context.News.Where(i => i.NewsId == id && (isPreview || i.Visible))
-            .Select(i => new VNewsDetails(i))
-            .FirstOrDefaultAsync();
-
+        var model = await _context.GetVNewsDetails(id.Value, preview ?? false);
         if (model == null) return NotFound();
 
         // page info

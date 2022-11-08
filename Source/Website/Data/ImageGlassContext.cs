@@ -1,6 +1,6 @@
-﻿#nullable disable
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ImageGlass.Models;
+using ImageGlass.Utils;
 
 namespace ImageGlass.Data;
 
@@ -24,4 +24,32 @@ public class ImageGlassContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
     }
+
+
+
+    public async Task<PaginatedList<VNews>> GetVNewsItems(int count = 10, int pageNumber = 1)
+    {
+        var source = News
+            .Where(i => i.Visible)
+            .OrderByDescending(i => i.CreatedDate)
+            .Select(i => new VNews(i))
+            .AsNoTracking();
+
+        var pList = await PaginatedList<VNews>
+            .CreateAsync(source, pageNumber, count);
+
+        return pList;
+    }
+
+
+    public async Task<VNewsDetails?> GetVNewsDetails(int id, bool? preview) {
+        var isPreview = preview ?? false;
+        var model = await News.Where(i => i.NewsId == id && (isPreview || i.Visible))
+            .Select(i => new VNewsDetails(i))
+            .FirstOrDefaultAsync();
+
+        return model;
+    }
+
+
 }
