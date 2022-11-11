@@ -14,17 +14,18 @@ public class ImageGlassContext : DbContext
 
     [AllowNull]
     public DbSet<NewsModel> News { get; set; }
+
     [AllowNull]
     public DbSet<ThemeModel> Themes { get; set; }
+
     [AllowNull]
-    public DbSet<ThemeImageModel> ThemeImages { get; set; }
+    public DbSet<ExtensionIconModel> ExtensionIcons { get; set; }
 
     [AllowNull]
     public DbSet<ReleaseModel> Releases { get; set; }
+
     [AllowNull]
-    public DbSet<ReleaseImageModel> ReleaseImages { get; set; }
-    [AllowNull]
-    public DbSet<BinaryFileModel> Downloads { get; set; }
+    public DbSet<BinaryFileModel> BinaryFiles { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

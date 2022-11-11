@@ -8,12 +8,13 @@ namespace ImageGlass.Controllers;
 public class LanguageController : BaseController
 {
     private readonly HttpClient _client = new();
+    private readonly string _crownInUrl = "https://api.crowdin.com/api/project/imageglass";
 
 
     [HttpGet("languages")]
     public async Task<IActionResult> LanguageListing()
     {
-        var url = $"https://api.crowdin.com/api/project/imageglass/status?key={Constants.CROWNDIN_KEY}&json";
+        var url = $"{_crownInUrl}/status?key={Constants.CROWNDIN_KEY}&json";
         var languageList = new List<LanguageModel>();
 
         try
@@ -44,7 +45,7 @@ public class LanguageController : BaseController
     [HttpGet("language/download/{langCode}")]
     public async Task<IActionResult> DownloadLanguage(string langCode, string? langName)
     {
-        var url = $"https://api.crowdin.com/api/project/imageglass/download/{langCode}.zip?key={Constants.CROWNDIN_KEY}";
+        var url = $"{_crownInUrl}/download/{langCode}.zip?key={Constants.CROWNDIN_KEY}";
 
         try
         {
