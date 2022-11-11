@@ -7,8 +7,6 @@ namespace ImageGlass.Models;
 
 public class ReleaseModel : BaseModel
 {
-    [Key]
-    public int Id { get; set; }
     [Column(TypeName = "text")]
     public string Slug { get; set; } = string.Empty;
     [Column(TypeName = "text")]
@@ -20,15 +18,11 @@ public class ReleaseModel : BaseModel
     [Column(TypeName = "text")]
     public string Version { get; set; } = string.Empty;
 
-    // show in view details
     [Column(TypeName = "text")]
     public string Requirements { get; set; } = string.Empty;
 
-    // show in view details
-    public List<DownloadModel> Downloads { get; set; }
+    public List<DownloadModel> BinaryFiles { get; set; }
 
-    // show in view details
-    public List<ReleaseImageModel> ReleaseImages { get; set; }
 }
 
 public static class ReleaseType
@@ -38,59 +32,11 @@ public static class ReleaseType
 }
 
 
-public class VRelease
+public class ReleaseDetailModel : ReleaseModel
 {
-    public int Id { get; set; }
-    public string Slug { get; set; } = string.Empty;
-    public string Title { get; set; } = string.Empty;
-    public string Image { get; set; } = string.Empty;
-    public string ReleaseType { get; set; } = ImageGlass.Models.ReleaseType.Kobe;
-    public string Version { get; set; } = string.Empty;
-    public DateTime CreatedDate { get; set; }
-    public DateTime UpdatedDate { get; set; }
+    public ReleaseDetailModel() { }
 
-    /// <summary>
-    /// Posted within <c>7*24</c> hours.
-    /// </summary>
-    public bool IsNewPost => (DateTime.Now - CreatedDate).TotalHours <= (7 * 24);
-
-    public VRelease() { }
-
-    public VRelease(ReleaseModel model)
-    {
-        Id = model.Id;
-        Slug = model.Slug;
-        Title = model.Title;
-        Image = model.Image;
-        ReleaseType = model.ReleaseType;
-        Version = model.Version;
-        CreatedDate = model.CreatedDate;
-        UpdatedDate = model.UpdatedDate;
-    }
-
-}
-
-
-public class VReleaseDetails
-{
-    public int Id { get; set; }
-    public string Slug { get; set; } = string.Empty;
-    public string Title { get; set; } = string.Empty;
-    public string Image { get; set; } = string.Empty;
-    public string ReleaseType { get; set; } = string.Empty;
-    public string Version { get; set; } = string.Empty;
-    public string Requirements { get; set; } = string.Empty;
-
-    public DateTime CreatedDate { get; set; }
-    public DateTime UpdatedDate { get; set; }
-
-    public List<VDownloadDetails> Downloads { get; set; }
-    public List<VReleaseImageDetails> ReleaseImages { get; set; }
-
-
-    public VReleaseDetails() { }
-
-    public VReleaseDetails(ReleaseModel model, bool preview = false)
+    public ReleaseDetailModel(ReleaseModel model, bool preview = false)
     {
         Id = model.Id;
         Slug = model.Slug;
@@ -102,16 +48,10 @@ public class VReleaseDetails
         CreatedDate = model.CreatedDate;
         UpdatedDate = model.UpdatedDate;
 
-        ReleaseImages = model.ReleaseImages
+        BinaryFiles = model.BinaryFiles
             .Where(i => !preview || i.IsVisible)
-            .Select(i => new VReleaseImageDetails(i))
+            .Select(i => new DownloadModel(i))
             .ToList();
-
-        Downloads = model.Downloads
-            .Where(i => !preview || i.IsVisible)
-            .Select(i => new VDownloadDetails(i))
-            .ToList();
-        
     }
 
 }
