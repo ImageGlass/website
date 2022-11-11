@@ -16,13 +16,6 @@ public class ThemeController : BaseController
 
 
     [HttpGet("themes")]
-    public IActionResult ThemesPage()
-    {
-        return RedirectToAction(nameof(ThemePackListingPage));
-    }
-
-
-    [HttpGet("themes/theme-packs")]
     public async Task<IActionResult> ThemePackListingPage(int? page)
     {
         // page info
@@ -30,13 +23,13 @@ public class ThemeController : BaseController
         ViewData[PageInfo.Description] = "The beautiful theme packs to change the look and feel of ImageGlass";
         ViewData[PageInfo.Keywords] = $"imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.GetVThemeItems(ThemeType.ThemePack, 10, page ?? 1);
+        var pList = await _context.GetVThemeItems(10, page ?? 1);
 
         return View("ThemeListingPage", pList);
     }
 
 
-    [HttpGet("themes/extension-icon-packs")]
+    [HttpGet("extension-icons")]
     public async Task<IActionResult> ExtensionIconListingPage(int? page)
     {
         // page info
@@ -44,7 +37,7 @@ public class ThemeController : BaseController
         ViewData[PageInfo.Description] = "The beautiful extension icon packs to change the look and feel of ImageGlass";
         ViewData[PageInfo.Keywords] = $"imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.GetVThemeItems(ThemeType.ExtensionIcons, 10, page ?? 1);
+        var pList = await _context.GetVThemeItems(10, page ?? 1);
 
         return View("ThemeListingPage", pList);
     }

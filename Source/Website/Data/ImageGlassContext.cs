@@ -88,10 +88,10 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<PaginatedList<VTheme>> GetVThemeItems(string themeType, int count = 10, int pageNumber = 1)
+    public async Task<PaginatedList<VTheme>> GetVThemeItems(int count = 10, int pageNumber = 1)
     {
         var source = Themes
-            .Where(i => i.Visible && i.ThemeType == themeType)
+            .Where(i => i.Visible)
             .OrderByDescending(i => i.CreatedDate)
             .Select(i => new VTheme(i))
             .AsNoTracking();
