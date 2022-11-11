@@ -14,9 +14,20 @@ public class ReleaseController : BaseController
         _context = context;
     }
 
+    [HttpGet("download")]
+    public async Task<IActionResult> Download(int? page)
+    {
+        var pList = await _context.QueryReleaseModels(ReleaseChannel.Kobe, 1);
+        if (pList.Count > 0) {
+            return RedirectToAction(nameof(ReleaseDetailPage), new { slugId = pList[0].SlugAndId });
+        }
+
+        return RedirectToAction(nameof(KobeReleasesListingPage));
+    }
+
 
     [HttpGet("kobe")]
-    public async Task<IActionResult> KobeReleases(int? page)
+    public async Task<IActionResult> KobeReleasesListingPage(int? page)
     {
         // page info
         ViewData[PageInfo.Title] = $"Kobe releases | {ViewData[PageInfo.Name]}";
@@ -28,7 +39,7 @@ public class ReleaseController : BaseController
 
 
     [HttpGet("moon")]
-    public async Task<IActionResult> MoonReleases(int? page)
+    public async Task<IActionResult> MoonReleasesListingPage(int? page)
     {
         // page info
         ViewData[PageInfo.Title] = $"Moon releases | {ViewData[PageInfo.Name]}";
@@ -41,7 +52,7 @@ public class ReleaseController : BaseController
 
 
     [HttpGet("release/{slugId}")]
-    public async Task<IActionResult> ReleaseDetails(string? slugId, bool? preview)
+    public async Task<IActionResult> ReleaseDetailPage(string? slugId, bool? preview)
     {
         var id = GetIdFromSlugId(slugId);
         if (id is null) return NotFound();
