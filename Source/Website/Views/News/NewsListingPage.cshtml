@@ -1,5 +1,5 @@
 ﻿
-@model PaginatedList<VNews>
+@model PaginatedList<NewsModel>
 
 @{
     ViewData["Title"] = "News listing";
@@ -74,9 +74,7 @@
                 @Html.DisplayFor(modelItem => item.IsNewPost)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="NewsDetailPage" asp-route-slugId="@(item.Slug + "-" + item.Id)">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="NewsDetailPage" asp-route-slugId="@item.SlugAndId">Details</a>
             </td>
         </tr>
 }

@@ -21,7 +21,7 @@ namespace ImageGlass.Migrations
 
             modelBuilder.Entity("ImageGlass.Models.DownloadModel", b =>
                 {
-                    b.Property<int>("DownloadId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -61,7 +61,7 @@ namespace ImageGlass.Migrations
                     b.Property<bool>("Visible")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("DownloadId");
+                    b.HasKey("Id");
 
                     b.HasIndex("Id");
 
@@ -144,7 +144,7 @@ namespace ImageGlass.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("text");
 
-                    b.Property<string>("ReleaseType")
+                    b.Property<string>("ReleaseChannel")
                         .HasColumnType("text");
 
                     b.Property<string>("Requirements")

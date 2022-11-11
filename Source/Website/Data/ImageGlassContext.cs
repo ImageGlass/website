@@ -24,7 +24,7 @@ public class ImageGlassContext : DbContext
     [AllowNull]
     public DbSet<ReleaseImageModel> ReleaseImages { get; set; }
     [AllowNull]
-    public DbSet<DownloadModel> Downloads { get; set; }
+    public DbSet<BinaryFileModel> Downloads { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -57,28 +57,26 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<PaginatedList<VRelease>> GetVReleaseItems(string releaseType, int count = 10, int pageNumber = 1)
+    public async Task<PaginatedList<ReleaseModel>> QueryReleaseModels(string releaseChannel, int count = 10, int pageNumber = 1)
     {
         var source = Releases
-            .Where(i => i.IsVisible && i.ReleaseType == releaseType)
+            .Where(i => i.IsVisible && i.ReleaseChannel == releaseChannel)
             .OrderByDescending(i => i.CreatedDate)
-            .Select(i => new VRelease(i))
             .AsNoTracking();
 
-        var pList = await PaginatedList<VRelease>
+        var pList = await PaginatedList<ReleaseModel>
             .CreateAsync(source, pageNumber, count);
 
         return pList;
     }
 
 
-    public async Task<VReleaseDetails?> GetVReleaseDetails(int id, bool? preview) {
+    public async Task<ReleaseDetailModel?> GetReleaseDetailModel(int id, bool? preview) {
         var isPreview = preview ?? false;
         var model = await Releases
             .Where(i => i.Id == id && (isPreview || i.IsVisible))
-            .Include(i => i.ReleaseImages)
-            .Include(i => i.Downloads)
-            .Select(i => new VReleaseDetails(i, isPreview))
+            .Include(i => i.BinaryFiles)
+            .Select(i => new ReleaseDetailModel(i, isPreview))
             .FirstOrDefaultAsync();
 
         return model;

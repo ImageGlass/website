@@ -22,7 +22,7 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Title] = $"Kobe releases | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Keywords] = $"imageglass kobe, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.GetVReleaseItems(ReleaseType.Kobe, 10, page ?? 1);
+        var pList = await _context.QueryReleaseModels(ReleaseChannel.Kobe, 10, page ?? 1);
         return View("ReleaseListingPage", pList);
     }
 
@@ -35,7 +35,7 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Description] = "ImageGlass Moon is the bleeding-edge (or beta) release of ImageGlass Kobe, is built and shipped to users with the latest state and features of ImageGlass.";
         ViewData[PageInfo.Keywords] = $"imageglass moon, imageglass beta, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.GetVReleaseItems(ReleaseType.Moon, 10, page ?? 1);
+        var pList = await _context.QueryReleaseModels(ReleaseChannel.Moon, 10, page ?? 1);
         return View("ReleaseListingPage", pList);
     }
 
@@ -46,13 +46,13 @@ public class ReleaseController : BaseController
         var id = GetIdFromSlugId(slugId);
         if (id is null) return NotFound();
 
-        var model = await _context.GetVReleaseDetails(id.Value, preview);
+        var model = await _context.GetReleaseDetailModel(id.Value, preview);
         if (model == null) return NotFound();
 
         // page info
         ViewData[PageInfo.Title] = $"{model.Title} | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = $"Download {model.Title}";
-        ViewData[PageInfo.Keywords] = $"imageglass {model.Version}, imageglass {model.ReleaseType}, " + ViewData[PageInfo.Keywords];
+        ViewData[PageInfo.Keywords] = $"imageglass {model.Version}, imageglass {model.ReleaseChannel}, " + ViewData[PageInfo.Keywords];
         ViewData[PageInfo.Thumbnail] = model.Image;
 
         return View("ReleaseDetailPage", model);

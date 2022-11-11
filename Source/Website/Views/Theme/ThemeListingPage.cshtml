@@ -1,10 +1,6 @@
-﻿@model PaginatedList<ImageGlass.Models.VTheme>
+﻿@model PaginatedList<ThemeModel>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
+<h1>Theme listing</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -112,7 +108,7 @@
                 @Html.DisplayFor(modelItem => item.IsNewPost)
             </td>
             <td>
-                <a asp-action="ThemeDetailPage" asp-route-id="@(item.Slug + "-" + item.Id)">Details</a>
+                <a asp-action="ThemeDetailPage" asp-route-id="@item.SlugAndId)">Details</a>
             </td>
         </tr>
 }

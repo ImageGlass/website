@@ -33,7 +33,7 @@ public class DownloadController : BaseController
 
         var downloadModel = await _context.Downloads
             .Include(d => d.Release)
-            .FirstOrDefaultAsync(m => m.DownloadId == id);
+            .FirstOrDefaultAsync(m => m.Id == id);
         if (downloadModel == null)
         {
             return NotFound();
@@ -54,7 +54,7 @@ public class DownloadController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("DownloadId,ReleaseCode,Type,Architecture,FileType,Link,Checksum,Size,Count,Id,Visible,CreatedDate,UpdatedDate")] DownloadModel downloadModel)
+    public async Task<IActionResult> Create([Bind("Id,ReleaseCode,Type,Architecture,FileType,Link,Checksum,Size,Count,Id,Visible,CreatedDate,UpdatedDate")] BinaryFileModel downloadModel)
     {
         if (ModelState.IsValid)
         {
@@ -88,9 +88,9 @@ public class DownloadController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("DownloadId,ReleaseCode,Type,Architecture,FileType,Link,Checksum,Size,Count,Id,Visible,CreatedDate,UpdatedDate")] DownloadModel downloadModel)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,ReleaseCode,Type,Architecture,FileType,Link,Checksum,Size,Count,Id,Visible,CreatedDate,UpdatedDate")] BinaryFileModel downloadModel)
     {
-        if (id != downloadModel.DownloadId)
+        if (id != downloadModel.Id)
         {
             return NotFound();
         }
@@ -104,7 +104,7 @@ public class DownloadController : BaseController
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DownloadModelExists(downloadModel.DownloadId))
+                if (!DownloadModelExists(downloadModel.Id))
                 {
                     return NotFound();
                 }
@@ -129,7 +129,7 @@ public class DownloadController : BaseController
 
         var downloadModel = await _context.Downloads
             .Include(d => d.Release)
-            .FirstOrDefaultAsync(m => m.DownloadId == id);
+            .FirstOrDefaultAsync(m => m.Id == id);
         if (downloadModel == null)
         {
             return NotFound();
@@ -151,6 +151,6 @@ public class DownloadController : BaseController
 
     private bool DownloadModelExists(int id)
     {
-        return _context.Downloads.Any(e => e.DownloadId == id);
+        return _context.Downloads.Any(e => e.Id == id);
     }
 }

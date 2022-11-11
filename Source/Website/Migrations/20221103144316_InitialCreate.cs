@@ -38,7 +38,7 @@ namespace ImageGlass.Migrations
                     Slug = table.Column<string>(type: "text", nullable: true),
                     Title = table.Column<string>(type: "text", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: true),
-                    ReleaseType = table.Column<string>(type: "text", nullable: true),
+                    ReleaseChannel = table.Column<string>(type: "text", nullable: true),
                     Version = table.Column<string>(type: "text", nullable: true),
                     Requirements = table.Column<string>(type: "text", nullable: true),
                     Visible = table.Column<bool>(type: "INTEGER", nullable: false),
@@ -80,7 +80,7 @@ namespace ImageGlass.Migrations
                 name: "Downloads",
                 columns: table => new
                 {
-                    DownloadId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ReleaseCode = table.Column<string>(type: "text", nullable: true),
                     Type = table.Column<int>(type: "INTEGER", nullable: false),
@@ -97,7 +97,7 @@ namespace ImageGlass.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Downloads", x => x.DownloadId);
+                    table.PrimaryKey("PK_Downloads", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Downloads_Releases_Id",
                         column: x => x.Id,

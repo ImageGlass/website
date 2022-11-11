@@ -29,4 +29,9 @@ public class ThemeModel : BaseModel
     [Column(TypeName = "text")]
     public string Website { get; set; } = string.Empty;
     public int Count { get; set; } = 0;
+
+    /// <summary>
+    /// Gets the string combined with <see cref="Slug"/> and <see cref="Id"/>.
+    /// </summary>
+    public string SlugAndId => $"{Slug}-{Id}";
 }

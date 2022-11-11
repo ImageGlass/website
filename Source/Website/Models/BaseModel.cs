@@ -16,9 +16,13 @@ public class BaseModel
     public DateTime UpdatedDate { get; set; }
 
     /// <summary>
+    /// Checks if the <see cref="CreatedDate"/> is within <c>7 days x 24 hours = 168</c> hours.
+    /// </summary>
+    public bool IsNewPost => CheckNewPost();
+
+    /// <summary>
     /// Checks if the <see cref="CreatedDate"/> is within the given hours.
     /// Default is <c>7 days x 24 hours = 168</c> hours.
     /// </summary>
-    public bool IsNewPost(float hours = 7*24) => (DateTime.Now - CreatedDate).TotalHours <= hours;
-
+    public bool CheckNewPost(float hours = 7*24) => (DateTime.Now - CreatedDate).TotalHours <= hours;
 }

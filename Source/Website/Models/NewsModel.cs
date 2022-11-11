@@ -23,4 +23,11 @@ public class NewsModel : BaseModel
     /// This field allows to use a custom url markdown content.
     /// </summary>
     public string CustomContentUrl { get; set; } = string.Empty;
+
+
+    /// <summary>
+    /// Gets the string combined with <see cref="Slug"/> and <see cref="Id"/>.
+    /// </summary>
+    public string SlugAndId => $"{Slug}-{Id}";
+    
 }

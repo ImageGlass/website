@@ -14,18 +14,24 @@ public class ReleaseModel : BaseModel
     [Column(TypeName = "text")]
     public string Image { get; set; } = string.Empty;
     [Column(TypeName = "text")]
-    public string ReleaseType { get; set; } = ImageGlass.Models.ReleaseType.Kobe;
+    public string ReleaseChannel { get; set; } = ImageGlass.Models.ReleaseChannel.Kobe;
     [Column(TypeName = "text")]
     public string Version { get; set; } = string.Empty;
 
     [Column(TypeName = "text")]
     public string Requirements { get; set; } = string.Empty;
 
-    public List<DownloadModel> BinaryFiles { get; set; }
+
+    /// <summary>
+    /// Gets the string combined with <see cref="Slug"/> and <see cref="Id"/>.
+    /// </summary>
+    public string SlugAndId => $"{Slug}-{Id}";
+
+    public List<BinaryFileModel> BinaryFiles { get; set; }
 
 }
 
-public static class ReleaseType
+public static class ReleaseChannel
 {
     public static string Kobe => "kobe";
     public static string Moon => "moon";
@@ -42,15 +48,15 @@ public class ReleaseDetailModel : ReleaseModel
         Slug = model.Slug;
         Title = model.Title;
         Image = model.Image;
-        ReleaseType = model.ReleaseType;
+        ReleaseChannel = model.ReleaseChannel;
         Version = model.Version;
         Requirements = model.Requirements;
+        IsVisible = model.IsVisible;
         CreatedDate = model.CreatedDate;
         UpdatedDate = model.UpdatedDate;
 
         BinaryFiles = model.BinaryFiles
             .Where(i => !preview || i.IsVisible)
-            .Select(i => new DownloadModel(i))
             .ToList();
     }
 
