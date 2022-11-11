@@ -10,6 +10,31 @@ namespace ImageGlass.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "ExtensionIcons",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Slug = table.Column<string>(type: "text", nullable: true),
+                    Title = table.Column<string>(type: "text", nullable: true),
+                    Image = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    Link = table.Column<string>(type: "text", nullable: true),
+                    Version = table.Column<string>(type: "text", nullable: true),
+                    Author = table.Column<string>(type: "text", nullable: true),
+                    Email = table.Column<string>(type: "text", nullable: true),
+                    Website = table.Column<string>(type: "text", nullable: true),
+                    Count = table.Column<int>(type: "INTEGER", nullable: false),
+                    IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExtensionIcons", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "News",
                 columns: table => new
                 {
@@ -20,7 +45,7 @@ namespace ImageGlass.Migrations
                     Image = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
                     CustomContentUrl = table.Column<string>(type: "TEXT", nullable: true),
-                    Visible = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -41,7 +66,7 @@ namespace ImageGlass.Migrations
                     ReleaseChannel = table.Column<string>(type: "text", nullable: true),
                     Version = table.Column<string>(type: "text", nullable: true),
                     Requirements = table.Column<string>(type: "text", nullable: true),
-                    Visible = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -60,6 +85,7 @@ namespace ImageGlass.Migrations
                     Title = table.Column<string>(type: "text", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
+                    IsDarkMode = table.Column<bool>(type: "INTEGER", nullable: false),
                     Link = table.Column<string>(type: "text", nullable: true),
                     Version = table.Column<string>(type: "text", nullable: true),
                     Compatibility = table.Column<string>(type: "text", nullable: true),
@@ -67,7 +93,7 @@ namespace ImageGlass.Migrations
                     Email = table.Column<string>(type: "text", nullable: true),
                     Website = table.Column<string>(type: "text", nullable: true),
                     Count = table.Column<int>(type: "INTEGER", nullable: false),
-                    Visible = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -77,116 +103,56 @@ namespace ImageGlass.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Downloads",
+                name: "BinaryFiles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ReleaseCode = table.Column<string>(type: "text", nullable: true),
-                    Type = table.Column<int>(type: "INTEGER", nullable: false),
-                    Architecture = table.Column<int>(type: "INTEGER", nullable: false),
+                    Type = table.Column<string>(type: "text", nullable: true),
+                    Architecture = table.Column<string>(type: "text", nullable: true),
                     FileType = table.Column<string>(type: "text", nullable: true),
                     Link = table.Column<string>(type: "text", nullable: true),
                     Checksum = table.Column<string>(type: "text", nullable: true),
-                    Size = table.Column<string>(type: "text", nullable: true),
+                    HashAlgorithm = table.Column<string>(type: "text", nullable: true),
                     Count = table.Column<int>(type: "INTEGER", nullable: false),
-                    Id = table.Column<int>(type: "INTEGER", nullable: false),
-                    Visible = table.Column<bool>(type: "INTEGER", nullable: false),
+                    ReleaseId = table.Column<int>(type: "INTEGER", nullable: true),
+                    IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Downloads", x => x.Id);
+                    table.PrimaryKey("PK_BinaryFiles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Downloads_Releases_Id",
-                        column: x => x.Id,
+                        name: "FK_BinaryFiles_Releases_ReleaseId",
+                        column: x => x.ReleaseId,
                         principalTable: "Releases",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ReleaseImages",
-                columns: table => new
-                {
-                    ReleaseImageId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Link = table.Column<string>(type: "text", nullable: true),
-                    Id = table.Column<int>(type: "INTEGER", nullable: false),
-                    Visible = table.Column<bool>(type: "INTEGER", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ReleaseImages", x => x.ReleaseImageId);
-                    table.ForeignKey(
-                        name: "FK_ReleaseImages_Releases_Id",
-                        column: x => x.Id,
-                        principalTable: "Releases",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ThemeImages",
-                columns: table => new
-                {
-                    ThemeImageId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Link = table.Column<string>(type: "text", nullable: true),
-                    Id = table.Column<int>(type: "INTEGER", nullable: false),
-                    Visible = table.Column<bool>(type: "INTEGER", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ThemeImages", x => x.ThemeImageId);
-                    table.ForeignKey(
-                        name: "FK_ThemeImages_Themes_Id",
-                        column: x => x.Id,
-                        principalTable: "Themes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Downloads_Id",
-                table: "Downloads",
-                column: "Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ReleaseImages_Id",
-                table: "ReleaseImages",
-                column: "Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ThemeImages_Id",
-                table: "ThemeImages",
-                column: "Id");
+                name: "IX_BinaryFiles_ReleaseId",
+                table: "BinaryFiles",
+                column: "ReleaseId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Downloads");
+                name: "BinaryFiles");
+
+            migrationBuilder.DropTable(
+                name: "ExtensionIcons");
 
             migrationBuilder.DropTable(
                 name: "News");
 
             migrationBuilder.DropTable(
-                name: "ReleaseImages");
-
-            migrationBuilder.DropTable(
-                name: "ThemeImages");
+                name: "Themes");
 
             migrationBuilder.DropTable(
                 name: "Releases");
-
-            migrationBuilder.DropTable(
-                name: "Themes");
         }
     }
 }

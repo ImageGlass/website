@@ -17,14 +17,14 @@ namespace ImageGlass.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
 
-            modelBuilder.Entity("ImageGlass.Models.DownloadModel", b =>
+            modelBuilder.Entity("ImageGlass.Models.BinaryFileModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Architecture")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Architecture")
+                        .HasColumnType("text");
 
                     b.Property<string>("Checksum")
                         .HasColumnType("text");
@@ -38,32 +38,82 @@ namespace ImageGlass.Migrations
                     b.Property<string>("FileType")
                         .HasColumnType("text");
 
+                    b.Property<string>("HashAlgorithm")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Link")
                         .HasColumnType("text");
 
                     b.Property<string>("ReleaseCode")
                         .HasColumnType("text");
 
-                    b.Property<int>("Id")
+                    b.Property<int?>("ReleaseId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Size")
+                    b.Property<string>("Type")
                         .HasColumnType("text");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("Visible")
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReleaseId");
+
+                    b.ToTable("BinaryFiles");
+                });
+
+            modelBuilder.Entity("ImageGlass.Models.ExtensionIconModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Author")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Link")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Slug")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Version")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Website")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Id");
-
-                    b.ToTable("Downloads");
+                    b.ToTable("ExtensionIcons");
                 });
 
             modelBuilder.Entity("ImageGlass.Models.NewsModel", b =>
@@ -72,10 +122,10 @@ namespace ImageGlass.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("CustomContentUrl")
+                    b.Property<DateTime>("CreatedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<string>("CustomContentUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -83,6 +133,9 @@ namespace ImageGlass.Migrations
 
                     b.Property<string>("Image")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Slug")
                         .IsRequired()
@@ -94,40 +147,9 @@ namespace ImageGlass.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("Visible")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.ToTable("News");
-                });
-
-            modelBuilder.Entity("ImageGlass.Models.ReleaseImageModel", b =>
-                {
-                    b.Property<int>("ReleaseImageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Link")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("ReleaseImageId");
-
-                    b.HasIndex("Id");
-
-                    b.ToTable("ReleaseImages");
                 });
 
             modelBuilder.Entity("ImageGlass.Models.ReleaseModel", b =>
@@ -141,6 +163,9 @@ namespace ImageGlass.Migrations
 
                     b.Property<string>("Image")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ReleaseChannel")
                         .HasColumnType("text");
@@ -160,40 +185,9 @@ namespace ImageGlass.Migrations
                     b.Property<string>("Version")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Visible")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.ToTable("Releases");
-                });
-
-            modelBuilder.Entity("ImageGlass.Models.ThemeImageModel", b =>
-                {
-                    b.Property<int>("ThemeImageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Link")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("ThemeImageId");
-
-                    b.HasIndex("Id");
-
-                    b.ToTable("ThemeImages");
                 });
 
             modelBuilder.Entity("ImageGlass.Models.ThemeModel", b =>
@@ -223,6 +217,12 @@ namespace ImageGlass.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsDarkMode")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Link")
                         .HasColumnType("text");
 
@@ -238,9 +238,6 @@ namespace ImageGlass.Migrations
                     b.Property<string>("Version")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Visible")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Website")
                         .HasColumnType("text");
 
@@ -249,49 +246,18 @@ namespace ImageGlass.Migrations
                     b.ToTable("Themes");
                 });
 
-            modelBuilder.Entity("ImageGlass.Models.DownloadModel", b =>
+            modelBuilder.Entity("ImageGlass.Models.BinaryFileModel", b =>
                 {
                     b.HasOne("ImageGlass.Models.ReleaseModel", "Release")
-                        .WithMany("Downloads")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("BinaryFiles")
+                        .HasForeignKey("ReleaseId");
 
                     b.Navigation("Release");
-                });
-
-            modelBuilder.Entity("ImageGlass.Models.ReleaseImageModel", b =>
-                {
-                    b.HasOne("ImageGlass.Models.ReleaseModel", "Release")
-                        .WithMany("ReleaseImages")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Release");
-                });
-
-            modelBuilder.Entity("ImageGlass.Models.ThemeImageModel", b =>
-                {
-                    b.HasOne("ImageGlass.Models.ThemeModel", "Theme")
-                        .WithMany("ThemeImages")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Theme");
                 });
 
             modelBuilder.Entity("ImageGlass.Models.ReleaseModel", b =>
                 {
-                    b.Navigation("Downloads");
-
-                    b.Navigation("ReleaseImages");
-                });
-
-            modelBuilder.Entity("ImageGlass.Models.ThemeModel", b =>
-                {
-                    b.Navigation("ThemeImages");
+                    b.Navigation("BinaryFiles");
                 });
 #pragma warning restore 612, 618
         }
