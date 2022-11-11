@@ -1,4 +1,4 @@
-﻿@model ImageGlass.Models.VNewsDetails
+﻿@model ImageGlass.Models.NewsModel
 
 
 <div>
@@ -57,13 +57,14 @@
 
 <article>
     @{
-        if (string.IsNullOrEmpty(@Model?.Content))
+        var htmlContent = ViewData["NewsHtmlContent"] as string;
+        if (string.IsNullOrEmpty(htmlContent))
         {
             @Html.Raw("Content not found!");
         }
         else
         {
-            @Html.Raw(@Model.Content);
+            @Html.Raw(htmlContent);
         }
     }
 </article>

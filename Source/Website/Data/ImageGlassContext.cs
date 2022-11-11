@@ -34,30 +34,27 @@ public class ImageGlassContext : DbContext
 
 
 
-    public async Task<PaginatedList<VNews>> GetVNewsItems(int count = 10, int pageNumber = 1)
+    public async Task<PaginatedList<NewsModel>> QueryNewsModels(int count = 10, int pageNumber = 1)
     {
         var source = News
             .Where(i => i.IsVisible)
-            .OrderByDescending(i => i.CreatedDate)
-            .Select(i => new VNews(i))
+            .OrderByDescending(i => i.UpdatedDate)
             .AsNoTracking();
 
-        var pList = await PaginatedList<VNews>
+        var pList = await PaginatedList<NewsModel>
             .CreateAsync(source, pageNumber, count);
 
         return pList;
     }
 
 
-    public async Task<VNewsDetails?> GetVNewsDetails(int id, bool? preview) {
+    public async Task<NewsModel?> GetNewsModel(int id, bool? preview) {
         var isPreview = preview ?? false;
         var model = await News.Where(i => i.Id == id && (isPreview || i.IsVisible))
-            .Select(i => new VNewsDetails(i))
             .FirstOrDefaultAsync();
 
         return model;
     }
-
 
 
     public async Task<PaginatedList<VRelease>> GetVReleaseItems(string releaseType, int count = 10, int pageNumber = 1)

@@ -24,7 +24,7 @@ public class NewsController : BaseController
         ViewData[PageInfo.Keywords] = $"imageglass lastest update, imageglass {DateTime.UtcNow.Year}, {ViewData[PageInfo.Keywords]}";
 
         // get news items
-        var pList = await _context.GetVNewsItems(10, page ?? 1);
+        var pList = await _context.QueryNewsModels(10, page ?? 1);
 
         return View("NewsListingPage", pList);
     }
@@ -36,7 +36,7 @@ public class NewsController : BaseController
         var id = GetIdFromSlugId(slugId);
         if (id is null) return NotFound();
 
-        var model = await _context.GetVNewsDetails(id.Value, preview);
+        var model = await _context.GetNewsModel(id.Value, preview);
         if (model == null) return NotFound();
 
         // page info
@@ -49,7 +49,7 @@ public class NewsController : BaseController
         var markdownContent = await GitHub.GetFileContentAsync($"news/{model.Id}.md");
         var htmlContent = GitHub.ParseMarkdown(markdownContent);
 
-        model.Content = htmlContent;
+        ViewData["NewsHtmlContent"] = htmlContent;
 
         return View("NewsDetailPage", model);
     }
