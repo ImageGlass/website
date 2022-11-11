@@ -9,8 +9,10 @@ public class BinaryFileModel : BaseModel
 {
     [Column(TypeName = "text")]
     public string ReleaseCode { get; set; } = "kobe";
-    public BinaryType Type { get; set; } = BinaryType.Installer;
-    public FileArchitecture Architecture { get; set; } = FileArchitecture.X64;
+    [Column(TypeName = "text")]
+    public string Type { get; set; } = BinaryType.Installer;
+    [Column(TypeName = "text")]
+    public string Architecture { get; set; } = FileArchitecture.X64;
     [Column(TypeName = "text")]
     public string FileType { get; set; } = "msi";
     [Column(TypeName = "text")]
@@ -25,15 +27,15 @@ public class BinaryFileModel : BaseModel
     public ReleaseModel Release { get; set; }
 }
 
-public enum BinaryType
+public static class BinaryType
 {
-    Installer,
-    Portable,
+    public static string Installer => "installer";
+    public static string Portable => "portable";
 }
 
-public enum FileArchitecture
+public static class FileArchitecture
 {
-    X64,
-    X86,
-    ARM64,
+    public static string X64 => "x64";
+    public static string X86 => "x86";
+    public static string ARM64 => "arm64";
 }
