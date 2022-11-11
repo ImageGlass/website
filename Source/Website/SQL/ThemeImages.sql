@@ -12,7 +12,7 @@ GO
 
 SET IDENTITY_INSERT [ThemeImages] ON
 
-INSERT INTO [ThemeImages] ([ThemeImageId], [ThemeId], [Link], [CreatedDate], [UpdatedDate], [Visible]) VALUES
+INSERT INTO [ThemeImages] ([ThemeImageId], [Id], [Link], [CreatedDate], [UpdatedDate], [Visible]) VALUES
 (105, 20, 'white_and_grey_1.jpg', '2018-10-14 11:07:22', '2018-10-14 11:07:22', 1),
 (110, 21, 'windows10_1.jpg', '2018-10-14 11:07:22', '2018-10-14 11:07:22', 1),
 (111, 22, 'SimpleGrey_1.jpg', '2018-10-14 11:07:22', '2018-10-14 11:07:22', 1),

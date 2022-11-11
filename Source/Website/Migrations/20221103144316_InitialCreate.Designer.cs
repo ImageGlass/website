@@ -182,7 +182,7 @@ namespace ImageGlass.Migrations
                     b.Property<string>("Link")
                         .HasColumnType("text");
 
-                    b.Property<int>("ThemeId")
+                    b.Property<int>("Id")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("UpdatedDate")
@@ -193,14 +193,14 @@ namespace ImageGlass.Migrations
 
                     b.HasKey("ThemeImageId");
 
-                    b.HasIndex("ThemeId");
+                    b.HasIndex("Id");
 
                     b.ToTable("ThemeImages");
                 });
 
             modelBuilder.Entity("ImageGlass.Models.ThemeModel", b =>
                 {
-                    b.Property<int>("ThemeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -246,7 +246,7 @@ namespace ImageGlass.Migrations
                     b.Property<string>("Website")
                         .HasColumnType("text");
 
-                    b.HasKey("ThemeId");
+                    b.HasKey("Id");
 
                     b.ToTable("Themes");
                 });
@@ -277,7 +277,7 @@ namespace ImageGlass.Migrations
                 {
                     b.HasOne("ImageGlass.Models.ThemeModel", "Theme")
                         .WithMany("ThemeImages")
-                        .HasForeignKey("ThemeId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

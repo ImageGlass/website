@@ -13,7 +13,7 @@ public class ThemeImageModel : BaseModel
     public string Link { get; set; } = string.Empty;
 
 
-    public int ThemeId { get; set; }
+    public int Id { get; set; }
     public ThemeModel Theme { get; set; }
 }
 

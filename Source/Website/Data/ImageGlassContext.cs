@@ -37,7 +37,7 @@ public class ImageGlassContext : DbContext
     public async Task<PaginatedList<VNews>> GetVNewsItems(int count = 10, int pageNumber = 1)
     {
         var source = News
-            .Where(i => i.Visible)
+            .Where(i => i.IsVisible)
             .OrderByDescending(i => i.CreatedDate)
             .Select(i => new VNews(i))
             .AsNoTracking();
@@ -51,7 +51,7 @@ public class ImageGlassContext : DbContext
 
     public async Task<VNewsDetails?> GetVNewsDetails(int id, bool? preview) {
         var isPreview = preview ?? false;
-        var model = await News.Where(i => i.NewsId == id && (isPreview || i.Visible))
+        var model = await News.Where(i => i.NewsId == id && (isPreview || i.IsVisible))
             .Select(i => new VNewsDetails(i))
             .FirstOrDefaultAsync();
 
@@ -63,7 +63,7 @@ public class ImageGlassContext : DbContext
     public async Task<PaginatedList<VRelease>> GetVReleaseItems(string releaseType, int count = 10, int pageNumber = 1)
     {
         var source = Releases
-            .Where(i => i.Visible && i.ReleaseType == releaseType)
+            .Where(i => i.IsVisible && i.ReleaseType == releaseType)
             .OrderByDescending(i => i.CreatedDate)
             .Select(i => new VRelease(i))
             .AsNoTracking();
@@ -78,7 +78,7 @@ public class ImageGlassContext : DbContext
     public async Task<VReleaseDetails?> GetVReleaseDetails(int id, bool? preview) {
         var isPreview = preview ?? false;
         var model = await Releases
-            .Where(i => i.ReleaseId == id && (isPreview || i.Visible))
+            .Where(i => i.ReleaseId == id && (isPreview || i.IsVisible))
             .Include(i => i.ReleaseImages)
             .Include(i => i.Downloads)
             .Select(i => new VReleaseDetails(i, isPreview))
@@ -88,27 +88,24 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<PaginatedList<VTheme>> GetVThemeItems(int count = 10, int pageNumber = 1)
+    public async Task<PaginatedList<ThemeModel>> QueryThemeModels(int count = 10, int pageNumber = 1)
     {
         var source = Themes
-            .Where(i => i.Visible)
-            .OrderByDescending(i => i.CreatedDate)
-            .Select(i => new VTheme(i))
+            .Where(i => i.IsVisible)
+            .OrderByDescending(i => i.UpdatedDate)
             .AsNoTracking();
 
-        var pList = await PaginatedList<VTheme>
+        var pList = await PaginatedList<ThemeModel>
             .CreateAsync(source, pageNumber, count);
 
         return pList;
     }
 
 
-    public async Task<VThemeDetails?> GetVThemeDetails(int id, bool? preview) {
+    public async Task<ThemeModel?> GetThemeModel(int id, bool? preview) {
         var isPreview = preview ?? false;
         var model = await Themes
-            .Where(i => i.ThemeId == id && (isPreview || i.Visible))
-            .Include(i => i.ThemeImages)
-            .Select(i => new VThemeDetails(i, isPreview))
+            .Where(i => i.Id == id && (isPreview || i.IsVisible))
             .FirstOrDefaultAsync();
 
         return model;

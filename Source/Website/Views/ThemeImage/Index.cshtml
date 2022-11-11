@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Theme)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Visible)
+                @Html.DisplayNameFor(model => model.IsVisible)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreatedDate)
@@ -37,10 +37,10 @@
                 @Html.DisplayFor(modelItem => item.Link)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Theme.ThemeId)
+                @Html.DisplayFor(modelItem => item.Theme.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Visible)
+                @Html.DisplayFor(modelItem => item.IsVisible)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)

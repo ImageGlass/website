@@ -54,7 +54,7 @@ namespace ImageGlass.Migrations
                 name: "Themes",
                 columns: table => new
                 {
-                    ThemeId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Slug = table.Column<string>(type: "text", nullable: true),
                     Title = table.Column<string>(type: "text", nullable: true),
@@ -73,7 +73,7 @@ namespace ImageGlass.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Themes", x => x.ThemeId);
+                    table.PrimaryKey("PK_Themes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -136,7 +136,7 @@ namespace ImageGlass.Migrations
                     ThemeImageId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Link = table.Column<string>(type: "text", nullable: true),
-                    ThemeId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
                     Visible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
@@ -145,10 +145,10 @@ namespace ImageGlass.Migrations
                 {
                     table.PrimaryKey("PK_ThemeImages", x => x.ThemeImageId);
                     table.ForeignKey(
-                        name: "FK_ThemeImages_Themes_ThemeId",
-                        column: x => x.ThemeId,
+                        name: "FK_ThemeImages_Themes_Id",
+                        column: x => x.Id,
                         principalTable: "Themes",
-                        principalColumn: "ThemeId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -163,9 +163,9 @@ namespace ImageGlass.Migrations
                 column: "ReleaseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ThemeImages_ThemeId",
+                name: "IX_ThemeImages_Id",
                 table: "ThemeImages",
-                column: "ThemeId");
+                column: "Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

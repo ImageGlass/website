@@ -23,7 +23,7 @@ public class ThemeController : BaseController
         ViewData[PageInfo.Description] = "The beautiful theme packs to change the look and feel of ImageGlass";
         ViewData[PageInfo.Keywords] = $"imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.GetVThemeItems(10, page ?? 1);
+        var pList = await _context.QueryThemeModels(10, page ?? 1);
 
         return View("ThemeListingPage", pList);
     }
@@ -37,7 +37,7 @@ public class ThemeController : BaseController
         ViewData[PageInfo.Description] = "The beautiful extension icon packs to change the look and feel of ImageGlass";
         ViewData[PageInfo.Keywords] = $"imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.GetVThemeItems(10, page ?? 1);
+        var pList = await _context.QueryThemeModels(10, page ?? 1);
 
         return View("ThemeListingPage", pList);
     }
@@ -49,7 +49,7 @@ public class ThemeController : BaseController
         var id = GetIdFromSlugId(slugId);
         if (id is null) return NotFound();
 
-        var model = await _context.GetVThemeDetails(id.Value, preview);
+        var model = await _context.GetThemeModel(id.Value, preview);
         if (model == null) return NotFound();
 
         // page info

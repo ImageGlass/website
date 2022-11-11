@@ -14,7 +14,7 @@ SET IDENTITY_INSERT [Themes] ON
 
 
 INSERT INTO [Themes]
-([ThemeId], [Slug], [Title], [Link], [Image], [Description], [Version], [Compatibility], [Author], [Email], [Website], [Count], [CreatedDate], [UpdatedDate], [Visible]) VALUES
+([Id], [Slug], [Title], [Link], [Image], [Description], [Version], [Compatibility], [Author], [Email], [Website], [Count], [CreatedDate], [UpdatedDate], [Visible]) VALUES
 
 (18, 'simple-grey-dark-toolbar', 'Simple Grey Dark Toolbar', 'Simple_Grey_Dark_Toolbar.igtheme', 'Simple_Grey_Dark_Toolbar.jpg', 'Simple grey icons with dark toolbar', '1.0', '2.0', 'Haris6AN', 'harissestan91@gmail.com', '', 6435, '2015-05-12 00:00:00', '2015-05-12 00:00:00', 1),
 (19, 'simple-grey-light-toolbar', 'Simple Grey Light Toolbar', 'Simple_Grey_Light_Toolbar.igtheme', 'Simple_Grey_Light_Toolbar.jpg', 'Simple grey icons with light toolbar', '2.0', '3.0', 'Haris6AN', 'harissestan91@gmail.com', '', 3860, '2015-12-28 00:00:00', '2015-12-28 00:00:00', 1),

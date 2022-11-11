@@ -103,12 +103,12 @@ public class VReleaseDetails
         UpdatedDate = model.UpdatedDate;
 
         ReleaseImages = model.ReleaseImages
-            .Where(i => !preview || i.Visible)
+            .Where(i => !preview || i.IsVisible)
             .Select(i => new VReleaseImageDetails(i))
             .ToList();
 
         Downloads = model.Downloads
-            .Where(i => !preview || i.Visible)
+            .Where(i => !preview || i.IsVisible)
             .Select(i => new VDownloadDetails(i))
             .ToList();
         

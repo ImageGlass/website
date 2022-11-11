@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                ThemeId
+                Id
             </th>
             <th>
                 Slug
@@ -67,7 +67,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ThemeId)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Slug)
@@ -112,7 +112,7 @@
                 @Html.DisplayFor(modelItem => item.IsNewPost)
             </td>
             <td>
-                <a asp-action="ThemeDetailPage" asp-route-id="@(item.Slug + "-" + item.ThemeId)">Details</a>
+                <a asp-action="ThemeDetailPage" asp-route-id="@(item.Slug + "-" + item.Id)">Details</a>
             </td>
         </tr>
 }

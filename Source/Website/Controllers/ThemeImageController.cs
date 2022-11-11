@@ -45,7 +45,7 @@ public class ThemeImageController : BaseController
     // GET: ThemeImage/Create
     public IActionResult Create()
     {
-        ViewData["ThemeId"] = new SelectList(_context.Themes, "ThemeId", "ThemeId");
+        ViewData["Id"] = new SelectList(_context.Themes, "Id", "Id");
         return View();
     }
 
@@ -54,7 +54,7 @@ public class ThemeImageController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("ThemeImageId,Link,ThemeId,Visible,CreatedDate,UpdatedDate")] ThemeImageModel themeImageModel)
+    public async Task<IActionResult> Create([Bind("ThemeImageId,Link,Id,Visible,CreatedDate,UpdatedDate")] ThemeImageModel themeImageModel)
     {
         if (ModelState.IsValid)
         {
@@ -62,7 +62,7 @@ public class ThemeImageController : BaseController
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        ViewData["ThemeId"] = new SelectList(_context.Themes, "ThemeId", "ThemeId", themeImageModel.ThemeId);
+        ViewData["Id"] = new SelectList(_context.Themes, "Id", "Id", themeImageModel.Id);
         return View(themeImageModel);
     }
 
@@ -79,7 +79,7 @@ public class ThemeImageController : BaseController
         {
             return NotFound();
         }
-        ViewData["ThemeId"] = new SelectList(_context.Themes, "ThemeId", "ThemeId", themeImageModel.ThemeId);
+        ViewData["Id"] = new SelectList(_context.Themes, "Id", "Id", themeImageModel.Id);
         return View(themeImageModel);
     }
 
@@ -88,7 +88,7 @@ public class ThemeImageController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("ThemeImageId,Link,ThemeId,Visible,CreatedDate,UpdatedDate")] ThemeImageModel themeImageModel)
+    public async Task<IActionResult> Edit(int id, [Bind("ThemeImageId,Link,Id,Visible,CreatedDate,UpdatedDate")] ThemeImageModel themeImageModel)
     {
         if (id != themeImageModel.ThemeImageId)
         {
@@ -115,7 +115,7 @@ public class ThemeImageController : BaseController
             }
             return RedirectToAction(nameof(Index));
         }
-        ViewData["ThemeId"] = new SelectList(_context.Themes, "ThemeId", "ThemeId", themeImageModel.ThemeId);
+        ViewData["Id"] = new SelectList(_context.Themes, "Id", "Id", themeImageModel.Id);
         return View(themeImageModel);
     }
 

@@ -78,10 +78,10 @@
             @Html.DisplayFor(model => model.Count)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Visible)
+            @Html.DisplayNameFor(model => model.IsVisible)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Visible)
+            @Html.DisplayFor(model => model.IsVisible)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CreatedDate)
@@ -98,7 +98,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="ThemeId" />
+        <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
