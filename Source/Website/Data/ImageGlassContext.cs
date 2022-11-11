@@ -75,7 +75,7 @@ public class ImageGlassContext : DbContext
     public async Task<VReleaseDetails?> GetVReleaseDetails(int id, bool? preview) {
         var isPreview = preview ?? false;
         var model = await Releases
-            .Where(i => i.ReleaseId == id && (isPreview || i.IsVisible))
+            .Where(i => i.Id == id && (isPreview || i.IsVisible))
             .Include(i => i.ReleaseImages)
             .Include(i => i.Downloads)
             .Select(i => new VReleaseDetails(i, isPreview))

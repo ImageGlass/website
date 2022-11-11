@@ -45,7 +45,7 @@ public class DownloadController : BaseController
     // GET: Download/Create
     public IActionResult Create()
     {
-        ViewData["ReleaseId"] = new SelectList(_context.Releases, "ReleaseId", "ReleaseId");
+        ViewData["Id"] = new SelectList(_context.Releases, "Id", "Id");
         return View();
     }
 
@@ -54,7 +54,7 @@ public class DownloadController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("DownloadId,ReleaseCode,Type,Architecture,FileType,Link,Checksum,Size,Count,ReleaseId,Visible,CreatedDate,UpdatedDate")] DownloadModel downloadModel)
+    public async Task<IActionResult> Create([Bind("DownloadId,ReleaseCode,Type,Architecture,FileType,Link,Checksum,Size,Count,Id,Visible,CreatedDate,UpdatedDate")] DownloadModel downloadModel)
     {
         if (ModelState.IsValid)
         {
@@ -62,7 +62,7 @@ public class DownloadController : BaseController
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        ViewData["ReleaseId"] = new SelectList(_context.Releases, "ReleaseId", "ReleaseId", downloadModel.ReleaseId);
+        ViewData["Id"] = new SelectList(_context.Releases, "Id", "Id", downloadModel.Id);
         return View(downloadModel);
     }
 
@@ -79,7 +79,7 @@ public class DownloadController : BaseController
         {
             return NotFound();
         }
-        ViewData["ReleaseId"] = new SelectList(_context.Releases, "ReleaseId", "ReleaseId", downloadModel.ReleaseId);
+        ViewData["Id"] = new SelectList(_context.Releases, "Id", "Id", downloadModel.Id);
         return View(downloadModel);
     }
 
@@ -88,7 +88,7 @@ public class DownloadController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("DownloadId,ReleaseCode,Type,Architecture,FileType,Link,Checksum,Size,Count,ReleaseId,Visible,CreatedDate,UpdatedDate")] DownloadModel downloadModel)
+    public async Task<IActionResult> Edit(int id, [Bind("DownloadId,ReleaseCode,Type,Architecture,FileType,Link,Checksum,Size,Count,Id,Visible,CreatedDate,UpdatedDate")] DownloadModel downloadModel)
     {
         if (id != downloadModel.DownloadId)
         {
@@ -115,7 +115,7 @@ public class DownloadController : BaseController
             }
             return RedirectToAction(nameof(Index));
         }
-        ViewData["ReleaseId"] = new SelectList(_context.Releases, "ReleaseId", "ReleaseId", downloadModel.ReleaseId);
+        ViewData["Id"] = new SelectList(_context.Releases, "Id", "Id", downloadModel.Id);
         return View(downloadModel);
     }
 

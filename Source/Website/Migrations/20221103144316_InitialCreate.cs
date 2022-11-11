@@ -33,7 +33,7 @@ namespace ImageGlass.Migrations
                 name: "Releases",
                 columns: table => new
                 {
-                    ReleaseId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Slug = table.Column<string>(type: "text", nullable: true),
                     Title = table.Column<string>(type: "text", nullable: true),
@@ -47,7 +47,7 @@ namespace ImageGlass.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Releases", x => x.ReleaseId);
+                    table.PrimaryKey("PK_Releases", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -90,7 +90,7 @@ namespace ImageGlass.Migrations
                     Checksum = table.Column<string>(type: "text", nullable: true),
                     Size = table.Column<string>(type: "text", nullable: true),
                     Count = table.Column<int>(type: "INTEGER", nullable: false),
-                    ReleaseId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
                     Visible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
@@ -99,10 +99,10 @@ namespace ImageGlass.Migrations
                 {
                     table.PrimaryKey("PK_Downloads", x => x.DownloadId);
                     table.ForeignKey(
-                        name: "FK_Downloads_Releases_ReleaseId",
-                        column: x => x.ReleaseId,
+                        name: "FK_Downloads_Releases_Id",
+                        column: x => x.Id,
                         principalTable: "Releases",
-                        principalColumn: "ReleaseId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -113,7 +113,7 @@ namespace ImageGlass.Migrations
                     ReleaseImageId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Link = table.Column<string>(type: "text", nullable: true),
-                    ReleaseId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
                     Visible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
@@ -122,10 +122,10 @@ namespace ImageGlass.Migrations
                 {
                     table.PrimaryKey("PK_ReleaseImages", x => x.ReleaseImageId);
                     table.ForeignKey(
-                        name: "FK_ReleaseImages_Releases_ReleaseId",
-                        column: x => x.ReleaseId,
+                        name: "FK_ReleaseImages_Releases_Id",
+                        column: x => x.Id,
                         principalTable: "Releases",
-                        principalColumn: "ReleaseId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -153,14 +153,14 @@ namespace ImageGlass.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Downloads_ReleaseId",
+                name: "IX_Downloads_Id",
                 table: "Downloads",
-                column: "ReleaseId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ReleaseImages_ReleaseId",
+                name: "IX_ReleaseImages_Id",
                 table: "ReleaseImages",
-                column: "ReleaseId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ThemeImages_Id",

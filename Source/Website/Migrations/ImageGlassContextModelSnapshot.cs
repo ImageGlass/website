@@ -44,7 +44,7 @@ namespace ImageGlass.Migrations
                     b.Property<string>("ReleaseCode")
                         .HasColumnType("text");
 
-                    b.Property<int>("ReleaseId")
+                    b.Property<int>("Id")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Size")
@@ -61,7 +61,7 @@ namespace ImageGlass.Migrations
 
                     b.HasKey("DownloadId");
 
-                    b.HasIndex("ReleaseId");
+                    b.HasIndex("Id");
 
                     b.ToTable("Downloads");
                 });
@@ -114,7 +114,7 @@ namespace ImageGlass.Migrations
                     b.Property<string>("Link")
                         .HasColumnType("text");
 
-                    b.Property<int>("ReleaseId")
+                    b.Property<int>("Id")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("UpdatedDate")
@@ -125,14 +125,14 @@ namespace ImageGlass.Migrations
 
                     b.HasKey("ReleaseImageId");
 
-                    b.HasIndex("ReleaseId");
+                    b.HasIndex("Id");
 
                     b.ToTable("ReleaseImages");
                 });
 
             modelBuilder.Entity("ImageGlass.Models.ReleaseModel", b =>
                 {
-                    b.Property<int>("ReleaseId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -163,7 +163,7 @@ namespace ImageGlass.Migrations
                     b.Property<bool>("Visible")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ReleaseId");
+                    b.HasKey("Id");
 
                     b.ToTable("Releases");
                 });
@@ -253,7 +253,7 @@ namespace ImageGlass.Migrations
                 {
                     b.HasOne("ImageGlass.Models.ReleaseModel", "Release")
                         .WithMany("Downloads")
-                        .HasForeignKey("ReleaseId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -264,7 +264,7 @@ namespace ImageGlass.Migrations
                 {
                     b.HasOne("ImageGlass.Models.ReleaseModel", "Release")
                         .WithMany("ReleaseImages")
-                        .HasForeignKey("ReleaseId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -45,7 +45,7 @@ public class ReleaseImageController : BaseController
     // GET: ReleaseImage/Create
     public IActionResult Create()
     {
-        ViewData["ReleaseId"] = new SelectList(_context.Releases, "ReleaseId", "ReleaseId");
+        ViewData["Id"] = new SelectList(_context.Releases, "Id", "Id");
         return View();
     }
 
@@ -54,7 +54,7 @@ public class ReleaseImageController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("ReleaseImageId,Link,ReleaseId,Visible,CreatedDate,UpdatedDate")] ReleaseImageModel releaseImageModel)
+    public async Task<IActionResult> Create([Bind("ReleaseImageId,Link,Id,Visible,CreatedDate,UpdatedDate")] ReleaseImageModel releaseImageModel)
     {
         if (ModelState.IsValid)
         {
@@ -62,7 +62,7 @@ public class ReleaseImageController : BaseController
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        ViewData["ReleaseId"] = new SelectList(_context.Releases, "ReleaseId", "ReleaseId", releaseImageModel.ReleaseId);
+        ViewData["Id"] = new SelectList(_context.Releases, "Id", "Id", releaseImageModel.Id);
         return View(releaseImageModel);
     }
 
@@ -79,7 +79,7 @@ public class ReleaseImageController : BaseController
         {
             return NotFound();
         }
-        ViewData["ReleaseId"] = new SelectList(_context.Releases, "ReleaseId", "ReleaseId", releaseImageModel.ReleaseId);
+        ViewData["Id"] = new SelectList(_context.Releases, "Id", "Id", releaseImageModel.Id);
         return View(releaseImageModel);
     }
 
@@ -88,7 +88,7 @@ public class ReleaseImageController : BaseController
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("ReleaseImageId,Link,ReleaseId,Visible,CreatedDate,UpdatedDate")] ReleaseImageModel releaseImageModel)
+    public async Task<IActionResult> Edit(int id, [Bind("ReleaseImageId,Link,Id,Visible,CreatedDate,UpdatedDate")] ReleaseImageModel releaseImageModel)
     {
         if (id != releaseImageModel.ReleaseImageId)
         {
@@ -115,7 +115,7 @@ public class ReleaseImageController : BaseController
             }
             return RedirectToAction(nameof(Index));
         }
-        ViewData["ReleaseId"] = new SelectList(_context.Releases, "ReleaseId", "ReleaseId", releaseImageModel.ReleaseId);
+        ViewData["Id"] = new SelectList(_context.Releases, "Id", "Id", releaseImageModel.Id);
         return View(releaseImageModel);
     }
 

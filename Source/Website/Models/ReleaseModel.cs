@@ -8,7 +8,7 @@ namespace ImageGlass.Models;
 public class ReleaseModel : BaseModel
 {
     [Key]
-    public int ReleaseId { get; set; }
+    public int Id { get; set; }
     [Column(TypeName = "text")]
     public string Slug { get; set; } = string.Empty;
     [Column(TypeName = "text")]
@@ -40,7 +40,7 @@ public static class ReleaseType
 
 public class VRelease
 {
-    public int ReleaseId { get; set; }
+    public int Id { get; set; }
     public string Slug { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
@@ -58,7 +58,7 @@ public class VRelease
 
     public VRelease(ReleaseModel model)
     {
-        ReleaseId = model.ReleaseId;
+        Id = model.Id;
         Slug = model.Slug;
         Title = model.Title;
         Image = model.Image;
@@ -73,7 +73,7 @@ public class VRelease
 
 public class VReleaseDetails
 {
-    public int ReleaseId { get; set; }
+    public int Id { get; set; }
     public string Slug { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
@@ -92,7 +92,7 @@ public class VReleaseDetails
 
     public VReleaseDetails(ReleaseModel model, bool preview = false)
     {
-        ReleaseId = model.ReleaseId;
+        Id = model.Id;
         Slug = model.Slug;
         Title = model.Title;
         Image = model.Image;

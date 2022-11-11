@@ -13,7 +13,7 @@ public class ReleaseImageModel : BaseModel
     public string Link { get; set; } = string.Empty;
 
 
-    public int ReleaseId { get; set; }
+    public int Id { get; set; }
     public ReleaseModel Release { get; set; }
 }
 

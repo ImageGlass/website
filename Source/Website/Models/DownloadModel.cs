@@ -36,7 +36,7 @@ public class DownloadModel : BaseModel
     public int Count { get; set; } = 0;
 
     
-    public int ReleaseId { get; set; }
+    public int Id { get; set; }
     public ReleaseModel Release { get; set; }
 }
 
