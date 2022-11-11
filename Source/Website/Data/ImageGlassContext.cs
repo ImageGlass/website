@@ -107,4 +107,28 @@ public class ImageGlassContext : DbContext
         return model;
     }
 
+
+    public async Task<PaginatedList<ExtensionIconModel>> QueryExtensionIconModels(int count = 10, int pageNumber = 1)
+    {
+        var source = ExtensionIcons
+            .Where(i => i.IsVisible)
+            .OrderByDescending(i => i.UpdatedDate)
+            .AsNoTracking();
+
+        var pList = await PaginatedList<ExtensionIconModel>
+            .CreateAsync(source, pageNumber, count);
+
+        return pList;
+    }
+
+
+    public async Task<ExtensionIconModel?> GetExtensionIconModel(int id, bool? preview) {
+        var isPreview = preview ?? false;
+        var model = await ExtensionIcons
+            .Where(i => i.Id == id && (isPreview || i.IsVisible))
+            .FirstOrDefaultAsync();
+
+        return model;
+    }
+
 }

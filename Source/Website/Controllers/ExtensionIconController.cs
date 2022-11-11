@@ -5,37 +5,37 @@ using ImageGlass.Utils;
 
 namespace ImageGlass.Controllers;
 
-public class ThemeController : BaseController
+public class ExtensionIconController : BaseController
 {
     private readonly ImageGlassContext _context;
 
-    public ThemeController(ImageGlassContext context)
+    public ExtensionIconController(ImageGlassContext context)
     {
         _context = context;
     }
 
 
-    [HttpGet("themes")]
-    public async Task<IActionResult> ThemePackListingPage(int? page)
+    [HttpGet("extension-icons")]
+    public async Task<IActionResult> ExtensionIconListingPage(int? page)
     {
         // page info
-        ViewData[PageInfo.Title] = $"Theme packs | {ViewData[PageInfo.Name]}";
-        ViewData[PageInfo.Description] = "The beautiful theme packs to change the look and feel of ImageGlass";
+        ViewData[PageInfo.Title] = $"Extension icon packs | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = "The beautiful extension icon packs to change the look and feel of ImageGlass";
         ViewData[PageInfo.Keywords] = $"imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.QueryThemeModels(10, page ?? 1);
+        var pList = await _context.QueryExtensionIconModels(10, page ?? 1);
 
-        return View("ThemeListingPage", pList);
+        return View("ExtensionIconListingPage", pList);
     }
 
 
-    [HttpGet("theme/{slugId}")]
-    public async Task<IActionResult> ThemeDetailPage(string? slugId, bool? preview)
+    [HttpGet("extension-icon/{slugId}")]
+    public async Task<IActionResult> ExtensionIconDetailPage(string? slugId, bool? preview)
     {
         var id = GetIdFromSlugId(slugId);
         if (id is null) return NotFound();
 
-        var model = await _context.GetThemeModel(id.Value, preview);
+        var model = await _context.GetExtensionIconModel(id.Value, preview);
         if (model == null) return NotFound();
 
         // page info
@@ -44,7 +44,7 @@ public class ThemeController : BaseController
         ViewData[PageInfo.Keywords] = $"{model.Title}, imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
         ViewData[PageInfo.Thumbnail] = model.Image;
 
-        return View("ThemeDetailPage", model);
+        return View("ExtensionIconDetailPage", model);
     }
 
 }
