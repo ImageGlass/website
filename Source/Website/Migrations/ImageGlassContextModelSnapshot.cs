@@ -68,7 +68,7 @@ namespace ImageGlass.Migrations
 
             modelBuilder.Entity("ImageGlass.Models.NewsModel", b =>
                 {
-                    b.Property<int>("NewsId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -97,7 +97,7 @@ namespace ImageGlass.Migrations
                     b.Property<bool>("Visible")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("NewsId");
+                    b.HasKey("Id");
 
                     b.ToTable("News");
                 });

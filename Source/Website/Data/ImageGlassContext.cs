@@ -51,7 +51,7 @@ public class ImageGlassContext : DbContext
 
     public async Task<VNewsDetails?> GetVNewsDetails(int id, bool? preview) {
         var isPreview = preview ?? false;
-        var model = await News.Where(i => i.NewsId == id && (isPreview || i.IsVisible))
+        var model = await News.Where(i => i.Id == id && (isPreview || i.IsVisible))
             .Select(i => new VNewsDetails(i))
             .FirstOrDefaultAsync();
 

@@ -46,7 +46,7 @@ public class NewsController : BaseController
         ViewData[PageInfo.H1] = string.Empty; // use the content H1
 
         // get page content from GitHub
-        var markdownContent = await GitHub.GetFileContentAsync($"news/{model.NewsId}.md");
+        var markdownContent = await GitHub.GetFileContentAsync($"news/{model.Id}.md");
         var htmlContent = GitHub.ParseMarkdown(markdownContent);
 
         model.Content = htmlContent;

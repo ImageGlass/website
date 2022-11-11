@@ -7,8 +7,6 @@ namespace ImageGlass.Models;
 
 public class NewsModel : BaseModel
 {
-    [Key]
-    public int NewsId { get; set; }
     [Required]
     [Column(TypeName = "text")]
     public string Slug { get; set; }
@@ -30,7 +28,7 @@ public class NewsModel : BaseModel
 
 public class VNews
 {
-    public int NewsId { get; set; }
+    public int Id { get; set; }
     public string Slug { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
@@ -55,7 +53,7 @@ public class VNews
 
     public VNews(NewsModel model)
     {
-        NewsId = model.NewsId;
+        Id = model.Id;
         Slug = model.Slug;
         Title = model.Title;
         Image = model.Image;
@@ -69,7 +67,7 @@ public class VNews
 
 public class VNewsDetails
 {
-    public int NewsId { get; set; }
+    public int Id { get; set; }
     public string Slug { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
@@ -89,7 +87,7 @@ public class VNewsDetails
 
     public VNewsDetails(NewsModel model)
     {
-        NewsId = model.NewsId;
+        Id = model.Id;
         Slug = model.Slug;
         Title = model.Title;
         Image = model.Image;
