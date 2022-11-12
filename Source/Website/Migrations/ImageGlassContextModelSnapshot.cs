@@ -167,11 +167,14 @@ namespace ImageGlass.Migrations
                     b.Property<bool>("IsVisible")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("NewsId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("ReleaseChannel")
                         .HasColumnType("text");
 
-                    b.Property<string>("Requirements")
-                        .HasColumnType("text");
+                    b.Property<int>("RequirementId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Slug")
                         .HasColumnType("text");
@@ -187,7 +190,32 @@ namespace ImageGlass.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RequirementId");
+
                     b.ToTable("Releases");
+                });
+
+            modelBuilder.Entity("ImageGlass.Models.RequirementModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Requirements");
                 });
 
             modelBuilder.Entity("ImageGlass.Models.ThemeModel", b =>
@@ -257,7 +285,23 @@ namespace ImageGlass.Migrations
 
             modelBuilder.Entity("ImageGlass.Models.ReleaseModel", b =>
                 {
+                    b.HasOne("ImageGlass.Models.RequirementModel", "Requirement")
+                        .WithMany("Releases")
+                        .HasForeignKey("RequirementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Requirement");
+                });
+
+            modelBuilder.Entity("ImageGlass.Models.ReleaseModel", b =>
+                {
                     b.Navigation("BinaryFiles");
+                });
+
+            modelBuilder.Entity("ImageGlass.Models.RequirementModel", b =>
+                {
+                    b.Navigation("Releases");
                 });
 #pragma warning restore 612, 618
         }

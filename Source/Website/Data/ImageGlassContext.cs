@@ -27,6 +27,9 @@ public class ImageGlassContext : DbContext
     [AllowNull]
     public DbSet<BinaryFileModel> BinaryFiles { get; set; }
 
+    [AllowNull]
+    public DbSet<RequirementModel> Requirements { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

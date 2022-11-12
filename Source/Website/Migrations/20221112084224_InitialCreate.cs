@@ -55,24 +55,19 @@ namespace ImageGlass.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Releases",
+                name: "Requirements",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Slug = table.Column<string>(type: "text", nullable: true),
-                    Title = table.Column<string>(type: "text", nullable: true),
-                    Image = table.Column<string>(type: "text", nullable: true),
-                    ReleaseChannel = table.Column<string>(type: "text", nullable: true),
-                    Version = table.Column<string>(type: "text", nullable: true),
-                    Requirements = table.Column<string>(type: "text", nullable: true),
+                    Content = table.Column<string>(type: "text", nullable: true),
                     IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Releases", x => x.Id);
+                    table.PrimaryKey("PK_Requirements", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,6 +95,34 @@ namespace ImageGlass.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Themes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Releases",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Slug = table.Column<string>(type: "text", nullable: true),
+                    Title = table.Column<string>(type: "text", nullable: true),
+                    Image = table.Column<string>(type: "text", nullable: true),
+                    ReleaseChannel = table.Column<string>(type: "text", nullable: true),
+                    Version = table.Column<string>(type: "text", nullable: true),
+                    NewsId = table.Column<int>(type: "INTEGER", nullable: true),
+                    RequirementId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Releases", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Releases_Requirements_RequirementId",
+                        column: x => x.RequirementId,
+                        principalTable: "Requirements",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -135,6 +158,11 @@ namespace ImageGlass.Migrations
                 name: "IX_BinaryFiles_ReleaseId",
                 table: "BinaryFiles",
                 column: "ReleaseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Releases_RequirementId",
+                table: "Releases",
+                column: "RequirementId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -153,6 +181,9 @@ namespace ImageGlass.Migrations
 
             migrationBuilder.DropTable(
                 name: "Releases");
+
+            migrationBuilder.DropTable(
+                name: "Requirements");
         }
     }
 }
