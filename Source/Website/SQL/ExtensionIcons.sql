@@ -1,9 +1,4 @@
 
-SET QUOTED_IDENTIFIER OFF
-GO
-
-SET IDENTITY_INSERT [ExtensionIcons] ON
-
 
 
 INSERT INTO [ExtensionIcons]
@@ -17,4 +12,3 @@ INSERT INTO [ExtensionIcons]
 
 (36, 'adobe-icons-set-xmha97', 'Adobe file icons set (xmha97)', 'https://github.com/xmha97/IGExtIcons', 'https://raw.githubusercontent.com/xmha97/IGExtIcons/master/Logo.jpg', 'Adobe file icons for ImageGlass', '21.2', 'Muhammad Hussein Ammari', '', 'https://github.com/xmha97/IGExtIcons', 9815, '2020-09-06 11:10:11', '2022-01-11 01:28:25', 1);
 
-SET IDENTITY_INSERT [ExtensionIcons] OFF

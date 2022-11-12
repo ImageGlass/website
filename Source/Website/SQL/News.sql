@@ -1,15 +1,4 @@
 
-USE [ImageGlassContext-de80e5ed-366d-4798-9f02-0098d31c9968]
-GO
-
-/****** Object: Table [dbo].[News] Script Date: 3/26/2022 8:24:55 PM ******/
-
-
-SET QUOTED_IDENTIFIER OFF
-GO
-
-SET IDENTITY_INSERT [News] ON
-
 
 INSERT INTO [News]
 ([Id], [Slug], [Title], [Image], [Description], [CustomContentUrl], [CreatedDate], [UpdatedDate], [IsVisible]) VALUES
@@ -35,9 +24,10 @@ INSERT INTO [News]
 (71, 'announcing-imageglass-8-1-home', 'Announcing ImageGlass 8.1 - Home', 'https://github.com/ImageGlass/config/blob/main/screenshots/v8.1/8.1_1.jpg?raw=true', 'Supports new image formats JPEG XL, improves Exif tool, and lots of bug fixes.', '', '2021-04-17 16:26:48', '2021-04-17 10:48:00', 1),
 (72, 'announcing-imageglass-8-2-june', 'Announcing ImageGlass 8.2 - June', 'https://github.com/ImageGlass/config/blob/main/screenshots/v8.2/8.2_1.jpg?raw=true', 'Improves viewing Ico, WebP, Avif formats; Prints multi-pages TIFF format and lot of bugfixes.', '', '2021-05-17 16:26:48', '2021-05-17 10:48:00', 1),
 (73, 'announcing-imageglass-kobe-8-3', 'Announcing ImageGlass Kobe 8.3', 'https://github.com/ImageGlass/config/blob/main/screenshots/v8.3/8.3_1.jpg?raw=true', 'Updates UI for Windows 11, adds Custom zoom feature, improves multi-page formats.', '', '2021-11-21 12:23:24', '2021-11-21 10:48:00', 1),
-(74, 'announcing-imageglass-kobe-8-5', 'Announcing ImageGlass Kobe 8.5', 'https://github.com/ImageGlass/config/blob/main/screenshots/v8.5/8.5_1.jpg?raw=true', 'Supports QOI image format, fixes bugs and improves stability.', '', '2022-01-22 12:23:24', '2022-01-22 10:48:00', 1);
-
-
-
-SET IDENTITY_INSERT [News] OFF
+(74, 'announcing-imageglass-kobe-8-5', 'Announcing ImageGlass Kobe 8.5', 'https://github.com/ImageGlass/config/blob/main/screenshots/v8.5/8.5_1.jpg?raw=true', 'Supports QOI image format, fixes bugs and improves stability.', '', '2022-01-22 12:23:24', '2022-01-22 10:48:00', 1),
+(75, 'announcing-imageglass-moon-9-0-beta-1', 'Announcing ImageGlass Moon 9.0 beta 1', 'https://raw.githubusercontent.com/ImageGlass/config/main/screenshots/v9.0-beta-1/9.0b1_1.jpg', 'The first beta release of ImageGlass version 9.0, rewritten from scratch with many breaking changes, performance improvements and missing features.', '', '2022-05-15 16:57:29', '2022-05-15 10:48:00', 1),
+(76, 'announcing-imageglass-8-6', 'Announcing ImageGlass 8.6', 'https://raw.githubusercontent.com/ImageGlass/config/main/screenshots/v8.6/8.6_1.jpg', 'Improves color management, supports WEBP animated format, new Share feature and panning settings.', '', '2022-06-06 16:57:29', '2022-06-03 10:48:00', 1),
+(77, 'imageglass-12th-birthday-give-away-12-ms-store-codes', 'ImageGlass'' 12th birthday: Give away 12 MS Store codes!', 'https://user-images.githubusercontent.com/3154213/178208837-4cf73046-ef51-4ac5-9493-598a0f4a36ad.png', 'Giving away 12 promotional codes for the Store version as a thank you to those who have been supporting ImageGlass on the 12th anniversary.', '', '2022-07-11 08:18:54', '2022-07-11 10:48:00', 1),
+(78, 'announcing-imageglass-moon-9-0-beta-2', 'Announcing ImageGlass Moon 9.0 beta 2', 'https://github.com/ImageGlass/config/raw/main/screenshots/v9.0-beta-2/9.0b2_1.jpg', 'The beta-2 release of ImageGlass Kobe version 9.0 contains more features and improve performance.', '', '2022-09-04 14:59:31', '2022-09-04 10:48:00', 1),
+(79, 'announcing-imageglass-8-7', 'Announcing ImageGlass 8.7', 'https://raw.githubusercontent.com/ImageGlass/config/main/screenshots/v8.7/8.7_1.jpg', 'Supports dark mode for title bar, improves slideshow and window fit mode, and fixes UI bugs.', '', '2022-10-25 08:10:32', '2022-11-03 16:41:52', 1);
 
