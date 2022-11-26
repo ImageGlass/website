@@ -40,7 +40,12 @@ public class ReleaseModel : BaseModel
     /// </summary>
     public string SlugAndId => $"{Slug}-{Id}";
 
+
+    /// <summary>
+    /// Gets the total download number of all <see cref="BinaryFiles" />.
+    /// </summary>
     public int Count => BinaryFiles.Sum(f => f.Count);
+
 
     public List<BinaryFileModel> BinaryFiles { get; set; }
 
@@ -48,6 +53,7 @@ public class ReleaseModel : BaseModel
     public RequirementModel Requirement { get; set; }
 
 }
+
 
 public static class ReleaseChannel
 {
