@@ -80,6 +80,7 @@ public class ImageGlassContext : DbContext
         var model = await Releases
             .Where(i => i.Id == id && (isPreview || i.IsVisible))
             .Include(i => i.BinaryFiles)
+            .Include(i => i.Requirement)
             .Select(i => new ReleaseDetailModel(i, isPreview))
             .FirstOrDefaultAsync();
 

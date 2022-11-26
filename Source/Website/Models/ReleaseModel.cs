@@ -40,6 +40,7 @@ public class ReleaseModel : BaseModel
     /// </summary>
     public string SlugAndId => $"{Slug}-{Id}";
 
+    public int Count => BinaryFiles.Sum(f => f.Count);
 
     public List<BinaryFileModel> BinaryFiles { get; set; }
 
@@ -72,6 +73,7 @@ public class ReleaseDetailModel : ReleaseModel
         CreatedDate = model.CreatedDate;
         UpdatedDate = model.UpdatedDate;
 
+        Requirement = model.Requirement;
         BinaryFiles = model.BinaryFiles
             .Where(i => !preview || i.IsVisible)
             .ToList();
