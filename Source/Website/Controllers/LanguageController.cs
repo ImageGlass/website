@@ -1,6 +1,9 @@
-﻿using ImageGlass.Models;
+﻿using Crowdin.Api;
+using Crowdin.Api.Translations;
+using ImageGlass.Models;
 using ImageGlass.Utils;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client.Platforms.Features.DesktopOs.Kerberos;
 using System.Net;
 
 namespace ImageGlass.Controllers;
@@ -8,28 +11,31 @@ namespace ImageGlass.Controllers;
 public class LanguageController : BaseController
 {
     private readonly HttpClient _client = new();
-    private readonly string _crownInUrl = "https://api.crowdin.com/api/project/imageglass";
+    private readonly CrowdinApiClient _crowdin = new CrowdinApiClient(new CrowdinCredentials()
+    {
+        AccessToken = Constants.CROWNDIN_KEY,
+    });
 
 
     [HttpGet("languages")]
     public async Task<IActionResult> LanguageListing()
     {
-        var url = $"{_crownInUrl}/status?key={Constants.CROWNDIN_KEY}&json";
-        var languageList = new List<LanguageModel>();
+        var supportedLangsTask = _crowdin.Languages.ListSupportedLanguages(limit: 500);
+        var projectProgressTask = _crowdin.TranslationStatus.GetProjectProgress(Constants.CROWNIN_PROJECT_ID, limit: 500);
 
-        try
+        await Task.WhenAll(supportedLangsTask, projectProgressTask);
+        var allLangs = (await supportedLangsTask).Data;
+        var languageList = (await projectProgressTask).Data.Select(status =>
         {
-            using var contentStream = await _client.GetStreamAsync(url);
+            var lang = allLangs.FirstOrDefault(i => i.Id == status.LanguageId);
 
-            languageList = await JsonHelper.ParseJsonAsync<List<LanguageModel>>(contentStream);
-        }
-        catch (HttpRequestException ex)
-        {
-            if (ex.StatusCode == HttpStatusCode.NotFound)
+            return new LanguageModel()
             {
-                //
-            }
-        }
+                LanguageId = status.LanguageId,
+                Name = lang?.Name ?? string.Empty,
+                TranslationProgress = status.TranslationProgress,
+            };
+        });
 
 
         // page info
@@ -42,19 +48,23 @@ public class LanguageController : BaseController
     }
 
 
-    [HttpGet("language/download/{langCode}")]
-    public async Task<IActionResult> DownloadLanguage(string langCode, string? langName)
+    [HttpGet("language/download/{langId}")]
+    public async Task<IActionResult> DownloadLanguage(string langId, string? langName)
     {
-        var url = $"{_crownInUrl}/download/{langCode}.zip?key={Constants.CROWNDIN_KEY}";
+        var downloadLink = await _crowdin.Translations.ExportProjectTranslation(Constants.CROWNIN_PROJECT_ID, new ExportProjectTranslationRequest()
+        {
+            TargetLanguageId = langId,
+        });
+
 
         try
         {
             // do not dispose the stream
-            var contentStream = await _client.GetStreamAsync(url);
+            var contentStream = await _client.GetStreamAsync(downloadLink?.Url);
 
             var fileName = string.IsNullOrEmpty(langName)
-                ? $"{langCode}.zip"
-                : $"{langName} ({langCode}).zip";
+                ? $"{langId}.zip"
+                : $"{langName} ({langId}).zip";
 
             return File(contentStream, "application/octet-stream", fileName);
         }
