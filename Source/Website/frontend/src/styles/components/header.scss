@@ -2,11 +2,11 @@ body > header {
   position: sticky;
   top: 0;
   background-color: rgb(var(--colorBg) / 0.8);
-  backdrop-filter: blur(1.5rem) saturate(220%);
+  backdrop-filter: blur(1.5rem) saturate(400%);
 
   box-shadow:
     inset 0 -1px 0 0 rgb(var(--colorInvert) / 0.1), // bottom border
-    0 10px 50px -10px rgb(0 0 0 /0.65); // shadow
+    var(--shadow-sm); // shadow
 
   ul {
     list-style: none;
@@ -16,32 +16,83 @@ body > header {
 
   .navbar {
     display: flex;
-    .navbar-brand {
+    align-items: center;
 
+    .navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      height: 2em;
+      padding-left: 2em;
+      background-image: url('../img/iglogo.svg');
+      background-size: 1.5em;
+      background-repeat: no-repeat;
+      background-position: left center;
     }
 
     .navbar-nav {
       margin-left: auto;
       display: flex;
-      padding: 0.25rem 0;
+      padding: 0.25em 0;
 
       .nav-item {
         display: block;
-        padding: 0.25rem;
+        padding: 0.35em 0.25em;
 
         &> * {
           display: block;
-          padding: 0.35rem 1rem;
+          padding: 0.45em 1em;
           color: rgb(var(--colorText));
+          white-space: nowrap;
           text-decoration: none;
           border-radius: var(--border-radius);
           transition: all ease 300ms;
+        }
 
-          &:hover {
-            text-decoration: none;
+        &.nav-item--active {
+          &> *:first-child {
+            position: relative;
+            background-color: rgb(var(--colorInvert) / 0.15);
+
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              z-index: 1;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              margin: auto;
+              width: 0.75em;
+              height: 0.2em;
+              background-color: rgb(var(--colorAccent1));
+              border-radius: var(--border-radius);
+            }
           }
-          &:active {
-            transition: all ease 80ms;
+        }
+
+        &.nav-submenu {
+          position: relative;
+
+          &> *:first-child {
+            padding-right: 1.6em;
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            width: 0.45em;
+            height: 0.45em;
+            pointer-events: none;
+
+            position: absolute;
+            bottom: 0;
+            right: 1em;
+            top: -0.1em;
+            margin: auto;
+
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+            transform: rotate(45deg);
           }
         }
 
@@ -50,30 +101,49 @@ body > header {
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          margin-top: 0.25rem;
-          padding: 0.25rem;
+          margin-top: 0.25em;
+          padding: 0.25em;
           transition: all ease 300ms;
 
           .nav-item {
-            padding-top: 0.125rem;
-            padding-bottom: 0.125rem;
+            padding-top: 0.1em;
+            padding-bottom: 0.1em;
+            font-size: 95%;
+
+            &.nav-item--active > * {
+              &::after {
+                left: 0;
+                right: auto;
+                top: 0;
+                bottom: 0;
+                width: 0.2em;
+                height: 0.85em;
+              }
+            }
           }
         }
 
         &:hover {
           &> * {
-            background-color: rgb(var(--colorAccent1) / 0.25);
+            text-decoration: none;
+            background-color: rgb(var(--colorInvert) / 0.1);
           }
 
           &> ul {
             opacity: 1;
             visibility: visible;
             pointer-events: all;
-            background-color: rgb(var(--colorBg) / 1);
+            background-color: rgb(var(--colorBg) / 0.9);
             box-shadow:
               inset 0 0 0 1px rgb(var(--colorInvert) / 0.1), // border
-              inset 0 0 0 100vh rgb(var(--colorBg) / 0.25), // background blend
-              0 10px 50px -10px rgb(0 0 0 /0.65); // shadow
+              inset 0 0 0 100vh rgb(var(--colorInvert) / 0.025), // background blend
+              var(--shadow); // shadow
+          }
+        }
+        &:active {
+          &> * {
+            background-color: rgb(var(--colorInvert) / 0.15);
+            transition: all ease 80ms;
           }
         }
       }
