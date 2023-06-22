@@ -20,7 +20,7 @@ public class ReleaseModel : BaseModel
 
 
     [Column(TypeName = "text")]
-    public string ReleaseChannel { get; set; } = ImageGlass.Models.ReleaseChannel.Kobe;
+    public string ReleaseChannel { get; set; } = ImageGlass.Models.ReleaseChannel.Stable;
 
 
     [Column(TypeName = "text")]
@@ -57,8 +57,8 @@ public class ReleaseModel : BaseModel
 
 public static class ReleaseChannel
 {
-    public static string Kobe => "kobe";
-    public static string Moon => "moon";
+    public static string Stable => "stable";
+    public static string Beta => "beta";
 }
 
 

@@ -17,36 +17,41 @@ public class ReleaseController : BaseController
     [HttpGet("download")]
     public async Task<IActionResult> Download(int? page)
     {
-        var pList = await _context.QueryReleaseModels(ReleaseChannel.Kobe, 1);
-        if (pList.Count > 0) {
+        var pList = await _context.QueryReleaseModels(ReleaseChannel.Stable, 1);
+        if (pList.Count > 0)
+        {
             return RedirectToAction(nameof(ReleaseDetailPage), new { slugId = pList[0].SlugAndId });
         }
 
-        return RedirectToAction(nameof(KobeReleasesListingPage));
+        return RedirectToAction(nameof(StableReleasesListingPage));
     }
 
 
-    [HttpGet("kobe")]
-    public async Task<IActionResult> KobeReleasesListingPage(int? page)
+    [HttpGet("releases")]
+    public async Task<IActionResult> StableReleasesListingPage(int? page)
     {
         // page info
-        ViewData[PageInfo.Title] = $"Kobe releases | {ViewData[PageInfo.Name]}";
-        ViewData[PageInfo.Keywords] = $"imageglass kobe, {ViewData[PageInfo.Keywords]}";
+        ViewData[PageInfo.Title] = $"Stable releases | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Keywords] = $"imageglass stable, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.QueryReleaseModels(ReleaseChannel.Kobe, 10, page ?? 1);
+        ViewData["_ControllerAction"] = nameof(StableReleasesListingPage);
+
+        var pList = await _context.QueryReleaseModels(ReleaseChannel.Stable, 10, page ?? 1);
         return View("ReleaseListingPage", pList);
     }
 
 
-    [HttpGet("moon")]
-    public async Task<IActionResult> MoonReleasesListingPage(int? page)
+    [HttpGet("releases/beta")]
+    public async Task<IActionResult> BetaReleasesListingPage(int? page)
     {
         // page info
-        ViewData[PageInfo.Title] = $"Moon releases | {ViewData[PageInfo.Name]}";
-        ViewData[PageInfo.Description] = "ImageGlass Moon is the bleeding-edge (or beta) release of ImageGlass Kobe, is built and shipped to users with the latest state and features of ImageGlass.";
-        ViewData[PageInfo.Keywords] = $"imageglass moon, imageglass beta, {ViewData[PageInfo.Keywords]}";
+        ViewData[PageInfo.Title] = $"Beta releases | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = "The bleeding-edge beta release of ImageGlass. It is built and shipped to users with the latest state and features of ImageGlass.";
+        ViewData[PageInfo.Keywords] = $"imageglass beta, {ViewData[PageInfo.Keywords]}";
 
-        var pList = await _context.QueryReleaseModels(ReleaseChannel.Moon, 10, page ?? 1);
+        ViewData["_ControllerAction"] = nameof(BetaReleasesListingPage);
+
+        var pList = await _context.QueryReleaseModels(ReleaseChannel.Beta, 10, page ?? 1);
         return View("ReleaseListingPage", pList);
     }
 
