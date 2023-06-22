@@ -30,9 +30,17 @@
     <None Remove="Markdig.Signed" />
     <None Remove="Utils\PageContent\" />
     <None Remove="Views\Release\" />
+    <None Remove="frontend\" />
+    <None Remove="frontend\src\" />
+    <None Remove="frontend\src\%40types\" />
+    <None Remove="frontend\src\styles\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\PageContent\" />
     <Folder Include="Views\Release\" />
+    <Folder Include="frontend\" />
+    <Folder Include="frontend\src\" />
+    <Folder Include="frontend\src\%40types\" />
+    <Folder Include="frontend\src\styles\" />
   </ItemGroup>
 </Project>
