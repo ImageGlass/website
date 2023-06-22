@@ -13,8 +13,6 @@ html {
 body {
   margin: 0;
   font-size: 16px;
-  height: 100vh;
-  max-height: 100vh;
   line-height: normal;
 }
 
@@ -94,8 +92,6 @@ a:visited {
   text-underline-position: under;
   transition: all ease 200ms;
   color: rgb(var(--colorAccent1));
-  border-radius: 0.125em;
-  padding: 0 0.125em 0.1em 0.125em;
 }
 a {
   &:hover {
