@@ -1,3 +1,15 @@
 ﻿@model string
 
-@await Html.PartialAsync("_MarkdownBody", Model)
+<div class="row gx-5">
+    <div class="col-12 col-lg-8 my-5">
+        @await Html.PartialAsync("_MarkdownBody", Model)
+    </div>
+
+    <div class="col-12 col-lg-4 my-5">
+        <div class="post-sidebar">
+            <div class="post-sidebar-item p-0">
+                @await Html.PartialAsync("_Ads")
+            </div>
+        </div>
+    </div>
+</div>
