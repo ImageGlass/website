@@ -8,7 +8,7 @@ public class NewsController : BaseController
 {
     private readonly ImageGlassContext _context;
 
-    
+
     public NewsController(ImageGlassContext context)
     {
         _context = context;
@@ -19,6 +19,7 @@ public class NewsController : BaseController
     public async Task<IActionResult> Index(int? page)
     {
         // page info
+        ViewData[PageInfo.Page] = "news";
         ViewData[PageInfo.Title] = $"Latest updates | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "Get the lastest updates of ImageGlass. Read ImageGlass stories and everything in the world.";
         ViewData[PageInfo.Keywords] = $"imageglass lastest update, imageglass {DateTime.UtcNow.Year}, {ViewData[PageInfo.Keywords]}";
@@ -40,6 +41,7 @@ public class NewsController : BaseController
         if (model == null) return NotFound();
 
         // page info
+        ViewData[PageInfo.Page] = "news";
         ViewData[PageInfo.Title] = model.Title;
         ViewData[PageInfo.Description] = model.Description;
         ViewData[PageInfo.Thumbnail] = model.Image;

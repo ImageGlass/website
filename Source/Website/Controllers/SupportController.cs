@@ -7,6 +7,7 @@ public class SupportController : BaseController
 {
     public IActionResult Index()
     {
+        ViewData[PageInfo.Page] = "support";
         return View("SupportPage");
     }
 
@@ -15,6 +16,7 @@ public class SupportController : BaseController
     public async Task<IActionResult> PrivacyPage()
     {
         // page info
+        ViewData[PageInfo.Page] = "support.privacy";
         ViewData[PageInfo.Title] = $"Privacy information | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "ImageGlass privacy information";
         ViewData[PageInfo.Keywords] = $"imageglass privacy, {ViewData[PageInfo.Keywords]}";
@@ -31,6 +33,7 @@ public class SupportController : BaseController
     public async Task<IActionResult> LicensePage()
     {
         // page info
+        ViewData[PageInfo.Page] = "support.license";
         ViewData[PageInfo.Title] = $"End-user license agreement (EULA) | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "ImageGlass end-user lisence agreement (EULA)";
         ViewData[PageInfo.Keywords] = $"imageglass eula, imageglass license, imageglass commercial use, {ViewData[PageInfo.Keywords]}";
@@ -47,6 +50,7 @@ public class SupportController : BaseController
     public async Task<IActionResult> FAQsPage()
     {
         // page info
+        ViewData[PageInfo.Page] = "support.faqs";
         ViewData[PageInfo.Title] = $"FAQs | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "ImageGlass FAQs";
         ViewData[PageInfo.Keywords] = $"imageglass faqs, {ViewData[PageInfo.Keywords]}";

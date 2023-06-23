@@ -13,4 +13,6 @@ public static class PageInfo
 
     public static string Author = "_Author";
     public static string Thumbnail = "_Thumbnail";
+
+    public static string Page = "";
 }

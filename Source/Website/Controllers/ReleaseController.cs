@@ -31,6 +31,7 @@ public class ReleaseController : BaseController
     public async Task<IActionResult> StableReleasesListingPage(int? page)
     {
         // page info
+        ViewData[PageInfo.Page] = "download.release.stable";
         ViewData[PageInfo.Title] = $"Stable releases | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Keywords] = $"imageglass stable, {ViewData[PageInfo.Keywords]}";
 
@@ -45,6 +46,7 @@ public class ReleaseController : BaseController
     public async Task<IActionResult> BetaReleasesListingPage(int? page)
     {
         // page info
+        ViewData[PageInfo.Page] = "download.release.beta";
         ViewData[PageInfo.Title] = $"Beta releases | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "The bleeding-edge beta release of ImageGlass. It is built and shipped to users with the latest state and features of ImageGlass.";
         ViewData[PageInfo.Keywords] = $"imageglass beta, {ViewData[PageInfo.Keywords]}";
@@ -66,6 +68,7 @@ public class ReleaseController : BaseController
         if (model == null) return NotFound();
 
         // page info
+        ViewData[PageInfo.Page] = $"download.release.{model.ReleaseChannel}";
         ViewData[PageInfo.Title] = $"{model.Title} | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = $"Download {model.Title}";
         ViewData[PageInfo.Keywords] = $"imageglass {model.Version}, imageglass {model.ReleaseChannel}, " + ViewData[PageInfo.Keywords];

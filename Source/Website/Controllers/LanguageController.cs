@@ -39,6 +39,7 @@ public class LanguageController : BaseController
 
 
         // page info
+        ViewData[PageInfo.Page] = "download.language";
         ViewData[PageInfo.Title] = "ImageGlass language packs";
         ViewData[PageInfo.Description] = "Download all language packs of ImageGlass.";
         ViewData[PageInfo.Keywords] = "imageglass language pack, " + ViewData[PageInfo.Keywords];

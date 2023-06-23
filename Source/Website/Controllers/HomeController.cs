@@ -20,6 +20,8 @@ public class HomeController : BaseController
 
     public IActionResult Index()
     {
+        ViewData[PageInfo.Page] = "home";
+
         return View("HomePage");
     }
 

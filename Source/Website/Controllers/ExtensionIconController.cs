@@ -19,6 +19,7 @@ public class ExtensionIconController : BaseController
     public async Task<IActionResult> ExtensionIconListingPage(int? page)
     {
         // page info
+        ViewData[PageInfo.Page] = "download.icon";
         ViewData[PageInfo.Title] = $"Extension icon packs | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "The beautiful extension icon packs to change the look and feel of ImageGlass";
         ViewData[PageInfo.Keywords] = $"imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
@@ -39,6 +40,7 @@ public class ExtensionIconController : BaseController
         if (model == null) return NotFound();
 
         // page info
+        ViewData[PageInfo.Page] = "download.icon";
         ViewData[PageInfo.Title] = $"{model.Title} | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = $"Download {model.Title} for ImageGlass";
         ViewData[PageInfo.Keywords] = $"{model.Title}, imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";

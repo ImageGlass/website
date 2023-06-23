@@ -20,7 +20,7 @@ public class ReleaseModel : BaseModel
 
 
     [Column(TypeName = "text")]
-    public string ReleaseChannel { get; set; } = ImageGlass.Models.ReleaseChannel.Stable;
+    public string ReleaseChannel { get; set; } = Models.ReleaseChannel.Stable;
 
 
     [Column(TypeName = "text")]
