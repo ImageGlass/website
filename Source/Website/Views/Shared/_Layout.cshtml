@@ -35,11 +35,23 @@
                     </ul>
                 </li>
 
+                <li class="nav-item nav-submenu">
+                    <a asp-area="" asp-controller="Support" asp-action="Index">Support</a>
+                    <ul>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Support" asp-action="FAQsPage">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Support" asp-action="LicensePage">End-user license agreement (EULA)</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a asp-area="" asp-controller="Docs" asp-action="Index">Docs</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Support" asp-action="Index">Support</a>
                 </li>
 
                 <li class="nav-item">
