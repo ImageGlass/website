@@ -316,3 +316,48 @@ progress {
 [hidden] {
   display: none !important;
 }
+
+
+.embed-responsive {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: "";
+    display: block;
+  }
+
+  .embed-responsive-item,
+  embed,
+  iframe,
+  object,
+  video {
+    border: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+  }
+
+  &.embed-responsive-21by9::before {
+    padding-top: 42.85714%;
+  }
+  
+  &.embed-responsive-16by9::before {
+    padding-top: 56.25%;
+  }
+  
+  &.embed-responsive-4by3::before {
+    padding-top: 75%;
+  }
+  
+  &.embed-responsive-1by1::before {
+    padding-top: 100%;
+  }
+}
+
