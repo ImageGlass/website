@@ -154,12 +154,6 @@
   font-style: italic;
 }
 
-.markdown-body h1 {
-  margin: .67em 0;
-  font-size: 2.5em;
-  font-weight: 300;
-}
-
 .markdown-body mark {
   background-color: var(--color-attention-subtle);
   color: var(--color-fg-default);
@@ -356,6 +350,12 @@
   margin-top: 1.75em;
   margin-bottom: 0.75em;
   line-height: 1.25;
+}
+
+.markdown-body h1 {
+  margin-bottom: 1em;
+  font-size: 2.5em;
+  font-weight: 300;
 }
 
 .markdown-body h2 {

@@ -1,57 +1,22 @@
 ﻿@model ImageGlass.Models.NewsModel
 
 
-<div>
-    <h4>NewsModel</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Slug)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Slug)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomContentUrl)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CustomContentUrl)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<div class="row gx-5">
+    <div class="col-12 col-lg-8 my-5">
+        @await Html.PartialAsync("_MarkdownBody", ViewData["NewsHtmlContent"])
+    </div>
 
+    <div class="col-12 col-lg-4 my-5">
+        <div class="post-sidebar">
+            <div class="post-sidebar-item markdown-body">
+                <div class="post-date">
+                    Published on @Html.DisplayFor(model => model.UpdatedDate)
+                </div>
+            </div>
 
-@await Html.PartialAsync("_MarkdownBody", ViewData["NewsHtmlContent"])
+            <div class="post-sidebar-item p-0">
+                <script async="" type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIP27N&amp;placement=imageglassorg" id="_carbonads_js"></script>
+            </div>
+        </div>
+    </div>
+</div>
