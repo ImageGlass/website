@@ -7,6 +7,7 @@
 
 // utilities
 @import "./utilities/bootstrap-grid.scss";
+@import "./utilities/markdown-body.scss";
 @import "./utilities/position.scss";
 @import "./utilities/sizing.scss";
 
@@ -14,7 +15,6 @@
 // components
 @import "./components/header.scss";
 @import "./components/footer.scss";
-
 
 // pages
 @import "./pages/home.scss";

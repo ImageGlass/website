@@ -1,0 +1,14 @@
+﻿@model string
+
+<article class="markdown-body">
+    @{
+        if (string.IsNullOrEmpty(@Model))
+        {
+            @Html.Raw("Content not found!");
+        }
+        else
+        {
+            @Html.Raw(@Model);
+        }
+    }
+</article>

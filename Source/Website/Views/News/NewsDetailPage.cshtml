@@ -54,17 +54,4 @@
 </div>
 
 
-<article>
-    @{
-        var htmlContent = ViewData["NewsHtmlContent"] as string;
-        if (string.IsNullOrEmpty(htmlContent))
-        {
-            @Html.Raw("Content not found!");
-        }
-        else
-        {
-            @Html.Raw(htmlContent);
-        }
-    }
-</article>
-
+@await Html.PartialAsync("_MarkdownBody", ViewData["NewsHtmlContent"])

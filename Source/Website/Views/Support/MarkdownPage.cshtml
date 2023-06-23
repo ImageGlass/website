@@ -1,15 +1,3 @@
 ﻿@model string
 
-
-<article>
-    @{
-        if (string.IsNullOrEmpty(@Model))
-        {
-            @Html.Raw("Content not found!");
-        }
-        else
-        {
-            @Html.Raw(@Model);
-        }
-    }
-</article>
+@await Html.PartialAsync("_MarkdownBody", Model)
