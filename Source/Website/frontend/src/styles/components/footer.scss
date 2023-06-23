@@ -43,21 +43,3 @@ body > footer {
     }
   }
 }
-
-
-.post-sidebar {
-  position: sticky;
-  top: calc(var(--headerBarHeight-em) + 1.5em);
-
-  .post-sidebar-item {
-    padding: 0.75rem;
-    margin-bottom: 0.75rem;
-    background-color: rgb(var(--colorInvert) / 0.05);
-    border-radius: calc(var(--border-radius) * 1.5);
-    border: 1px solid rgb(var(--colorInvert) / 0.1);
-  }
-}
-
-.post-description {
-  font-style: italic;
-}
