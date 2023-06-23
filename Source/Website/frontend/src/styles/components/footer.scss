@@ -3,7 +3,8 @@ body > footer {
   padding-bottom: 0.5rem;
   font-size: 0.75rem;
   color: rgb(var(--colorText) / 0.8);
-  background-color: rgb(var(--colorControl));
+  background-color: rgb(var(--colorInvert) / 0.075);
+  border-top: 1px solid rgb(var(--colorInvert) / 0.1);
 
   .social-links > a {
     display: inline-flex;
@@ -20,7 +21,7 @@ body > footer {
 
     &> svg {
       filter: invert(1);
-      opacity: 0.65;
+      opacity: 0.6;
       transition: all ease 300ms;
 
       @media screen and (prefers-color-scheme: light) {
@@ -29,14 +30,15 @@ body > footer {
     }
 
     &:hover {
-      background-color: rgb(var(--colorControl));
-      box-shadow: 0 2px 5px -3px rgb(var(--colorInvert) / 25%);
+      background-color: rgb(var(--colorInvert) / 0.2);
+      box-shadow: 0 2px 5px -3px rgb(var(--colorInvert) / 0.25);
 
       &> svg {
         opacity: 1;
       }
     }
     &:active {
+      background-color: rgb(var(--colorInvert) / 0.1);
       transition: all ease 80ms;
     }
   }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Net;
-using System.Reflection.Metadata;
+﻿using System.Net;
 using System.Text.RegularExpressions;
 using Markdig;
-using Markdig.Extensions.AutoIdentifiers;
-using Markdig.Extensions.AutoLinks;
 using Markdig.Renderers.Html;
 using Markdig.Syntax;
 using Markdig.Syntax.Inlines;
@@ -75,7 +71,8 @@ public class GitHub
             {
                 var str = group.ToString() ?? string.Empty;
 
-                if (str.Contains("#metadata")) {
+                if (str.Contains("#metadata"))
+                {
                     metaSection = str;
                 }
                 else if (str.Contains('{') && str.Contains('}'))
