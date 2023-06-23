@@ -9,9 +9,7 @@
     <div class="col-12 col-lg-4 my-5">
         <div class="post-sidebar">
             <div class="post-sidebar-item markdown-body">
-                <div class="post-date">
-                    Published on @Html.DisplayFor(model => model.UpdatedDate)
-                </div>
+                Published on @Model.UpdatedDate.ToString("f")
             </div>
 
             <div class="post-sidebar-item p-0">

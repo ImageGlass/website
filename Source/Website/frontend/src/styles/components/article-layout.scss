@@ -9,9 +9,6 @@
     background-color: rgb(var(--colorInvert) / 0.05);
     border-radius: calc(var(--border-radius) * 1.5);
     border: 1px solid rgb(var(--colorInvert) / 0.1);
+    box-shadow: var(--shadow-sm);
   }
-}
-
-.post-description {
-  font-style: italic;
 }

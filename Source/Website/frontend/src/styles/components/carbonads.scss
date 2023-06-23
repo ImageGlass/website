@@ -1,6 +1,9 @@
 
+.quang-cao {
+  min-height: calc(0.75rem + 0.75rem + 100px);
+}
+
 #carbonads {
-  box-shadow: 0 30px 90px -35px rgba(0,0,0,.3),inset 0 0 0 1px rgba(0,0,0,.1);
   display: flex;
   flex-direction: column;
   padding: 0.75rem;

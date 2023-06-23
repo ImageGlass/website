@@ -88,10 +88,10 @@ a:visited {
 }
 a {
   &:hover {
-    text-decoration-style: solid;
-    text-decoration-thickness: 0.09375em;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 0.25em;
     text-decoration-color: rgb(var(--colorAccent2));
-    color: rgb(var(--colorAccent2));
+    color: rgb(var(--colorText));
     filter: brightness(1.2);
   }
   &:active {
