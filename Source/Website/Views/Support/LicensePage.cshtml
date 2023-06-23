@@ -1,0 +1,24 @@
+﻿@model string
+
+
+<article>
+    @{
+        if (string.IsNullOrEmpty(@Model))
+        {
+            @Html.Raw("Content not found!");
+        }
+        else
+        {
+            @Html.Raw(@Model);
+        }
+    }
+</article>
+
+
+<section>
+    <h3 class="mb-4">ImageGlass registration form</h3>
+
+    <iframe style="background: #fff; border-radius: 5px;" src="https://docs.google.com/forms/d/e/1FAIpQLSdL3CHnJa5zd50TdW1xnL6QmAgS8Ovi5UppAKXseAbnFiR-jg/viewform?embedded=true" width="800" height="2950" frameborder="0" marginheight="0" marginwidth="0">
+        Loading…
+    </iframe>
+</section>
