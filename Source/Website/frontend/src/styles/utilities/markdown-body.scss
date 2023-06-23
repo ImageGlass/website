@@ -1,6 +1,5 @@
 @media (prefers-color-scheme: dark) {
   .markdown-body {
-    color-scheme: dark;
     --color-prettylights-syntax-comment: #8b949e;
     --color-prettylights-syntax-constant: #79c0ff;
     --color-prettylights-syntax-entity: #d2a8ff;
@@ -48,7 +47,6 @@
 
 @media (prefers-color-scheme: light) {
   .markdown-body {
-    color-scheme: light;
     --color-prettylights-syntax-comment: #6e7781;
     --color-prettylights-syntax-constant: #0550ae;
     --color-prettylights-syntax-entity: #8250df;
@@ -183,7 +181,6 @@
   border-style: none;
   max-width: 100%;
   box-sizing: content-box;
-  background-color: var(--color-canvas-default);
 }
 
 .markdown-body code,
@@ -291,40 +288,6 @@
 
 .markdown-body details:not([open])>*:not(summary) {
   display: none !important;
-}
-
-.markdown-body a:focus,
-.markdown-body [role=button]:focus,
-.markdown-body input[type=radio]:focus,
-.markdown-body input[type=checkbox]:focus {
-  outline: 2px solid var(--color-accent-fg);
-  outline-offset: -2px;
-  box-shadow: none;
-}
-
-.markdown-body a:focus:not(:focus-visible),
-.markdown-body [role=button]:focus:not(:focus-visible),
-.markdown-body input[type=radio]:focus:not(:focus-visible),
-.markdown-body input[type=checkbox]:focus:not(:focus-visible) {
-  outline: solid 1px transparent;
-}
-
-.markdown-body a:focus-visible,
-.markdown-body [role=button]:focus-visible,
-.markdown-body input[type=radio]:focus-visible,
-.markdown-body input[type=checkbox]:focus-visible {
-  outline: 2px solid var(--color-accent-fg);
-  outline-offset: -2px;
-  box-shadow: none;
-}
-
-.markdown-body a:not([class]):focus,
-.markdown-body a:not([class]):focus-visible,
-.markdown-body input[type=radio]:focus,
-.markdown-body input[type=radio]:focus-visible,
-.markdown-body input[type=checkbox]:focus,
-.markdown-body input[type=checkbox]:focus-visible {
-  outline-offset: 0;
 }
 
 .markdown-body kbd {
@@ -477,10 +440,6 @@
   padding-right: 4px;
   margin-left: -1.25rem;
   line-height: 1;
-}
-
-.markdown-body .anchor:focus {
-  outline: none;
 }
 
 .markdown-body p,
