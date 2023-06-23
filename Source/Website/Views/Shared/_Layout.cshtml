@@ -8,6 +8,13 @@
         <nav class="navbar container">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ImageGlass</a>
 
+            <input type="checkbox" id="chkMobileMenu">
+            <label for="chkMobileMenu">
+                <span class="bar1"></span>
+                <span class="bar2"></span>
+                <span class="bar3"></span>
+            </label>
+
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a asp-area="" asp-controller="News" asp-action="Index">News</a>
@@ -45,7 +52,7 @@
                             <a asp-area="" asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
                         </li>
                         <li class="nav-item">
-                            <a asp-area="" asp-controller="Support" asp-action="LicensePage">End-user license agreement (EULA)</a>
+                            <a asp-area="" asp-controller="Support" asp-action="LicensePage">End-user license agreement</a>
                         </li>
                     </ul>
                 </li>
@@ -62,8 +69,8 @@
         </nav>
     </header>
 
-    <div class="container">
-        <main role="main" class="py-5">
+    <div class="container body-content">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
