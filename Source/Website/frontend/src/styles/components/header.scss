@@ -40,7 +40,7 @@ body > header {
       display: block;
       padding: 0.35em 0.25em;
 
-      &> *:first-child {
+      &> a {
         display: block;
         padding: 0.45em 1em;
         color: rgb(var(--colorText));
@@ -56,31 +56,16 @@ body > header {
 
       // item selected
       &.nav-item--active {
-        &> *:first-child {
+        &> a {
           position: relative;
           background-color: rgb(var(--colorInvert) / 0.15);
-
-          &::after {
-            // content: "";
-            display: block;
-            position: absolute;
-            z-index: 1;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 0.75em;
-            height: 0.2em;
-            background-color: rgb(var(--colorAccent1));
-            border-radius: var(--border-radius);
-          }
         }
       }
 
       &.nav-submenu {
         position: relative;
 
-        &> *:first-child {
+        &> a {
           padding-right: 1.6em;
         }
 
@@ -125,23 +110,12 @@ body > header {
           padding-top: 0.1em;
           padding-bottom: 0.1em;
           font-size: 95%;
-
-          &.nav-item--active > * {
-            &::after {
-              left: 0;
-              right: auto;
-              top: 0;
-              bottom: 0;
-              width: 0.2em;
-              height: 0.85em;
-            }
-          }
         }
       }
 
       // item hovered
       &:hover {
-        &> *:first-child {
+        &> a {
           text-decoration: none;
           background-color: rgb(var(--colorInvert) / 0.1);
         }
@@ -160,7 +134,7 @@ body > header {
 
       // item pressed
       &:active {
-        &> *:first-child {
+        &> a {
           background-color: rgb(var(--colorInvert) / 0.15);
           transition: all ease 80ms;
         }
