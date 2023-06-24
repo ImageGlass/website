@@ -1,3 +1,15 @@
+
+.fs-1 { font-size: var(--fs-1) !important; }
+.fs-2 { font-size: var(--fs-2) !important; }
+.fs-3 { font-size: var(--fs-3) !important; }
+.fs-4 { font-size: var(--fs-4) !important; }
+.fs-5 { font-size: var(--fs-5) !important; }
+.fs-6 { font-size: var(--fs-6) !important; }
+
+.fw-300 { font-weight: 300 !important; }
+.fw-500 { font-weight: 500 !important; }
+
+
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;

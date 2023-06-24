@@ -56,7 +56,7 @@ body > header {
         padding: 0.45em 1em;
         color: rgb(var(--colorText));
         white-space: nowrap;
-        text-decoration: none;
+        text-decoration-line: none;
         border-radius: var(--border-radius);
         transition: all ease 300ms;
 
@@ -138,7 +138,7 @@ body > header {
       // item hovered
       &:hover {
         &> a {
-          text-decoration: none;
+          text-decoration-line: none;
           background-color: rgb(var(--colorInvert) / 0.1);
         }
 

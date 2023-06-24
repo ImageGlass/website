@@ -7,6 +7,9 @@
   --colorAccent1: 0 134 191;
   --colorAccent2: 41 152 172;
 
+  --bgSurface: rgb(var(--colorInvert) / 0.05);
+  --bgFluent: rgb(255 255 255 / 0.125);
+
   --BgNeutral: 32 38 43;
   --BgInfo: 0 134 214;
   --BgSuccess: 0 210 80;
@@ -23,6 +26,13 @@
 
   --fontBase: "Segoe UI Variable Display", "Seoge UI Variable Static Display", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Variant", "Segoe UI";
   --fontCode: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+
+  --fs-1: 2.5em;
+  --fs-2: 1.75em;
+  --fs-3: 1.25em;
+  --fs-4: 1em;
+  --fs-5: 0.875em;
+  --fs-6: 0.8125em;
 }
 
 // light mode
@@ -32,6 +42,9 @@
     --colorInvert: 0 0 0;
     --colorBg: 255 255 255;
     --colorText: 30 30 30;
+
+    --bgSurface: rgb(var(--colorInvert) / 0.025);
+    --bgFluent: rgb(255 255 255 / 0.175);
 
     --BgNeutral: 242 242 242;
 
