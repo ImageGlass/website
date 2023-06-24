@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ImageGlass.Data;
 using ImageGlass.Utils;
+using ImageGlass.Models;
 
 namespace ImageGlass.Controllers;
 
@@ -46,6 +47,8 @@ public class NewsController : BaseController
         ViewData[PageInfo.Description] = model.Description;
         ViewData[PageInfo.Thumbnail] = model.Image;
         ViewData[PageInfo.H1] = string.Empty; // use the content H1
+
+        ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
 
         // get page content from GitHub
         var markdownContent = await GitHub.GetFileContentAsync($"news/{model.Id}.md");

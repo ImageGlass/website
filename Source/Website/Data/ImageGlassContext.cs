@@ -8,8 +8,8 @@ namespace ImageGlass.Data;
 
 public class ImageGlassContext : DbContext
 {
-    public ImageGlassContext (DbContextOptions<ImageGlassContext> options)
-        : base(options) {}
+    public ImageGlassContext(DbContextOptions<ImageGlassContext> options)
+        : base(options) { }
 
 
     [AllowNull]
@@ -52,7 +52,8 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<NewsModel?> GetNewsModel(int id, bool? preview) {
+    public async Task<NewsModel?> GetNewsModel(int id, bool? preview)
+    {
         var isPreview = preview ?? false;
         var model = await News.Where(i => i.Id == id && (isPreview || i.IsVisible))
             .FirstOrDefaultAsync();
@@ -61,10 +62,12 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<PaginatedList<ReleaseModel>> QueryReleaseModels(string releaseChannel, int count = 10, int pageNumber = 1)
+    public async Task<PaginatedList<ReleaseModel>> QueryReleaseModels(string? releaseChannel, int count = 10, int pageNumber = 1)
     {
         var source = Releases
-            .Where(i => i.IsVisible && i.ReleaseChannel == releaseChannel)
+            .Where(i => i.IsVisible
+                && (string.IsNullOrEmpty(releaseChannel)
+                    || i.ReleaseChannel == releaseChannel))
             .OrderByDescending(i => i.CreatedDate)
             .AsNoTracking();
 
@@ -75,7 +78,8 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<ReleaseDetailModel?> GetReleaseDetailModel(int id, bool? preview) {
+    public async Task<ReleaseDetailModel?> GetReleaseDetailModel(int id, bool? preview)
+    {
         var isPreview = preview ?? false;
         var model = await Releases
             .Where(i => i.Id == id && (isPreview || i.IsVisible))
@@ -102,7 +106,8 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<ThemeModel?> GetThemeModel(int id, bool? preview) {
+    public async Task<ThemeModel?> GetThemeModel(int id, bool? preview)
+    {
         var isPreview = preview ?? false;
         var model = await Themes
             .Where(i => i.Id == id && (isPreview || i.IsVisible))
@@ -126,7 +131,8 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<ExtensionIconModel?> GetExtensionIconModel(int id, bool? preview) {
+    public async Task<ExtensionIconModel?> GetExtensionIconModel(int id, bool? preview)
+    {
         var isPreview = preview ?? false;
         var model = await ExtensionIcons
             .Where(i => i.Id == id && (isPreview || i.IsVisible))

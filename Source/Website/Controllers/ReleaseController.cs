@@ -14,6 +14,7 @@ public class ReleaseController : BaseController
         _context = context;
     }
 
+
     [HttpGet("download")]
     public async Task<IActionResult> Download(int? page)
     {
@@ -73,6 +74,8 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Description] = $"Download {model.Title}";
         ViewData[PageInfo.Keywords] = $"imageglass {model.Version}, imageglass {model.ReleaseChannel}, " + ViewData[PageInfo.Keywords];
         ViewData[PageInfo.Thumbnail] = model.Image;
+
+        ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
 
         return View("ReleaseDetailPage", model);
     }
