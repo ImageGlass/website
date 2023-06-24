@@ -1,5 +1,9 @@
 ﻿@model ImageGlass.Models.NewsModel
 
+@{
+    var list = (PaginatedList<NewsModel>?)ViewData[PageInfo.SidebarList];
+}
+
 
 <div class="row gx-5">
     <div class="col-12 col-lg-8 my-5">
@@ -7,14 +11,42 @@
     </div>
 
     <div class="col-12 col-lg-4 my-5">
-        <div class="post-sidebar">
-            <div class="post-sidebar-item markdown-body">
-                Published on @Model.UpdatedDate.ToString("f")
-            </div>
+        <aside class="post-sidebar">
+            <section class="post-sidebar-item markdown-body px-3 py-2 fs-5 fw-300">
+                Published on
+                <time datetime="@Model.UpdatedDate">
+                    @Model.UpdatedDate.ToDateTimeString()
+                </time>
+            </section>
 
-            <div class="post-sidebar-item p-0">
+
+            <section class="post-sidebar-item p-0">
                 @await Html.PartialAsync("_Ads")
-            </div>
-        </div>
+            </section>
+
+
+            @if (list != null && list.Count > 0)
+            {
+                <section class="post-sidebar-item p-2">
+                    <h3 class="heading">The latest updates</h3>
+                    <ul class="sidebar-article-list mb-2">
+                        @foreach (var item in list)
+                        {
+                            <li class="@(item.IsNewPost ? "new-article" : "")">
+                                <a asp-action="@nameof(NewsController.NewsDetailPage)" asp-route-slugId="@item.SlugAndId">
+                                    <span>@item.Title</span>
+                                    <time datetime="@item.UpdatedDate">
+                                        @item.UpdatedDate.ToDateTimeString()
+                                    </time>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                    <div class="px-2 text-end fs-5">
+                        <a asp-action="@nameof(NewsController.Index)">View all</a>
+                    </div>
+                </section>
+            }
+        </aside>
     </div>
 </div>

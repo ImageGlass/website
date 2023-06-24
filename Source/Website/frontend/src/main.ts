@@ -1,10 +1,16 @@
 ﻿import './styles/main.scss';
 
-import { applyEffect } from 'fluent-reveal-effect';
+import { IEffectOptions, applyEffect } from 'fluent-reveal-effect';
 
 // fluent effect for header bar
-applyEffect('.navbar-nav .nav-item > a', {
+const effectOptions: Partial<IEffectOptions> = {
   clickEffect: true,
-  lightColor: 'rgb(var(--colorInvert) / 0.15)',
+  lightColor: 'var(--bgFluent)',
   gradientSize: 100,
+};
+
+applyEffect('.navbar-nav .nav-item > a', effectOptions);
+applyEffect('.sidebar-article-list li > a', {
+  ...effectOptions,
+  gradientSize: 150,
 });

@@ -1,12 +1,11 @@
 
 .quang-cao {
-  min-height: calc(0.75rem + 0.75rem + 100px);
+  min-height: calc(100px);
 }
 
 #carbonads {
   display: flex;
   flex-direction: column;
-  padding: 0.75rem;
   position: relative;
   transition: all 300ms ease;
 
@@ -45,7 +44,7 @@
   }
 
   a.carbon-text {
-    padding-left: 0.75rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.75rem;
   }
 
   .carbon-poweredby {
