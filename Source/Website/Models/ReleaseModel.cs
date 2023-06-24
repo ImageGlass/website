@@ -5,16 +5,8 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace ImageGlass.Models;
 
-public class ReleaseModel : BaseModel
+public class ReleaseModel : ArticleBaseModel
 {
-    [Column(TypeName = "text")]
-    public string Slug { get; set; } = string.Empty;
-
-
-    [Column(TypeName = "text")]
-    public string Title { get; set; } = string.Empty;
-
-
     [Column(TypeName = "text")]
     public string Image { get; set; } = string.Empty;
 
@@ -33,12 +25,6 @@ public class ReleaseModel : BaseModel
 
     // Foreign key to RequirementModel
     public int RequirementId { get; set; }
-
-
-    /// <summary>
-    /// Gets the string combined with <see cref="Slug"/> and <see cref="Id"/>.
-    /// </summary>
-    public string SlugAndId => $"{Slug}-{Id}";
 
 
     /// <summary>

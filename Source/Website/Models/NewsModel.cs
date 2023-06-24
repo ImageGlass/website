@@ -5,17 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ImageGlass.Models;
 
-public class NewsModel : BaseModel
+public class NewsModel : ArticleBaseModel
 {
-    [Required]
-    [Column(TypeName = "text")]
-    public string Slug { get; set; }
-
-
-    [Column(TypeName = "text")]
-    public string Title { get; set; } = string.Empty;
-
-
     [Column(TypeName = "text")]
     public string Image { get; set; } = string.Empty;
 
@@ -30,11 +21,4 @@ public class NewsModel : BaseModel
     /// this field allows to use a custom url markdown content.
     /// </summary>
     public string CustomContentUrl { get; set; } = string.Empty;
-
-
-    /// <summary>
-    /// Gets the string combined with <see cref="Slug"/> and <see cref="Id"/>.
-    /// </summary>
-    public string SlugAndId => $"{Slug}-{Id}";
-    
 }
