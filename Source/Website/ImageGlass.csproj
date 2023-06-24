@@ -34,6 +34,7 @@
     <None Remove="frontend\src\" />
     <None Remove="frontend\src\%40types\" />
     <None Remove="frontend\src\styles\" />
+    <None Remove="Utils\Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\PageContent\" />
@@ -42,5 +43,6 @@
     <Folder Include="frontend\src\" />
     <Folder Include="frontend\src\%40types\" />
     <Folder Include="frontend\src\styles\" />
+    <Folder Include="Utils\Extensions\" />
   </ItemGroup>
 </Project>
