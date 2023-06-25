@@ -2,17 +2,16 @@
   opacity: 1;
   visibility: visible;
   pointer-events: all;
-  transform: translateY(0) scale(1);
+  transform: translateY(0) scale(1) rotateX(0);
 }
 
-body > header {
+#appHeader {
   position: sticky;
   z-index: 1;
   top: 0;
   background-color: rgb(var(--colorBg) / 0.8);
-  backdrop-filter: blur(1.5rem) saturate(400%);
-
-  box-shadow: inset 0 -1px 0 0 rgb(var(--colorInvert) / 0.1); // bottom border
+  backdrop-filter: var(--backdrop);
+  border-bottom: 1px solid rgb(var(--colorInvert) / 0.15);
 
   ul {
     list-style: none;
@@ -60,9 +59,6 @@ body > header {
         border-radius: var(--border-radius);
         transition: all ease 300ms;
 
-        &:hover {
-          box-shadow: inset 0 0 0 1px rgb(var(--colorInvert) / 0.025);
-        }
         &:focus-visible + ul {
           @include showDropdownMenu();
         }
@@ -72,12 +68,14 @@ body > header {
       &.nav-item--active {
         &> a {
           position: relative;
-          background-color: rgb(var(--colorInvert) / 0.15);
+          background-color: rgb(var(--colorInvert) / 0.05);
         }
       }
 
       &.nav-submenu {
         position: relative;
+        perspective-origin: bottom center;
+        perspective: 500px;
 
         &> a {
           padding-right: 1.6em;
@@ -111,13 +109,13 @@ body > header {
         margin-top: 0.25em;
         padding: 0.25em;
         transition: all ease 300ms;
-        transform: translateY(-1em) scale(0.9);
-        border-radius: var(--border-radius);
+        transform: translateY(-1em) scale(0.9) rotateX(-15deg);
+        border: 1px solid rgb(var(--colorInvert) / 0.175);
+        border-radius: calc(var(--border-radius) * 1.5);
 
-        background-color: rgb(var(--colorBg) / 0.95);
+        background-color: rgb(var(--colorBg) / 1);
         box-shadow:
-          inset 0 0 0 1px rgb(var(--colorInvert) / 0.1), // border
-          inset 0 0 0 100vh rgb(var(--colorInvert) / 0.025), // background blend
+          inset 0 0 0 100vh var(--bgSurface), // background blend
           var(--shadow); // shadow
 
         .nav-item {
@@ -154,6 +152,7 @@ body > header {
       // item pressed
       &:active {
         &> a {
+          filter: brightness(1.3);
           background-color: rgb(var(--colorInvert) / 0.15);
           transition: all ease 80ms;
         }
@@ -163,14 +162,28 @@ body > header {
 }
 
 
+// mobile menu
 label[for="chkMobileMenu"] {
   display: none;
+  padding: 0.5rem;
+  margin-right: -0.5rem;
   margin-bottom: 0;
   margin-left: auto;
+  border-radius: var(--border-radius);
+
   flex-direction: column;
   justify-content: center;
   z-index: 1;
   cursor: pointer;
+  transition: all ease 300ms;
+
+  &:hover {
+    background-color: rgb(var(--colorInvert) / 0.1) !important;
+  }
+  &:active {
+    background-color: rgb(var(--colorInvert) / 0.15) !important;
+    transition: all ease 80ms;
+  }
 
   &> .bar1,
   &> .bar2,
@@ -181,7 +194,7 @@ label[for="chkMobileMenu"] {
 
     display: block;
     width: 1.5em;
-    height: 0.125em;
+    height: 0.139em;
     margin-bottom: 0.35em;
 
     background-color: rgb(var(--colorText) / 1);
@@ -202,9 +215,64 @@ label[for="chkMobileMenu"] {
     transform-origin: 0 100%;
   }
 }
+#chkMobileMenu {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  display: none;
+
+  &:focus-visible ~ label[for="chkMobileMenu"] {
+    outline: -webkit-focus-ring-color auto 1px;;
+  }
+
+  &:checked ~ label[for="chkMobileMenu"] {
+    background-color: rgb(var(--colorInvert) / 0.05);
+
+    &> .bar1 {
+      opacity: 1;
+      transform: rotate(45deg) translate(0.1875em, -0.1875em);
+    }
+
+    &> .bar2 {
+      opacity: 0 !important;
+      transform: rotate(0deg) scale(0.5);
+    }
+
+    &> .bar3 {
+      opacity: 1;
+      transform: rotate(-45deg) translate(0.1875em, 0.1875em);
+    }
+  }
+
+  &:checked ~ .navbar-nav {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+  }
+}
+
 @media (max-width: 768px) {
   label[for="chkMobileMenu"] {
     display: flex;
+  }
+  #chkMobileMenu {
+    display: inherit;
+
+    &:checked ~ .navbar-nav {
+      .nav-item.nav-submenu {
+        &> ul {
+          visibility: visible;
+          opacity: 1;
+          position: static;
+          transform: none;
+          border: 0;
+          box-shadow: none;
+          background-color: transparent;
+        }
+      }
+    }
   }
 
   .navbar-nav {
@@ -219,7 +287,7 @@ label[for="chkMobileMenu"] {
     padding: 1.25em 0;
 
     background-color: rgb(var(--colorBg) / 0.95);
-    backdrop-filter: blur(1.5em) saturate(400%);
+    backdrop-filter: var(--backdrop);
     box-shadow: inset 1px 0 0 0 rgb(var(--colorInvert) / 0.1), // left border,
       var(--shadow); // shadow
 
@@ -258,40 +326,3 @@ label[for="chkMobileMenu"] {
   }
 }
 
-#chkMobileMenu {
-  opacity: 0;
-  position: absolute;
-  z-index: -1;
-  top: -99999px;
-
-  &:checked ~ label[for="chkMobileMenu"] {
-    &> .bar1,
-    &> .bar2,
-    &> .bar3 {
-      opacity: 1;
-      transform: rotate(45deg);
-    }
-
-    &> .bar2 {
-      opacity: 0;
-      transform: rotate(0deg) scale(0);
-    }
-
-    &> .bar3 {
-      transform: rotate(-45deg);
-    }
-  }
-
-  &:checked ~ .navbar-nav {
-    transform: translateX(0);
-    visibility: visible;
-    opacity: 1;
-    z-index: 1000;
-
-    .nav-item.nav-submenu {
-      &> ul {
-        visibility: visible;
-      }
-    }
-  }
-}

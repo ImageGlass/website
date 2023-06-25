@@ -8,7 +8,7 @@
   --colorAccent2: 41 152 172;
 
   --bgSurface: rgb(var(--colorInvert) / 0.05);
-  --bgFluent: rgb(255 255 255 / 0.125);
+  --bgFluent: rgb(255 255 255 / 0.1);
 
   --BgNeutral: 32 38 43;
   --BgInfo: 0 134 214;
@@ -19,10 +19,10 @@
   --control-width: 200;
   --control-height: 28;
   --border-radius: 0.25em;
-  --shadow: 0 10px 30px -10px rgb(0 0 0 / 0.35);
-  --shadow-sm: 0 1px 10px -5px rgb(0 0 0 / 0.35);
-  --scrollBarSize-px: 10px;
-  --headerBarHeight-em: 3.3125em; // 53px
+  --shadow: 0 10px 30px -10px rgb(0 0 0 / 0.75);
+  --shadow-sm: 0 5px 15px -10px rgb(0 0 0 / 0.75);
+  --scrollBarSize-px: 0.75rem; // 12px
+  --headerBarHeight-em: 3.475em; // 55.6px
 
   --fontBase: "Segoe UI Variable Display", "Seoge UI Variable Static Display", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Variant", "Segoe UI";
   --fontCode: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
@@ -33,6 +33,8 @@
   --fs-4: 1em;
   --fs-5: 0.875em;
   --fs-6: 0.8125em;
+
+  --backdrop: blur(2rem) saturate(500%);
 }
 
 // light mode
@@ -43,12 +45,12 @@
     --colorBg: 255 255 255;
     --colorText: 30 30 30;
 
-    --bgSurface: rgb(var(--colorInvert) / 0.025);
+    --bgSurface: rgb(var(--colorInvert) / 0.035);
     --bgFluent: rgb(255 255 255 / 0.175);
 
     --BgNeutral: 242 242 242;
 
     --shadow: 0 10px 30px -10px rgb(0 0 0 / 0.35);
-    --shadow-sm: 0 1px 10px -5px rgb(0 0 0 / 0.35);
+    --shadow-sm: 0 5px 15px -10px rgb(0 0 0 / 0.35);
   }
 }

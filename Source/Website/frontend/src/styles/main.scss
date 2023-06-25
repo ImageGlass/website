@@ -13,10 +13,12 @@
 
 
 // components
+@import "./components/layout.scss";
 @import "./components/header.scss";
 @import "./components/footer.scss";
 @import "./components/carbonads.scss";
-@import "./components/article-layout.scss";
+@import "./components/sidebar.scss";
+
 
 // pages
 @import "./pages/home.scss";

@@ -1,25 +1,31 @@
 
-.post-sidebar {
+.sidebar {
   position: sticky;
   top: calc(var(--headerBarHeight-em) + 1.5em);
 
-  .post-sidebar-item {
+  .sidebar-item {
     margin-bottom: 1rem;
     background-color: var(--bgSurface);
     border-radius: calc(var(--border-radius) * 1.5);
     border: 1px solid rgb(var(--colorInvert) / 0.1);
     box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all ease 300ms;
 
     .heading {
-      font-weight: 300;
+      font-weight: 400;
       font-size: 1.5rem;
       padding: 0.25em;
       margin-top: 0;
       margin-bottom: 0.25em;
     }
+
+    &:hover {
+      border-color: rgb(var(--colorInvert) / 0.3);
+    }
   }
 
-  .sidebar-article-list {
+  .article-list {
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
@@ -39,14 +45,12 @@
         time {
           color: rgb(var(--colorText));
           font-size: 0.75em;
-          font-weight: 300;
           margin-top: 0.25em;
         }
 
         &:hover {
           color: rgb(var(--colorAccent1));
           background-color: rgb(var(--colorInvert) / 0.1);
-          box-shadow: inset 0 0 0 1px rgb(var(--colorInvert) / 0.025);
         }
 
         &:active {
@@ -95,7 +99,7 @@
           right: -1rem;
           z-index: -1;
 
-          box-shadow: 0 0 5px 2px var(--shadow-sm);
+          box-shadow: var(--shadow-sm);
         }
       }
     }

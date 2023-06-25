@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using ImageGlass.Data;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ImageGlassContext>(options =>
@@ -32,9 +33,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(

@@ -10,7 +10,7 @@ const effectOptions: Partial<IEffectOptions> = {
 };
 
 applyEffect('.navbar-nav .nav-item > a', effectOptions);
-applyEffect('.sidebar-article-list li > a', {
+applyEffect('.article-list li > a', {
   ...effectOptions,
   gradientSize: 150,
 });

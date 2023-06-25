@@ -7,169 +7,171 @@
     @await Html.PartialAsync("~/Views/_Partials/_Head.cshtml")
 </head>
 <body>
-    <header>
-        <nav class="navbar container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ImageGlass</a>
+    <div id="app">
+        <header id="appHeader">
+            <nav class="navbar container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ImageGlass</a>
 
-            <input type="checkbox" id="chkMobileMenu">
-            <label for="chkMobileMenu">
-                <span class="bar1"></span>
-                <span class="bar2"></span>
-                <span class="bar3"></span>
-            </label>
+                <input type="checkbox" id="chkMobileMenu">
+                <label for="chkMobileMenu">
+                    <span class="bar1"></span>
+                    <span class="bar2"></span>
+                    <span class="bar3"></span>
+                </label>
 
-            <ul class="navbar-nav">
-                <li class="nav-item @(_page.Contains("news") ? "nav-item--active" : "")">
-                    <a asp-area="" asp-controller="News" asp-action="Index">News</a>
-                </li>
+                <ul class="navbar-nav">
+                    <li class="nav-item @(_page.Contains("news") ? "nav-item--active" : "")">
+                        <a asp-area="" asp-controller="News" asp-action="Index">News</a>
+                    </li>
 
-                <li class="nav-item nav-submenu @(_page.Contains("download") ? "nav-item--active" : "")">
-                    <a asp-area="" asp-controller="Download" asp-action="Index">Download</a>
+                    <li class="nav-item nav-submenu @(_page.Contains("download") ? "nav-item--active" : "")">
+                        <a asp-area="" asp-controller="Download" asp-action="Index">Download</a>
 
-                    <ul>
-                        <li class="nav-item @(_page.Contains("release.stable") ? "nav-item--active" : "")">
-                            <a asp-area="" asp-controller="Release" asp-action="StableReleasesListingPage">Stable releases</a>
-                        </li>
-                        <li class="nav-item @(_page.Contains("release.beta") ? "nav-item--active" : "")">
-                            <a asp-area="" asp-controller="Release" asp-action="BetaReleasesListingPage">Beta releases</a>
-                        </li>
-                        <li class="nav-item @(_page.Contains("theme") ? "nav-item--active" : "")">
-                            <a asp-area="" asp-controller="Theme" asp-action="ThemePackListingPage">Theme packs</a>
-                        </li>
-                        <li class="nav-item @(_page.Contains("icon") ? "nav-item--active" : "")">
-                            <a asp-area="" asp-controller="ExtensionIcon" asp-action="ExtensionIconListingPage">Extension icon packs</a>
-                        </li>
-                        <li class="nav-item @(_page.Contains("language") ? "nav-item--active" : "")">
-                            <a asp-area="" asp-controller="Language" asp-action="LanguageListing">Language packs</a>
-                        </li>
-                    </ul>
-                </li>
+                        <ul>
+                            <li class="nav-item @(_page.Contains("release.stable") ? "nav-item--active" : "")">
+                                <a asp-area="" asp-controller="Release" asp-action="StableReleasesListingPage">Stable releases</a>
+                            </li>
+                            <li class="nav-item @(_page.Contains("release.beta") ? "nav-item--active" : "")">
+                                <a asp-area="" asp-controller="Release" asp-action="BetaReleasesListingPage">Beta releases</a>
+                            </li>
+                            <li class="nav-item @(_page.Contains("theme") ? "nav-item--active" : "")">
+                                <a asp-area="" asp-controller="Theme" asp-action="ThemePackListingPage">Theme packs</a>
+                            </li>
+                            <li class="nav-item @(_page.Contains("icon") ? "nav-item--active" : "")">
+                                <a asp-area="" asp-controller="ExtensionIcon" asp-action="ExtensionIconListingPage">Extension icon packs</a>
+                            </li>
+                            <li class="nav-item @(_page.Contains("language") ? "nav-item--active" : "")">
+                                <a asp-area="" asp-controller="Language" asp-action="LanguageListing">Language packs</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                <li class="nav-item nav-submenu @(_page.Contains("support") ? "nav-item--active" : "")">
-                    <a asp-area="" asp-controller="Support" asp-action="Index">Support</a>
-                    <ul>
-                        <li class="nav-item @(_page.Contains("faqs") ? "nav-item--active" : "")">
-                            <a asp-area="" asp-controller="Support" asp-action="FAQsPage">FAQs</a>
-                        </li>
-                        <li class="nav-item @(_page.Contains("privacy") ? "nav-item--active" : "")">
-                            <a asp-area="" asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
-                        </li>
-                        <li class="nav-item @(_page.Contains("license") ? "nav-item--active" : "")">
-                            <a asp-area="" asp-controller="Support" asp-action="LicensePage">End-user license agreement</a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item nav-submenu @(_page.Contains("support") ? "nav-item--active" : "")">
+                        <a asp-area="" asp-controller="Support" asp-action="Index">Support</a>
+                        <ul>
+                            <li class="nav-item @(_page.Contains("faqs") ? "nav-item--active" : "")">
+                                <a asp-area="" asp-controller="Support" asp-action="FAQsPage">FAQs</a>
+                            </li>
+                            <li class="nav-item @(_page.Contains("privacy") ? "nav-item--active" : "")">
+                                <a asp-area="" asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
+                            </li>
+                            <li class="nav-item @(_page.Contains("license") ? "nav-item--active" : "")">
+                                <a asp-area="" asp-controller="Support" asp-action="LicensePage">End-user license agreement</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                <li class="nav-item @(_page.Contains("docs") ? "nav-item--active" : "")">
-                    <a asp-area="" asp-controller="Docs" asp-action="Index">Docs</a>
-                </li>
+                    <li class="nav-item @(_page.Contains("docs") ? "nav-item--active" : "")">
+                        <a asp-area="" asp-controller="Docs" asp-action="Index">Docs</a>
+                    </li>
 
-                <li class="nav-item @(_page.Contains("about") ? "nav-item--active" : "")">
-                    <a asp-area="" asp-controller="About" asp-action="Index">About</a>
-                </li>
-            </ul>
+                    <li class="nav-item @(_page.Contains("about") ? "nav-item--active" : "")">
+                        <a asp-area="" asp-controller="About" asp-action="Index">About</a>
+                    </li>
+                </ul>
 
-        </nav>
-    </header>
-
-
-    <div class="container body-content">
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
+            </nav>
+        </header>
 
 
-    <footer>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col col-12 col-lg-6 mb-3">
-                    <div class="mb-1">v6.2023</div>
-                    <div>
-                        Copyright &copy; 2010-@(DateTime.UtcNow.Year) <b>Duong Dieu Phap</b>
-                        — <a asp-area="" asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
+        <div id="appBody" class="container">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+
+
+        <footer id="appFooter">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col col-12 col-lg-6 mb-3">
+                        <div class="mb-1">v6.2023</div>
+                        <div>
+                            Copyright &copy; 2010-@(DateTime.UtcNow.Year) <b>Duong Dieu Phap</b>
+                            — <a asp-area="" asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
+                        </div>
+                    </div>
+
+
+                    <div class="col col-12 col-lg-6 mb-3 text-lg-end social-links">
+                        <a href="https://github.com/d2phap/ImageGlass" title="GitHub" target="_blank" rel="noreferrer nofollow noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 20 20" version="1.1">
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000">
+                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                            <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]">
+
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+
+
+                        <a href="https://twitter.com/duongdieuphap" title="Twitter" target="_blank" rel="noreferrer nofollow noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="16" height="16" viewBox="0 0 33.88 33.88" xml:space="preserve">
+                            <g>
+                            <path d="M30.414,10.031c0.014,0.297,0.021,0.595,0.021,0.897c0,9.187-6.992,19.779-19.779,19.779c-3.928,0-7.58-1.149-10.657-3.123   c0.546,0.063,1.099,0.095,1.658,0.095c3.26,0,6.254-1.107,8.632-2.974c-3.039-0.058-5.607-2.065-6.491-4.828   c0.424,0.082,0.858,0.125,1.308,0.125c0.635,0,1.248-0.084,1.83-0.244c-3.177-0.639-5.576-3.448-5.576-6.815   c0-0.029,0-0.058,0-0.087c0.939,0.521,2.01,0.833,3.15,0.869C2.646,12.48,1.419,10.35,1.419,7.938c0-1.274,0.343-2.467,0.94-3.495   c3.427,4.206,8.552,6.973,14.327,7.263c-0.117-0.509-0.18-1.038-0.18-1.584c0-3.838,3.112-6.949,6.953-6.949   c1.998,0,3.805,0.844,5.07,2.192c1.582-0.311,3.072-0.89,4.416-1.686c-0.521,1.624-1.621,2.986-3.057,3.844   c1.406-0.166,2.746-0.54,3.991-1.092C32.949,7.826,31.771,9.05,30.414,10.031z" />
+                            </g>
+                            </svg>
+                        </a>
+
+
+                        <a href="https://www.youtube.com/user/imageglass" title="Youtube" target="_blank" rel="noreferrer nofollow noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 -3 20 20" version="1.1">
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -7442.000000)" fill="#000000">
+                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                            <path d="M251.988432,7291.58588 L251.988432,7285.97425 C253.980638,7286.91168 255.523602,7287.8172 257.348463,7288.79353 C255.843351,7289.62824 253.980638,7290.56468 251.988432,7291.58588 M263.090998,7283.18289 C262.747343,7282.73013 262.161634,7282.37809 261.538073,7282.26141 C259.705243,7281.91336 248.270974,7281.91237 246.439141,7282.26141 C245.939097,7282.35515 245.493839,7282.58153 245.111335,7282.93357 C243.49964,7284.42947 244.004664,7292.45151 244.393145,7293.75096 C244.556505,7294.31342 244.767679,7294.71931 245.033639,7294.98558 C245.376298,7295.33761 245.845463,7295.57995 246.384355,7295.68865 C247.893451,7296.0008 255.668037,7296.17532 261.506198,7295.73552 C262.044094,7295.64178 262.520231,7295.39147 262.895762,7295.02447 C264.385932,7293.53455 264.28433,7285.06174 263.090998,7283.18289" id="youtube-[#168]">
+
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+
+
+                        <a href="https://www.facebook.com/ImageGlass" title="Facebook" target="_blank" rel="noreferrer nofollow noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="16" height="16" viewBox="0 0 97.75 97.75" xml:space="preserve">
+                            <g>
+                            <path d="M48.875,0C21.882,0,0,21.882,0,48.875S21.882,97.75,48.875,97.75S97.75,75.868,97.75,48.875S75.868,0,48.875,0z    M67.521,24.89l-6.76,0.003c-5.301,0-6.326,2.519-6.326,6.215v8.15h12.641L67.07,52.023H54.436v32.758H41.251V52.023H30.229V39.258   h11.022v-9.414c0-10.925,6.675-16.875,16.42-16.875l9.851,0.015V24.89L67.521,24.89z" />
+                                </g>
+                            </svg>
+                        </a>
+
+
+                        <a href="https://instagram.com/ImageGlassApp" title="Instagram" target="_blank" rel="noreferrer nofollow noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 20 20" version="1.1">
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Dribbble-Light-Preview" transform="translate(-340.000000, -7439.000000)" fill="#000000">
+                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                            <path d="M289.869652,7279.12273 C288.241769,7279.19618 286.830805,7279.5942 285.691486,7280.72871 C284.548187,7281.86918 284.155147,7283.28558 284.081514,7284.89653 C284.035742,7285.90201 283.768077,7293.49818 284.544207,7295.49028 C285.067597,7296.83422 286.098457,7297.86749 287.454694,7298.39256 C288.087538,7298.63872 288.809936,7298.80547 289.869652,7298.85411 C298.730467,7299.25511 302.015089,7299.03674 303.400182,7295.49028 C303.645956,7294.859 303.815113,7294.1374 303.86188,7293.08031 C304.26686,7284.19677 303.796207,7282.27117 302.251908,7280.72871 C301.027016,7279.50685 299.5862,7278.67508 289.869652,7279.12273 M289.951245,7297.06748 C288.981083,7297.0238 288.454707,7296.86201 288.103459,7296.72603 C287.219865,7296.3826 286.556174,7295.72155 286.214876,7294.84312 C285.623823,7293.32944 285.819846,7286.14023 285.872583,7284.97693 C285.924325,7283.83745 286.155174,7282.79624 286.959165,7281.99226 C287.954203,7280.99968 289.239792,7280.51332 297.993144,7280.90837 C299.135448,7280.95998 300.179243,7281.19026 300.985224,7281.99226 C301.980262,7282.98483 302.473801,7284.28014 302.071806,7292.99991 C302.028024,7293.96767 301.865833,7294.49274 301.729513,7294.84312 C300.829003,7297.15085 298.757333,7297.47145 289.951245,7297.06748 M298.089663,7283.68956 C298.089663,7284.34665 298.623998,7284.88065 299.283709,7284.88065 C299.943419,7284.88065 300.47875,7284.34665 300.47875,7283.68956 C300.47875,7283.03248 299.943419,7282.49847 299.283709,7282.49847 C298.623998,7282.49847 298.089663,7283.03248 298.089663,7283.68956 M288.862673,7288.98792 C288.862673,7291.80286 291.150266,7294.08479 293.972194,7294.08479 C296.794123,7294.08479 299.081716,7291.80286 299.081716,7288.98792 C299.081716,7286.17298 296.794123,7283.89205 293.972194,7283.89205 C291.150266,7283.89205 288.862673,7286.17298 288.862673,7288.98792 M290.655732,7288.98792 C290.655732,7287.16159 292.140329,7285.67967 293.972194,7285.67967 C295.80406,7285.67967 297.288657,7287.16159 297.288657,7288.98792 C297.288657,7290.81525 295.80406,7292.29716 293.972194,7292.29716 C292.140329,7292.29716 290.655732,7290.81525 290.655732,7288.98792" id="instagram-[#167]">
+
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+
+
+                        <a href="https://medium.com/@@d2phap" title="Medium" target="_blank" rel="noreferrer nofollow noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 -55 256 256" preserveAspectRatio="xMidYMid">
+                                <g>
+                                    <path d="M72.2009141,1.42108547e-14 C112.076502,1.42108547e-14 144.399375,32.5485469 144.399375,72.6964154 C144.399375,112.844284 112.074049,145.390378 72.2009141,145.390378 C32.327779,145.390378 0,112.844284 0,72.6964154 C0,32.5485469 32.325326,1.42108547e-14 72.2009141,1.42108547e-14 Z M187.500628,4.25836743 C207.438422,4.25836743 223.601085,34.8960455 223.601085,72.6964154 L223.603538,72.6964154 C223.603538,110.486973 207.440875,141.134463 187.503081,141.134463 C167.565287,141.134463 151.402624,110.486973 151.402624,72.6964154 C151.402624,34.9058574 167.562834,4.25836743 187.500628,4.25836743 Z M243.303393,11.3867175 C250.314,11.3867175 256,38.835526 256,72.6964154 C256,106.547493 250.316453,134.006113 243.303393,134.006113 C236.290333,134.006113 230.609239,106.554852 230.609239,72.6964154 C230.609239,38.837979 236.292786,11.3867175 243.303393,11.3867175 Z" fill="#000000">
+
+                                    </path>
+                                </g>
+                            </svg>
+                        </a>
+
                     </div>
                 </div>
-
-
-                <div class="col col-12 col-lg-6 mb-3 text-lg-end social-links">
-                    <a href="https://github.com/d2phap/ImageGlass" title="GitHub" target="_blank" rel="noreferrer nofollow noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 20 20" version="1.1">
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000">
-                                    <g id="icons" transform="translate(56.000000, 160.000000)">
-                                        <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]">
-
-                                        </path>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
-                    </a>
-
-
-                    <a href="https://twitter.com/duongdieuphap" title="Twitter" target="_blank" rel="noreferrer nofollow noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="16" height="16" viewBox="0 0 33.88 33.88" xml:space="preserve">
-                        <g>
-                        <path d="M30.414,10.031c0.014,0.297,0.021,0.595,0.021,0.897c0,9.187-6.992,19.779-19.779,19.779c-3.928,0-7.58-1.149-10.657-3.123   c0.546,0.063,1.099,0.095,1.658,0.095c3.26,0,6.254-1.107,8.632-2.974c-3.039-0.058-5.607-2.065-6.491-4.828   c0.424,0.082,0.858,0.125,1.308,0.125c0.635,0,1.248-0.084,1.83-0.244c-3.177-0.639-5.576-3.448-5.576-6.815   c0-0.029,0-0.058,0-0.087c0.939,0.521,2.01,0.833,3.15,0.869C2.646,12.48,1.419,10.35,1.419,7.938c0-1.274,0.343-2.467,0.94-3.495   c3.427,4.206,8.552,6.973,14.327,7.263c-0.117-0.509-0.18-1.038-0.18-1.584c0-3.838,3.112-6.949,6.953-6.949   c1.998,0,3.805,0.844,5.07,2.192c1.582-0.311,3.072-0.89,4.416-1.686c-0.521,1.624-1.621,2.986-3.057,3.844   c1.406-0.166,2.746-0.54,3.991-1.092C32.949,7.826,31.771,9.05,30.414,10.031z" />
-                        </g>
-                        </svg>
-                    </a>
-
-
-                    <a href="https://www.youtube.com/user/imageglass" title="Youtube" target="_blank" rel="noreferrer nofollow noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 -3 20 20" version="1.1">
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -7442.000000)" fill="#000000">
-                                    <g id="icons" transform="translate(56.000000, 160.000000)">
-                                        <path d="M251.988432,7291.58588 L251.988432,7285.97425 C253.980638,7286.91168 255.523602,7287.8172 257.348463,7288.79353 C255.843351,7289.62824 253.980638,7290.56468 251.988432,7291.58588 M263.090998,7283.18289 C262.747343,7282.73013 262.161634,7282.37809 261.538073,7282.26141 C259.705243,7281.91336 248.270974,7281.91237 246.439141,7282.26141 C245.939097,7282.35515 245.493839,7282.58153 245.111335,7282.93357 C243.49964,7284.42947 244.004664,7292.45151 244.393145,7293.75096 C244.556505,7294.31342 244.767679,7294.71931 245.033639,7294.98558 C245.376298,7295.33761 245.845463,7295.57995 246.384355,7295.68865 C247.893451,7296.0008 255.668037,7296.17532 261.506198,7295.73552 C262.044094,7295.64178 262.520231,7295.39147 262.895762,7295.02447 C264.385932,7293.53455 264.28433,7285.06174 263.090998,7283.18289" id="youtube-[#168]">
-
-                                        </path>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
-                    </a>
-
-
-                    <a href="https://www.facebook.com/ImageGlass" title="Facebook" target="_blank" rel="noreferrer nofollow noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="16" height="16" viewBox="0 0 97.75 97.75" xml:space="preserve">
-                        <g>
-                        <path d="M48.875,0C21.882,0,0,21.882,0,48.875S21.882,97.75,48.875,97.75S97.75,75.868,97.75,48.875S75.868,0,48.875,0z    M67.521,24.89l-6.76,0.003c-5.301,0-6.326,2.519-6.326,6.215v8.15h12.641L67.07,52.023H54.436v32.758H41.251V52.023H30.229V39.258   h11.022v-9.414c0-10.925,6.675-16.875,16.42-16.875l9.851,0.015V24.89L67.521,24.89z" />
-                            </g>
-                        </svg>
-                    </a>
-
-
-                    <a href="https://instagram.com/ImageGlassApp" title="Instagram" target="_blank" rel="noreferrer nofollow noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 20 20" version="1.1">
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g id="Dribbble-Light-Preview" transform="translate(-340.000000, -7439.000000)" fill="#000000">
-                                    <g id="icons" transform="translate(56.000000, 160.000000)">
-                                        <path d="M289.869652,7279.12273 C288.241769,7279.19618 286.830805,7279.5942 285.691486,7280.72871 C284.548187,7281.86918 284.155147,7283.28558 284.081514,7284.89653 C284.035742,7285.90201 283.768077,7293.49818 284.544207,7295.49028 C285.067597,7296.83422 286.098457,7297.86749 287.454694,7298.39256 C288.087538,7298.63872 288.809936,7298.80547 289.869652,7298.85411 C298.730467,7299.25511 302.015089,7299.03674 303.400182,7295.49028 C303.645956,7294.859 303.815113,7294.1374 303.86188,7293.08031 C304.26686,7284.19677 303.796207,7282.27117 302.251908,7280.72871 C301.027016,7279.50685 299.5862,7278.67508 289.869652,7279.12273 M289.951245,7297.06748 C288.981083,7297.0238 288.454707,7296.86201 288.103459,7296.72603 C287.219865,7296.3826 286.556174,7295.72155 286.214876,7294.84312 C285.623823,7293.32944 285.819846,7286.14023 285.872583,7284.97693 C285.924325,7283.83745 286.155174,7282.79624 286.959165,7281.99226 C287.954203,7280.99968 289.239792,7280.51332 297.993144,7280.90837 C299.135448,7280.95998 300.179243,7281.19026 300.985224,7281.99226 C301.980262,7282.98483 302.473801,7284.28014 302.071806,7292.99991 C302.028024,7293.96767 301.865833,7294.49274 301.729513,7294.84312 C300.829003,7297.15085 298.757333,7297.47145 289.951245,7297.06748 M298.089663,7283.68956 C298.089663,7284.34665 298.623998,7284.88065 299.283709,7284.88065 C299.943419,7284.88065 300.47875,7284.34665 300.47875,7283.68956 C300.47875,7283.03248 299.943419,7282.49847 299.283709,7282.49847 C298.623998,7282.49847 298.089663,7283.03248 298.089663,7283.68956 M288.862673,7288.98792 C288.862673,7291.80286 291.150266,7294.08479 293.972194,7294.08479 C296.794123,7294.08479 299.081716,7291.80286 299.081716,7288.98792 C299.081716,7286.17298 296.794123,7283.89205 293.972194,7283.89205 C291.150266,7283.89205 288.862673,7286.17298 288.862673,7288.98792 M290.655732,7288.98792 C290.655732,7287.16159 292.140329,7285.67967 293.972194,7285.67967 C295.80406,7285.67967 297.288657,7287.16159 297.288657,7288.98792 C297.288657,7290.81525 295.80406,7292.29716 293.972194,7292.29716 C292.140329,7292.29716 290.655732,7290.81525 290.655732,7288.98792" id="instagram-[#167]">
-
-                                        </path>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
-                    </a>
-
-
-                    <a href="https://medium.com/@@d2phap" title="Medium" target="_blank" rel="noreferrer nofollow noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 -55 256 256" preserveAspectRatio="xMidYMid">
-                            <g>
-                                <path d="M72.2009141,1.42108547e-14 C112.076502,1.42108547e-14 144.399375,32.5485469 144.399375,72.6964154 C144.399375,112.844284 112.074049,145.390378 72.2009141,145.390378 C32.327779,145.390378 0,112.844284 0,72.6964154 C0,32.5485469 32.325326,1.42108547e-14 72.2009141,1.42108547e-14 Z M187.500628,4.25836743 C207.438422,4.25836743 223.601085,34.8960455 223.601085,72.6964154 L223.603538,72.6964154 C223.603538,110.486973 207.440875,141.134463 187.503081,141.134463 C167.565287,141.134463 151.402624,110.486973 151.402624,72.6964154 C151.402624,34.9058574 167.562834,4.25836743 187.500628,4.25836743 Z M243.303393,11.3867175 C250.314,11.3867175 256,38.835526 256,72.6964154 C256,106.547493 250.316453,134.006113 243.303393,134.006113 C236.290333,134.006113 230.609239,106.554852 230.609239,72.6964154 C230.609239,38.837979 236.292786,11.3867175 243.303393,11.3867175 Z" fill="#000000">
-
-                                </path>
-                            </g>
-                        </svg>
-                    </a>
-
-                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     @await Html.PartialAsync("~/Views/_Partials/_Foot.cshtml")
 

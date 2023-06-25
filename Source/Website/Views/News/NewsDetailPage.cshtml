@@ -11,8 +11,8 @@
     </div>
 
     <div class="col-12 col-lg-4 my-5">
-        <aside class="post-sidebar">
-            <section class="post-sidebar-item markdown-body px-3 py-2 fs-5 fw-300">
+        <aside class="sidebar">
+            <section class="sidebar-item markdown-body px-3 py-2 fs-5">
                 Published on
                 <time datetime="@Model.UpdatedDate">
                     @Model.UpdatedDate.ToDateTimeString()
@@ -20,16 +20,16 @@
             </section>
 
 
-            <section class="post-sidebar-item p-0">
+            <section class="sidebar-item p-0">
                 @await Html.PartialAsync("_Ads")
             </section>
 
 
             @if (list != null && list.Count > 0)
             {
-                <section class="post-sidebar-item p-2">
+                <section class="sidebar-item p-2">
                     <h3 class="heading">The latest updates</h3>
-                    <ul class="sidebar-article-list mb-2">
+                    <ul class="article-list mb-2">
                         @foreach (var item in list)
                         {
                             <li class="@(item.IsNewPost ? "new-article" : "")">
