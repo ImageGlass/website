@@ -1,0 +1,92 @@
+﻿@model PaginatedList<ReleaseModel>
+
+<h1>@ViewData[PageInfo.Title]</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Slug
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                ReleaseChannel
+            </th>
+            <th>
+                Version
+            </th>
+            <th>
+                CreatedDate
+            </th>
+            <th>
+                UpdatedDate
+            </th>
+            <th>
+                IsNewPost
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Slug)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseChannel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsNewPost)
+                </td>
+                <td>
+                    <a asp-action="ReleaseDetailPage" asp-route-slugId="@item.SlugAndId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="@(ViewData["_ControllerAction"])"
+   asp-route-page="@(Model.PageIndex - 1)"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="@(ViewData["_ControllerAction"])"
+   asp-route-page="@(Model.PageIndex + 1)"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
