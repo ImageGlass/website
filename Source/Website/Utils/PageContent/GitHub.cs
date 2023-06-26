@@ -4,21 +4,55 @@ using Markdig;
 using Markdig.Renderers.Html;
 using Markdig.Syntax;
 using Markdig.Syntax.Inlines;
+using ImageGlass.Models;
+using System.Net.Http.Headers;
 
 namespace ImageGlass.Utils;
 
 public class GitHub
 {
-    public static string MetaOpenTag = "```json(\\s|\\n)+#metadata";
-    public static string MetaCloseTag = "#metadata(\\s|\\n)+```";
-    public static string IgHost = "imageglass.org";
+    public static string MetaOpenTag => "```json(\\s|\\n)+#metadata";
+    public static string MetaCloseTag => "#metadata(\\s|\\n)+```";
+    public static string IgHost => "imageglass.org";
 
 
-    public static string WebsiteContentRepo = "ImageGlass/website-content";
-    public static string RepoBranch = "main";
+    public static string WebsiteContentRepo => "ImageGlass/website-content";
+    public static string RepoBranch => "main";
     public static string RawFileContentUrlPrefix => @$"https://raw.githubusercontent.com/{WebsiteContentRepo}/{RepoBranch}/";
-    public static string ContentUrlPrefix = @$"https://api.github.com/repos/{WebsiteContentRepo}/contents/";
+    public static string ContentUrlPrefix => @$"https://api.github.com/repos/{WebsiteContentRepo}/contents/";
 
+
+    /// <summary>
+    /// Gets files from GitHub folder: /user/repo/Contents/paths...
+    /// </summary>
+    /// <param name="gitHubPaths"></param>
+    /// <exception cref="HttpRequestException"></exception>
+    public static async Task<List<GitHubFileModel>> GetFilesAsync(params string[] gitHubPaths)
+    {
+        var path = string.Join("/", gitHubPaths) ?? "";
+        var url = new Uri($"{ContentUrlPrefix}{path}?ref={RepoBranch}");
+
+        try
+        {
+            using var client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
+
+            var list = await client.GetFromJsonAsync<List<GitHubFileModel>>(url, JsonHelper.JsonOptions);
+
+
+            return list ?? new();
+        }
+        catch (HttpRequestException ex)
+        {
+            if (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                return new();
+            }
+
+            throw new HttpRequestException(ex.Message, ex.InnerException, ex.StatusCode);
+        }
+    }
 
 
     /// <summary>
@@ -35,6 +69,9 @@ public class GitHub
         try
         {
             using var client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
+
             var rawContent = await client.GetStringAsync(url);
 
             return rawContent;

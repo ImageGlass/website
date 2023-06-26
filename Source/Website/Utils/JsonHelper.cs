@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -8,7 +8,7 @@ namespace ImageGlass.Utils;
 
 public class JsonHelper
 {
-    private static JsonSerializerOptions JsonOptions { get; } = new()
+    public static JsonSerializerOptions JsonOptions { get; } = new()
     {
         PropertyNameCaseInsensitive = true,
         AllowTrailingCommas = true,
@@ -16,12 +16,12 @@ public class JsonHelper
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
 
         Converters =
-    {
-        // Write enum value as string
-        new JsonStringEnumConverter(),
+        {
+            // Write enum value as string
+            new JsonStringEnumConverter(),
 
-        new CustomDateTimeConverter(Constants.DATETIME_FORMAT),
-    },
+            new CustomDateTimeConverter(Constants.DATETIME_FORMAT),
+        },
 
         // ignoring policy
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull,
