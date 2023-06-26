@@ -3,7 +3,7 @@
 
 @{
     var list = (PaginatedList<NewsModel>?)ViewData[PageInfo.SidebarList];
-    var screenshots = (List<GitHubFileModel>)ViewData["_ReleaseScreenshots"] ?? new();
+    var screenshots = ((List<GitHubFileModel>?)ViewData["_ReleaseScreenshots"]) ?? new();
 }
 
 

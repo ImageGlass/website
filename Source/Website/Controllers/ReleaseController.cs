@@ -79,7 +79,11 @@ public class ReleaseController : BaseController
 
         // page data
         ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
-        ViewData["_ReleaseScreenshots"] = await GitHub.GetFilesAsync("releases/screenshots/v9.0-beta-4");
+        if (!string.IsNullOrEmpty(model.ScreenshotsDir))
+        {
+            ViewData["_ReleaseScreenshots"] = await GitHub.GetFilesAsync("releases/screenshots", model.ScreenshotsDir);
+        }
+
 
         return View("ReleaseDetailPage", model);
     }
