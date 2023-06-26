@@ -11,13 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImageGlass.Migrations
 {
     [DbContext(typeof(ImageGlassContext))]
-    [Migration("20221112084224_InitialCreate")]
+    [Migration("20230626095842_InitialCreate")]
     partial class InitialCreate
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.7");
 
             modelBuilder.Entity("ImageGlass.Models.BinaryFileModel", b =>
                 {
@@ -140,7 +141,6 @@ namespace ImageGlass.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Slug")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
@@ -177,6 +177,9 @@ namespace ImageGlass.Migrations
 
                     b.Property<int>("RequirementId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("ScreenshotsDir")
+                        .HasColumnType("text");
 
                     b.Property<string>("Slug")
                         .HasColumnType("text");

@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ImageGlass.Migrations
 {
+    /// <inheritdoc />
     public partial class InitialCreate : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -15,8 +17,6 @@ namespace ImageGlass.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Slug = table.Column<string>(type: "text", nullable: true),
-                    Title = table.Column<string>(type: "text", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
                     Link = table.Column<string>(type: "text", nullable: true),
@@ -27,7 +27,9 @@ namespace ImageGlass.Migrations
                     Count = table.Column<int>(type: "INTEGER", nullable: false),
                     IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: true),
+                    Title = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -40,14 +42,14 @@ namespace ImageGlass.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Slug = table.Column<string>(type: "text", nullable: false),
-                    Title = table.Column<string>(type: "text", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
                     CustomContentUrl = table.Column<string>(type: "TEXT", nullable: true),
                     IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: true),
+                    Title = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -76,8 +78,6 @@ namespace ImageGlass.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Slug = table.Column<string>(type: "text", nullable: true),
-                    Title = table.Column<string>(type: "text", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
                     IsDarkMode = table.Column<bool>(type: "INTEGER", nullable: false),
@@ -90,7 +90,9 @@ namespace ImageGlass.Migrations
                     Count = table.Column<int>(type: "INTEGER", nullable: false),
                     IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: true),
+                    Title = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -103,16 +105,17 @@ namespace ImageGlass.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Slug = table.Column<string>(type: "text", nullable: true),
-                    Title = table.Column<string>(type: "text", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: true),
                     ReleaseChannel = table.Column<string>(type: "text", nullable: true),
                     Version = table.Column<string>(type: "text", nullable: true),
+                    ScreenshotsDir = table.Column<string>(type: "text", nullable: true),
                     NewsId = table.Column<int>(type: "INTEGER", nullable: true),
                     RequirementId = table.Column<int>(type: "INTEGER", nullable: false),
                     IsVisible = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    UpdatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: true),
+                    Title = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -165,6 +168,7 @@ namespace ImageGlass.Migrations
                 column: "RequirementId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

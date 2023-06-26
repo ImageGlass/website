@@ -19,6 +19,15 @@ public class ReleaseModel : ArticleBaseModel
     public string Version { get; set; } = string.Empty;
 
 
+    /// <summary>
+    /// Folder name of screenshots.
+    /// E.g. <c>v9.0-beta-4</c>
+    ///     from <c>releases/screenshots/v9.0-beta-4</c>
+    /// </summary>
+    [Column(TypeName = "text")]
+    public string ScreenshotsDir { get; set; } = string.Empty;
+
+
     [AllowNull]
     public int? NewsId { get; set; }
 
@@ -60,6 +69,7 @@ public class ReleaseDetailModel : ReleaseModel
         Image = model.Image;
         ReleaseChannel = model.ReleaseChannel;
         Version = model.Version;
+        ScreenshotsDir = model.ScreenshotsDir;
         NewsId = model.NewsId;
         IsVisible = model.IsVisible;
         CreatedDate = model.CreatedDate;
