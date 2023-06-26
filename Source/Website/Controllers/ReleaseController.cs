@@ -36,6 +36,7 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Title] = $"Stable releases | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Keywords] = $"imageglass stable, {ViewData[PageInfo.Keywords]}";
 
+        // page data
         ViewData["_ControllerAction"] = nameof(StableReleasesListingPage);
 
         var pList = await _context.QueryReleaseModels(ReleaseChannel.Stable, 10, page ?? 1);
@@ -52,6 +53,7 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Description] = "The bleeding-edge beta release of ImageGlass. It is built and shipped to users with the latest state and features of ImageGlass.";
         ViewData[PageInfo.Keywords] = $"imageglass beta, {ViewData[PageInfo.Keywords]}";
 
+        // page data
         ViewData["_ControllerAction"] = nameof(BetaReleasesListingPage);
 
         var pList = await _context.QueryReleaseModels(ReleaseChannel.Beta, 10, page ?? 1);
@@ -75,7 +77,9 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Keywords] = $"imageglass {model.Version}, imageglass {model.ReleaseChannel}, " + ViewData[PageInfo.Keywords];
         ViewData[PageInfo.Thumbnail] = model.Image;
 
+        // page data
         ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
+        ViewData["_ReleaseScreenshots"] = await GitHub.GetFilesAsync("releases/screenshots/v9.0-beta-4");
 
         return View("ReleaseDetailPage", model);
     }

@@ -3,6 +3,7 @@
 
 @{
     var list = (PaginatedList<NewsModel>?)ViewData[PageInfo.SidebarList];
+    var screenshots = (List<GitHubFileModel>)ViewData["_ReleaseScreenshots"] ?? new();
 }
 
 
@@ -55,8 +56,22 @@
                 </tbody>
             </table>
 
+
+            <div>
+                <ul>
+                    @foreach (var item in screenshots)
+                    {
+                        <li>
+                            <img src="@item.Download_url" alt="@item.Name" width="300" />
+                        </li>
+                    }
+                </ul>
+            </div>
+
         </section>
     </div>
+
+
 
     <div class="col-12 col-lg-4 my-5">
         <aside class="sidebar">
