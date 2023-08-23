@@ -63,8 +63,8 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./_Output
-        server-dir: ./httpdocs/phap
+        local-dir: ./_Output/
+        server-dir: ./httpdocs/phap/
         exclude: |
           **/.git*
           **/.git*/**
