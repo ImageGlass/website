@@ -30,11 +30,14 @@ jobs:
       run: dotnet build --no-restore
 
     - name: 🪄 Publish
-      run: dotnet publish Website/ImageGlass.csproj -c Release o -_Output
+      run: dotnet publish Website/ImageGlass.csproj -c Release -o _Output
 
     - name: 🛫 Upload a build artifact
       uses: actions/upload-artifact@v3
       with:
+        name: ig_website_src
+        # the upload-artifact action does not use the working-directory setting
+        # https://github.com/actions/upload-artifact/issues/232#issuecomment-964235360
         path: Source/_Output
         if-no-files-found: error
 
@@ -51,8 +54,8 @@ jobs:
     - name: 🚡 Download a Build Artifact
       uses: actions/download-artifact@v3
       with:
-        name: website
-        path: ./_Output
+        name: ig_website_src
+        path: Source/_Output
         
     - name: 🚀 Deploy
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
