@@ -35,7 +35,7 @@ jobs:
     - name: 🛫 Upload a build artifact
       uses: actions/upload-artifact@v3
       with:
-        path: ./_Output/**
+        path: Website/_Output/**
         if-no-files-found: error
 
 
