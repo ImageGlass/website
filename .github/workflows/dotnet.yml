@@ -1,0 +1,60 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Go to source folder
+      run: cd Source
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: 🫧 Build
+      run: dotnet build --no-restore
+
+    - name: 🪄 Publish
+      run: dotnet publish -c Release -o _Output
+
+    - name: 🛫 Upload a build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: website
+        path: ./Source/_Output/**
+        if-no-files-found: error
+        
+  deploy_prod:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚡 Download a Build Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: website
+        path: ./Source/_Output
+        
+    - name: 🚀 Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USER }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./Website/bin/Release/net7.0
+        server-dir: ./httpdocs/phap
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+
