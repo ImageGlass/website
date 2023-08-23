@@ -30,12 +30,12 @@ jobs:
       run: dotnet build --no-restore
 
     - name: 🪄 Publish
-      run: dotnet publish Website/ImageGlass.csproj -c Release
+      run: dotnet publish Website/ImageGlass.csproj -c Release o -_Output
 
     - name: 🛫 Upload a build artifact
       uses: actions/upload-artifact@v3
       with:
-        path: Source/Website/bin/Release/net7.0/publish
+        path: Source/_Output
         if-no-files-found: error
 
 
