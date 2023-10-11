@@ -34,7 +34,7 @@
 
   &:hover,
   &:focus-visible {
-    --btn-bg: var(--bgFluent);
+    --btn-bg: var(--bgSurface);
     @media (prefers-color-scheme: dark) {
       --btn-bg: rgb(var(--colorInvert) / 0.2);
     }
