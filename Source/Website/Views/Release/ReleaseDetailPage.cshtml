@@ -21,9 +21,15 @@
             @Model.Title
           </h2>
           <div class="post-description">
-            <div>Version @Model.Version</div>
-            <div class="mt-3">
-              <a class="btn btn-accent" href="#downloads" title="Download">Download</a>
+            <div class="d-flex align-items-center">
+              <span>Version @Model.Version</span>
+              <span class="post-badge ms-1">@Model.ReleaseChannel</span>
+            </div>
+            <div class="mt-3 d-flex align-items-center">
+              <a class="btn btn-accent me-3" href="#downloads" title="Download">Download</a>
+              <span class="fs-6" style="opacity: 0.65;">
+                @(Model.Count > 0 ? Model.Count.ToString("N0") : "")
+              </span>
             </div>
           </div>
         </div>

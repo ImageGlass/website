@@ -45,8 +45,8 @@ public class GitHub
         }
         catch (HttpRequestException ex)
         {
-            if (ex.StatusCode == HttpStatusCode.NotFound)
-            {
+            if (ex.StatusCode == HttpStatusCode.NotFound
+                || ex.StatusCode == HttpStatusCode.Forbidden) {
                 return new();
             }
 
