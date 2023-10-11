@@ -1,51 +1,51 @@
 ﻿@model ImageGlass.Models.NewsModel
 
 @{
-    var list = (PaginatedList<NewsModel>?)ViewData[PageInfo.SidebarList];
+  var list = (PaginatedList<NewsModel>?)ViewData[PageInfo.SidebarList];
 }
 
 <div class="container">
-    <div class="row gx-5">
-        <div class="col-12 col-lg-8 my-5">
-            <div class="post-date mb-2">
-                <time datetime="@Model.UpdatedDate">
-                    @Model.UpdatedDate.ToDateString()
-                </time>
-            </div>
+  <div class="row gx-5">
+    <div class="col-12 col-lg-8 my-5">
+      <div class="post-date mb-2">
+        <time datetime="@Model.UpdatedDate">
+          @Model.UpdatedDate.ToDateString()
+        </time>
+      </div>
 
-            @await Html.PartialAsync("_MarkdownBody", ViewData["NewsHtmlContent"])
-        </div>
-
-        <div class="col-12 col-lg-4 my-5">
-            <aside class="sidebar">
-                <section class="sidebar-item">
-                    @await Html.PartialAsync("_Ads")
-                </section>
-
-
-                @if (list != null && list.Count > 0)
-                {
-                    <section class="sidebar-item p-2">
-                        <h3 class="heading">The latest updates</h3>
-                        <ul class="article-list mb-2">
-                            @foreach (var item in list)
-                            {
-                                <li class="@(item.IsNewPost ? "new-article" : "")">
-                                    <a asp-action="@nameof(NewsController.NewsDetailPage)" asp-route-slugId="@item.SlugAndId">
-                                        <span>@item.Title</span>
-                                        <time datetime="@item.UpdatedDate">
-                                            @item.UpdatedDate.ToDateTimeString()
-                                        </time>
-                                    </a>
-                                </li>
-                            }
-                        </ul>
-                        <div class="px-2 text-end fs-5">
-                            <a asp-action="@nameof(NewsController.Index)">View all</a>
-                        </div>
-                    </section>
-                }
-            </aside>
-        </div>
+      @await Html.PartialAsync("_MarkdownBody", ViewData["NewsHtmlContent"])
     </div>
+
+    <div class="col-12 col-lg-4 my-5 pt-4">
+      <aside class="sidebar">
+        <section class="sidebar-item">
+          @await Html.PartialAsync("_Ads")
+        </section>
+
+
+        @if (list != null && list.Count > 0)
+        {
+          <section class="sidebar-item p-2">
+            <h3 class="heading">The latest updates</h3>
+            <ul class="article-list mb-2">
+              @foreach (var item in list)
+              {
+                <li class="@(item.IsNewPost ? "new-article" : "")">
+                  <a asp-action="@nameof(NewsController.NewsDetailPage)" asp-route-slugId="@item.SlugAndId">
+                    <span>@item.Title</span>
+                    <time datetime="@item.UpdatedDate">
+                      @item.UpdatedDate.ToDateTimeString()
+                    </time>
+                  </a>
+                </li>
+              }
+            </ul>
+            <div class="px-2 text-end fs-5">
+              <a asp-action="@nameof(NewsController.Index)">View all</a>
+            </div>
+          </section>
+        }
+      </aside>
+    </div>
+  </div>
 </div>

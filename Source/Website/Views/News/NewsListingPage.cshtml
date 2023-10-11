@@ -81,11 +81,13 @@
     }
 
     <div class="post-list-pagination">
-      <a asp-action="Index" asp-route-page="@(Model.PageIndex - 1)" tabindex="@(Model.HasPreviousPage ? 0 : -1)" class="@prevDisabled">
+      <a asp-action="Index" asp-route-page="@(Model.PageIndex - 1)" tabindex="@(Model.HasPreviousPage ? 0 : -1)"
+        class="@prevDisabled">
         View back
       </a>
 
-      <a asp-action="Index" asp-route-page="@(Model.PageIndex + 1)" tabindex="@(Model.HasNextPage ? 0 : -1)" class="@nextDisabled">
+      <a asp-action="Index" asp-route-page="@(Model.PageIndex + 1)" tabindex="@(Model.HasNextPage ? 0 : -1)"
+        class="@nextDisabled">
         View next
       </a>
     </div>
