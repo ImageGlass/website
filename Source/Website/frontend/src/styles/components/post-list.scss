@@ -1,4 +1,10 @@
 
+.post-date {
+  font-size: var(--fs-5);
+  color: rgb(var(--colorText) / 0.65);
+}
+
+
 // featured post
 .post-featured {
   padding: 3rem 0;
@@ -25,8 +31,6 @@
   }
 
   .post-date {
-    font-size: var(--fs-5);
-    color: rgb(var(--colorText) / 0.65);
     margin-bottom: 0.5rem;
   }
 
@@ -124,19 +128,21 @@
     }
 
     .post-date {
-      font-size: var(--fs-5);
-      color: rgb(var(--colorText) / 0.65);
       margin-top: auto;
     }
 
     &:hover {
       filter: none;
       text-decoration: none;
+      border-color: rgb(var(--colorInvert) / 0.3);
       box-shadow: var(--shadow-base), var(--shadow);
       transform: translateY(-0.25rem);
 
       .post-image img {
         filter: brightness(1.2);
+        transform: scale(0.925);
+        border-radius: calc(var(--border-radius) * 1);
+        box-shadow: var(--shadow-base), var(--shadow), var(--shadow-sm);
       }
     }
 

@@ -7,19 +7,17 @@
 <div class="container">
     <div class="row gx-5">
         <div class="col-12 col-lg-8 my-5">
+            <div class="post-date mb-2">
+                <time datetime="@Model.UpdatedDate">
+                    @Model.UpdatedDate.ToDateString()
+                </time>
+            </div>
+
             @await Html.PartialAsync("_MarkdownBody", ViewData["NewsHtmlContent"])
         </div>
 
         <div class="col-12 col-lg-4 my-5">
             <aside class="sidebar">
-                <section class="sidebar-item markdown-body px-3 py-2 fs-5">
-                    Published on
-                    <time datetime="@Model.UpdatedDate">
-                        @Model.UpdatedDate.ToDateTimeString()
-                    </time>
-                </section>
-
-
                 <section class="sidebar-item">
                     @await Html.PartialAsync("_Ads")
                 </section>
