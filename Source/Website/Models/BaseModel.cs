@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ImageGlass.Utils;
 
 namespace ImageGlass.Models;
 
@@ -14,6 +15,7 @@ public class BaseModel
 
     [DataType(DataType.Date)]
     public DateTime UpdatedDate { get; set; }
+
 
     /// <summary>
     /// Checks if the <see cref="CreatedDate"/> is within <c>7 days x 24 hours = 168</c> hours.

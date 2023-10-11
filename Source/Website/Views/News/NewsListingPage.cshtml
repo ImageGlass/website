@@ -1,106 +1,137 @@
 ﻿@model PaginatedList<NewsModel>
 
-<div class="container">
+@{
+  var latestPost = Model.FirstOrDefault<NewsModel>()!;
+}
 
-    <div class="row gx-5">
-        <div class="col-12 col-lg-8 my-5">
-            <h1>@ViewData[PageInfo.Title]</h1>
 
-            <section class="markdown-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                Id
-                            </th>
-                            <th>
-                                Slug
-                            </th>
-                            <th>
-                                Title
-                            </th>
-                            <th>
-                                Image
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                CustomContentUrl
-                            </th>
-                            <th>
-                                CreatedDate
-                            </th>
-                            <th>
-                                UpdatedDate
-                            </th>
-                            <th>
-                                IsNewPost
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Slug)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Title)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Image)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CustomContentUrl)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreatedDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.IsNewPost)
-                                </td>
-                                <td>
-                                    <a asp-action="NewsDetailPage" asp-route-slugId="@item.SlugAndId">Details</a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-
-                @{
-                    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
-                }
-
-                <a asp-action="Index" asp-route-page="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">
-                    Previous
-                </a>
-                <a asp-action="Index" asp-route-page="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">
-                    Next
-                </a>
-            </section>
+<div class="post-list-featured markdown-body">
+  <div class="container">
+    <div class="post-body row gx-0">
+      <div class="pe-lg-4 pe-md-3 pe-0 col-12 col-lg-5 col-md-6 mb-md-0 mb-3">
+        <div class="post-date">
+          <time datetime="@latestPost.UpdatedDate">
+            @latestPost.UpdatedDate.ToDateString()
+          </time>
         </div>
+        <h2 class="post-title fs-1">
+          <a asp-action="NewsDetailPage" asp-route-slugId="@latestPost.SlugAndId">
+            @latestPost.Title
+          </a>
+        </h2>
+        <div class="post-description">@latestPost.Description</div>
+      </div>
 
-
-        <div class="col-12 col-lg-4 my-5">
-            <div class="sidebar">
-                <div class="sidebar-item p-0">
-                    @await Html.PartialAsync("_Ads")
-                </div>
-            </div>
-        </div>
+      <div class="ps-lg-4 ps-md-3 ps-0 col-12 col-lg-7 col-md-6">
+        <a class="post-image-link" asp-action="NewsDetailPage" asp-route-slugId="@latestPost.SlugAndId">
+          <img src="@latestPost.Image" alt="@latestPost.Title" />
+        </a>
+      </div>
     </div>
+  </div>
+</div>
+
+
+<div class="container markdown-body">
+  <h1>@ViewData[PageInfo.Title]</h1>
+  <div class="row gx-5">
+    <div class="col-12 col-lg-8 my-5">
+
+      <section class="markdown-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                Id
+              </th>
+              <th>
+                Slug
+              </th>
+              <th>
+                Title
+              </th>
+              <th>
+                Image
+              </th>
+              <th>
+                Description
+              </th>
+              <th>
+                CustomContentUrl
+              </th>
+              <th>
+                CreatedDate
+              </th>
+              <th>
+                UpdatedDate
+              </th>
+              <th>
+                IsNewPost
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var item in Model)
+            {
+              <tr>
+                <td>
+                  @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.Slug)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.CustomContentUrl)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.UpdatedDate)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.IsNewPost)
+                </td>
+                <td>
+                  <a asp-action="NewsDetailPage" asp-route-slugId="@item.SlugAndId">Details</a>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+
+        @{
+          var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+          var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        }
+
+        <a asp-action="Index" asp-route-page="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">
+          Previous
+        </a>
+        <a asp-action="Index" asp-route-page="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">
+          Next
+        </a>
+      </section>
+    </div>
+
+
+    <div class="col-12 col-lg-4 my-5">
+      <div class="sidebar">
+        <div class="sidebar-item p-0">
+          @await Html.PartialAsync("_Ads")
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
