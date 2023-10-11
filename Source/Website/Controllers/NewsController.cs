@@ -26,7 +26,7 @@ public class NewsController : BaseController
         ViewData[PageInfo.Keywords] = $"imageglass lastest update, imageglass {DateTime.UtcNow.Year}, {ViewData[PageInfo.Keywords]}";
 
         // get news items
-        var pList = await _context.QueryNewsModels(10, page ?? 1);
+        var pList = await _context.QueryNewsModels(9, page ?? 1);
 
         return View("NewsListingPage", pList);
     }
