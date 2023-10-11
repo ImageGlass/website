@@ -62,7 +62,7 @@ public class ImageGlassContext : DbContext
     }
 
 
-    public async Task<PaginatedList<ReleaseModel>> QueryReleaseModels(string? releaseChannel, int count = 10, int pageNumber = 1)
+    public async Task<PaginatedList<ReleaseModel>> QueryReleaseModels(int count = 10, int pageNumber = 1, string? releaseChannel = "")
     {
         var source = Releases
             .Where(i => i.IsVisible

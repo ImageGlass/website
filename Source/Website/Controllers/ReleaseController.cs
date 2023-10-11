@@ -18,45 +18,29 @@ public class ReleaseController : BaseController
     [HttpGet("download")]
     public async Task<IActionResult> Download(int? page)
     {
-        var pList = await _context.QueryReleaseModels(ReleaseChannel.Stable, 1);
+        var pList = await _context.QueryReleaseModels(1);
         if (pList.Count > 0)
         {
             return RedirectToAction(nameof(ReleaseDetailPage), new { slugId = pList[0].SlugAndId });
         }
 
-        return RedirectToAction(nameof(StableReleasesListingPage));
+        return RedirectToAction(nameof(AllReleasesListingPage));
     }
 
 
     [HttpGet("releases")]
-    public async Task<IActionResult> StableReleasesListingPage(int? page)
+    public async Task<IActionResult> AllReleasesListingPage(int? page)
     {
         // page info
-        ViewData[PageInfo.Page] = "download.release.stable";
-        ViewData[PageInfo.Title] = $"Stable releases | {ViewData[PageInfo.Name]}";
-        ViewData[PageInfo.Keywords] = $"imageglass stable, {ViewData[PageInfo.Keywords]}";
-
-        // page data
-        ViewData["_ControllerAction"] = nameof(StableReleasesListingPage);
-
-        var pList = await _context.QueryReleaseModels(ReleaseChannel.Stable, 10, page ?? 1);
-        return View("ReleaseListingPage", pList);
-    }
-
-
-    [HttpGet("releases/beta")]
-    public async Task<IActionResult> BetaReleasesListingPage(int? page)
-    {
-        // page info
-        ViewData[PageInfo.Page] = "download.release.beta";
-        ViewData[PageInfo.Title] = $"Beta releases | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Page] = "download.release";
+        ViewData[PageInfo.Title] = $"All releases | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = "The bleeding-edge beta release of ImageGlass. It is built and shipped to users with the latest state and features of ImageGlass.";
-        ViewData[PageInfo.Keywords] = $"imageglass beta, {ViewData[PageInfo.Keywords]}";
+        ViewData[PageInfo.Keywords] = $"imageglass stable, imageglass beta, {ViewData[PageInfo.Keywords]}";
 
         // page data
-        ViewData["_ControllerAction"] = nameof(BetaReleasesListingPage);
+        ViewData["_ControllerAction"] = nameof(AllReleasesListingPage);
 
-        var pList = await _context.QueryReleaseModels(ReleaseChannel.Beta, 10, page ?? 1);
+        var pList = await _context.QueryReleaseModels(10, page ?? 1);
         return View("ReleaseListingPage", pList);
     }
 
