@@ -23,6 +23,11 @@ public class PaginatedList<T> : List<T>
     public static async Task<PaginatedList<T>> CreateAsync(IQueryable<T> source, int pageIndex, int pageSize)
     {
         var count = await source.CountAsync();
+        var totalPage = (int)Math.Ceiling(count * 1f / pageSize);
+
+        if (pageIndex < 1) pageIndex = 1;
+        if (pageIndex > totalPage) pageIndex = totalPage;
+
         var items = await source.Skip((pageIndex - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
