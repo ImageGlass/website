@@ -6,112 +6,112 @@
     var screenshots = ((List<GitHubFileModel>?)ViewData["_ReleaseScreenshots"]) ?? new();
 }
 
+<div class="container">
+    <div class="row gx-5">
+        <div class="col-12 col-lg-8 my-5">
+            <section class="markdown-body">
+                <h1>@Model.Title</h1>
+                <div>@Model.Image</div>
 
-<div class="row gx-5">
-    <div class="col-12 col-lg-8 my-5">
-        <section class="markdown-body">
-            <h1>@Model.Title</h1>
-            <div>@Model.Image</div>
+                <h2>Channel</h2>
+                <div>@Model.ReleaseChannel</div>
 
-            <h2>Channel</h2>
-            <div>@Model.ReleaseChannel</div>
+                <h2>Version</h2>
+                <div>@Model.Version</div>
 
-            <h2>Version</h2>
-            <div>@Model.Version</div>
+                <h2>Requirements</h2>
+                <div>@Html.Raw(@Model.Requirement.Content)</div>
 
-            <h2>Requirements</h2>
-            <div>@Html.Raw(@Model.Requirement.Content)</div>
-
-            <h2>Downloads: @Model.Count</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Id</td>
-                        <td>ReleaseCode</td>
-                        <td>Type</td>
-                        <td>FileType</td>
-                        <td>Architecture</td>
-                        <td>Checksum</td>
-                        <td>HashAlgorithm</td>
-                        <td>Link</td>
-                        <td>Count</td>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach (var file in @Model.BinaryFiles)
-                    {
+                <h2>Downloads: @Model.Count</h2>
+                <table>
+                    <thead>
                         <tr>
-                            <td>@file.Id</td>
-                            <td>@file.ReleaseCode</td>
-                            <td>@file.Type</td>
-                            <td>@file.FileType</td>
-                            <td>@file.Architecture</td>
-                            <td>@file.Checksum</td>
-                            <td>@file.HashAlgorithm</td>
-                            <td>@file.Link</td>
-                            <td>@file.Count</td>
+                            <td>Id</td>
+                            <td>ReleaseCode</td>
+                            <td>Type</td>
+                            <td>FileType</td>
+                            <td>Architecture</td>
+                            <td>Checksum</td>
+                            <td>HashAlgorithm</td>
+                            <td>Link</td>
+                            <td>Count</td>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
 
-
-            <div>
-                <ul>
-                    @foreach (var item in screenshots)
-                    {
-                        <li>
-                            <img src="@item.Download_url" alt="@item.Name" width="300" />
-                        </li>
-                    }
-                </ul>
-            </div>
-
-        </section>
-    </div>
-
-
-
-    <div class="col-12 col-lg-4 my-5">
-        <aside class="sidebar">
-            <section class="sidebar-item markdown-body px-3 py-2 fs-5 fw-300">
-                Published on
-                <time datetime="@Model.UpdatedDate">
-                    @Model.UpdatedDate.ToDateTimeString()
-                </time>
-            </section>
-
-
-            <section class="sidebar-item p-0">
-                @await Html.PartialAsync("_Ads")
-            </section>
-
-
-            @if (list != null && list.Count > 0)
-            {
-                <section class="sidebar-item p-2">
-                    <h3 class="heading">The latest updates</h3>
-                    <ul class="article-list mb-2">
-                        @foreach (var item in list)
+                    <tbody>
+                        @foreach (var file in @Model.BinaryFiles)
                         {
-                            <li class="@(item.IsNewPost ? "new-article" : "")">
-                                <a asp-controller="News" asp-action="@nameof(NewsController.NewsDetailPage)" asp-route-slugId="@item.SlugAndId">
-                                    <span>@item.Title</span>
-                                    <time datetime="@item.UpdatedDate">
-                                        @item.UpdatedDate.ToDateTimeString()
-                                    </time>
-                                </a>
+                            <tr>
+                                <td>@file.Id</td>
+                                <td>@file.ReleaseCode</td>
+                                <td>@file.Type</td>
+                                <td>@file.FileType</td>
+                                <td>@file.Architecture</td>
+                                <td>@file.Checksum</td>
+                                <td>@file.HashAlgorithm</td>
+                                <td>@file.Link</td>
+                                <td>@file.Count</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+                <div>
+                    <ul>
+                        @foreach (var item in screenshots)
+                        {
+                            <li>
+                                <img src="@item.Download_url" alt="@item.Name" width="300" />
                             </li>
                         }
                     </ul>
-                    <div class="px-2 text-end fs-5">
-                        <a asp-controller="News" asp-action="@nameof(NewsController.Index)">View all</a>
-                    </div>
+                </div>
+
+            </section>
+        </div>
+
+
+
+        <div class="col-12 col-lg-4 my-5">
+            <aside class="sidebar">
+                <section class="sidebar-item markdown-body px-3 py-2 fs-5 fw-300">
+                    Published on
+                    <time datetime="@Model.UpdatedDate">
+                        @Model.UpdatedDate.ToDateTimeString()
+                    </time>
                 </section>
-            }
-        </aside>
+
+
+                <section class="sidebar-item p-0">
+                    @await Html.PartialAsync("_Ads")
+                </section>
+
+
+                @if (list != null && list.Count > 0)
+                {
+                    <section class="sidebar-item p-2">
+                        <h3 class="heading">The latest updates</h3>
+                        <ul class="article-list mb-2">
+                            @foreach (var item in list)
+                            {
+                                <li class="@(item.IsNewPost ? "new-article" : "")">
+                                    <a asp-controller="News" asp-action="@nameof(NewsController.NewsDetailPage)"
+                                        asp-route-slugId="@item.SlugAndId">
+                                        <span>@item.Title</span>
+                                        <time datetime="@item.UpdatedDate">
+                                            @item.UpdatedDate.ToDateTimeString()
+                                        </time>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                        <div class="px-2 text-end fs-5">
+                            <a asp-controller="News" asp-action="@nameof(NewsController.Index)">View all</a>
+                        </div>
+                    </section>
+                }
+            </aside>
+        </div>
     </div>
 </div>
-
-

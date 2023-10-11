@@ -1,26 +1,29 @@
 ﻿@model string
 
-<div class="row gx-5">
-    <div class="col-12 col-lg-8 my-5">
-        @await Html.PartialAsync("_MarkdownBody", Model)
+<div class="container">
+    <div class="row gx-5">
+        <div class="col-12 col-lg-8 my-5">
+            @await Html.PartialAsync("_MarkdownBody", Model)
 
-        <section class="markdown-body mt-5">
-            <h2 class="mb-4">ImageGlass registration form</h2>
+            <section class="markdown-body mt-5">
+                <h2 class="mb-4">ImageGlass registration form</h2>
 
-            <div class="embed-responsive embed-responsive-1by1">
-                <iframe class="embed-responsive-item" style="background: #fff; border-radius: 5px;" src="https://docs.google.com/forms/d/e/1FAIpQLSdL3CHnJa5zd50TdW1xnL6QmAgS8Ovi5UppAKXseAbnFiR-jg/viewform?embedded=true" width="700" height="2950" frameborder="0" marginheight="0" marginwidth="0">
-                    Loading…
-                </iframe>
-            </div>
-        </section>
-    </div>
+                <div class="embed-responsive embed-responsive-1by1">
+                    <iframe class="embed-responsive-item" style="background: #fff; border-radius: 5px;"
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSdL3CHnJa5zd50TdW1xnL6QmAgS8Ovi5UppAKXseAbnFiR-jg/viewform?embedded=true"
+                        width="700" height="2950" frameborder="0" marginheight="0" marginwidth="0">
+                        Loading…
+                    </iframe>
+                </div>
+            </section>
+        </div>
 
-    <div class="col-12 col-lg-4 my-5">
-        <div class="sidebar">
-            <div class="sidebar-item p-0">
-                @await Html.PartialAsync("_Ads")
+        <div class="col-12 col-lg-4 my-5">
+            <div class="sidebar">
+                <div class="sidebar-item p-0">
+                    @await Html.PartialAsync("_Ads")
+                </div>
             </div>
         </div>
     </div>
 </div>
-

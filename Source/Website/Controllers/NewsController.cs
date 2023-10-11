@@ -43,7 +43,7 @@ public class NewsController : BaseController
 
         // page info
         ViewData[PageInfo.Page] = "news";
-        ViewData[PageInfo.Title] = model.Title;
+        ViewData[PageInfo.Title] = $"{model.Title} | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = model.Description;
         ViewData[PageInfo.Thumbnail] = model.Image;
         ViewData[PageInfo.H1] = string.Empty; // use the content H1
