@@ -54,6 +54,7 @@
 
   .post-image-link {
     display: inline-flex;
+    padding: 1px;
     background-color: rgb(var(--colorBg) / 1);
     border-radius: calc(var(--border-radius) * 1.5);
     box-shadow: var(--shadow-base), var(--shadow);
@@ -62,6 +63,7 @@
       width: 100%;
       max-width: 35rem; // 560px
       max-height: 25rem; // 400px
+      border-radius: var(--border-radius);
     }
   }
 }
@@ -96,6 +98,10 @@
     &> li {
       display: flex;
       flex-direction: column;
+
+      &+ li {
+        margin-top: 0;
+      }
     }
   }
 
