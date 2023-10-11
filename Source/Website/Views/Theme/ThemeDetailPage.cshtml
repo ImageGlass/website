@@ -1,94 +1,107 @@
-﻿@model ImageGlass.Models.ThemeModel
+﻿@model ThemeModel
 
+@{
+  var list = (PaginatedList<ThemeModel>?)ViewData[PageInfo.SidebarList];
+}
+
+
+@* Featured content *@
+<div class="container-fluid post-featured markdown-body">
+  <div class="container">
+    <div class="post-featured-content">
+      <div class="post-body row gx-0">
+        <div class="post-featured-info pe-lg-4 pe-md-3 pe-0 col-12 col-lg-5 col-md-6 mb-md-0 mb-3">
+          <div class="post-date">
+            <time datetime="@Model.UpdatedDate">
+              @Model.UpdatedDate.ToDateString()
+            </time>
+          </div>
+          <h2 class="post-title fs-1">
+            @Model.Title
+          </h2>
+          <div class="post-description">
+            <div class="d-flex align-items-center">
+              <span>Version @Model.Version</span>
+              <span class="post-badge ms-1">ImageGlass @Model.Compatibility</span>
+            </div>
+            <div class="mt-3 d-flex align-items-center">
+              <a class="btn btn-accent me-3" href="@Model.Link" title="Download">Download</a>
+              <span class="fs-6" style="opacity: 0.65;">
+                @(Model.Count > 0 ? Model.Count.ToString("N0") : "")
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-featured-image ps-lg-4 ps-md-3 ps-0 col-12 col-lg-7 col-md-6">
+          <span class="post-image-link">
+            <img src="@Model.Image" alt="@Model.Title" onerror="this.hidden = true" />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+@* Release details *@
 <div class="container">
-    <h1>Details</h1>
+  <div class="row gx-5">
+    <div class="col-12 col-lg-8 my-5">
+      <section class="markdown-body mb-5">
+        <h2 id="theme-information">Theme information</h2>
+        <div class="mb-4">@Model.Description</div>
+        <ul>
+          <li>Color mode: <span class="post-badge">@(Model.IsDarkMode ? "Dark" : "Light")</span></li>
+          <li>Compatibility: @Model.Compatibility</li>
 
-    <div>
-        <h4>ThemeModel</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Slug)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Slug)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Title)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Title)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Image)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Link)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Link)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Version)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Version)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Compatibility)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Compatibility)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Author)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Author)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Website)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Website)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Count)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Count)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CreatedDate)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.UpdatedDate)
-            </dd>
-        </dl>
-    </div>
-    <div>
-        <a asp-action="ThemePackListingPage">Back to List</a>
+          @if (!string.IsNullOrWhiteSpace(Model.Author)) {
+            <li>Author: @Model.Author</li>
+          }
+          @if (!string.IsNullOrWhiteSpace(Model.Website)) {
+            <li>Website: <a href="@Model.Website" target="_blank" rel="noopener noreferrer">@Model.Website</a></li>
+          }
+          @if (!string.IsNullOrWhiteSpace(Model.Email)) {
+            <li>Email: @Model.Email</li>
+          }
+          <li>Last updated: @Model.UpdatedDate.ToDateTimeString()</li>
+        </ul>
+      </section>
     </div>
 
+
+
+    <div class="col-12 col-lg-4 my-5">
+      <aside class="sidebar">
+        <section class="sidebar-item">
+          @await Html.PartialAsync("_Ads")
+        </section>
+
+
+        @if (list != null && list.Count > 0)
+        {
+          <section class="sidebar-item p-2">
+            <h3 class="heading">The latest updates</h3>
+            <ul class="article-list mb-2">
+              @foreach (var item in list)
+              {
+                <li class="@(item.IsNewPost ? "new-article" : "")">
+                  <a asp-controller="Theme" asp-action="@nameof(ThemeController.ThemeDetailPage)"
+                    asp-route-slugId="@item.SlugAndId">
+                    <span>@item.Title</span>
+                    <time datetime="@item.UpdatedDate">
+                      @item.UpdatedDate.ToDateTimeString()
+                    </time>
+                  </a>
+                </li>
+              }
+            </ul>
+            <div class="px-2 text-end fs-5">
+              <a asp-controller="Theme" asp-action="@nameof(ThemeController.ThemePackListingPage)">View all</a>
+            </div>
+          </section>
+        }
+      </aside>
+    </div>
+  </div>
 </div>

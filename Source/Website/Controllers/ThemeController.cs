@@ -46,6 +46,9 @@ public class ThemeController : BaseController
         ViewData[PageInfo.Keywords] = $"{model.Title}, imageglass theme, monochrome theme, colorful theme, windows 11 theme, windows 10 theme, dark mode, {ViewData[PageInfo.Keywords]}";
         ViewData[PageInfo.Thumbnail] = model.Image;
 
+        // page data
+        ViewData[PageInfo.SidebarList] = await _context.QueryThemeModels(5);
+
         return View("ThemeDetailPage", model);
     }
 

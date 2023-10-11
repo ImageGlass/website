@@ -17,6 +17,16 @@
   white-space: nowrap;
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+.text-lowercase {
+  text-transform: lowercase;
+}
+
 .text-start {
   text-align: left !important;
 }

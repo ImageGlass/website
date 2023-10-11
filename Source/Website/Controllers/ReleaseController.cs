@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ImageGlass.Data;
-using ImageGlass.Models;
 using ImageGlass.Utils;
 
 namespace ImageGlass.Controllers;
