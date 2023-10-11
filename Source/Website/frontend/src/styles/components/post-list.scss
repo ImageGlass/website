@@ -8,7 +8,8 @@
   padding: 0.25rem 0.5rem;
 
   color: rgb(var(--colorText) / 1);
-  font-size: var(--fs-6);
+  font-weight: 500;
+  font-size: 0.75rem;
   line-height: normal;
   text-transform: uppercase;
 
@@ -148,7 +149,6 @@
       font-size: var(--fs-3);
       font-weight: 500;
       margin-bottom: 1rem;
-      text-decoration: underline dashed 0.03125em;
       color: rgb(var(--colorAccent1) / 1);
     }
 

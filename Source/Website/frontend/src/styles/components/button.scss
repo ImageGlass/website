@@ -3,6 +3,9 @@
   --btn-color: rgb(var(--colorText) / 1);
   --btn-bg: var(--bgSurface);
   --btn-border-color: rgb(var(--colorInvert) / 0.1);
+  @media (prefers-color-scheme: dark) {
+    --btn-bg: rgb(var(--colorInvert) / 0.125);
+  }
 
   appearance: none;
   position: relative;
@@ -13,6 +16,7 @@
   padding: 0.45rem 1.5rem;
 
   color: var(--btn-color);
+  font-weight: 500;
   text-decoration: none;
   line-height: normal;
   white-space: nowrap;
@@ -30,6 +34,11 @@
 
   &:hover,
   &:focus-visible {
+    --btn-bg: var(--bgFluent);
+    @media (prefers-color-scheme: dark) {
+      --btn-bg: rgb(var(--colorInvert) / 0.2);
+    }
+
     filter: none;
     color: var(--btn-color);
     text-decoration: none;
@@ -49,12 +58,12 @@
 
   // button accent
   &.btn-accent {
-    --btn-color: #fff;
+    --btn-color: rgb(255 255 255 / 0.9);
     --btn-bg: rgb(var(--colorAccent1) / 1);
 
     &:hover,
     &:focus-visible {
-      filter: brightness(1.1);
+      filter: brightness(1.25);
     }
     &:active {
       filter: brightness(0.9);
