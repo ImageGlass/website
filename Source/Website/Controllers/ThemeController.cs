@@ -52,4 +52,24 @@ public class ThemeController : BaseController
         return View("ThemeDetailPage", model);
     }
 
+
+    [HttpGet("theme/download/{slugId}")]
+    public async Task<IActionResult> DownloadTheme(string? slugId)
+    {
+        var id = GetIdFromSlugId(slugId);
+        if (id is null) return NotFound();
+
+        var model = await _context.GetThemeModel(id.Value, false);
+        if (model == null) return NotFound();
+
+        // update the download count
+        model.Count++;
+        if (await TryUpdateModelAsync(model, "", i => i.Count)) {
+            await _context.SaveChangesAsync();
+
+            return Redirect(model.Link);
+        }
+
+        return NoContent();
+    }
 }
