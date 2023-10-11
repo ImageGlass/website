@@ -2,7 +2,6 @@
 const ESLintPlugin = require('eslint-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const BomPlugin = require('webpack-utf8-bom');
 
 const pkJson = require('./package.json');
 
@@ -10,6 +9,7 @@ const pkJson = require('./package.json');
 const configs = {
   entry: {
     main: './src/main.ts',
+    pageReleaseDetail: './src/js/pages/pageReleaseDetail.ts',
   },
   output: {
     path: path.resolve(__dirname, '../wwwroot/js'),
@@ -72,7 +72,6 @@ const configs = {
       cleanStaleWebpackAssets: false,
       cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, './dist')],
     }),
-    new BomPlugin(true),
   ],
 };
 

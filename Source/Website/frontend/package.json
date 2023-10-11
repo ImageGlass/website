@@ -43,8 +43,7 @@
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4",
-    "webpack-utf8-bom": "^1.4.0"
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "fluent-reveal-effect": "^3.0.11"

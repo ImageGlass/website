@@ -1,0 +1,302 @@
+.grid-gallery {
+  margin-bottom: 0;
+  padding-left: 0 !important;
+  list-style: none;
+
+  column-gap: 1.25rem;
+  column-width: 14rem;
+
+  &> .gallery-item {
+    display: flex;
+    flex-direction: column;
+    backface-visibility: hidden;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+
+    img {
+      height: auto !important;
+      width: 100% !important;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-base), var(--shadow-sm);
+      transition: all 300ms ease;
+    }
+
+    &:hover {
+      img {
+        filter: brightness(1.15);
+        transform: scale(1.08);
+        box-shadow: var(--shadow-base), var(--shadow-sm), var(--shadow);
+      }
+    }
+
+    &:active {
+      img {
+        filter: brightness(0.98);
+        transform: scale(1);
+        box-shadow: var(--shadow-base), var(--shadow-sm);
+        transition: all 100ms ease;
+      }
+    }
+  }
+}
+
+
+:root {
+  --gap: 1.25rem;
+}
+
+
+.grid-gallery-viewer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: openGalleryViewer 500ms ease forwards;
+
+  .viewer-nav-back,
+  .viewer-nav-next,
+  .viewer-close {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: calc(var(--gap) * 3);
+    height: calc(var(--gap) * 3);
+    transition: all ease 200ms;
+    background-color: rgb(255 255 255 / 0.2);
+    backdrop-filter: var(--backdrop);
+    border-radius: 1000%;
+    border: 1px solid rgb(var(--colorInvert) / 0.1);
+    box-shadow: var(--shadow-sm);
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: var(--gap);
+      height: var(--gap);
+      color: rgb(255 255 255 / 0.8);
+      border-left: calc(var(--gap) / 10) solid;
+      border-bottom: calc(var(--gap) / 10) solid;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transition: all ease 100ms;
+      transform: scale(1.05);
+    }
+  }
+
+  .viewer-nav-back {
+    left: var(--gap);
+
+    &::before {
+      left: calc(var(--gap) / 2);
+      transform: rotate(45deg);
+    }
+  }
+
+  .viewer-nav-next {
+    right: var(--gap);
+
+    &::before {
+      right: calc(var(--gap) / 2);
+      transform: rotate(-135deg);
+    }
+  }
+
+  .viewer-body {
+    width: 100%;
+    max-height: 100vh;
+    padding: var(--gap);
+    display: flex;
+    justify-content: center;
+    transition: all ease 500ms;
+
+    &> * {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: calc(var(--border-radius) * 1.5);
+      box-shadow: var(--shadow-base), var(--shadow-sm), var(--shadow);
+    }
+  }
+
+  .viewer-close {
+    z-index: 11;
+    bottom: var(--gap);
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: calc(var(--gap) * 1.5);
+      height: calc(var(--gap) / 10);
+      background-color: rgb(255 255 255 / 0.8);
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+    &:active {
+      transition: all ease 100ms;
+      transform: scale(1.05);
+    }
+  }
+
+
+  &.openViewer {
+    .viewer-body {
+      animation: openViewer 500ms ease forwards;
+    }
+  }
+  &.openViewer_Back {
+    .viewer-body {
+      animation: openViewer_Back 500ms ease forwards;
+    }
+  }
+  &.openViewer_Next {
+    .viewer-body {
+      animation: openViewer_Next 500ms ease forwards;
+    }
+  }
+
+  &.closeViewer {
+    .viewer-body {
+      animation: closeViewer 500ms ease forwards;
+    }
+  }
+  &.closeViewer_Next {
+    .viewer-body {
+      animation: closeViewer_Next 500ms ease forwards;
+    }
+  }
+  &.closeViewer_Back {
+    .viewer-body {
+      animation: closeViewer_Back 500ms ease forwards;
+    }
+  }
+
+  &.closing {
+    animation: closeGalleryViewer 500ms ease forwards;
+
+    .viewer-body {
+      animation: closeViewer 500ms ease forwards;
+    }
+  }
+}
+
+@keyframes openGalleryViewer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes closeGalleryViewer {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes openViewer {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes openViewer_Back {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateX(calc(var(--gap) * -2));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes openViewer_Next {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateX(calc(var(--gap) * 2));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes closeViewer {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes closeViewer_Next {
+  from {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateX(calc(var(--gap) * -2));
+  }
+}
+
+@keyframes closeViewer_Back {
+  from {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateX(calc(var(--gap) * 2));
+  }
+}
