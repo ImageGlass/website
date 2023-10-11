@@ -30,7 +30,7 @@
             <a asp-area="" asp-controller="Download" asp-action="Index">Download</a>
 
             <ul>
-              <li class="nav-item @(_page.Contains("release.stable") ? "nav-item--active" : "")">
+              <li class="nav-item @(_page.Contains("release") ? "nav-item--active" : "")">
                 <a asp-area="" asp-controller="Release" asp-action="AllReleasesListingPage">All releases</a>
               </li>
               <li class="nav-item @(_page.Contains("theme") ? "nav-item--active" : "")">

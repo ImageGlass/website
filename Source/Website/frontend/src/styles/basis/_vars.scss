@@ -39,7 +39,7 @@
 }
 
 // light mode
-@media screen and (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
   :root,
   ::backdrop {
     --colorInvert: 0 0 0;

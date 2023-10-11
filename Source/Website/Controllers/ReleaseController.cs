@@ -52,7 +52,7 @@ public class ReleaseController : BaseController
         if (model == null) return NotFound();
 
         // page info
-        ViewData[PageInfo.Page] = $"download.release.{model.ReleaseChannel}";
+        ViewData[PageInfo.Page] = $"download.release";
         ViewData[PageInfo.Title] = $"{model.Title} | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = $"Download {model.Title}";
         ViewData[PageInfo.Keywords] = $"imageglass {model.Version}, imageglass {model.ReleaseChannel}, " + ViewData[PageInfo.Keywords];

@@ -1,0 +1,63 @@
+
+.btn {
+  --btn-color: rgb(var(--colorText) / 1);
+  --btn-bg: var(--bgSurface);
+  --btn-border-color: rgb(var(--colorInvert) / 0.1);
+
+  appearance: none;
+  position: relative;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.45rem 1.5rem;
+
+  color: var(--btn-color);
+  text-decoration: none;
+  line-height: normal;
+  white-space: nowrap;
+
+  border: 1px solid var(--btn-border-color);
+  border-radius: calc(var(--border-radius) * 1.5);
+  background-color: var(--btn-bg);
+  box-shadow: 0 2px 0 -1px var(--btn-border-color), // bottom border
+    0 0 0 0 transparent, 0 0 0 0 transparent; // shadow
+
+  &:visited {
+    text-decoration: none;
+    color: var(--btn-color);
+  }
+
+  &:hover,
+  &:focus-visible {
+    filter: none;
+    text-decoration: none;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 2px 0 -1px var(--btn-border-color), // bottom border
+      var(--shadow-base), var(--shadow-sm); // shadow
+  }
+  &:active {
+    filter: brightness(0.95);
+
+    opacity: 0.85;
+    transform: scale(0.98);
+    box-shadow: 0 0 0 0 transparent, // bottom border
+      var(--shadow-base), 0 0 0 0 transparent; // shadow
+  }
+
+
+  // button accent
+  &.btn-accent {
+    --btn-color: #fff;
+    --btn-bg: rgb(var(--colorAccent1) / 1);
+
+    &:hover,
+    &:focus-visible {
+      filter: brightness(1.1);
+    }
+    &:active {
+      filter: brightness(0.9);
+      opacity: 1;
+    }
+  }
+}
