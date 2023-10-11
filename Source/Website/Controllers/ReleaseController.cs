@@ -34,13 +34,10 @@ public class ReleaseController : BaseController
         // page info
         ViewData[PageInfo.Page] = "download.release";
         ViewData[PageInfo.Title] = $"All releases | {ViewData[PageInfo.Name]}";
-        ViewData[PageInfo.Description] = "The bleeding-edge beta release of ImageGlass. It is built and shipped to users with the latest state and features of ImageGlass.";
+        ViewData[PageInfo.Description] = "Archive of all ImageGlass versions.";
         ViewData[PageInfo.Keywords] = $"imageglass stable, imageglass beta, {ViewData[PageInfo.Keywords]}";
 
-        // page data
-        ViewData["_ControllerAction"] = nameof(AllReleasesListingPage);
-
-        var pList = await _context.QueryReleaseModels(10, page ?? 1);
+        var pList = await _context.QueryReleaseModels(12, page ?? 1);
         return View("ReleaseListingPage", pList);
     }
 

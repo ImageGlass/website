@@ -96,6 +96,7 @@
     transition: all ease 300ms;
 
     .post-image {
+      position: relative;
       display: flex;
       height: 11.25rem; // 180px
       background-color: var(--bgSurface);
@@ -104,6 +105,26 @@
         border-radius: 0;
         object-fit: cover;
         transition: all ease 300ms;
+      }
+
+      .post-badge {
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        z-index: 1;
+        padding: 0.25rem 1rem;
+
+        color: #fff;
+        font-size: var(--fs-6);
+        text-transform: uppercase;
+
+        border-radius: 100rem 0 0 100rem;
+        background-color: rgb(var(--colorAccent1) / 0.8);
+        backdrop-filter: var(--backdrop);
+
+        &.badge-2 {
+          background-color: rgb(var(--BgWarning) / 0.8);
+        }
       }
     }
 
