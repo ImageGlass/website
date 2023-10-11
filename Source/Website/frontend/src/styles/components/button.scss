@@ -57,7 +57,8 @@
 
 
   // button accent
-  &.btn-accent {
+  &.btn-accent,
+  &.btn-primary {
     --btn-color: rgb(255 255 255 / 0.9);
     --btn-bg: rgb(var(--colorAccent1) / 1);
 
