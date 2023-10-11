@@ -6,7 +6,7 @@
 }
 
 
-@* Featured post *@
+@* Featured content *@
 <div class="container-fluid post-featured markdown-body">
   <div class="container">
     <div class="post-featured-content">
@@ -45,23 +45,33 @@
 </div>
 
 
+@* Release details *@
 <div class="container">
   <div class="row gx-5">
     <div class="col-12 col-lg-8 my-5">
-      <section class="markdown-body">
-        <h1>@Model.Title</h1>
-        <div>@Model.Image</div>
+      <section class="markdown-body mb-5">
+        <h2 id="requirements">Requirements</h2>
+        <ul>
+          @Html.Raw(@Model.Requirement.Content)
+        </ul>
+      </section>
 
-        <h2>Channel</h2>
-        <div>@Model.ReleaseChannel</div>
+      <section class="markdown-body mb-5">
+        <h2 id="screenshots">Screenshots</h2>
+        <ul class="gallery">
+          @for (var index = 0; index < screenshots.Count; index++)
+          {
+            var item = screenshots[index];
 
-        <h2>Version</h2>
-        <div>@Model.Version</div>
+            <li class="gallery-item" data-index="@index">
+              <img src="@item.Download_url" alt="@item.Name" />
+            </li>
+          }
+        </ul>
+      </section>
 
-        <h2>Requirements</h2>
-        <div>@Html.Raw(@Model.Requirement.Content)</div>
-
-        <h2>Downloads: @Model.Count</h2>
+      <section class="markdown-body mb-5">
+        <h2 id="downloads">Downloads</h2>
         <table>
           <thead>
             <tr>
@@ -94,19 +104,34 @@
             }
           </tbody>
         </table>
+      </section>
 
-
+      <section class="markdown-body mb-5">
+        <h2 id="support">Buy me a beer!</h2>
         <div>
-          <ul>
-            @foreach (var item in screenshots)
-            {
-              <li>
-                <img src="@item.Download_url" alt="@item.Name" width="300" />
-              </li>
-            }
-          </ul>
-        </div>
+          <p>
+            ImageGlass stands as an open-source, ad-free photo viewer, yet its development and upkeep demand resources. Your financial backing not only sustains this project but also fuels my motivation for crafting future releases.
+          </p>
 
+          <p>
+            Should you opt for
+            <a href="https://github.com/sponsors/d2phap" target="_blank" rel="noopener noreferrer">GitHub Sponsor</a> or
+            <a href="https://patreon.com/d2phap" target="_blank" rel="noopener noreferrer">Patreon</a>, be sure to explore the tier-specific benefits on offer.
+            <br/>
+            Your support is greatly appreciated!
+          </p>
+
+          <div class="d-flex align-items-center flex-wrap mt-4">
+            <a class="btn me-2 mb-2" href="https://github.com/sponsors/d2phap" target="_blank" rel="noopener noreferrer">GitHub Sponsor</a>
+
+            <a class="btn me-2 mb-2" href="https://patreon.com/d2phap" target="_blank" rel="noopener noreferrer">Patreon</a>
+
+            <a class="btn me-2 mb-2" href="https://www.paypal.me/d2phap" target="_blank" rel="noopener noreferrer">PayPal</a>
+
+            <script type="text/javascript" defer="" src="https://donorbox.org/install-popup-button.js"></script>
+            <a class="btn me-2 mb-2 dbox-donation-button" href="https://donorbox.org/imageglass?default_interval=o&hide_donation_meter=true" rel="noopener noreferrer">Wire transfer</a>
+          </div>
+        </div>
       </section>
     </div>
 
@@ -114,14 +139,6 @@
 
     <div class="col-12 col-lg-4 my-5">
       <aside class="sidebar">
-        <section class="sidebar-item markdown-body px-3 py-2 fs-5 fw-300">
-          Published on
-          <time datetime="@Model.UpdatedDate">
-            @Model.UpdatedDate.ToDateTimeString()
-          </time>
-        </section>
-
-
         <section class="sidebar-item">
           @await Html.PartialAsync("_Ads")
         </section>

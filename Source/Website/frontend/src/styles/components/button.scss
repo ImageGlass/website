@@ -31,6 +31,7 @@
   &:hover,
   &:focus-visible {
     filter: none;
+    color: var(--btn-color);
     text-decoration: none;
     transform: translateY(-0.1rem);
     box-shadow: 0 2px 0 -1px var(--btn-border-color), // bottom border
