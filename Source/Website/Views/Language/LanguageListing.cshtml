@@ -1,17 +1,27 @@
 ﻿@model IEnumerable<LanguageModel>;
 
 
-<div class="container">
-    <h1>@ViewData[PageInfo.Title]</h1>
+@* Posts list *@
+<div class="container markdown-body py-5 mx-auto">
+  <h1>All language packs</h1>
 
+  @* Ads *@
+  <div class="mb-5">
+    <div class="sidebar-item section-quang-cao">
+      @await Html.PartialAsync("_Ads")
+    </div>
+  </div>
+
+  <section class="post-list">
     <ul>
-        @foreach (var item in Model)
-        {
-            <li>
-                <a asp-action="DownloadLanguage" asp-route-langid="@(item?.LanguageId)" asp-route-langName="@(item?.Name)">
-                    @item?.Name (@item?.TranslationProgress%)
-                </a>
-            </li>
-        }
+      @foreach (var item in Model)
+      {
+        <li>
+          <a asp-action="DownloadLanguage" asp-route-langid="@(item?.LanguageId)" asp-route-langName="@(item?.Name)">
+            @item?.Name (@item?.TranslationProgress%)
+          </a>
+        </li>
+      }
     </ul>
+  </section>
 </div>

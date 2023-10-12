@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ImageGlass.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,8 +9,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ImageGlassContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("ImageGlassContext")));
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// Add services to the container
+builder.Services.AddResponseCaching();
+builder.Services.AddControllersWithViews(options => {
+    options.CacheProfiles.Add("Default", new CacheProfile()
+    {
+        Duration = 604_800,
+        VaryByHeader = "User-Agent",
+    });
+});
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+    options.Providers.Add<BrotliCompressionProvider>();
+    options.Providers.Add<GzipCompressionProvider>();
+});
 builder.Services.AddRouting(i => i.LowercaseUrls = true);
 
 var app = builder.Build();
@@ -31,7 +46,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseResponseCompression();
 app.UseHttpsRedirection();
+app.UseResponseCaching();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
