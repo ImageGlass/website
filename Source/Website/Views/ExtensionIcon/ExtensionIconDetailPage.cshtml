@@ -1,9 +1,5 @@
 ﻿@model ImageGlass.Models.ExtensionIconModel
 
-@{
-  var list = (PaginatedList<ExtensionIconModel>?)ViewData[PageInfo.SidebarList];
-}
-
 
 @* Featured content *@
 <div class="container-fluid post-featured markdown-body">
@@ -78,31 +74,6 @@
         <section class="sidebar-item">
           @await Html.PartialAsync("_Ads")
         </section>
-
-
-        @if (list != null && list.Count > 0)
-        {
-          <section class="sidebar-item p-2">
-            <h3 class="heading">The latest updates</h3>
-            <ul class="article-list mb-2">
-              @foreach (var item in list)
-              {
-                <li class="@(item.IsNewPost ? "new-article" : "")">
-                  <a asp-controller="Theme" asp-action="@nameof(ThemeController.ThemeDetailPage)"
-                    asp-route-slugId="@item.SlugAndId">
-                    <span>@item.Title</span>
-                    <time datetime="@item.UpdatedDate">
-                      @item.UpdatedDate.ToDateTimeString()
-                    </time>
-                  </a>
-                </li>
-              }
-            </ul>
-            <div class="px-2 text-end fs-5">
-              <a asp-controller="Theme" asp-action="@nameof(ThemeController.ThemePackListingPage)">View all</a>
-            </div>
-          </section>
-        }
       </aside>
     </div>
   </div>
