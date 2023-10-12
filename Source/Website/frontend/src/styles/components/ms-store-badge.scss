@@ -20,9 +20,13 @@ ms-store-badge {
   }
 
   &::before {
-    content: "🛍️";
-    font-size: 2.5rem;
-    line-height: 1;
+    content: "";
+    width: 4rem;
+    height: 3rem;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/25/Microsoft_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 0.15rem #0004);
   }
   &::after {
     content: "Get ImageGlass from Microsoft Store";
