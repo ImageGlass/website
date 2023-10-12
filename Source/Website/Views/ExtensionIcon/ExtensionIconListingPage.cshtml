@@ -1,124 +1,59 @@
 ﻿@model PaginatedList<ExtensionIconModel>
 
-<div class="container">
-    <h1>Extension icons listing</h1>
 
+@* Posts list *@
+<div class="container markdown-body py-5 mx-auto">
+  <h1>All theme packs</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Slug
-                </th>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Image
-                </th>
-                <th>
-                    Description
-                </th>
-                <th>
-                    ThemeType
-                </th>
-                <th>
-                    Link
-                </th>
-                <th>
-                    Version
-                </th>
-                <th>
-                    Author
-                </th>
-                <th>
-                    Email
-                </th>
-                <th>
-                    Website
-                </th>
-                <th>
-                    Count
-                </th>
-                <th>
-                    CreatedDate
-                </th>
-                <th>
-                    UpdatedDate
-                </th>
-                <th>
-                    IsNewPost
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Slug)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Image)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Link)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Version)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Author)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Website)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Count)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CreatedDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UpdatedDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IsNewPost)
-                    </td>
-                    <td>
-                        <a asp-action="ExtensionIconDetailPage" asp-route-slugId="@item.SlugAndId">Details</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+  @* Ads *@
+  <div class="mb-5">
+    <div class="sidebar-item section-quang-cao">
+      @await Html.PartialAsync("_Ads")
+    </div>
+  </div>
+
+  <section class="post-list">
+    <ul>
+      @foreach (var item in Model)
+      {
+        <li>
+          <a class="post-item" asp-action="ExtensionIconDetailPage" asp-route-slugId="@item.SlugAndId" title="@item.Title">
+            <div class="post-image">
+              <img src="@item.Image" alt="@item.Title" onerror="this.hidden = true" />
+            </div>
+            <div class="post-body">
+              <div class="post-title">
+                @item.Title
+              </div>
+              <div class="post-description">@item.Description</div>
+              <div class="post-date">
+                <div>Version @item.Version</div>
+                <div>Author: @item.Author</div>
+                <time datetime="@item.UpdatedDate">
+                  @item.UpdatedDate.ToDateString()
+                </time>
+              </div>
+            </div>
+          </a>
+        </li>
+      }
+    </ul>
 
     @{
-        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+      var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+      var nextDisabled = !Model.HasNextPage ? "disabled" : "";
     }
 
-    <a asp-action="Index" asp-route-page="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">
-        Previous
-    </a>
-    <a asp-action="Index" asp-route-page="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">
-        Next
-    </a>
+    <div class="post-list-pagination">
+      <a asp-action="ExtensionIconListingPage" asp-route-page="@(Model.PageIndex - 1)"
+        tabindex="@(Model.HasPreviousPage ? 0 : -1)" class="@prevDisabled">
+        View back
+      </a>
 
+      <a asp-action="ExtensionIconListingPage" asp-route-page="@(Model.PageIndex + 1)"
+        tabindex="@(Model.HasNextPage ? 0 : -1)" class="@nextDisabled">
+        View next
+      </a>
+    </div>
+  </section>
 </div>
