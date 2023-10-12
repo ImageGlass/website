@@ -1,0 +1,31 @@
+
+// MS Store badge
+ms-store-badge {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  max-width: 15rem;
+  gap: 0.35rem;
+  overflow: hidden;
+
+  &::part(img) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+
+  &::before {
+    content: "🛍️";
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  &::after {
+    content: "Get ImageGlass from Microsoft Store";
+    white-space: break-spaces;
+  }
+}

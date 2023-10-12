@@ -15,7 +15,9 @@
   align-items: center;
   padding: 0.45rem 1.5rem;
 
+  cursor: pointer;
   color: var(--btn-color);
+  font-size: inherit;
   font-weight: 500;
   text-decoration: none;
   line-height: normal;
@@ -27,6 +29,7 @@
   box-shadow: 0 2px 0 -1px var(--btn-border-color), // bottom border
     0 0 0 0 transparent, 0 0 0 0 transparent; // shadow
 
+  transition: all ease 200ms;
   &:visited {
     text-decoration: none;
     color: var(--btn-color);
@@ -34,12 +37,12 @@
 
   &:hover,
   &:focus-visible {
-    --btn-bg: var(--bgSurface);
+    --btn-bg: rgb(255 255 255 / 0.2);
     @media (prefers-color-scheme: dark) {
-      --btn-bg: rgb(var(--colorInvert) / 0.2);
+      --btn-bg: rgb(var(--colorInvert) / 0.25);
     }
 
-    filter: none;
+    filter: brightness(1.2);
     color: var(--btn-color);
     text-decoration: none;
     transform: translateY(-0.1rem);
@@ -47,12 +50,13 @@
       var(--shadow-base), var(--shadow-sm); // shadow
   }
   &:active {
-    filter: brightness(0.95);
+    filter: brightness(0.9);
 
-    opacity: 0.85;
+    opacity: 0.8;
     transform: scale(0.98);
     box-shadow: 0 0 0 0 transparent, // bottom border
       var(--shadow-base), 0 0 0 0 transparent; // shadow
+    transition: all ease 80ms;
   }
 
 
@@ -61,13 +65,18 @@
   &.btn-primary {
     --btn-color: rgb(255 255 255 / 0.9);
     --btn-bg: rgb(var(--colorAccent1) / 1);
+    @media (prefers-color-scheme: light) {
+      --btn-color: #fff;
+    }
+
+    filter: brightness(1) drop-shadow(0 0 1px #0005);
 
     &:hover,
     &:focus-visible {
-      filter: brightness(1.25);
+      filter: brightness(1.2) drop-shadow(0 0 1px #0005);
     }
     &:active {
-      filter: brightness(0.9);
+      filter: brightness(0.9) drop-shadow(0 0 1px #0005);
       opacity: 1;
     }
   }
