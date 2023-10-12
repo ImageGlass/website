@@ -26,7 +26,7 @@
               <span class="post-badge text-uppercase ms-1">@Model.ReleaseChannel</span>
             </div>
             <div class="mt-3 d-flex align-items-center">
-              <a class="btn btn-accent me-3" href="#downloads" title="Download">Download</a>
+              <a class="btn btn-accent me-3" href="#downloads" title="Download" scroll-to-el="#downloads">Download</a>
               <span class="fs-6" style="opacity: 0.65;">
                 @(Model.Count > 0 ? Model.Count.ToString("N0") : "")
               </span>
@@ -49,6 +49,8 @@
 <div class="container">
   <div class="row gx-5">
     <div class="col-12 col-lg-8 my-5">
+
+      @* Requirements *@
       <section class="markdown-body mb-5">
         <h2 id="requirements">Requirements</h2>
         <ul>
@@ -56,6 +58,8 @@
         </ul>
       </section>
 
+
+      @* Screenshots *@
       <section class="markdown-body mb-5">
         <h2 id="screenshots">Screenshots</h2>
         <ul class="grid-gallery">
@@ -70,34 +74,42 @@
         </ul>
       </section>
 
+
+      @* Downloads *@
       <section class="markdown-body mb-5">
         <h2 id="downloads">Downloads</h2>
-        <table>
-          <thead>
-            <tr>
-              <td>Id</td>
-              <td>ReleaseCode</td>
-              <td>Type</td>
-              <td>FileType</td>
-              <td>Architecture</td>
-              <td>Checksum</td>
-              <td>HashAlgorithm</td>
-              <td>Link</td>
-              <td>Count</td>
-            </tr>
-          </thead>
+        <div class="mb-5">
+          <p>
+            <a href="https://www.microsoft.com/store/productId/9N33VZK3C7TH" target="_blank" rel="noopener noreferrer">ImageGlass Store</a> provides the convenience of fast, easy installation onto all of your Windows devices along with fully automatic, behind-the-scenes updates with all the newest features, improvements, and fixes.
+          </p>
+          <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
 
+
+          <div class="download-options mt-3">
+            <ms-store-badge tabindex="0" class="btn btn-accent" productid="9N33VZK3C7TH" cid="ig_website_badge" window-mode="full" theme="auto">
+            </ms-store-badge>
+
+            <button class="btn option-classic" type="button" toggle-el="#Div_DownloadOptions">
+              <span class="emoji">📦</span>
+              <span>Get<br/>ImageGlass Classic</span>
+            </button>
+          </div>
+
+
+          <div id="Div_DownloadOptions" hidden>
+            xxxxxxxxxxxxxxxxx
+          </div>
+        </div>
+
+        <table>
           <tbody>
             @foreach (var file in @Model.BinaryFiles)
             {
               <tr>
                 <td>@file.Id</td>
-                <td>@file.ReleaseCode</td>
                 <td>@file.Type</td>
                 <td>@file.FileType</td>
                 <td>@file.Architecture</td>
-                <td>@file.Checksum</td>
-                <td>@file.HashAlgorithm</td>
                 <td>@file.Link</td>
                 <td>@file.Count</td>
               </tr>
@@ -106,13 +118,15 @@
         </table>
       </section>
 
+
+      @* Donation *@
       <section class="markdown-body">
         @await Html.PartialAsync("_Donation")
       </section>
     </div>
 
 
-
+    @* Sidebar *@
     <div class="col-12 col-lg-4 my-5">
       <aside class="sidebar">
         <section class="sidebar-item">
