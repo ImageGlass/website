@@ -1,0 +1,39 @@
+
+[data-page="download.language"] {
+  .language-list {
+    ul {
+      list-style: none;
+      margin-bottom: 0;
+      padding-left: 0;
+
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+
+      li {
+        a {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+          display: flex;
+          justify-content: flex-start;
+          gap: 0.5em;
+          font-weight: 400;
+
+          .lang-img {
+            width: 2rem;
+            height: 2rem;
+          }
+          .lang-progress {
+            font-size: var(--fs-6);
+            opacity: 0.65;
+            margin-left: auto;
+          }
+        }
+
+        &+ li {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

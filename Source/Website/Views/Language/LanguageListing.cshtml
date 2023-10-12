@@ -4,6 +4,11 @@
 @* Posts list *@
 <div class="container markdown-body py-5 mx-auto">
   <h1>All language packs</h1>
+  <div class="mb-4">
+    ImageGlass uses Crowdin service for translation.<br/>
+    You can join and request for your language at:
+    <a href="https://crowdin.com/project/imageglass/invite" target="_blank" rel="noopener noreferrer">https://crowdin.com/project/imageglass/invite</a>.
+  </div>
 
   @* Ads *@
   <div class="mb-5">
@@ -12,13 +17,17 @@
     </div>
   </div>
 
-  <section class="post-list">
+  <section class="language-list">
     <ul>
       @foreach (var item in Model)
       {
         <li>
-          <a asp-action="DownloadLanguage" asp-route-langid="@(item?.LanguageId)" asp-route-langName="@(item?.Name)">
-            @item?.Name (@item?.TranslationProgress%)
+          <a class="btn" asp-action="DownloadLanguage" asp-route-langid="@(item?.LanguageId)" asp-route-langName="@(item?.Name)" title="Download @item?.Name language pack">
+            <div class="lang-img">
+              <img height="32" src="~/img/lang/@(item?.LanguageId).png" alt="@item?.Name" onerror="this.hidden = true" />
+            </div>
+            <span>@item?.Name</span>
+            <span class="lang-progress">@item?.TranslationProgress%</span>
           </a>
         </li>
       }

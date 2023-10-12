@@ -129,6 +129,7 @@
       background-color: var(--bgSurface);
 
       img {
+        width: 100%;
         border-radius: 0;
         object-fit: cover;
         transition: all ease 300ms;
