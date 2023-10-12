@@ -92,6 +92,17 @@ public class ImageGlassContext : DbContext
     }
 
 
+    public async Task<BinaryFileModel?> GetBinaryFileModel(int id, bool? preview)
+    {
+        var isPreview = preview ?? false;
+        var model = await BinaryFiles
+            .Where(i => i.Id == id && (isPreview || i.IsVisible))
+            .FirstOrDefaultAsync();
+
+        return model;
+    }
+
+
     public async Task<PaginatedList<ThemeModel>> QueryThemeModels(int count = 10, int pageNumber = 1)
     {
         var source = Themes
