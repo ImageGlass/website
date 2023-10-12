@@ -52,6 +52,21 @@
 }
 
 
+.aniZoomOut {
+  animation: aniZoomOut 500ms ease forwards;
+}
+@keyframes aniZoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+
 .aniFadeIn {
   animation: aniFadeIn 500ms ease forwards;
 }
@@ -61,6 +76,19 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+
+.aniFadeOut {
+  animation: aniFadeOut 500ms ease forwards;
+}
+@keyframes aniFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 

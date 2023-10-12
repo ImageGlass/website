@@ -60,6 +60,8 @@
     box-shadow: var(--shadow-base), var(--shadow);
     overflow: hidden;
 
+    animation: aniZoomIn 1300ms ease forwards;
+
     img {
       width: 100%;
       max-width: 35rem; // 560px

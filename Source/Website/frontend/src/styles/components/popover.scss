@@ -41,4 +41,13 @@
       animation: aniFadeIn 300ms ease forwards;
     }
   }
+
+  &.is--closing {
+    display: flex !important;
+    animation: aniZoomOut 300ms ease forwards;
+
+    &::backdrop {
+      animation: aniZoomOut 300ms ease forwards;
+    }
+  }
 }

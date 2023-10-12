@@ -1,5 +1,5 @@
 ﻿import { IEffectOptions, applyEffect } from 'fluent-reveal-effect';
-import { animateElementVisibility, openUrl, query, queryAll, scrollToTop } from './js/modules/helper';
+import { animateElementVisibility, openUrl, pause, query, queryAll, scrollToTop } from './js/modules/helper';
 
 import './styles/main.scss';
 
@@ -59,6 +59,20 @@ storeBadgeEls.forEach(el => {
     if (e.key === 'Space' || e.key === 'Enter') {
       e.preventDefault();
       openUrl(url);
+    }
+  });
+});
+
+
+// popover: add closing animation
+queryAll('[popover]').forEach(el => {
+  el.addEventListener('beforetoggle', async (e: ToggleEvent) => {
+    // popover is being hidden
+    if (e.newState === 'closed') {
+      el.classList.add('is--closing');
+
+      await pause(500);
+      el.classList.remove('is--closing');
     }
   });
 });

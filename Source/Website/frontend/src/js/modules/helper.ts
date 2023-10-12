@@ -81,11 +81,13 @@ export const animateElementVisibility = async (selector: string, forced?: boolea
   const el = query(selector);
   const isHidden = forced ?? el.hidden;
 
+  // show
   if (isHidden) {
     el.toggleAttribute('hidden', false);
     el.classList.add('aniHeightDown');
     el.classList.remove('aniHeightUp');
   }
+  // hide
   else {
     el.classList.add('aniHeightUp');
     el.classList.remove('aniHeightDown');
