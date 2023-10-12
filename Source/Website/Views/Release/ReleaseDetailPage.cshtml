@@ -26,7 +26,12 @@
               <span class="post-badge text-uppercase ms-1">@Model.ReleaseChannel</span>
             </div>
             <div class="mt-3 d-flex align-items-center">
-              <a class="btn btn-accent me-3" href="#downloads" title="Download" scroll-to-el="#downloads">Download</a>
+              <a class="btn btn-accent me-3 pe-2" href="#downloads" title="View download options" scroll-to-el="#downloads">
+                <span class="me-3">Download</span>
+                <svg width="7" height="7" viewBox="0 0 14 13" fill="currentColor" stroke="currentColor">
+                  <path d="M11.5625 1L2.43745 0.999999C1.35695 0.999999 0.683725 2.1721 1.22816 3.10542L3.5 7L6.13622 11.5192C6.5221 12.1807 7.4779 12.1807 7.86378 11.5192L10.5 7L12.7718 3.10542C13.3163 2.1721 12.6431 1 11.5625 1Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
               <span class="fs-6" style="opacity: 0.65;">
                 @(Model.Count > 0 ? Model.Count.ToString("N0") : "")
               </span>
@@ -85,17 +90,19 @@
           <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
 
 
+          @* Download options *@
           <div class="download-options mt-3 mb-3">
-            <ms-store-badge tabindex="0" class="btn btn-accent" productid="9N33VZK3C7TH" cid="ig_website_badge" window-mode="full" theme="auto">
+            <ms-store-badge tabindex="0" class="btn btn-accent" productid="9N33VZK3C7TH" cid="ig_website_badge" window-mode="full" theme="auto" title="Get ImageGlass from Microsoft Store">
             </ms-store-badge>
 
-            <button class="btn option-classic" type="button" toggle-el="#classic-download" popovertarget="classic-download">
+            <button class="btn option-classic" type="button" toggle-el="#classic-download" popovertarget="classic-download" title="Get ImageGlass Classic">
               <span class="emoji">📦</span>
               <span>Get<br/>ImageGlass Classic</span>
             </button>
           </div>
 
 
+          @* ImageGlass Classic download options *@
           <div popover hidden id="classic-download" class="classic-download-options markdown-body">
             <div class="popover-header">
               <h3 class="my-0">ImageGlass Classic</h3>
