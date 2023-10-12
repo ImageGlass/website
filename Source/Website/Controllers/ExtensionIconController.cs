@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ImageGlass.Data;
-using ImageGlass.Models;
 using ImageGlass.Utils;
 
 namespace ImageGlass.Controllers;
@@ -49,4 +48,24 @@ public class ExtensionIconController : BaseController
         return View("ExtensionIconDetailPage", model);
     }
 
+
+    [HttpGet("extension-icon/download/{slugId}")]
+    public async Task<IActionResult> DownloadExtensionIcon(string? slugId)
+    {
+        var id = GetIdFromSlugId(slugId);
+        if (id is null) return NotFound();
+
+        var model = await _context.GetExtensionIconModel(id.Value, false);
+        if (model == null) return NotFound();
+
+        // update the download count
+        model.Count++;
+        if (await TryUpdateModelAsync(model, "", i => i.Count)) {
+            await _context.SaveChangesAsync();
+
+            return Redirect(model.Link);
+        }
+
+        return NoContent();
+    }
 }
