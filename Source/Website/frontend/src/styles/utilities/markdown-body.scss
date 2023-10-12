@@ -96,7 +96,7 @@
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
-  color: var(--colorText);
+  color: rgb(var(--colorText) / 1);
   font-family: var(--fontBase);
   line-height: 1.5;
   word-wrap: break-word;

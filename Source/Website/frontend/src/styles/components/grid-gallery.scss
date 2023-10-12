@@ -71,7 +71,7 @@
     background-color: rgb(255 255 255 / 0.2);
     backdrop-filter: var(--backdrop);
     border-radius: 1000%;
-    border: 1px solid rgb(var(--colorInvert) / 0.1);
+    border: 0.075rem solid rgb(var(--colorInvert) / 0.1);
     box-shadow: var(--shadow-sm);
 
     &::before {

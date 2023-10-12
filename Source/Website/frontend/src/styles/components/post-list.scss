@@ -58,12 +58,12 @@
     background-color: rgb(var(--colorBg) / 1);
     border-radius: calc(var(--border-radius) * 1.5);
     box-shadow: var(--shadow-base), var(--shadow);
+    overflow: hidden;
 
     img {
       width: 100%;
       max-width: 35rem; // 560px
       max-height: 25rem; // 400px
-      border-radius: var(--border-radius);
     }
   }
 }
@@ -111,7 +111,7 @@
     height: 100%;
 
     background-color: rgb(var(--colorBg) / 1);
-    border: 1px solid rgb(var(--colorInvert) / 0.1);
+    border: 0.075rem solid rgb(var(--colorInvert) / 0.1);
     border-radius: calc(var(--border-radius) * 1.5);
     box-shadow: var(--shadow-base), var(--shadow-sm);
 

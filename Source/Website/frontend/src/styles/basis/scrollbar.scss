@@ -4,7 +4,7 @@
   height: var(--scrollBarSize-px);
   background: rgb(var(--colorBg));
   border: 1px solid transparent;
-  border-radius: 1px;
+  border-radius: var(--scrollBarSize-px);
   cursor: pointer;
 
   &:hover {

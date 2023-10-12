@@ -110,7 +110,7 @@
         padding: 0.25em;
         transition: all ease 300ms;
         transform: translateY(-1em) scale(0.9) rotateX(-15deg);
-        border: 1px solid rgb(var(--colorInvert) / 0.175);
+        border: 0.075rem solid rgb(var(--colorInvert) / 0.175);
         border-radius: calc(var(--border-radius) * 1.5);
 
         background-color: rgb(var(--colorBg) / 1);
