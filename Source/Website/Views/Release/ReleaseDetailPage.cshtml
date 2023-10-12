@@ -85,37 +85,42 @@
           <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
 
 
-          <div class="download-options mt-3">
+          <div class="download-options mt-3 mb-3">
             <ms-store-badge tabindex="0" class="btn btn-accent" productid="9N33VZK3C7TH" cid="ig_website_badge" window-mode="full" theme="auto">
             </ms-store-badge>
 
-            <button class="btn option-classic" type="button" toggle-el="#Div_DownloadOptions">
+            <button class="btn option-classic" type="button" toggle-el="#classic-download" popovertarget="classic-download">
               <span class="emoji">📦</span>
               <span>Get<br/>ImageGlass Classic</span>
             </button>
           </div>
 
 
-          <div id="Div_DownloadOptions" hidden>
-            xxxxxxxxxxxxxxxxx
+          <div popover hidden id="classic-download" class="classic-download-options markdown-body">
+            <div class="popover-header">
+              <h3 class="my-0">ImageGlass Classic</h3>
+            </div>
+            <div class="popover-body">
+              <div class="mb-2">Select a release:</div>
+              <ul>
+                @foreach (var file in @Model.BinaryFiles)
+                {
+                  <li>
+                    <a href="@file.Link" class="btn px-2"
+                      title="ImageGlass @file.Type">
+                      <span class="text-capitalize">@file.Type</span>
+                      <span class="post-badge" title="@file.Architecture architecture">
+                        @file.Architecture
+                      </span>
+                      <span class="post-badge me-5" title="@file.FileType file">@file.FileType</span>
+                      <span class="download-count">@file.Count.ToString("N0")</span>
+                    </a>
+                  </li>
+                }
+              </ul>
+            </div>
           </div>
         </div>
-
-        <table>
-          <tbody>
-            @foreach (var file in @Model.BinaryFiles)
-            {
-              <tr>
-                <td>@file.Id</td>
-                <td>@file.Type</td>
-                <td>@file.FileType</td>
-                <td>@file.Architecture</td>
-                <td>@file.Link</td>
-                <td>@file.Count</td>
-              </tr>
-            }
-          </tbody>
-        </table>
       </section>
 
 

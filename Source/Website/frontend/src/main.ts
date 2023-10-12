@@ -19,21 +19,33 @@ applyEffect('.article-list li > a', {
 
 
 // Events for toggle element
-query('[toggle-el]').addEventListener('click', async (e) => {
-  e.preventDefault();
-  const targetSelector = (e.currentTarget as HTMLElement).getAttribute('toggle-el');
+queryAll('[toggle-el]').forEach(el => {
+  el.addEventListener('click', async (e) => {
+    const targetSelector = (e.currentTarget as HTMLElement).getAttribute('toggle-el');
 
-  await animateElementVisibility(targetSelector);
-}, false);
+    // if browser supports popover
+    if (el.showPopover
+      // and the target el is a popover
+      && query(targetSelector)?.hasAttribute('popover')) {
+      // open the native popover
+      return;
+    }
+
+    e.preventDefault();
+    await animateElementVisibility(targetSelector);
+  }, false);
+});
 
 
 // Events for scrolling to element
-query('[scroll-to-el]').addEventListener('click', async (e) => {
-  e.preventDefault();
-
-  const targetSelector = (e.currentTarget as HTMLElement).getAttribute('scroll-to-el');
-  scrollToTop(targetSelector);
-}, false);
+queryAll('[scroll-to-el]').forEach(el => {
+  el.addEventListener('click', async (e) => {
+    e.preventDefault();
+  
+    const targetSelector = (e.currentTarget as HTMLElement).getAttribute('scroll-to-el');
+    scrollToTop(targetSelector);
+  }, false);
+});
 
 
 // Events for MS Store badge
