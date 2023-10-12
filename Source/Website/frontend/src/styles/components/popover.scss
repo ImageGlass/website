@@ -1,0 +1,44 @@
+
+[popover] {
+  flex-direction: column;
+  justify-content: stretch;
+
+  margin: auto;
+  padding: 0 0 1rem 0;
+  max-height: 90vh;
+  max-width: 90vw;
+  overflow: hidden;
+
+  border: 0.075rem solid rgb(var(--colorAccent1) / 1);
+  border-radius: calc(var(--border-radius) * 1.5);
+  background-color: rgb(var(--colorBg) / 0.8);
+  backdrop-filter: var(--backdrop);
+  box-shadow:
+    var(--shadow-base),
+    var(--shadow-sm),
+    0 1rem 10rem -5rem #000; // shadow
+
+  transition: all ease 300ms;
+
+  &::backdrop {
+    background-color: rgb(0 0 0 / 0.2);
+  }
+
+  .popover-header {
+    padding: 1rem;
+  }
+
+  .popover-body {
+    padding: 1rem 1rem 0 1rem;
+    overflow-y: auto;
+  }
+
+  &:popover-open {
+    display: flex !important;
+    animation: aniZoomIn 300ms ease forwards;
+
+    &::backdrop {
+      animation: aniFadeIn 300ms ease forwards;
+    }
+  }
+}

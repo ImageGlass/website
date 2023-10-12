@@ -21,7 +21,6 @@
 .aniHeightUp {
   animation: aniHeightUp 500ms ease forwards;
 }
-
 @keyframes aniHeightUp {
   from {
     max-height: 100vh;
@@ -36,3 +35,47 @@
       transform ease 400ms;
   }
 }
+
+
+.aniZoomIn {
+  animation: aniZoomIn 500ms ease forwards;
+}
+@keyframes aniZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.aniFadeIn {
+  animation: aniFadeIn 500ms ease forwards;
+}
+@keyframes aniFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.aniSlideUp {
+  animation: aniSlideUp 500ms ease forwards;
+}
+@keyframes aniSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
