@@ -22,8 +22,6 @@
       overflow: hidden;
       filter: url("#svgWaterEffect");
 
-      animation: aniSlideUp 1300ms ease forwards;
-
       img {
         border-radius: calc(var(--border-radius) * 15);
         user-select: none;

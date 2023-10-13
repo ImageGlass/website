@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="row gx-5">
-    <div class="col-12 col-lg-8 my-5">
+    <div class="col-12 col-lg-8 my-5 aniFadeIn">
       <div class="post-date mb-2">
         <time datetime="@Model.UpdatedDate">
           @Model.UpdatedDate.ToDateString()
@@ -20,7 +20,7 @@
       </section>
     </div>
 
-    <div class="col-12 col-lg-4 my-5 pt-4">
+    <div class="col-12 col-lg-4 my-5 pt-4 aniSlideUp ani-delay-25">
       <aside class="sidebar">
         <section class="sidebar-item">
           @await Html.PartialAsync("_Ads")

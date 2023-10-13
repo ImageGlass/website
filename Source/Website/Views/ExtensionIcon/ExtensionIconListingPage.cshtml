@@ -3,16 +3,16 @@
 
 @* Posts list *@
 <div class="container markdown-body py-5 mx-auto">
-  <h1>All theme packs</h1>
+  <h1 class="aniFadeIn">All theme packs</h1>
 
   @* Ads *@
-  <div class="mb-5">
+  <div class="mb-5 aniSlideUp ani-delay-25">
     <div class="sidebar-item section-quang-cao">
       @await Html.PartialAsync("_Ads")
     </div>
   </div>
 
-  <section class="post-list">
+  <section class="post-list aniSlideUp ani-delay-50">
     <ul>
       @foreach (var item in Model)
       {

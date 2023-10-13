@@ -10,7 +10,7 @@
   <div class="container">
     <div class="container-limit">
       <div class="post-body row gx-0">
-        <div class="post-featured-info pe-lg-4 pe-md-3 pe-0 col-12 col-lg-5 col-md-6 mb-md-0 mb-3">
+        <div class="post-featured-info pe-lg-4 pe-md-3 pe-0 col-12 col-lg-5 col-md-6 mb-md-0 mb-3 aniFadeIn">
           <div class="post-date">
             <time datetime="@Model.UpdatedDate">
               @Model.UpdatedDate.ToDateString()
@@ -49,7 +49,7 @@
 @* Theme pack details *@
 <div class="container">
   <div class="row gx-5">
-    <div class="col-12 col-lg-8 my-5">
+    <div class="col-12 col-lg-8 my-5 aniSlideUp ani-delay-25">
       <section class="markdown-body mb-5">
         <h2 id="theme-information">Theme information</h2>
         <div class="mb-4">@Model.Description</div>
@@ -73,7 +73,7 @@
 
 
 
-    <div class="col-12 col-lg-4 my-5">
+    <div class="col-12 col-lg-4 my-5 aniSlideUp ani-delay-50">
       <aside class="sidebar">
         <section class="sidebar-item">
           @await Html.PartialAsync("_Ads")

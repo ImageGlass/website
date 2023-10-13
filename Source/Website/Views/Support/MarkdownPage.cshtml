@@ -1,17 +1,17 @@
 ﻿@model string
 
 <div class="container">
-    <div class="row gx-5">
-        <div class="col-12 col-lg-8 my-5">
-            @await Html.PartialAsync("_MarkdownBody", Model)
-        </div>
-
-        <div class="col-12 col-lg-4 my-5">
-            <div class="sidebar">
-                <div class="sidebar-item">
-                    @await Html.PartialAsync("_Ads")
-                </div>
-            </div>
-        </div>
+  <div class="row gx-5">
+    <div class="col-12 col-lg-8 my-5 aniFadeIn">
+      @await Html.PartialAsync("_MarkdownBody", Model)
     </div>
+
+    <div class="col-12 col-lg-4 my-5 aniSlideUp ani-delay-25">
+      <div class="sidebar">
+        <div class="sidebar-item">
+          @await Html.PartialAsync("_Ads")
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
