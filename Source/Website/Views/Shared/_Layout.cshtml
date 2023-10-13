@@ -49,9 +49,6 @@
           <li class="nav-item nav-submenu @(_page.Contains("support") ? "nav-item--active" : "")">
             <a asp-area="" asp-controller="Support" asp-action="Index">Support</a>
             <ul>
-              <li class="nav-item @(_page.Contains("faqs") ? "nav-item--active" : "")">
-                <a asp-area="" asp-controller="Support" asp-action="FAQsPage">FAQs</a>
-              </li>
               <li class="nav-item @(_page.Contains("privacy") ? "nav-item--active" : "")">
                 <a asp-area="" asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
               </li>

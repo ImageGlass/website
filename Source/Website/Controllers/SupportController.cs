@@ -49,22 +49,4 @@ public class SupportController : BaseController
 
         return View("LicensePage", htmlContent);
     }
-
-
-    [HttpGet("faqs")]
-    public async Task<IActionResult> FAQsPage()
-    {
-        // page info
-        ViewData[PageInfo.Page] = "support.faqs";
-        ViewData[PageInfo.Title] = $"FAQs | {ViewData[PageInfo.Name]}";
-        ViewData[PageInfo.Description] = "ImageGlass FAQs";
-        ViewData[PageInfo.Keywords] = $"imageglass faqs, {ViewData[PageInfo.Keywords]}";
-
-        // get page content from GitHub
-        var markdownContent = await GitHub.GetFileContentAsync("general/faqs.md");
-        var htmlContent = GitHub.ParseMarkdown(markdownContent);
-
-        return View("MarkdownPage", htmlContent);
-    }
-
 }
