@@ -19,6 +19,7 @@ public class LanguageController : BaseController
 
 
     [HttpGet("languages")]
+    [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> LanguageListing()
     {
         var supportedLangsTask = _crowdin.Languages.ListSupportedLanguages(limit: 500);

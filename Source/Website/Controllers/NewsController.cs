@@ -25,13 +25,14 @@ public class NewsController : BaseController
         ViewData[PageInfo.Keywords] = $"imageglass lastest update, imageglass {DateTime.UtcNow.Year}, {ViewData[PageInfo.Keywords]}";
 
         // get news items
-        var pList = await _context.QueryNewsModels(9, page ?? 1);
+        var pList = await _context.QueryNewsModels(12, page ?? 1);
 
         return View("NewsListingPage", pList);
     }
 
 
     [HttpGet("news/{slugId}")]
+    [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> NewsDetailPage(string? slugId, bool? preview)
     {
         var id = GetIdFromSlugId(slugId);

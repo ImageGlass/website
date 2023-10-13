@@ -5,6 +5,8 @@ namespace ImageGlass.Controllers;
 
 public class SupportController : BaseController
 {
+    [HttpGet("support")]
+    [ResponseCache(CacheProfileName = "Default")]
     public IActionResult Index()
     {
         // page info
@@ -18,6 +20,7 @@ public class SupportController : BaseController
 
 
     [HttpGet("privacy")]
+    [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> PrivacyPage()
     {
         // page info
@@ -35,6 +38,7 @@ public class SupportController : BaseController
 
 
     [HttpGet("license")]
+    [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> LicensePage()
     {
         // page info

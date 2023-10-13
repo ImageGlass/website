@@ -14,6 +14,8 @@ public class AboutController : BaseController
         _context = context;
     }
 
+    [HttpGet("about")]
+    [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> Index()
     {
         // page info

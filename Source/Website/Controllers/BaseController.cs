@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ImageGlass.Controllers;
 
-[ResponseCache(CacheProfileName = "Default")]
 public class BaseController : Controller
 {
     public override void OnActionExecuting(ActionExecutingContext context)

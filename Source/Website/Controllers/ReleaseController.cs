@@ -42,6 +42,7 @@ public class ReleaseController : BaseController
 
 
     [HttpGet("release/{slugId}")]
+    [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> ReleaseDetailPage(string? slugId, bool? preview)
     {
         var id = GetIdFromSlugId(slugId);

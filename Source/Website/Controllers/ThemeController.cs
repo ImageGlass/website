@@ -30,6 +30,7 @@ public class ThemeController : BaseController
 
 
     [HttpGet("theme/{slugId}")]
+    [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> ThemeDetailPage(string? slugId, bool? preview)
     {
         var id = GetIdFromSlugId(slugId);

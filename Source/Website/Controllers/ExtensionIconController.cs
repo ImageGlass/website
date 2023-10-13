@@ -30,6 +30,7 @@ public class ExtensionIconController : BaseController
 
 
     [HttpGet("extension-icon/{slugId}")]
+    [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> ExtensionIconDetailPage(string? slugId, bool? preview)
     {
         var id = GetIdFromSlugId(slugId);
