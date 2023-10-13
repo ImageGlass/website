@@ -1,0 +1,30 @@
+@model object
+
+@if (@Model != null)
+{
+  var heading = ViewData["heading"]?.ToString() ?? "";
+  var aspController = ViewData["aspController"]?.ToString() ?? "";
+  var aspActionListing = ViewData["aspActionListing"]?.ToString() ?? "";
+  var aspActionDetail = ViewData["aspActionDetail"]?.ToString() ?? "";
+  var list = ((IEnumerable<ArticleBaseModel>)Model);
+
+  <section class="sidebar-item p-2">
+    <h3 class="heading">@heading</h3>
+    <ul class="article-list mb-2">
+      @foreach (var item in list)
+      {
+        <li class="@(item.IsNewPost ? "new-article" : "")">
+          <a asp-controller="@aspController" asp-action="@aspActionDetail" asp-route-slugId="@item.SlugAndId">
+            <span>@item.Title</span>
+            <time datetime="@item.UpdatedDate">
+              @item.UpdatedDate.ToDateTimeString()
+            </time>
+          </a>
+        </li>
+      }
+    </ul>
+    <div class="px-2 text-end fs-5">
+      <a asp-controller="@aspController" asp-action="@aspActionListing">View all</a>
+    </div>
+  </section>
+}

@@ -147,29 +147,13 @@
         </section>
 
 
-        @if (list != null && list.Count > 0)
-        {
-          <section class="sidebar-item p-2">
-            <h3 class="heading">The latest updates</h3>
-            <ul class="article-list mb-2">
-              @foreach (var item in list)
-              {
-                <li class="@(item.IsNewPost ? "new-article" : "")">
-                  <a asp-controller="News" asp-action="@nameof(NewsController.NewsDetailPage)"
-                    asp-route-slugId="@item.SlugAndId">
-                    <span>@item.Title</span>
-                    <time datetime="@item.UpdatedDate">
-                      @item.UpdatedDate.ToDateTimeString()
-                    </time>
-                  </a>
-                </li>
-              }
-            </ul>
-            <div class="px-2 text-end fs-5">
-              <a asp-controller="News" asp-action="@nameof(NewsController.AllNewsListingPage)">View all</a>
-            </div>
-          </section>
-        }
+        @* News listing *@
+        @await Html.PartialAsync("_SidebarList", list, new ViewDataDictionary(ViewData) {
+          { "heading", "The lastest updates" },
+          { "aspController", "News" },
+          { "aspActionListing", nameof(NewsController.AllNewsListingPage) },
+          { "aspActionDetail", nameof(NewsController.NewsDetailPage) },
+        })
       </aside>
     </div>
   </div>
