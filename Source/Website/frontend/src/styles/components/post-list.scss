@@ -79,23 +79,8 @@
     list-style: none;
 
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: 1.5rem;
-    grid-auto-columns: max-content;
-    justify-content: center;
-
-    @media (min-width: 576px) {
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @media (min-width: 1200px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
 
     &> li {
       display: flex;
@@ -178,7 +163,7 @@
     &:hover {
       filter: none;
       text-decoration: none;
-      border-color: rgb(var(--colorInvert) / 0.3);
+      border-color: rgb(var(--colorAccent1) / 1);
       box-shadow: var(--shadow-base), var(--shadow);
       transform: translateY(-0.25rem);
 
