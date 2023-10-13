@@ -1,3 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model ReleaseModel
+
+@{
+  var controller = "Release";
+  var controllerAction = nameof(ReleaseController.ReleaseDetailPage);
+  var slugId = Model.News?.SlugAndId ?? Model.SlugAndId;
+  var description = Model.News?.Description ?? "A lightweight, versatile image viewer";
+
+  if (Model.News != null) {
+    controller = nameof(Model.News);
+    controllerAction = nameof(NewsController.NewsDetailPage);
+  }
 }
+
+@* Featured content *@
+<div class="container-fluid markdown-body bg-surface home-featured">
+  <div class="container home-featured-container">
+    <div class="home-featured-content">
+      <div class="home-featured-info">
+        <div class="fs-5 opacity-65 aniSlideDown">
+          Introduce
+        </div>
+        <h2 class="home-featured-title mt-0 aniSlideDown ani-delay-25">
+          <span class="fs-1">@Model.Title</span>
+          <sup class="post-badge text-uppercase mt-2 mt-lg-0 fs-6">@Model.ReleaseChannel</sup>
+        </h2>
+        <div class="aniSlideDown ani-delay-75">@description</div>
+        <div class="mt-3 d-inline-flex align-items-center aniSlideUp ani-delay-150">
+          <a class="btn btn-accent" title="Read more"
+            asp-controller="@controller" asp-action="@controllerAction" asp-route-slugId="@slugId">
+            Read more
+          </a>
+        </div>
+      </div>
+
+      <a class="home-featured-image" asp-controller="@controller" asp-action="@controllerAction" asp-route-slugId="@slugId">
+        <img src="@Model.Image" alt="@Model.Title" onerror="this.hidden = true" />
+      </a>
+    </div>
+  </div>
+</div>

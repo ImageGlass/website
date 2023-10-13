@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ImageGlass.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.ResponseCompression;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +13,7 @@ builder.Services.AddResponseCaching();
 builder.Services.AddControllersWithViews(options => {
     options.CacheProfiles.Add("Default", new CacheProfile()
     {
-        Duration = 604_800,
+        Duration = 3600,
         VaryByHeader = "User-Agent",
     });
 });
@@ -32,7 +31,7 @@ if (db is not null)
 }
 
 
-// Configure the HTTP request pipeline.
+// Production configs
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -41,8 +40,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 
-app.UseHttpsRedirection();
 app.UseResponseCaching();
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();

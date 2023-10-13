@@ -1,6 +1,40 @@
 
+.ani-delay-25 {
+  opacity: 0;
+  animation-delay: 250ms !important;
+}
+.ani-delay-50 {
+  opacity: 0;
+  animation-delay: 500ms !important;
+}
+.ani-delay-75 {
+  opacity: 0;
+  animation-delay: 750ms !important;
+}
+.ani-delay-100 {
+  opacity: 0;
+  animation-delay: 1000ms !important;
+}
+.ani-delay-125 {
+  opacity: 0;
+  animation-delay: 1250ms !important;
+}
+.ani-delay-150 {
+  opacity: 0;
+  animation-delay: 1500ms !important;
+}
+.ani-delay-1750 {
+  opacity: 0;
+  animation-delay: 1750ms !important;
+}
+.ani-delay-200 {
+  opacity: 0;
+  animation-delay: 2000ms !important;
+}
+
+
 .aniHeightDown {
-  animation: aniHeightDown 500ms ease forwards;
+  animation: aniHeightDown 1000ms ease forwards;
 }
 @keyframes aniHeightDown {
   from {
@@ -19,7 +53,7 @@
 
 
 .aniHeightUp {
-  animation: aniHeightUp 500ms ease forwards;
+  animation: aniHeightUp 1000ms ease forwards;
 }
 @keyframes aniHeightUp {
   from {
@@ -38,7 +72,7 @@
 
 
 .aniZoomIn {
-  animation: aniZoomIn 500ms ease forwards;
+  animation: aniZoomIn 1000ms ease forwards;
 }
 @keyframes aniZoomIn {
   from {
@@ -53,7 +87,7 @@
 
 
 .aniZoomOut {
-  animation: aniZoomOut 500ms ease forwards;
+  animation: aniZoomOut 1000ms ease forwards;
 }
 @keyframes aniZoomOut {
   from {
@@ -68,7 +102,7 @@
 
 
 .aniFadeIn {
-  animation: aniFadeIn 500ms ease forwards;
+  animation: aniFadeIn 1000ms ease forwards;
 }
 @keyframes aniFadeIn {
   from {
@@ -81,7 +115,7 @@
 
 
 .aniFadeOut {
-  animation: aniFadeOut 500ms ease forwards;
+  animation: aniFadeOut 1000ms ease forwards;
 }
 @keyframes aniFadeOut {
   from {
@@ -94,12 +128,27 @@
 
 
 .aniSlideUp {
-  animation: aniSlideUp 500ms ease forwards;
+  animation: aniSlideUp 1000ms ease forwards;
 }
 @keyframes aniSlideUp {
   from {
     opacity: 0;
     transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.aniSlideDown {
+  animation: aniSlideDown 1000ms ease forwards;
+}
+@keyframes aniSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
   }
   to {
     opacity: 1;

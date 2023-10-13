@@ -68,6 +68,7 @@ public class ImageGlassContext : DbContext
             .Where(i => i.IsVisible
                 && (string.IsNullOrEmpty(releaseChannel)
                     || i.ReleaseChannel == releaseChannel))
+            .Include(i => i.News)
             .OrderByDescending(i => i.CreatedDate)
             .AsNoTracking();
 
@@ -85,6 +86,7 @@ public class ImageGlassContext : DbContext
             .Where(i => i.Id == id && (isPreview || i.IsVisible))
             .Include(i => i.BinaryFiles)
             .Include(i => i.Requirement)
+            .Include(i => i.News)
             .Select(i => new ReleaseDetailModel(i, isPreview))
             .FirstOrDefaultAsync();
 

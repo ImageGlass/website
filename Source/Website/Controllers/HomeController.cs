@@ -18,11 +18,17 @@ public class HomeController : BaseController
     }
 
 
-    public IActionResult Index()
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public async Task<IActionResult> Index()
     {
+        // page info
         ViewData[PageInfo.Page] = "home";
 
-        return View("HomePage");
+        var pList = await _context.QueryReleaseModels(1, releaseChannel: ReleaseChannel.Stable);
+        var latestStableRelease = pList.FirstOrDefault();
+
+
+        return View("HomePage", latestStableRelease);
     }
 
 

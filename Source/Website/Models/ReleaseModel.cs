@@ -39,14 +39,16 @@ public class ReleaseModel : ArticleBaseModel
     /// <summary>
     /// Gets the total download number of all <see cref="BinaryFiles" />.
     /// </summary>
-    public int Count => BinaryFiles.Sum(f => f.Count);
+    public int Count => BinaryFiles?.Sum(f => f.Count) ?? 0;
 
 
     public List<BinaryFileModel> BinaryFiles { get; set; }
 
-
     public RequirementModel Requirement { get; set; }
 
+#nullable enable
+    public NewsModel? News { get; set; }
+#nullable disable
 }
 
 
@@ -76,6 +78,7 @@ public class ReleaseDetailModel : ReleaseModel
         UpdatedDate = model.UpdatedDate;
 
         Requirement = model.Requirement;
+        News = model.News;
         BinaryFiles = model.BinaryFiles
             .Where(i => !preview || i.IsVisible)
             .ToList();
