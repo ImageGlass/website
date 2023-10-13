@@ -17,14 +17,18 @@
       max-width: 18rem;
       padding: 1px;
       background-color: rgb(var(--colorBg) / 1);
-      border-radius: calc(var(--border-radius) * 1.5);
+      border-radius: calc(var(--border-radius) * 15);
       box-shadow: var(--shadow-base), var(--shadow);
       overflow: hidden;
+      filter: url("#svgWaterEffect");
 
       animation: aniSlideUp 1300ms ease forwards;
 
       img {
-        //
+        border-radius: calc(var(--border-radius) * 15);
+        user-select: none;
+        -webkit-user-drag: none;
+        user-drag: none;
       }
     }
   }

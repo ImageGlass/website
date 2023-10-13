@@ -23,6 +23,17 @@
 
         <div class="about-image">
           <img src="~/img/phapavt.webp" alt="ImageGlass author" onerror="this.hidden = true" />
+
+          <svg style="display: none">
+            <defs>
+              <filter id="svgWaterEffect">
+                <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="3" seed="10" result="turbulence">
+                  <animate attributeName="baseFrequency" values="0.01;0.005;0.01;" dur="2.5s" begin="0" repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="B" result="displacement" />
+              </filter>
+            </defs>
+          </svg>
         </div>
       </div>
     </div>
