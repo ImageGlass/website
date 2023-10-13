@@ -1,4 +1,5 @@
 ﻿using Crowdin.Api;
+using Crowdin.Api.Languages;
 using Crowdin.Api.Translations;
 using ImageGlass.Models;
 using ImageGlass.Utils;
@@ -25,17 +26,22 @@ public class LanguageController : BaseController
 
         await Task.WhenAll(supportedLangsTask, projectProgressTask);
         var allLangs = (await supportedLangsTask).Data;
-        var languageList = (await projectProgressTask).Data.Select(status =>
-        {
-            var lang = allLangs.FirstOrDefault(i => i.Id == status.LanguageId);
+        var progressList = (await projectProgressTask).Data;
 
-            return new LanguageModel()
-            {
-                LanguageId = status.LanguageId,
-                Name = lang?.Name ?? string.Empty,
-                TranslationProgress = status.TranslationProgress,
-            };
-        });
+        var langList = new List<LanguageModel>();
+        for (int i = 0; i < progressList.Count; i++)
+        {
+            var prog = progressList[i];
+            var lang = allLangs.FirstOrDefault(i => i.Id == prog.LanguageId);
+            if (lang is null) continue;
+
+            langList.Add(new LanguageModel() {
+                LanguageId = prog.LanguageId,
+                Name = lang.Name ?? string.Empty,
+                TranslationProgress = prog.TranslationProgress,
+            });
+        }
+        langList = langList.OrderBy(i => i.Name).ToList();
 
 
         // page info
@@ -45,7 +51,7 @@ public class LanguageController : BaseController
         ViewData[PageInfo.Keywords] = "imageglass language pack, " + ViewData[PageInfo.Keywords];
 
 
-        return View("LanguageListing", languageList);
+        return View("LanguageListing", langList);
     }
 
 
