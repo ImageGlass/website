@@ -1,0 +1,33 @@
+
+.bg {
+  background-color: rgb(var(--colorBg) / 1) !important;
+}
+.bg-text {
+  background-color: rgb(var(--colorText) / 1) !important;
+}
+.bg-accent1 {
+  background-color: rgb(var(--colorAccent1) / 1) !important;
+}
+.bg-accent2 {
+  background-color: rgb(var(--colorAccent2) / 1) !important;
+}
+.bg-surface {
+  background-color: var(--bgSurface) !important;
+}
+
+
+.text {
+  color: rgb(var(--colorText) / 1) !important;
+}
+.text-bg {
+  color: rgb(var(--colorBg) / 1) !important;
+}
+.text-accent1 {
+  color: rgb(var(--colorAccent1) / 1) !important;
+}
+.text-accent2 {
+  color: rgb(var(--colorAccent2) / 1) !important;
+}
+.text-surface {
+  color: var(--bgSurface) !important;
+}

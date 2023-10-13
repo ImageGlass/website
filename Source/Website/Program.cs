@@ -18,12 +18,6 @@ builder.Services.AddControllersWithViews(options => {
         VaryByHeader = "User-Agent",
     });
 });
-builder.Services.AddResponseCompression(options =>
-{
-    options.EnableForHttps = true;
-    options.Providers.Add<BrotliCompressionProvider>();
-    options.Providers.Add<GzipCompressionProvider>();
-});
 builder.Services.AddRouting(i => i.LowercaseUrls = true);
 
 var app = builder.Build();
@@ -46,7 +40,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseResponseCompression();
+
 app.UseHttpsRedirection();
 app.UseResponseCaching();
 app.UseStaticFiles();
