@@ -26,7 +26,7 @@ public class PaginatedList<T> : List<T>
         var totalPage = (int)Math.Ceiling(count * 1f / pageSize);
 
         if (pageIndex < 1) pageIndex = 1;
-        if (pageIndex > totalPage) pageIndex = totalPage;
+        if (pageIndex > totalPage + 1) pageIndex = totalPage;
 
         var items = await source.Skip((pageIndex - 1) * pageSize)
             .Take(pageSize)

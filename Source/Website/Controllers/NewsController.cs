@@ -16,7 +16,7 @@ public class NewsController : BaseController
 
 
     [HttpGet("news")]
-    public async Task<IActionResult> Index(int? page)
+    public async Task<IActionResult> AllNewsListingPage(int? page)
     {
         // page info
         ViewData[PageInfo.Page] = "news";
