@@ -14,10 +14,25 @@
 .bg-surface {
   background-color: var(--bgSurface) !important;
 }
+.bg-info {
+  background-color: rgb(var(--bgInfo) / 1) !important;
+}
+.bg-success {
+  background-color: rgb(var(--bgSuccess) / 1) !important;
+}
+.bg-warning {
+  background-color: rgb(var(--bgWarning) / 1) !important;
+}
+.bg-danger {
+  background-color: rgb(var(--bgDanger) / 1) !important;
+}
 
 
 .text {
   color: rgb(var(--colorText) / 1) !important;
+}
+.text-white {
+  color: #fff !important;
 }
 .text-bg {
   color: rgb(var(--colorBg) / 1) !important;
@@ -30,4 +45,36 @@
 }
 .text-surface {
   color: var(--bgSurface) !important;
+}
+.text-info {
+  color: rgb(var(--bgInfo) / 1) !important;
+}
+.text-success {
+  color: rgb(var(--bgSuccess) / 1) !important;
+}
+.text-warning {
+  color: rgb(var(--bgWarning) / 1) !important;
+}
+.text-danger {
+  color: rgb(var(--bgDanger) / 1) !important;
+}
+
+
+.opacity-0 {
+  opacity: 0 !important;
+}
+.opacity-25 {
+  opacity: 0.25 !important;
+}
+.opacity-50 {
+  opacity: 0.5 !important;
+}
+.opacity-65 {
+  opacity: 0.65 !important;
+}
+.opacity-75 {
+  opacity: 0.75 !important;
+}
+.opacity-100 {
+  opacity: 1 !important;
 }

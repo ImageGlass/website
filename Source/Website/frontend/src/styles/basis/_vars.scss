@@ -10,11 +10,11 @@
   --bgSurface: rgb(var(--colorInvert) / 0.05);
   --bgFluent: rgb(255 255 255 / 0.1);
 
-  --BgNeutral: 32 38 43;
-  --BgInfo: 0 134 214;
-  --BgSuccess: 0 210 80;
-  --BgWarning: 255 139 0;
-  --BgDanger: 255 0 83;
+  --bgNeutral: 32 38 43;
+  --bgInfo: 0 134 214;
+  --bgSuccess: 0 210 80;
+  --bgWarning: 255 139 0;
+  --bgDanger: 255 0 83;
 
   --control-width: 200;
   --control-height: 28;
@@ -49,7 +49,7 @@
     --bgSurface: rgb(var(--colorInvert) / 0.035);
     --bgFluent: rgb(255 255 255 / 0.175);
 
-    --BgNeutral: 242 242 242;
+    --bgNeutral: 242 242 242;
 
     --shadow: 0 10px 30px -10px rgb(0 0 0 / 0.35);
     --shadow-sm: 0 5px 15px -10px rgb(0 0 0 / 0.35);

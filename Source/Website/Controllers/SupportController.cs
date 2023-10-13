@@ -7,7 +7,12 @@ public class SupportController : BaseController
 {
     public IActionResult Index()
     {
+        // page info
         ViewData[PageInfo.Page] = "support";
+        ViewData[PageInfo.Title] = $"Support | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = "Got a question? Need help with a problem? You're in the right place to find all the ImageGlass customer and technical support you need!";
+        ViewData[PageInfo.Keywords] = $"imageglass support, {ViewData[PageInfo.Keywords]}";
+
         return View("SupportPage");
     }
 

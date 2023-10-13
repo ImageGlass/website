@@ -14,7 +14,7 @@ public class AboutController : BaseController
         _context = context;
     }
 
-    public async Task<IActionResult> Index(int? page)
+    public async Task<IActionResult> Index()
     {
         // page info
         ViewData[PageInfo.Page] = "about";

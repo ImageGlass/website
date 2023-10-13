@@ -1,0 +1,44 @@
+
+.box {
+  --box-bg: var(--bgSurface);
+  --box-border: transparent;
+
+  padding: 1rem;
+  background-color: var(--box-bg);
+  border: 0.075rem solid var(--box-border);
+  border-radius: calc(var(--border-radius) * 1.5);
+  transition: all ease 200ms;
+
+  &.box-info {
+    --box-bg: rgb(var(--bgInfo) / 0.1);
+    --box-border: rgb(var(--bgInfo) / 0.25);
+
+    &:hover {
+      --box-border: rgb(var(--bgInfo) / 0.5);
+    }
+  }
+  &.box-success {
+    --box-bg: rgb(var(--bgSuccess) / 0.1);
+    --box-border: rgb(var(--bgSuccess) / 0.25);
+
+    &:hover {
+      --box-border: rgb(var(--bgSuccess) / 0.5);
+    }
+  }
+  &.box-warning {
+    --box-bg: rgb(var(--bgWarning) / 0.1);
+    --box-border: rgb(var(--bgWarning) / 0.25);
+
+    &:hover {
+      --box-border: rgb(var(--bgWarning) / 0.5);
+    }
+  }
+  &.box-danger {
+    --box-bg: rgb(var(--bgDanger) / 0.1);
+    --box-border: rgb(var(--bgDanger) / 0.25);
+
+    &:hover {
+      --box-border: rgb(var(--bgDanger) / 0.5);
+    }
+  }
+}
