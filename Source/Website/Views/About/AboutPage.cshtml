@@ -1,16 +1,114 @@
-﻿
-@{
-    
-
+﻿@{
+  var list = (PaginatedList<NewsModel>?)ViewData[PageInfo.SidebarList];
 }
 
-About page
+
+@* Featured content *@
+<div class="container-fluid markdown-body bg-surface py-5">
+  <div class="container">
+    <div class="container-limit">
+      <div class="about-content">
+        <div class="about-intro">
+          <h2 class="fs-1 mt-0">Hi!</h2>
+          <p>
+            I am Dương Diệu Pháp, a Vietnamese developer, also an enthusiast of web technology and Windows apps.
+          </p>
+          <p>
+            I am working as Senior Frontend Engineer for <a href="https://www.openprotein.ai" target="_blank" rel="noopener noreferrer" title="OpenProtein.AI platform"><strong>OpenProtein.AI</strong></a> — an AI-powered protein optimization platform-as-a-service helping biology scientists to improve optimize protein sequences and prediction.
+          </p>
+          <p>
+            I often spend my free time for developing ImageGlass app and web libraries. You can check them out at <a href="https://github.com/d2phap" target="blank" rel="noopener noreferrer">my Github page</a>. I will be glad if you can give some stars ⭐.
+          </p>
+        </div>
+
+        <div class="about-image">
+          <img src="~/img/phapavt.webp" alt="ImageGlass author" onerror="this.hidden = true" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<pre><code>@Html.Raw(JsonHelper.ToJson<PageMetadata>(ViewBag.Metadata))</code></pre>
+@* About content details *@
+<div class="container">
+  <div class="row gx-5">
+    <div class="col-12 col-lg-8 my-5">
+      @* Contact *@
+      <section class="markdown-body mb-5">
+        <h2>Contact</h2>
+        <ul>
+					<li>
+            Twitter:
+            <a href="https://twitter.com/duongdieuphap">@@duongdieuphap</a>
+          </li>
+					<li>
+            Discord:
+            <a href="https://discord.io/imageglass">discord.io/imageglass</a>
+          </li>
+					<li>
+            Email:
+            <a href="mailto:phap@imageglass.org" target="_blank" rel="noopener noreferrer">phap@imageglass.org</a>
+          </li>
+					<li>
+            Medium:
+            <a href="https://medium.com/@@d2phap" target="_blank" rel="noopener noreferrer">medium.com/@@d2phap</a>
+          </li>
+					<li>
+            Linkedin:
+            <a href="http://linkedin.com/in/duongdieuphap" target="_blank" rel="noopener noreferrer">linkedin.com/in/duongdieuphap</a>
+          </li>
+					<li>
+            Github:
+            <a href="https://github.com/d2phap" target="_blank" rel="noopener noreferrer">github.com/d2phap</a>
+          </li>
+					<li>
+            Dribbble:
+            <a href="https://dribbble.com/d2phap" target="_blank" rel="noopener noreferrer">dribbble.com/d2phap</a>
+          </li>
+				</ul>
+      </section>
 
 
-@Html.Raw(ViewBag.Content)
+      @* Donation *@
+      <section class="markdown-body">
+        @await Html.PartialAsync("_Donation")
+      </section>
+    </div>
 
 
+    @* Sidebar *@
+    <div class="col-12 col-lg-4 my-5">
+      <aside class="sidebar">
+        <section class="sidebar-item">
+          @await Html.PartialAsync("_Ads")
+        </section>
 
+
+        @if (list != null && list.Count > 0)
+        {
+          <section class="sidebar-item p-2">
+            <h3 class="heading">The latest updates</h3>
+            <ul class="article-list mb-2">
+              @foreach (var item in list)
+              {
+                <li class="@(item.IsNewPost ? "new-article" : "")">
+                  <a asp-controller="News" asp-action="@nameof(NewsController.NewsDetailPage)"
+                    asp-route-slugId="@item.SlugAndId">
+                    <span>@item.Title</span>
+                    <time datetime="@item.UpdatedDate">
+                      @item.UpdatedDate.ToDateTimeString()
+                    </time>
+                  </a>
+                </li>
+              }
+            </ul>
+            <div class="px-2 text-end fs-5">
+              <a asp-controller="News" asp-action="@nameof(NewsController.AllNewsListingPage)">View all</a>
+            </div>
+          </section>
+        }
+      </aside>
+    </div>
+  </div>
+</div>

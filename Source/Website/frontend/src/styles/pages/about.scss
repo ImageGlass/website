@@ -1,0 +1,31 @@
+
+[data-page="about"] {
+  .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    .about-intro {
+      // max-width: 35rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .about-image {
+      max-width: 18rem;
+      padding: 1px;
+      background-color: rgb(var(--colorBg) / 1);
+      border-radius: calc(var(--border-radius) * 1.5);
+      box-shadow: var(--shadow-base), var(--shadow);
+      overflow: hidden;
+
+      animation: aniSlideUp 1300ms ease forwards;
+
+      img {
+        //
+      }
+    }
+  }
+}
