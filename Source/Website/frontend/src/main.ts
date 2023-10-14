@@ -41,7 +41,7 @@ queryAll('[toggle-el]').forEach(el => {
 queryAll('[scroll-to-el]').forEach(el => {
   el.addEventListener('click', async (e) => {
     e.preventDefault();
-  
+
     const targetSelector = (e.currentTarget as HTMLElement).getAttribute('scroll-to-el');
     scrollToTop(targetSelector);
   }, false);

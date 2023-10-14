@@ -6,7 +6,7 @@
 }
 
 @* Featured content *@
-<div class="container-fluid post-featured markdown-body">
+<div class="container-fluid post-featured">
   <div class="container">
     <div class="container-limit">
       <div class="post-body row gx-0">
@@ -55,7 +55,7 @@
     <div class="col-12 col-lg-8 my-5 aniSlideUp ani-delay-25">
 
       @* Requirements *@
-      <section class="markdown-body mb-5">
+      <section class="mb-5">
         <h2 id="requirements">Requirements</h2>
         <ul>
           @Html.Raw(@Model.Requirement.Content)
@@ -64,7 +64,7 @@
 
 
       @* Screenshots *@
-      <section class="markdown-body mb-5">
+      <section class="mb-5">
         <h2 id="screenshots">Screenshots</h2>
         <ul class="grid-gallery">
           @for (var index = 0; index < screenshots.Count; index++)
@@ -80,7 +80,7 @@
 
 
       @* Downloads *@
-      <section class="markdown-body mb-5">
+      <section class="mb-5">
         <h2 id="downloads">Downloads</h2>
         <div class="mb-5">
           <p>
@@ -102,7 +102,7 @@
 
 
           @* ImageGlass Classic download options *@
-          <div popover hidden id="classic-download" class="classic-download-options markdown-body">
+          <div popover hidden id="classic-download" class="classic-download-options">
             <div class="popover-header">
               <h3 class="my-0">ImageGlass Classic</h3>
             </div>
@@ -113,7 +113,7 @@
                 {
                   var downloadSlugUrl = $"{Model.Slug}-{file.Id}";
                   <li>
-                    <a class="btn px-2" title="Download ImageGlass @file.Type (@file.Architecture)"
+                    <a class="btn px-3" title="Download ImageGlass @file.Type (@file.Architecture)"
                       asp-action="DownloadRelease" asp-route-slugId="@downloadSlugUrl">
                       <span class="text-capitalize">@file.Type</span>
                       <span class="post-badge" title="@file.Architecture architecture">
@@ -132,7 +132,7 @@
 
 
       @* Donation *@
-      <section class="markdown-body">
+      <section>
         @await Html.PartialAsync("_Donation")
       </section>
     </div>

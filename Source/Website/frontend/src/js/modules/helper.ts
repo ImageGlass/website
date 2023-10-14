@@ -102,7 +102,11 @@ export const animateElementVisibility = async (selector: string, forced?: boolea
 /**
  * Scroll to the element position.
  */
-export const scrollToTop = async (selector: string, gapY = 90) => {
+export const scrollToTop = async (selector: string) => {
   const el = query(selector);
-  document.body.scrollTo({ top: el.offsetTop - gapY, behavior: 'smooth' });
+
+  el.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center',
+  });
 };

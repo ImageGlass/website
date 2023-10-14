@@ -9,6 +9,7 @@
   max-width: 90vw;
   overflow: hidden;
 
+  color: rgb(var(--colorText) / 1);
   border: 0.075rem solid rgb(var(--colorAccent1) / 1);
   border-radius: calc(var(--border-radius) * 1.5);
   background-color: rgb(var(--colorBg) / 0.8);

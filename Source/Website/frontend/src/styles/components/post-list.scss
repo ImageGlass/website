@@ -79,10 +79,6 @@ body .post-badge {
     &> li {
       display: flex;
       flex-direction: column;
-
-      &+ li {
-        margin-top: 0;
-      }
     }
   }
 

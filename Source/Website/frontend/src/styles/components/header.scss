@@ -52,11 +52,11 @@
 
       &> a {
         display: block;
-        padding: 0.45em 1em;
+        padding: .4em 1em .5em 1em;
         color: rgb(var(--colorText));
         white-space: nowrap;
         text-decoration-line: none;
-        border-radius: var(--border-radius);
+        border-radius: calc(var(--border-radius) * 1.5);
         transition: all ease 300ms;
 
         &:focus-visible + ul {

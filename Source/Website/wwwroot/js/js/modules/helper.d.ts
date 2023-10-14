@@ -25,4 +25,4 @@ export declare const animateElementVisibility: (selector: string, forced?: boole
 /**
  * Scroll to the element position.
  */
-export declare const scrollToTop: (selector: string, gapY?: number) => Promise<void>;
+export declare const scrollToTop: (selector: string) => Promise<void>;

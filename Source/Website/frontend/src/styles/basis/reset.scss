@@ -17,7 +17,7 @@ html {
 body {
   margin: 0;
   font-size: 16px;
-  line-height: normal;
+  line-height: 1.5;
 
   // disable elastic scrolling
   height: 100%;
@@ -25,18 +25,172 @@ body {
   overflow-x: hidden;
 }
 
-pre,
-code,
-kbd,
-samp {
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.75em;
+  line-height: 1.25;
+  font-weight: 500;
+
+  tt, code {
+    padding: 0 0.2em;
+    font-size: inherit;
+  }
+}
+h1 {
+  margin-bottom: 1em;
+  font-size: var(--fs-1);
+}
+h2 {
+  font-size: var(--fs-2);
+}
+h3 {
+  font-size: var(--fs-3);
+}
+h4 {
+  font-size: var(--fs-4);
+}
+h5 {
+  font-size: var(--fs-5);
+}
+h6 {
+  font-size: var(--fs-6);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.625em;
+}
+
+hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  height: 0.25em;
+  padding: 0;
+  margin: 2.5rem 0;
+  background-color: var(--colorBorder);
+  border: 0;
+
+  &::before {
+    display: table;
+    content: "";
+  }
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  ul, ol {
+    margin-top: 0.5rem;
+  }
+}
+ol ol,
+ul ol {
+  list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+dd {
+  margin-left: 0;
+}
+
+tt, code, samp, pre, kbd {
   font-family: var(--fontCode);
   font-size: 1em;
 }
 
+kbd {
+  display: inline-block;
+  padding: 0.25em 0.375em;
+  vertical-align: middle;
+  background-color: calc(var(--colorInvert) / 0.2);
+  border: solid 0.075rem var(--colorBorder);
+  border-radius: var(--border-radius);
+  box-shadow: inset 0 -0.075rem 0 rgba(110,118,129,0.4);
+}
+
+code,
+tt {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  background-color: rgb(var(--colorInvert) / 0.125);
+  border-radius: var(--border-radius);
+}
+code br,
+tt br {
+  display: none;
+}
+del code {
+  text-decoration: inherit;
+}
+samp {
+  font-size: 85%;
+}
+
 pre {
-  overflow-x: hidden;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  word-wrap: normal;
+  padding: 0 0.5rem 0.5rem;
+  max-width: calc(100vw - 2rem);
+  max-height: 20rem;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: rgb(var(--colorInvert) / 0.125);
+  border: 0.075rem solid var(--colorBorder);
+  border-radius: calc(var(--border-radius) * 1.5);
+
+  &::before {
+    content: "<code>";
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    color: rgb(var(--colorText) / 0.65);
+    background-color: rgb(var(--colorInvert) / 0.05);
+
+    position: sticky;
+    left: -0.5rem;
+    margin-left: -0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom-right-radius: calc(var(--border-radius) * 1.5);
+  }
+
+  code {
+    font-size: 100%;
+  }
+  code,
+  tt {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  &> code {
+    display: block;
+    padding: 0;
+    margin: 0;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
 }
 
 sup,
@@ -49,34 +203,6 @@ strong {
   font-weight: 600;
 }
 
-p {
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-}
-
-p:last-of-type {
-  margin-bottom: 0;
-}
-
-hr {
-  margin: 1rem 0;
-  height: 0.05rem;
-  background-color: rgb(var(--colorText) / 0.3);
-  border: 0;
-}
-
-ul {
-  padding-left: 1.5rem;
-  margin-top: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: 500;
-}
 
 a,
 a:visited {
@@ -88,6 +214,11 @@ a:visited {
   color: rgb(var(--colorAccent1));
 }
 a {
+  img {
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+
   &:hover {
     text-decoration-style: wavy;
     text-decoration-thickness: 0.25em;
@@ -107,68 +238,263 @@ a {
   }
 }
 
+p, blockquote, ul, ol, dl, table, pre, details {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
 
-// Figures
-//
-// Apply a consistent margin strategy (matches our type styles).
-figure {
-  margin: 0 0 1rem;
+blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: rgb(var(--colorText) / 0.75);
+  border-left: 0.25em solid var(--colorBorder);
+}
+blockquote>:first-child {
+  margin-top: 0;
+}
+blockquote>:last-child {
+  margin-bottom: 0;
 }
 
 
-// Images and content
+details,
+figcaption,
+figure {
+  display: block;
+}
+figure {
+  margin: 1em 2.5rem;
+}
+summary {
+  h1,  h2,  h3,  h4,  h5, h6 {
+    display: inline-block;
+  }
+  h1, h2 {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+details {
+  summary {
+    display: list-item;
+    cursor: pointer;
+  }
+
+  &:not([open])>*:not(summary) {
+    display: none !important;
+  }
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline dotted;
+}
+
+dfn {
+  font-style: italic;
+}
+
+small {
+  font-size: 90%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+
+
+dl {
+  padding: 0;
+
+  dt {
+    padding: 0;
+    margin-top: 1rem;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 500;
+  }
+  dd {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
 img,
 svg {
   vertical-align: middle;
+  border-style: none;
+  border-radius: calc(var(--border-radius) * 1.5);
+  max-width: 100%;
+  box-sizing: content-box;
+}
+img {
+  &[align=right] {
+    padding-left: 1.25rem;
+  }
+  
+  &[align=left] {
+    padding-right: 1.25rem;
+  }
 }
 
 
-// Tables
-//
-// Prevent double borders
+article {
+  word-break: break-word;
+  word-wrap: break-word;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.75em;
+  }
+
+  &> *:first-child {
+    margin-top: 0;
+  }
+
+  &> *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
 table {
   caption-side: bottom;
   border-collapse: collapse;
+  border-spacing: 0;
+  border: 0.075rem solid var(--colorBorder);
+  border-radius: var(--border-radius);
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  font-size: 90%;
+
+  @media (max-width: 768px) {
+    width: calc(100vw - 2rem);
+    white-space: nowrap;
+  }
+
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  td,
+  th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+  }
+
+  td, th {
+    padding: 0.25rem 0.5rem;
+    border: 0.075rem solid var(--colorBorder);
+  }
+
+  tr {
+    border-top: 0.075rem solid var(--colorBorder);
+
+    &:nth-child(2n) {
+      background-color: rgb(var(--colorInvert) / 0.05);
+    }
+  }
+
+  // 1. Removes font-weight bold by inheriting
+  // 2. Matches default `<td>` alignment by inheriting `text-align`.
+  // 3. Fix alignment for Safari
+  th {
+    font-weight: 500; // 1
+    text-align: inherit; // 2
+    text-align: match-parent; // 3
+    text-align: -webkit-match-parent; // 3
+    word-break: keep-all;
+  }
+
+  tr:first-of-type {
+    border-top: 0;
+
+    th, td {
+      border-top: 0;
+    }
+  }
+  tr:last-of-type {
+    td {
+      border-bottom: 0;
+    }
+  }
+  th, td {
+    &:first-of-type {
+      border-left: 0;
+    }
+    &:last-of-type {
+      border-right: 0;
+    }
+  }
 }
 
-// 1. Removes font-weight bold by inheriting
-// 2. Matches default `<td>` alignment by inheriting `text-align`.
-// 3. Fix alignment for Safari
-th {
-  font-weight: 500; // 1
-  text-align: inherit; // 2
-  text-align: match-parent; // 3
-  text-align: -webkit-match-parent; // 3
-}
-thead,
-tbody,
-tfoot,
-tr,
-td,
-th {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
-}
 
 
-// Forms
-//
-// 1. Allow labels to use `margin` for spacing.
+
 label {
-  display: inline-block; // 1
+  display: inline-block;
 }
 
 
-// 1. Remove the margin in Firefox and Safari
 input,
 button,
 select,
 optgroup,
 textarea {
-  margin: 0; // 1
+  margin: 0;
   font-family: inherit;
+  font-size: inherit;
   line-height: inherit;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .54;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+::placeholder {
+  color: var(--color-fg-subtle);
+  opacity: 1;
+}
+::-webkit-calendar-picker-indicator {
+  filter: invert(50%);
 }
 
 
@@ -194,13 +520,6 @@ select {
   &:disabled {
     opacity: 1;
   }
-}
-
-
-// Remove the dropdown arrow in Chrome from inputs built with datalists.
-// See https://stackoverflow.com/a/54997118
-[list]::-webkit-calendar-picker-indicator {
-  display: none;
 }
 
 
@@ -306,6 +625,7 @@ output {
 // Remove border from iframe
 iframe {
   border: 0;
+  border-radius: calc(var(--border-radius) * 1.5);
 }
 
 
@@ -333,19 +653,20 @@ progress {
 }
 
 
-.embed-responsive {
+.embed {
   display: block;
   overflow: hidden;
   padding: 0;
   position: relative;
   width: 100%;
+  padding-top: 56.25%; // 16:9
 
   &::before {
     content: "";
     display: block;
   }
 
-  .embed-responsive-item,
+  .embed-item,
   embed,
   iframe,
   object,
@@ -358,21 +679,12 @@ progress {
     top: 0;
     width: 100%
   }
-
-  &.embed-responsive-21by9::before {
-    padding-top: 42.85714%;
-  }
   
-  &.embed-responsive-16by9::before {
-    padding-top: 56.25%;
-  }
-  
-  &.embed-responsive-4by3::before {
+  &.embed-4by3::before {
     padding-top: 75%;
   }
   
-  &.embed-responsive-1by1::before {
+  &.embed-1by1::before {
     padding-top: 100%;
   }
 }
-
