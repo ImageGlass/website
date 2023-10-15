@@ -14,6 +14,7 @@ public class JsonHelper
         AllowTrailingCommas = true,
         WriteIndented = true,
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+        NumberHandling = JsonNumberHandling.AllowReadingFromString,
 
         Converters =
         {

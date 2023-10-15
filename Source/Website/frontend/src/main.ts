@@ -21,6 +21,10 @@ applyEffect('.grid-experience > li', {
   gradientSize: 300,
   lightColor: 'rgb(var(--colorInvert) / 0.1)',
 });
+applyEffect('.repo-stats > li', {
+  ...effectOptions,
+  gradientSize: 200,
+});
 
 
 // Events for toggle element

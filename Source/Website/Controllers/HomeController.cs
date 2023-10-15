@@ -3,6 +3,7 @@ using ImageGlass.Models;
 using ImageGlass.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 
 namespace ImageGlass.Controllers;
 
@@ -24,9 +25,32 @@ public class HomeController : BaseController
         // page info
         ViewData[PageInfo.Page] = "home";
 
+        // featured content
         var pList = await _context.QueryReleaseModels(1, releaseChannel: ReleaseChannel.Stable);
         var latestStableRelease = pList.FirstOrDefault();
 
+        // github repo stats
+        try
+        {
+            using var client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
+
+            var repoJson = await client.GetStringAsync("https://api.github.com/repos/d2phap/ImageGlass");
+            var repoDict = JsonHelper.ParseJson<Dictionary<string, object>>(repoJson ?? "{}") ?? new();
+
+            // repo stats
+            if (repoDict.TryGetValue("stargazers_count", out var starsCount)) {
+                ViewData["_RepoStarsCount"] = starsCount;
+            }
+            if (repoDict.TryGetValue("forks_count", out var forksCount)) {
+                ViewData["_RepoForksCount"] = forksCount;
+            }
+            if (repoDict.TryGetValue("subscribers_count", out var subscribersCount)) {
+                ViewData["_RepoSubscribersCount"] = subscribersCount;
+            }
+        }
+        catch {}
 
         return View("HomePage", latestStableRelease);
     }

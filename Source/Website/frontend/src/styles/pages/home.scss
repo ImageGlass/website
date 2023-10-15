@@ -116,6 +116,52 @@
     }
   }
 
+
+  .home-open-source {
+    background-color: #1f292b;
+    background-image: url('../img/star-bg.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    color: rgb(255 255 255 / 0.85);
+    text-align: center;
+
+    .repo-stats {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: center;
+      gap: 1rem;
+
+      li {
+        border: 0.075rem solid transparent;
+        border-radius: calc(var(--border-radius) * 1.5);
+
+        width: 8.5rem;
+        padding: 1rem 1rem 1.5rem 1rem;
+        font-size: var(--fs-3);
+        transition: all ease 200ms;
+  
+        .number {
+          font-size: var(--fs-1);
+          line-height: normal;
+          margin-bottom: 0.5rem;
+        }
+  
+        &:hover {
+          border-color: rgb(255 255 255 / 0.05);
+          box-shadow: var(--shadow-base), var(--shadow-sm);
+          transform: translateY(-0.25rem);
+        }
+      }
+    }
+  }
+
+
   @media (max-width: 768px) {
     .home-featured {
       height: auto;
