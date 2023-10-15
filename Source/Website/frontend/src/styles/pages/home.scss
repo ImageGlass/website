@@ -141,7 +141,7 @@
         border: 0.075rem solid transparent;
         border-radius: calc(var(--border-radius) * 1.5);
 
-        width: 8.5rem;
+        min-width: 9rem;
         padding: 1rem 1rem 1.5rem 1rem;
         font-size: var(--fs-3);
         transition: all ease 200ms;

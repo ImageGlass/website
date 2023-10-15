@@ -10,9 +10,13 @@
     controllerAction = nameof(NewsController.NewsDetailPage);
   }
 
-  var starsCount = ViewData["_RepoStarsCount"]?.ToString() ?? string.Empty;
-  var forksCount = ViewData["_RepoForksCount"]?.ToString() ?? string.Empty;
-  var subscribersCount = ViewData["_RepoSubscribersCount"]?.ToString() ?? string.Empty;
+  var starsCount = 5900;
+  var forksCount = 436;
+  var subscribersCount = 77;
+
+  _ = int.TryParse(ViewData["_RepoStarsCount"]?.ToString(), out starsCount);
+  _ = int.TryParse(ViewData["_RepoForksCount"]?.ToString(), out forksCount);
+  _ = int.TryParse(ViewData["_RepoSubscribersCount"]?.ToString(), out subscribersCount);
 }
 
 @* ------------------ Featured content *@
@@ -105,22 +109,26 @@
     <div class="mb-5 mx-auto opacity-65" style="max-width: 700px;">
       Explore the world of an open-source image viewer, a feature-rich and customizable solution for all your image viewing needs
     </div>
-    @if (!string.IsNullOrWhiteSpace(starsCount)) {
-      <ul class="repo-stats">
-        <li>
-          <div class="number">@starsCount</div>
-          <div>Stars</div>
-        </li>
-        <li>
-          <div class="number">@forksCount</div>
-          <div>Forks</div>
-        </li>
-        <li>
-          <div class="number">@subscribersCount</div>
-          <div>Subscribers</div>
-        </li>
-      </ul>
-    }
+
+    <ul class="repo-stats">
+      <li>
+        <div class="number">4.5M+</div>
+        <div>Downloads</div>
+      </li>
+      <li>
+        <div class="number">@starsCount.ToString("N0")</div>
+        <div>Stars</div>
+      </li>
+      <li>
+        <div class="number">@forksCount.ToString("N0")</div>
+        <div>Forks</div>
+      </li>
+      <li>
+        <div class="number">@subscribersCount.ToString("N0")</div>
+        <div>Subscribers</div>
+      </li>
+    </ul>
+
 
     <div>
       <a class="btn mt-4" href="https://github.com/d2phap/ImageGlass" target="_blank" rel="noopener noreferrer">
