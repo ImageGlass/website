@@ -1,13 +1,9 @@
 
 [data-page="download.release"] {
   .download-options {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15rem);
     gap: 1rem;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
 
     .option-classic {
       display: flex;
