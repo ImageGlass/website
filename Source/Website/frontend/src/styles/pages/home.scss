@@ -70,7 +70,8 @@
     stroke-width: 0.025rem;
     opacity: 0;
 
-    animation: aniHomeSvgBg 3000ms ease 2000ms forwards;
+    animation: aniHomeSvgSpinAndScale 3000ms ease 2000ms forwards,
+    aniHomeSvgSpin 20000ms ease 6000ms infinite;
   }
 
   .grid-experience {
@@ -117,6 +118,7 @@
   }
 
 
+  // open source
   .home-open-source {
     background-color: #1f292b;
     background-image: url('../img/star-bg.svg');
@@ -162,6 +164,16 @@
   }
 
 
+  // donation
+  .home-donation {
+    text-align: center;
+
+    .donation-actions {
+      justify-content: center;
+    }
+  }
+
+
   @media (max-width: 768px) {
     .home-featured {
       height: auto;
@@ -188,13 +200,21 @@
 }
 
 
-@keyframes aniHomeSvgBg {
+@keyframes aniHomeSvgSpinAndScale {
   from {
     opacity: 0;
-    transform: scale(1.5) rotate(0);
+    transform: scale(1.5) rotate(-230deg);
   }
   to {
     opacity: 1;
-    transform: scale(1) rotate(230deg);
+    transform: scale(1) rotate(0deg);
+  }
+}
+@keyframes aniHomeSvgSpin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
