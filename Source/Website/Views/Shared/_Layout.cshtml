@@ -12,7 +12,7 @@
   <div id="app">
     <header id="appHeader">
       <nav class="navbar container">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ImageGlass</a>
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index">ImageGlass</a>
 
         <input type="checkbox" id="chkMobileMenu" role="none">
         <label for="chkMobileMenu">
@@ -23,47 +23,47 @@
 
         <ul class="navbar-nav">
           <li class="nav-item @(_page.Contains("news") ? "nav-item--active" : "")">
-            <a asp-area="" asp-controller="News" asp-action="AllNewsListingPage">News</a>
+            <a asp-controller="News" asp-action="AllNewsListingPage">News</a>
           </li>
 
           <li class="nav-item nav-submenu @(_page.Contains("download") ? "nav-item--active" : "")">
-            <a asp-area="" asp-controller="Release" asp-action="Download">Download</a>
+            <a asp-controller="Release" asp-action="Download">Download</a>
 
             <ul>
               <li class="nav-item @(_page.Contains("release") ? "nav-item--active" : "")">
-                <a asp-area="" asp-controller="Release" asp-action="AllReleasesListingPage">All releases</a>
+                <a asp-controller="Release" asp-action="AllReleasesListingPage">All releases</a>
               </li>
               <li class="nav-item @(_page.Contains("theme") ? "nav-item--active" : "")">
-                <a asp-area="" asp-controller="Theme" asp-action="ThemePackListingPage">Theme packs</a>
+                <a asp-controller="Theme" asp-action="ThemePackListingPage">Theme packs</a>
               </li>
               <li class="nav-item @(_page.Contains("icon") ? "nav-item--active" : "")">
-                <a asp-area="" asp-controller="ExtensionIcon" asp-action="ExtensionIconListingPage">Extension icon
+                <a asp-controller="ExtensionIcon" asp-action="ExtensionIconListingPage">Extension icon
                   packs</a>
               </li>
               <li class="nav-item @(_page.Contains("language") ? "nav-item--active" : "")">
-                <a asp-area="" asp-controller="Language" asp-action="LanguageListing">Language packs</a>
+                <a asp-controller="Language" asp-action="LanguageListing">Language packs</a>
               </li>
             </ul>
           </li>
 
           <li class="nav-item nav-submenu @(_page.Contains("support") ? "nav-item--active" : "")">
-            <a asp-area="" asp-controller="Support" asp-action="Index">Support</a>
+            <a asp-controller="Support" asp-action="Index">Support</a>
             <ul>
               <li class="nav-item @(_page.Contains("privacy") ? "nav-item--active" : "")">
-                <a asp-area="" asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
+                <a asp-controller="Support" asp-action="PrivacyPage">Privacy policy</a>
               </li>
               <li class="nav-item @(_page.Contains("license") ? "nav-item--active" : "")">
-                <a asp-area="" asp-controller="Support" asp-action="LicensePage">End-user license agreement</a>
+                <a asp-controller="Support" asp-action="LicensePage">End-user license agreement</a>
               </li>
             </ul>
           </li>
 
           <li class="nav-item @(_page.Contains("docs") ? "nav-item--active" : "")">
-            <a asp-area="" asp-controller="Docs" asp-action="Index">Docs</a>
+            <a asp-controller="Docs" asp-action="Index">Docs</a>
           </li>
 
           <li class="nav-item @(_page.Contains("about") ? "nav-item--active" : "")">
-            <a asp-area="" asp-controller="About" asp-action="Index">About</a>
+            <a asp-controller="About" asp-action="Index">About</a>
           </li>
         </ul>
 

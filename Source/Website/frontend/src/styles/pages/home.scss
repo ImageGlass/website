@@ -80,17 +80,20 @@
 
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: 2rem;
 
     li {
-      max-width: 15rem;
+      max-width: 16rem;
+      padding: 1.5rem 1.5rem 2rem 1.5rem;
 
       .icon {
         font-size: 5rem;
         line-height: normal;
         margin-bottom: 0.5rem;
+        filter: saturate(100%) drop-shadow(0 0 0.15rem #0002) brightness(1);
+        transition: all ease 200ms;
       }
       .title {
         font-size: var(--fs-3);
@@ -98,7 +101,17 @@
       }
       .description {
         font-size: var(--fs-5);
-        opacity: 0.65;
+        color: rgb(var(--colorText) / 0.65);
+      }
+
+      &:hover {
+        border-color: rgb(var(--colorInvert) / 0.1);
+        box-shadow: var(--shadow-base), var(--shadow);
+        transform: translateY(-0.25rem);
+
+        .icon {
+          filter: saturate(150%) drop-shadow(0 0 0.15rem #0002) brightness(1.15);
+        }
       }
     }
   }

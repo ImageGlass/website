@@ -16,6 +16,11 @@ applyEffect('.article-list li > a', {
   ...effectOptions,
   gradientSize: 150,
 });
+applyEffect('.grid-experience > li', {
+  ...effectOptions,
+  gradientSize: 300,
+  lightColor: 'rgb(var(--colorInvert) / 0.1)',
+});
 
 
 // Events for toggle element

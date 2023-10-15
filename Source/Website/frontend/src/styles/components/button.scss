@@ -38,13 +38,14 @@
 
   &:hover,
   &:focus-visible {
-    --btn-border-color: rgb(var(--colorText) / 0.25);
+    --btn-border-color: rgb(var(--colorText) / 0.1);
+    --btn-bg: rgb(225, 225, 225);
     @media (prefers-color-scheme: dark) {
       --btn-border-color: rgb(var(--colorInvert) / 0.1);
       --btn-bg: rgb(var(--colorInvert) / 0.25);
     }
 
-    filter: brightness(1.2);
+    filter: brightness(1.1);
     color: var(--btn-color);
     text-decoration: none;
     transform: translateY(-0.1rem);
