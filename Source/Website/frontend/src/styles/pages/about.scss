@@ -29,5 +29,13 @@
         user-drag: none;
       }
     }
+
+    @media (max-width: 768px) {
+      gap: 3rem;
+    }
+    @media (max-width: 576px) {
+      flex-direction: column-reverse;
+      gap: 2rem;
+    }
   }
 }
