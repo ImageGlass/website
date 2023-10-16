@@ -1,7 +1,7 @@
 
 
-INSERT INTO [News]
-([Id], [Slug], [Title], [Image], [Description], [CustomContentUrl], [CreatedDate], [UpdatedDate], [IsVisible]) VALUES
+INSERT INTO News
+(Id, Slug, Title, Image, Description, CustomContentUrl, CreatedDate, UpdatedDate, IsVisible) VALUES
 
 (47, 'imageglass-3-0-9-2-is-released', 'ImageGlass 3.0.9.2 is released', 'https://cloud.githubusercontent.com/assets/3154213/9609181/dd984a3a-5104-11e5-8747-c52ae7f115aa.png', 'This release is a bugfix release, with many improvements and new features that requested by the users on Github. ', '', '2015-09-04 00:00:00', '2015-09-04 00:00:00', 1),
 (48, 'imageglass-3-0-9-19-is-released', 'ImageGlass 3.0.9.19 is released', 'https://cloud.githubusercontent.com/assets/3154213/9609181/dd984a3a-5104-11e5-8747-c52ae7f115aa.png', 'Support HDR, EXR and SVG formats.', '', '2015-09-19 00:00:00', '2015-09-19 00:00:00', 1),

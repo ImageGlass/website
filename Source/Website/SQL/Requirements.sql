@@ -1,8 +1,8 @@
 
 
 
-INSERT INTO [Requirements]
-([Id], [Content], [CreatedDate], [UpdatedDate], [IsVisible]) VALUES
+INSERT INTO Requirements
+(Id, Content, CreatedDate, UpdatedDate, IsVisible) VALUES
 
 (1, '<li>.NET Framework 2.0 Runtime</li><li>Windows XP, Vista, 7, 8</li>', '2010-07-22 00:00:00', '2010-07-22 00:00:00', 1),
 

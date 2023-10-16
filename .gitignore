@@ -352,3 +352,6 @@ MigrationBackup/
 *.db-shm
 *.db-wal
 *.db
+
+
+_Output/

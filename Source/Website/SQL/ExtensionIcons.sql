@@ -1,8 +1,8 @@
 
 
 
-INSERT INTO [ExtensionIcons]
-([Id], [Slug], [Title], [Link], [Image], [Description], [Version], [Author], [Email], [Website], [Count], [CreatedDate], [UpdatedDate], [IsVisible]) VALUES
+INSERT INTO ExtensionIcons
+(Id, Slug, Title, Link, Image, Description, Version, Author, Email, Website, Count, CreatedDate, UpdatedDate, IsVisible) VALUES
 
 (31, 'icons-set-anotherdimension-ex', 'Icons Set (AnotherDimension-Ex)', 'Icons_Set_AnotherDimension-Ex.zip', 'icons_set_anotherdimension-ex_1.jpg', 'Another beautiful icons set for ImageGlass. See README.md for installation.', '1.0', 'AnotherDimension-Ex', '', 'https://github.com/AnotherDimension-Ex', 16117, '2019-02-10 02:17:11', '2019-02-10 00:50:23', 1),
 

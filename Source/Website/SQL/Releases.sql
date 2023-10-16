@@ -1,6 +1,6 @@
 
-INSERT INTO [Releases]
-([Id], [NewsId], [Title], [Slug], [Image], [ReleaseChannel], [Version], [ScreenshotsDir], [RequirementId], [CreatedDate], [UpdatedDate], [IsVisible])
+INSERT INTO Releases
+(Id, NewsId, Title, Slug, Image, ReleaseChannel, Version, ScreenshotsDir, RequirementId, CreatedDate, UpdatedDate, IsVisible)
 
 VALUES
 (1, 99999, 'ImageGlass 1.0.0.0', 'ImageGlass-1-0-0-0', '1.0.jpg', 'stable', '1.0.0.0', 'v1.0', 1, '2010-07-22 00:00:00', '2010-07-22 00:00:00', 1),

@@ -1,6 +1,6 @@
 
-INSERT INTO [Themes]
-([Id], [Slug], [Title], [Link], [Image], [Description], [IsDarkMode], [Version], [Compatibility], [Author], [Email], [Website], [Count], [CreatedDate], [UpdatedDate], [IsVisible]) VALUES
+INSERT INTO Themes
+(Id, Slug, Title, Link, Image, Description, IsDarkMode, Version, Compatibility, Author, Email, Website, Count, CreatedDate, UpdatedDate, IsVisible) VALUES
 
 (18, 'simple-grey-dark-toolbar', 'Simple Grey Dark Toolbar', 'Simple_Grey_Dark_Toolbar.igtheme', 'Simple_Grey_Dark_Toolbar.jpg', 'Simple grey icons with dark toolbar', 1, '1.0', '2.0', 'Haris6AN', 'harissestan91@gmail.com', '', 6607, '2015-05-12 00:00:00', '2015-05-12 00:00:00', 1),
 (19, 'simple-grey-light-toolbar', 'Simple Grey Light Toolbar', 'Simple_Grey_Light_Toolbar.igtheme', 'Simple_Grey_Light_Toolbar.jpg', 'Simple grey icons with light toolbar', 0, '2.0', '3.0', 'Haris6AN', 'harissestan91@gmail.com', '', 3995, '2015-12-28 00:00:00', '2015-12-28 00:00:00', 1),

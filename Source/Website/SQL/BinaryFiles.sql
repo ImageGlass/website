@@ -1,6 +1,6 @@
 
-INSERT INTO [BinaryFiles]
-([Id], [ReleaseId], [ReleaseCode], [Type], [FileType], [Architecture], [Link], [Checksum], [Count], [CreatedDate], [UpdatedDate], [IsVisible])
+INSERT INTO BinaryFiles
+(Id, ReleaseId, ReleaseCode, Type, FileType, Architecture, Link, Checksum, Count, CreatedDate, UpdatedDate, IsVisible)
 
 VALUES
 (1, 1, 'kobe', 'installer', 'exe', 'any-cpu', 'http://imageglass.codeplex.com/downloads/get/320356', '2677117fc7fe3de6f0d7f09e1c30a5b23a0c0d83', 1235, '2010-07-22 00:00:00', '2010-07-22 00:00:00', 1),
