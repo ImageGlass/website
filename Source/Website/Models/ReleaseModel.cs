@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace ImageGlass.Models;
+namespace ImageGlassWeb.Models;
 
 public class ReleaseModel : ArticleBaseModel
 {

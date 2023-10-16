@@ -1,8 +1,8 @@
-﻿using ImageGlass.Data;
-using ImageGlass.Utils;
+﻿using ImageGlassWeb.Data;
+using ImageGlassWeb.Utils;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ImageGlass.Controllers;
+namespace ImageGlassWeb.Controllers;
 
 public class AboutController : BaseController
 {

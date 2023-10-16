@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ImageGlass.Models;
-using ImageGlass.Utils;
+using ImageGlassWeb.Models;
+using ImageGlassWeb.Utils;
 using System.Diagnostics.CodeAnalysis;
 
-namespace ImageGlass.Data;
+namespace ImageGlassWeb.Data;
 
 
 public class ImageGlassContext : DbContext

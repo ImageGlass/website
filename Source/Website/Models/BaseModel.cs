@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ImageGlass.Utils;
+using ImageGlassWeb.Utils;
 
-namespace ImageGlass.Models;
+namespace ImageGlassWeb.Models;
 
 public class BaseModel
 {

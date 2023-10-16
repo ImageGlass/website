@@ -1,7 +1,7 @@
-﻿using ImageGlass.Utils;
+﻿using ImageGlassWeb.Utils;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ImageGlass.Controllers;
+namespace ImageGlassWeb.Controllers;
 
 public class DocsController : BaseController
 {

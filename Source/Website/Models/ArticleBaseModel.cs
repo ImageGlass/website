@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace ImageGlass.Models;
+namespace ImageGlassWeb.Models;
 
 public class ArticleBaseModel : BaseModel
 {

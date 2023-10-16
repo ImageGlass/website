@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ImageGlass.Models;
+namespace ImageGlassWeb.Models;
 
 public class ExtensionIconModel : ArticleBaseModel
 {

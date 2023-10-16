@@ -1,4 +1,4 @@
-namespace ImageGlass.Models;
+namespace ImageGlassWeb.Models;
 
 public class ErrorViewModel
 {

@@ -1,12 +1,12 @@
 ﻿using Crowdin.Api;
 using Crowdin.Api.Languages;
 using Crowdin.Api.Translations;
-using ImageGlass.Models;
-using ImageGlass.Utils;
+using ImageGlassWeb.Models;
+using ImageGlassWeb.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace ImageGlass.Controllers;
+namespace ImageGlassWeb.Controllers;
 
 public class LanguageController : BaseController
 {

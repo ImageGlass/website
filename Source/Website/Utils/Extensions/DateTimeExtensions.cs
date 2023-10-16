@@ -1,5 +1,5 @@
 ﻿
-namespace ImageGlass.Utils;
+namespace ImageGlassWeb.Utils;
 
 public static class DateTimeExtensions
 {

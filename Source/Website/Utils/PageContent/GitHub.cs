@@ -4,10 +4,10 @@ using Markdig;
 using Markdig.Renderers.Html;
 using Markdig.Syntax;
 using Markdig.Syntax.Inlines;
-using ImageGlass.Models;
+using ImageGlassWeb.Models;
 using System.Net.Http.Headers;
 
-namespace ImageGlass.Utils;
+namespace ImageGlassWeb.Utils;
 
 public class GitHub
 {

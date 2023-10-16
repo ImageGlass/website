@@ -1,5 +1,5 @@
 ﻿#nullable disable
-namespace ImageGlass.Models;
+namespace ImageGlassWeb.Models;
 
 public class GitHubFileModel
 {

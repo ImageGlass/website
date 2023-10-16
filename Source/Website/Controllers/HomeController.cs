@@ -1,11 +1,11 @@
-﻿using ImageGlass.Data;
-using ImageGlass.Models;
-using ImageGlass.Utils;
+﻿using ImageGlassWeb.Data;
+using ImageGlassWeb.Models;
+using ImageGlassWeb.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Net.Http.Headers;
 
-namespace ImageGlass.Controllers;
+namespace ImageGlassWeb.Controllers;
 
 public class HomeController : BaseController
 {

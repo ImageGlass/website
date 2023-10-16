@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ImageGlass.Utils;
+namespace ImageGlassWeb.Utils;
 
 public class PaginatedList<T> : List<T>
 {

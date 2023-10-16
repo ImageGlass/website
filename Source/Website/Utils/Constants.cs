@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ImageGlass.Utils;
+namespace ImageGlassWeb.Utils;
 
 public class Constants
 {

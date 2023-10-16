@@ -1,8 +1,8 @@
-﻿using ImageGlass.Utils;
+﻿using ImageGlassWeb.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace ImageGlass.Controllers;
+namespace ImageGlassWeb.Controllers;
 
 public class BaseController : Controller
 {
