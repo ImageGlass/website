@@ -1,0 +1,28 @@
+﻿<h1 id="announcing-imageglass-moon-9.0-beta-1">Announcing ImageGlass Moon 9.0 beta 1</h1>
+<p>The first beta release of ImageGlass version 9.0, rewritten from scratch with many breaking changes, performance improvements and missing features.</p>
+<p><img src="https://github.com/ImageGlass/config/blob/main/screenshots/v9.0-beta-1/9.0b1_1.jpg?raw=true" alt="ImageGlass Moon 9.0 beta 1" /></p>
+<h2 id="breaking-changes">Breaking changes</h2>
+<ul>
+<li>As announced in the previous updates, ImageGlass 9.0 requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0" target="_blank" ref="noopener nofollow">.NET 6.0</a> to be able to run.</li>
+<li>All XML-base config files for settings, theme, language are replaced with JSON format.</li>
+<li>Most of the settings in <code>igconfig.json</code> are changed, and not compatible with version 8.</li>
+<li>The app is rewritten from scratch to resove the root limitations and improve performance. It is a work-in-progress release with a lot of missing features.</li>
+</ul>
+<h2 id="performance-improvements">Performance improvements</h2>
+<p>Image interaction is significantly improved in ImageGlass v9.0 beta 1 thanks to hardware acceleration (GPU). You can see and feel it when performing zooming, panning action. However, it still has some limitations: only non-alpha pixel format can be rendered with GPU, and the maximum image dimmension for GPU rendering should be less than 16,380 pixels.</p>
+<h2 id="hotkey-customization">Hotkey customization</h2>
+<p>If you don't like the default hotkeys in version 8, you can change it since this release! Although the UI for settings is not ready, you will need to open <code>igconfig.json</code> file to do it. ImageGlass 9.0 beta 1 supports customizing hotkey for all menu items (<code>MenuHotkeys</code>), and the Image focus mode (<code>ImageFocusModeHotkeys</code>)</p>
+<h2 id="introduce-image-focus-mode">Introduce Image focus mode</h2>
+<p>Panning and zooming using keyboard in ImageGlass are even better with Image focus mode. To enable this mode, open <strong>Main menu &gt; Image &gt; Toggle Image focus mode</strong>. In this mode, you can pan the viewing image in any directions easily with 4 keys: Up, Down, Left, Right, and it's also configurable via setting <code>ImageFocusModeHotkeys</code>. You even can change the panning speed, or zooming speed.</p>
+<h2 id="add-your-own-buttons-to-toolbar">Add your own buttons to toolbar</h2>
+<p>Toolbar component is even more flexible in ImageGlass 9.0 beta 1. You can add or hide buttons, move it to the center or the right group. You can configure button's functionality to make it more functional by running external commands.</p>
+<h2 id="a-better-thumbnail-bar">A better thumbnail bar</h2>
+<p>You can do a lot more with thumbnails, not only just to view the preview of the images. Hovering a thumbnail shows you a quick information of the image: filename, file size, image dimmension. You can drag a thumbnail and drop it to any software windows to open. Scrolling performance is also dramatically improved.</p>
+<h2 id="support-new-image-formats">Support new image formats</h2>
+<p>Animating WEBP is supported! Other formats come to this release are <code>FITS</code>, <code>XV</code>, <code>VIFF</code>, <code>MJPEG</code>,...</p>
+<h2 id="a-lot-more-new-features-and-improvements">A lot more new features and improvements</h2>
+<p>For the details changes, you can go to <a href="https://github.com/d2phap/ImageGlass/releases/tag/9.0.1.514" target="_blank" ref="noopener nofollow">https://github.com/d2phap/ImageGlass/releases/tag/9.0.1.514</a>. Any feedback are welcome!</p>
+<h2 id="try-it-now">Try it now!</h2>
+<p>Be aware of scams and only get the files from our site!</p>
+<p>Also, to report bugs, suggestions and generally provide feedback, use our <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" ref="noopener nofollow">GitHub Issues</a>. Reporting anything on social media or in any other place is just pointless, as the developers only follow <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" ref="noopener nofollow">GitHub Issues</a>.</p>
+<p><a href="https://imageglass.org/release/imageglass-9.0-beta-1-35" class="btn btn-primary">Download ImageGlass 9.0 beta 1</a></p>

@@ -6,6 +6,7 @@ using Markdig.Syntax;
 using Markdig.Syntax.Inlines;
 using ImageGlassWeb.Models;
 using System.Net.Http.Headers;
+using IgWebHelper;
 
 namespace ImageGlassWeb.Utils;
 
@@ -16,10 +17,10 @@ public class GitHub
     public static string IgHost => "imageglass.org";
 
 
-    public static string WebsiteContentRepo => "ImageGlass/website-content";
+    public static string IgReleaseRepo => "ImageGlass/releases";
     public static string RepoBranch => "main";
-    public static string RawFileContentUrlPrefix => @$"https://raw.githubusercontent.com/{WebsiteContentRepo}/{RepoBranch}/";
-    public static string ContentUrlPrefix => @$"https://api.github.com/repos/{WebsiteContentRepo}/contents/";
+    public static string RawFileContentUrlPrefix => @$"https://raw.githubusercontent.com/{IgReleaseRepo}/{RepoBranch}/";
+    public static string ContentUrlPrefix => @$"https://api.github.com/repos/{IgReleaseRepo}/contents/";
 
 
     /// <summary>

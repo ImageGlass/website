@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "IgWebHelper": {
+      "commandName": "Project",
+      "commandLineArgs": "md-to-html \"D:\\_GITHUB\\@imageglass\\website\\Source\\..\\Content\" \"D:\\_GITHUB\\@imageglass\\website\\Source\\Website\\wwwroot\\content\""
+    }
+  }
+}

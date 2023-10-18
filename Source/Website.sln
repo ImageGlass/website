@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageGlassWeb", "Website\ImageGlassWeb.csproj", "{4A4470F4-0D10-4203-BF72-6808D71B47F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IgWebHelper", "IgWebHelper\IgWebHelper.csproj", "{716E33EF-A4C1-46AF-9844-492B18A51C0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4A4470F4-0D10-4203-BF72-6808D71B47F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A4470F4-0D10-4203-BF72-6808D71B47F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A4470F4-0D10-4203-BF72-6808D71B47F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{716E33EF-A4C1-46AF-9844-492B18A51C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{716E33EF-A4C1-46AF-9844-492B18A51C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{716E33EF-A4C1-46AF-9844-492B18A51C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{716E33EF-A4C1-46AF-9844-492B18A51C0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
