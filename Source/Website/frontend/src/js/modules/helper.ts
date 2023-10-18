@@ -92,7 +92,7 @@ export const animateElementVisibility = async (selector: string, forced?: boolea
     el.classList.add('aniHeightUp');
     el.classList.remove('aniHeightDown');
 
-    await pause(500);
+    await pause(1000);
     el.toggleAttribute('hidden', true);
     el.classList.remove('aniHeightUp');
   }
