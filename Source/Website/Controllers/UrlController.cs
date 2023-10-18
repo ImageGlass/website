@@ -1,6 +1,5 @@
-﻿using System.Text;
-using ImageGlassWeb.Utils;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,27 +7,6 @@ namespace ImageGlassWeb.Controllers;
 
 public class UrlController : BaseController
 {
-
-    /// <summary>
-    /// Gets update information.
-    /// </summary>
-    [HttpGet("url")]
-    public async Task<IActionResult> Index()
-    {
-        var rawContent = await GitHub.GetFileContentAsync("Contents/news/sample-file-1.md");
-        var contentData = GitHub.GetPageContentData(rawContent);
-
-        var metadata = GitHub.ParsePageMeta(contentData.MetaJson);
-        var htmlContent = GitHub.ParseMarkdown(contentData.Content);
-
-
-        ViewBag.Content = htmlContent;
-        ViewBag.Metadata = metadata;
-
-        return View("../About/Index");
-    }
-
-
     /// <summary>
     /// Gets update information.
     /// </summary>

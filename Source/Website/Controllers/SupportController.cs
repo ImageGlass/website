@@ -29,9 +29,8 @@ public class SupportController : BaseController
         ViewData[PageInfo.Description] = "ImageGlass privacy information";
         ViewData[PageInfo.Keywords] = $"imageglass privacy, {ViewData[PageInfo.Keywords]}";
 
-        // get page content from GitHub
-        var markdownContent = await GitHub.GetFileContentAsync("general/privacy.md");
-        var htmlContent = GitHub.ParseMarkdown(markdownContent);
+        // get page content
+        var htmlContent = await ContentHelper.GetContentAsync("privacy.html");
 
         return View("MarkdownPage", htmlContent);
     }
@@ -47,9 +46,8 @@ public class SupportController : BaseController
         ViewData[PageInfo.Description] = "ImageGlass end-user lisence agreement (EULA)";
         ViewData[PageInfo.Keywords] = $"imageglass eula, imageglass license, imageglass commercial use, {ViewData[PageInfo.Keywords]}";
 
-        // get page content from GitHub
-        var markdownContent = await GitHub.GetFileContentAsync("general/license.md");
-        var htmlContent = GitHub.ParseMarkdown(markdownContent);
+        // get page content
+        var htmlContent = await ContentHelper.GetContentAsync("license.html");
 
         return View("LicensePage", htmlContent);
     }
