@@ -83,19 +83,21 @@
 
 
       @* Screenshots *@
-      <section class="mb-5">
-        <h2 id="screenshots">Screenshots</h2>
-        <ul class="grid-gallery">
-          @for (var index = 0; index < screenshots.Count; index++)
-          {
-            var item = screenshots[index];
+      @if (screenshots.Count > 0) {
+        <section class="mb-5">
+          <h2 id="screenshots">Screenshots</h2>
+          <ul class="grid-gallery">
+            @for (var index = 0; index < screenshots.Count; index++)
+            {
+              var item = screenshots[index];
 
-            <li class="gallery-item" data-index="@index">
-              <img src="@item.Download_url" alt="@item.Name" />
-            </li>
-          }
-        </ul>
-      </section>
+              <li class="gallery-item" data-index="@index">
+                <img src="@item.Download_url" alt="@item.Name" />
+              </li>
+            }
+          </ul>
+        </section>
+      }
 
 
       @* Downloads *@
