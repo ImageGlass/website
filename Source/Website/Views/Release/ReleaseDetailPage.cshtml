@@ -63,6 +63,25 @@
       </section>
 
 
+      @* Changelog *@
+      @if (Model.News != null) {
+        <section class="mb-5">
+          <h2 id="changelog">Changelog</h2>
+          <div class="box">
+            <h3>
+              <a title="@Model.News.Title"
+                asp-controller="News" asp-action="NewsDetailPage" asp-route-slugId="@Model.News.SlugAndId">
+                @Model.News.Title
+              </a>
+            </h3>
+            <div>
+              @Model.News.Description
+            </div>
+          </div>
+        </section>
+      }
+
+
       @* Screenshots *@
       <section class="mb-5">
         <h2 id="screenshots">Screenshots</h2>
