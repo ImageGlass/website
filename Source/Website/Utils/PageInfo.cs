@@ -1,5 +1,4 @@
-﻿using System;
-namespace ImageGlassWeb.Utils;
+﻿namespace ImageGlassWeb.Utils;
 
 public static class PageInfo
 {

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ImageGlassWeb.Data;
+﻿using ImageGlassWeb.Data;
 using ImageGlassWeb.Utils;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ImageGlassWeb.Controllers;
 
@@ -61,7 +61,8 @@ public class ExtensionIconController : BaseController
 
         // update the download count
         model.Count++;
-        if (await TryUpdateModelAsync(model, "", i => i.Count)) {
+        if (await TryUpdateModelAsync(model, "", i => i.Count))
+        {
             await _context.SaveChangesAsync();
 
             return Redirect(model.Link);

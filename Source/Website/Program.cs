@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using ImageGlassWeb.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +16,8 @@ builder.Services.AddDbContext<ImageGlassContext>(options =>
 
 // Add services to the container
 builder.Services.AddResponseCaching();
-builder.Services.AddControllersWithViews(options => {
+builder.Services.AddControllersWithViews(options =>
+{
     options.CacheProfiles.Add("Default", new CacheProfile()
     {
         Duration = 3600,

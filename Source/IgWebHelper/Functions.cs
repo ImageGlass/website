@@ -16,6 +16,14 @@ public static class Functions
         });
         if (!mdFiles.Any()) return;
 
+
+        try
+        {
+            // delete old files
+            Directory.Delete(destDir, true);
+        }
+        catch { }
+
         // create destination dir
         Directory.CreateDirectory(destDir);
 
@@ -49,7 +57,7 @@ public static class Functions
             // final file path: D:\content\News\33.html
             var newFilePath = Path.Combine(destOutDir, newFileName);
             Directory.CreateDirectory(destOutDir);
-            
+
             await File.WriteAllTextAsync(newFilePath, html, Encoding.UTF8, token);
         });
     }

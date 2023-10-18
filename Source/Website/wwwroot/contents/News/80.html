@@ -1,0 +1,84 @@
+﻿<h1 id="announcing-imageglass-moon-9.0-beta-3">Announcing ImageGlass Moon 9.0 beta 3</h1>
+<p>This is the beta-3 release of ImageGlass Kobe version 9. Many features of version 8 are missing and there are a lot of breaking changes. All features and settings may be changed when the official version 9 is released.</p>
+<p><img src="https://github.com/ImageGlass/website-content/blob/main/releases/screenshots/v9.0-beta-3/9.0b3_1.jpg?raw=true" alt="ImageGlass Moon 9.0 beta 3" /></p>
+<p>To follow the progress of version 9 beta 4, please visit: <a href="https://github.com/d2phap/ImageGlass/projects/14" target="_blank" ref="noopener nofollow">https://github.com/d2phap/ImageGlass/projects/14</a>. You can also support this project by <a href="https://github.com/sponsors/d2phap" target="_blank" ref="noopener nofollow">making a donation</a> or purchasing from Microsoft Store (version 8):</p>
+<p><a href="https://www.microsoft.com/store/productId/9N33VZK3C7TH?cid=ig_website_bag&amp;referrer=appbadge&amp;source=imageglass.org"><img src="https://imageglass.org/img/ms-store-badge-dark.svg" alt="Purchase ImageGlass from Microsoft Store" /></a></p>
+<h2 id="general-changes">General changes</h2>
+<ul>
+<li>Added support for assigning multiple hotkeys for Menu in <code>igconfig.json</code>.</li>
+<li>Added support for smooth zooming and panning without using Image Focus mode.</li>
+<li>Improved high DPI scaling.</li>
+<li>Upgraded Magick.NET to version 12.2.2.</li>
+</ul>
+<h2 id="theme-component">Theme component</h2>
+<ul>
+<li>Added support for Windows 11 UI (dark mode only) via setting <code>WindowBackdrop</code>. There are 3 options: <code>Acrylic</code>, <code>Mica</code>, <code>MicaAlt</code>.</li>
+<li>Added support for dark/light title bar in Windows 10, and Mica title bar for Windows 11, according to the <code>IsDarkMode</code> property in theme pack config file <code>igtheme.json</code>.</li>
+<li>Improved context menu with the new checkable indicators: Check box for multiple choices, Radio button for single choice.</li>
+<li>Added support for using system accent color in Colors section, by the syntax: <code>accent[:alpha = 255]</code>
+<ul>
+<li><code>accent</code> is required.</li>
+<li><code>alpha</code> is optional, allows you to change the alpha value of the system accent color.</li>
+<li>Example: <code>accent:180</code>.</li>
+</ul>
+</li>
+<li>Added support for auto-updating theme colors when system accent color is changed.</li>
+</ul>
+<h2 id="viewer-component">Viewer component</h2>
+<ul>
+<li>Added fading transition when switching images, configurable by the setting <code>EnableImageTransition</code>.</li>
+<li>Added support for smooth panning by default without Image Focus mode.</li>
+<li>Uses accent color for heading text message, navigation buttons, selection.</li>
+<li>Added support for customizing the interpolation mode corresponding to the image's zoom factor: <code>ImageInterpolationScaleDown</code> and <code>ImageInterpolationScaleUp</code>. Interpolation values:
+<ul>
+<li><code>NearestNeighbor</code></li>
+<li><code>Linear</code></li>
+<li><code>Cubic</code></li>
+<li><code>SampleLinear</code></li>
+<li><code>Antisotropic</code></li>
+<li><code>HighQualityBicubic</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="thumbnail-bar-component">Thumbnail bar component</h2>
+<ul>
+<li>Improved the speed of generating thumbnails by using cache from Windows File Explorer.</li>
+<li>Added setting <code>ThumbnailCacheSizeInMb</code> to change the maximum size of thumbnail cache on hard disk. The default setting is 300 MB.</li>
+<li>Aligned the thumbnails center horizontally by default.</li>
+<li>Improved thumbnail size when DPI is changed, or scroll bar is visible.</li>
+<li>Fixed: image height information in tooltip is not correct.</li>
+</ul>
+<h2 id="image-booster-component">Image Booster component</h2>
+<ul>
+<li>Added support for <code>GIFV</code> image format.</li>
+<li>Added setting <code>ShowImagePreview</code> to display the image preview while the image file is being loaded, using embedded image, and sync the interpolation mode.</li>
+<li>Added support for opening image bigger than 16384px by scaling down it to 16384px.</li>
+</ul>
+<h2 id="new-features">New features</h2>
+<ul>
+<li>Add new feature: <strong>Unload image</strong> to unload the viewing image and release memory resource.</li>
+</ul>
+<h3 id="the-new-slideshow-mode">The new Slideshow mode!</h3>
+<p><img src="https://user-images.githubusercontent.com/3154213/209127923-4080f530-6181-4c48-bcbe-a46289d03c05.png" alt="ImageGlass slideshow" /></p>
+<ul>
+<li>Moves slideshow to a separate process with only clean viewer.</li>
+<li>Supports open multiple slideshows.</li>
+<li>Supports run ImageGlass in slideshow mode.</li>
+<li>Prevent OS from entering sleep mode.</li>
+<li>Supports sub-second slideshow interval.</li>
+<li>Uses the correct : symbol for countdown text.</li>
+<li>Auto-hides cursor after 3 seconds.</li>
+</ul>
+<h3 id="the-new-crop-tool">The new Crop tool!</h3>
+<p><img src="https://user-images.githubusercontent.com/3154213/209128884-be00f170-7169-4961-95d0-d412502f8f32.png" alt="ImageGlass Crop tool" /></p>
+<ul>
+<li>New crop UI, follows system accent color, and shows size of the selection.</li>
+<li>Adds support for holding Shift to select a square.</li>
+<li>Adds support for aspect ratio.</li>
+<li>Adds a lot of options for Crop tool settings to set the default crop selection when switching to a new image.</li>
+</ul>
+<p>For all new features and details of the changes, please visit: <a href="https://github.com/d2phap/ImageGlass/releases/tag/9.0.3.1225" target="_blank" ref="noopener nofollow">https://github.com/d2phap/ImageGlass/releases/tag/9.0.3.1225</a></p>
+<h2 id="try-it-now">Try it now!</h2>
+<p>Be aware of scams and only get the files from our site!</p>
+<p>Also, to report bugs, suggestions and generally provide feedback, use our <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" ref="noopener nofollow">GitHub Issues</a>. Reporting anything on social media or in any other place is just pointless, as the developers only follow <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" ref="noopener nofollow">GitHub Issues</a>.</p>
+<p><a href="https://imageglass.org/release/imageglass-9.0-beta-3-39" class="btn btn-primary">Download ImageGlass 9.0 beta 3</a></p>

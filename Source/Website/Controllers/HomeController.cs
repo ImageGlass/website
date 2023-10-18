@@ -41,17 +41,20 @@ public class HomeController : BaseController
             var repoDict = JsonHelper.ParseJson<Dictionary<string, object>>(repoJson ?? "{}") ?? new();
 
             // repo stats
-            if (repoDict.TryGetValue("stargazers_count", out var starsCount)) {
+            if (repoDict.TryGetValue("stargazers_count", out var starsCount))
+            {
                 ViewData["_RepoStarsCount"] = starsCount;
             }
-            if (repoDict.TryGetValue("forks_count", out var forksCount)) {
+            if (repoDict.TryGetValue("forks_count", out var forksCount))
+            {
                 ViewData["_RepoForksCount"] = forksCount;
             }
-            if (repoDict.TryGetValue("subscribers_count", out var subscribersCount)) {
+            if (repoDict.TryGetValue("subscribers_count", out var subscribersCount))
+            {
                 ViewData["_RepoSubscribersCount"] = subscribersCount;
             }
         }
-        catch {}
+        catch { }
 
         return View("HomePage", latestStableRelease);
     }

@@ -5,6 +5,16 @@ namespace ImageGlassWeb.Controllers;
 
 public class SupportController : BaseController
 {
+    private readonly IWebHostEnvironment _appEnv;
+
+
+    public SupportController(IWebHostEnvironment appEnv)
+    {
+        _appEnv = appEnv;
+    }
+
+
+
     [HttpGet("support")]
     [ResponseCache(CacheProfileName = "Default")]
     public IActionResult Index()
@@ -30,7 +40,7 @@ public class SupportController : BaseController
         ViewData[PageInfo.Keywords] = $"imageglass privacy, {ViewData[PageInfo.Keywords]}";
 
         // get page content
-        var htmlContent = await ContentHelper.GetContentAsync("privacy.html");
+        var htmlContent = await ContentHelper.GetContentAsync(_appEnv.WebRootPath, "privacy.html");
 
         return View("MarkdownPage", htmlContent);
     }
@@ -47,7 +57,7 @@ public class SupportController : BaseController
         ViewData[PageInfo.Keywords] = $"imageglass eula, imageglass license, imageglass commercial use, {ViewData[PageInfo.Keywords]}";
 
         // get page content
-        var htmlContent = await ContentHelper.GetContentAsync("license.html");
+        var htmlContent = await ContentHelper.GetContentAsync(_appEnv.WebRootPath, "license.html");
 
         return View("LicensePage", htmlContent);
     }

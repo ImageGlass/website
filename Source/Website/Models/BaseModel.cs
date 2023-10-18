@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ImageGlassWeb.Utils;
 
 namespace ImageGlassWeb.Models;
 
@@ -26,5 +25,5 @@ public class BaseModel
     /// Checks if the <see cref="CreatedDate"/> is within the given hours.
     /// Default is <c>7 days x 24 hours = 168</c> hours.
     /// </summary>
-    public bool CheckNewPost(float hours = 7*24) => (DateTime.Now - CreatedDate).TotalHours <= hours;
+    public bool CheckNewPost(float hours = 7 * 24) => (DateTime.Now - CreatedDate).TotalHours <= hours;
 }

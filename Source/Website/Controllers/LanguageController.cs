@@ -1,5 +1,4 @@
 ﻿using Crowdin.Api;
-using Crowdin.Api.Languages;
 using Crowdin.Api.Translations;
 using ImageGlassWeb.Models;
 using ImageGlassWeb.Utils;
@@ -36,7 +35,8 @@ public class LanguageController : BaseController
             var lang = allLangs.FirstOrDefault(i => i.Id == prog.LanguageId);
             if (lang is null) continue;
 
-            langList.Add(new LanguageModel() {
+            langList.Add(new LanguageModel()
+            {
                 LanguageId = prog.LanguageId,
                 Name = lang.Name ?? string.Empty,
                 TranslationProgress = prog.TranslationProgress,

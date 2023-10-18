@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ImageGlassWeb.Data;
+﻿using ImageGlassWeb.Data;
 using ImageGlassWeb.Utils;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ImageGlassWeb.Controllers;
 
@@ -53,7 +53,7 @@ public class NewsController : BaseController
         ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
 
         // get page content
-        ViewData["NewsHtmlContent"] = await ContentHelper.GetContentAsync(@$"News\{model.Id}.html");
+        ViewData["NewsHtmlContent"] = await ContentHelper.GetContentAsync(_appEnv.WebRootPath, @$"News\{model.Id}.html");
 
 
         return View("NewsDetailPage", model);

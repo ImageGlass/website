@@ -11,5 +11,5 @@ public class RequirementModel : BaseModel
 
 
     public List<ReleaseModel> Releases { get; set; }
-    
+
 }

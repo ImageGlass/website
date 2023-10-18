@@ -32,7 +32,7 @@ public class BinaryFileModel : BaseModel
 
     [Column(TypeName = "text")]
     public string HashAlgorithm { get; set; } = "sha-1";
-    
+
 
     public int Count { get; set; } = 0;
 
