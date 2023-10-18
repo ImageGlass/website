@@ -49,6 +49,6 @@
     <ProjectReference Include="..\IgWebHelper\IgWebHelper.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="&quot;$(ProjectDir)$(OutDir)IgWebHelper.exe&quot; md-to-html &quot;$(SolutionDir)..\Content&quot; &quot;$(ProjectDir)wwwroot\content&quot;" />
+    <Exec Command="&quot;$(ProjectDir)$(OutDir)IgWebHelper.exe&quot; md-to-html &quot;$(ProjectDir)..\..\Content&quot; &quot;$(ProjectDir)$(OutDir)_Content&quot;" />
   </Target>
 </Project>

@@ -7,11 +7,13 @@ namespace ImageGlassWeb.Controllers;
 public class NewsController : BaseController
 {
     private readonly ImageGlassContext _context;
+    private readonly IWebHostEnvironment _appEnv;
 
 
-    public NewsController(ImageGlassContext context)
+    public NewsController(ImageGlassContext context, IWebHostEnvironment appEnv)
     {
         _context = context;
+        _appEnv = appEnv;
     }
 
 
@@ -50,11 +52,9 @@ public class NewsController : BaseController
 
         ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
 
-        // get page content from GitHub
-        var markdownContent = await GitHub.GetFileContentAsync($"news/{model.Id}.md");
-        var htmlContent = GitHub.ParseMarkdown(markdownContent);
+        // get page content
+        ViewData["NewsHtmlContent"] = await ContentHelper.GetContentAsync(@$"News\{model.Id}.html");
 
-        ViewData["NewsHtmlContent"] = htmlContent;
 
         return View("NewsDetailPage", model);
     }
