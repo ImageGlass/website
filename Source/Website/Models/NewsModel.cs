@@ -6,7 +6,7 @@ namespace ImageGlassWeb.Models;
 
 public class NewsModel : ArticleBaseModel
 {
-    [Column(Order = 4, TypeName = "varchar(150)")]
+    [Column(Order = 4, TypeName = "varchar(300)")]
     public string Description { get; set; } = string.Empty;
 
 

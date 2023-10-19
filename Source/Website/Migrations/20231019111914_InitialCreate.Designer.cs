@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImageGlassWeb.Migrations
 {
     [DbContext(typeof(ImageGlassContext))]
-    [Migration("20231019105136_InitialCreate")]
+    [Migration("20231019111914_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -104,7 +104,7 @@ namespace ImageGlassWeb.Migrations
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Description")
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("varchar(300)")
                         .HasColumnOrder(4);
 
                     b.Property<string>("Email")
@@ -166,7 +166,7 @@ namespace ImageGlassWeb.Migrations
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Description")
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("varchar(300)")
                         .HasColumnOrder(4);
 
                     b.Property<string>("Image")

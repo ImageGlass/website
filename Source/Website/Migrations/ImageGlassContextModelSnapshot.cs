@@ -101,7 +101,7 @@ namespace ImageGlassWeb.Migrations
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Description")
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("varchar(300)")
                         .HasColumnOrder(4);
 
                     b.Property<string>("Email")
@@ -163,7 +163,7 @@ namespace ImageGlassWeb.Migrations
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Description")
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("varchar(300)")
                         .HasColumnOrder(4);
 
                     b.Property<string>("Image")
