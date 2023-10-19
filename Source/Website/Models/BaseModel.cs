@@ -1,18 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ImageGlassWeb.Models;
 
 public class BaseModel
 {
+
     [Key]
+    [Column(Order = 0)]
     public int Id { get; set; }
 
-    public bool IsVisible { get; set; } = true;
 
-    [DataType(DataType.Date)]
+    [Column(Order = 1)]
+    public bool? IsVisible { get; set; } = true;
+
+
+    [Column(Order = 99, TypeName = "timestamp")]
     public DateTime CreatedDate { get; set; }
 
-    [DataType(DataType.Date)]
+
+    [Column(Order = 100, TypeName = "timestamp")]
     public DateTime UpdatedDate { get; set; }
 
 

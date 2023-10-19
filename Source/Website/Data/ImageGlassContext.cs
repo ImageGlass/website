@@ -31,9 +31,37 @@ public class ImageGlassContext : DbContext
     public DbSet<RequirementModel> Requirements { get; set; }
 
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder mb)
     {
-        base.OnModelCreating(modelBuilder);
+        // set default values
+        mb.Entity<NewsModel>().Property(i => i.IsVisible).HasDefaultValue(true);
+        mb.Entity<NewsModel>().Property(i => i.CreatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<NewsModel>().Property(i => i.UpdatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        mb.Entity<ThemeModel>().Property(i => i.IsVisible).HasDefaultValue(true);
+        mb.Entity<ThemeModel>().Property(i => i.CreatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<ThemeModel>().Property(i => i.UpdatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<ThemeModel>().Property(i => i.Count).HasDefaultValue(0);
+
+        mb.Entity<ExtensionIconModel>().Property(i => i.IsVisible).HasDefaultValue(true);
+        mb.Entity<ExtensionIconModel>().Property(i => i.CreatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<ExtensionIconModel>().Property(i => i.UpdatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<ExtensionIconModel>().Property(i => i.Count).HasDefaultValue(0);
+
+        mb.Entity<ReleaseModel>().Property(i => i.IsVisible).HasDefaultValue(true);
+        mb.Entity<ReleaseModel>().Property(i => i.CreatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<ReleaseModel>().Property(i => i.UpdatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        mb.Entity<BinaryFileModel>().Property(i => i.IsVisible).HasDefaultValue(true);
+        mb.Entity<BinaryFileModel>().Property(i => i.CreatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<BinaryFileModel>().Property(i => i.UpdatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<BinaryFileModel>().Property(i => i.Count).HasDefaultValue(0);
+
+        mb.Entity<RequirementModel>().Property(i => i.IsVisible).HasDefaultValue(true);
+        mb.Entity<RequirementModel>().Property(i => i.CreatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        mb.Entity<RequirementModel>().Property(i => i.UpdatedDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        base.OnModelCreating(mb);
     }
 
 
@@ -41,7 +69,7 @@ public class ImageGlassContext : DbContext
     public async Task<PaginatedList<NewsModel>> QueryNewsModels(int count = 10, int pageNumber = 1)
     {
         var source = News
-            .Where(i => i.IsVisible)
+            .Where(i => i.IsVisible == true)
             .OrderByDescending(i => i.UpdatedDate)
             .AsNoTracking();
 
@@ -55,7 +83,7 @@ public class ImageGlassContext : DbContext
     public async Task<NewsModel?> GetNewsModel(int id, bool? preview)
     {
         var isPreview = preview ?? false;
-        var model = await News.Where(i => i.Id == id && (isPreview || i.IsVisible))
+        var model = await News.Where(i => i.Id == id && (isPreview || (i.IsVisible ?? false)))
             .FirstOrDefaultAsync();
 
         return model;
@@ -65,7 +93,7 @@ public class ImageGlassContext : DbContext
     public async Task<PaginatedList<ReleaseModel>> QueryReleaseModels(int count = 10, int pageNumber = 1, string? releaseChannel = "")
     {
         var source = Releases
-            .Where(i => i.IsVisible
+            .Where(i => i.IsVisible == true
                 && (string.IsNullOrEmpty(releaseChannel)
                     || i.ReleaseChannel == releaseChannel))
             .Include(i => i.News)
@@ -83,7 +111,7 @@ public class ImageGlassContext : DbContext
     {
         var isPreview = preview ?? false;
         var model = await Releases
-            .Where(i => i.Id == id && (isPreview || i.IsVisible))
+            .Where(i => i.Id == id && (isPreview || (i.IsVisible ?? false)))
             .Include(i => i.BinaryFiles)
             .Include(i => i.Requirement)
             .Include(i => i.News)
@@ -98,7 +126,7 @@ public class ImageGlassContext : DbContext
     {
         var isPreview = preview ?? false;
         var model = await BinaryFiles
-            .Where(i => i.Id == id && (isPreview || i.IsVisible))
+            .Where(i => i.Id == id && (isPreview || (i.IsVisible ?? false)))
             .FirstOrDefaultAsync();
 
         return model;
@@ -108,7 +136,7 @@ public class ImageGlassContext : DbContext
     public async Task<PaginatedList<ThemeModel>> QueryThemeModels(int count = 10, int pageNumber = 1)
     {
         var source = Themes
-            .Where(i => i.IsVisible)
+            .Where(i => i.IsVisible == true)
             .OrderByDescending(i => i.UpdatedDate)
             .AsNoTracking();
 
@@ -123,7 +151,7 @@ public class ImageGlassContext : DbContext
     {
         var isPreview = preview ?? false;
         var model = await Themes
-            .Where(i => i.Id == id && (isPreview || i.IsVisible))
+            .Where(i => i.Id == id && (isPreview || (i.IsVisible ?? false)))
             .FirstOrDefaultAsync();
 
         return model;
@@ -133,7 +161,7 @@ public class ImageGlassContext : DbContext
     public async Task<PaginatedList<ExtensionIconModel>> QueryExtensionIconModels(int count = 10, int pageNumber = 1)
     {
         var source = ExtensionIcons
-            .Where(i => i.IsVisible)
+            .Where(i => i.IsVisible == true)
             .OrderByDescending(i => i.UpdatedDate)
             .AsNoTracking();
 
@@ -148,7 +176,7 @@ public class ImageGlassContext : DbContext
     {
         var isPreview = preview ?? false;
         var model = await ExtensionIcons
-            .Where(i => i.Id == id && (isPreview || i.IsVisible))
+            .Where(i => i.Id == id && (isPreview || (i.IsVisible ?? false)))
             .FirstOrDefaultAsync();
 
         return model;

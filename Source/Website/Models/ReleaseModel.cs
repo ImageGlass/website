@@ -7,33 +7,36 @@ namespace ImageGlassWeb.Models;
 
 public class ReleaseModel : ArticleBaseModel
 {
-    [Column(TypeName = "text")]
+    [Column(Order = 4, TypeName = "varchar(255)")]
     public string Image { get; set; } = string.Empty;
 
 
-    [Column(TypeName = "text")]
-    public string ReleaseChannel { get; set; } = Models.ReleaseChannel.Stable;
+    [AllowNull]
+    [Column(Order = 5)]
+    public int? NewsId { get; set; }
 
 
-    [Column(TypeName = "text")]
+    [Column(Order = 6, TypeName = "varchar(20)")]
     public string Version { get; set; } = string.Empty;
+
+
+    [Column(Order = 7, TypeName = "varchar(50)")]
+    public string ReleaseChannel { get; set; } = Models.ReleaseChannel.Stable;
 
 
     /// <summary>
     /// Folder name of screenshots.
     /// E.g. <c>v9.0-beta-4</c>
-    ///     from <c>releases/screenshots/v9.0-beta-4</c>
+    ///     from <c>v9.0-beta-4</c>
     /// </summary>
-    [Column(TypeName = "text")]
+    [Column(Order = 8, TypeName = "varchar(50)")]
     public string ScreenshotsDir { get; set; } = string.Empty;
 
 
-    [AllowNull]
-    public int? NewsId { get; set; }
-
-
     // Foreign key to RequirementModel
+    [Column(Order = 9)]
     public int RequirementId { get; set; }
+
 
 
     /// <summary>
@@ -44,7 +47,9 @@ public class ReleaseModel : ArticleBaseModel
 
     public List<BinaryFileModel> BinaryFiles { get; set; }
 
+
     public RequirementModel Requirement { get; set; }
+
 
 #nullable enable
     public NewsModel? News { get; set; }
@@ -80,7 +85,7 @@ public class ReleaseDetailModel : ReleaseModel
         Requirement = model.Requirement;
         News = model.News;
         BinaryFiles = model.BinaryFiles
-            .Where(i => !preview || i.IsVisible)
+            .Where(i => !preview || (i.IsVisible ?? false))
             .ToList();
     }
 

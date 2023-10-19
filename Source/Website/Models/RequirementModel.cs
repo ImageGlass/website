@@ -6,7 +6,7 @@ namespace ImageGlassWeb.Models;
 
 public class RequirementModel : BaseModel
 {
-    [Column(TypeName = "text")]
+    [Column(Order = 2, TypeName = "text")]
     public string Content { get; set; } = string.Empty;
 
 

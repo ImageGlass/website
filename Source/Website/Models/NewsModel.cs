@@ -6,18 +6,11 @@ namespace ImageGlassWeb.Models;
 
 public class NewsModel : ArticleBaseModel
 {
-    [Column(TypeName = "text")]
-    public string Image { get; set; } = string.Empty;
-
-
-    [Column(TypeName = "text")]
+    [Column(Order = 4, TypeName = "varchar(150)")]
     public string Description { get; set; } = string.Empty;
 
 
-    /// <summary>
-    /// By default, the content will be fetched from this folder:
-    /// https://github.com/ImageGlass/website-content/tree/main/news,
-    /// this field allows to use a custom url markdown content.
-    /// </summary>
-    public string CustomContentUrl { get; set; } = string.Empty;
+    [Column(Order = 5, TypeName = "varchar(255)")]
+    public string Image { get; set; } = string.Empty;
+
 }

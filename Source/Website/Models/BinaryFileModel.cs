@@ -6,34 +6,28 @@ namespace ImageGlassWeb.Models;
 
 public class BinaryFileModel : BaseModel
 {
-    [Column(TypeName = "text")]
-    public string ReleaseCode { get; set; } = "kobe";
+    // Foreign key to ReleaseModel
+    [Column(Order = 2)]
+    public int ReleaseId { get; set; }
 
 
-    [Column(TypeName = "text")]
+    [Column(Order = 3, TypeName = "varchar(50)")]
     public string Type { get; set; } = BinaryType.Installer;
 
 
-    [Column(TypeName = "text")]
+    [Column(Order = 4, TypeName = "varchar(20)")]
     public string Architecture { get; set; } = FileArchitecture.X64;
 
 
-    [Column(TypeName = "text")]
+    [Column(Order = 5, TypeName = "varchar(10)")]
     public string FileType { get; set; } = "msi";
 
 
-    [Column(TypeName = "text")]
+    [Column(Order = 6, TypeName = "varchar(255)")]
     public string Link { get; set; } = string.Empty;
 
 
-    [Column(TypeName = "text")]
-    public string Checksum { get; set; } = string.Empty;
-
-
-    [Column(TypeName = "text")]
-    public string HashAlgorithm { get; set; } = "sha-1";
-
-
+    [Column(Order = 7)]
     public int Count { get; set; } = 0;
 
 
