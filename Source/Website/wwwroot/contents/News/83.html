@@ -1,0 +1,145 @@
+﻿<h1 id="announcing-imageglass-moon-9.0-beta-4">Announcing ImageGlass Moon 9.0 beta 4</h1>
+<p>This is the beta-4 release of ImageGlass version 9. Features and settings may still be changed when the official version 9 is released.</p>
+<p><img src="https://raw.githubusercontent.com/ImageGlass/releases/main/screenshots/v9.0-beta-4/9.0b4_2.webp" alt="ImageGlass 9.0 beta 4" /></p>
+<p>To follow the progress of version 9 beta 5, please visit: <a href="https://github.com/d2phap/ImageGlass/projects/15" target="_blank" ref="noopener nofollow">https://github.com/d2phap/ImageGlass/projects/15</a>. You can also support this project by <a href="https://github.com/sponsors/d2phap" target="_blank" ref="noopener nofollow">making a donation</a> or purchasing from Microsoft Store (version 8):</p>
+<p><a href="https://www.microsoft.com/store/productId/9N33VZK3C7TH?cid=ig_website_bag&amp;referrer=appbadge&amp;source=imageglass_org" target="_blank" ref="noopener nofollow"><img src="https://camo.githubusercontent.com/14a48212d2be35802c276d1bcc92f9fa51c99de505dda867b3750fe17ccc99ee/68747470733a2f2f696d616765676c6173732e6f72672f696d672f6d732d73746f72652d62616467652d6461726b2e737667" alt="ImageGlass Store" /></a></p>
+<h2 id="update-minimum-requirements-for-imageglass-9">Update minimum requirements for ImageGlass 9</h2>
+<ul>
+<li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0" target="_blank" ref="noopener nofollow">.NET Desktop Runtime 6</a>, or <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0" target="_blank" ref="noopener nofollow">.NET Desktop Runtime 7</a></li>
+<li><a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section" target="_blank" ref="noopener nofollow">Webview2 runtime 64-bit</a></li>
+<li>Windows 10 64-bit</li>
+</ul>
+<h2 id="general-changes">General changes</h2>
+<ul>
+<li>Upgraded Magick.NET to version 13.0.1.</li>
+<li>Improved ImageGlass startup time and latency by enabling ReadyToRun compilation.</li>
+<li>Added support for animated APNG and WEBP formats with hardware acceleration.</li>
+<li>Added support for auto-switching theme according to system dark / light mode.</li>
+<li>It shows Color space and Color profile info on the title bar and thumbnail's tooltip.</li>
+<li>Added support for updating the viewing image folder in real time. You can disable this feature by setting EnableFileWatcher.</li>
+<li>Changed the prefix for passing app setting as command-line from <code>-</code> to <code>/</code>. Example: <code>ImageGlass.exe /EnableFrameless=true</code>.</li>
+<li>Added support for open external apps for editing by setting <code>EditApps</code>. Example:
+<pre><code class="language-ts">// in igconfig.json
+&quot;EditApps&quot;: {
+  &quot;.png&quot;: {
+      &quot;AppName&quot;: &quot;Paint.NET&quot;,
+      &quot;Executable&quot;: &quot;C:\\paint.net\\paintdotnet.exe&quot;,
+      &quot;Argument&quot;: &quot;&lt;file&gt;&quot;
+  }
+},
+</code></pre>
+</li>
+<li>Added options about what to do after the external editor is launched by setting AfterEditingAction.</li>
+<li>Added new feature: Export image frames</li>
+<li>Added new feature: Rotate image</li>
+<li>Added support for saving TIFF, GIF as multiple frames.</li>
+<li>Improves ImageGlass Slideshow view with Frameless, Window Fit mode.</li>
+</ul>
+<h2 id="new-window-modes">New window modes</h2>
+<ul>
+<li><p>Frameless mode</p>
+<ul>
+<li>The window corners are rounded by default.</li>
+<li>Hold SHIFT and drag to move the window.</li>
+</ul>
+</li>
+<li><p>Window fit mode</p>
+<ul>
+<li>Disables Maximize button on the window.</li>
+<li>Improve performance when the user zooms over the image.</li>
+<li>Added support for all zoom modes in Window mode.</li>
+</ul>
+</li>
+<li><p>Window modes combination for the main view and slideshow view:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Full screen</th>
+<th>Frameless</th>
+<th>Window fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full screen</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Frameless</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Window fit</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id="layout-customization">Layout customization</h2>
+<ul>
+<li>Added support for layout customization using setting <code>Layout</code> for:
+<ul>
+<li>Toolbar with setting <code>Toolbar</code>,</li>
+<li>Thumbnail bar with setting <code>Gallery</code>,</li>
+<li>Contextual toolbar with setting <code>ToolbarContext</code>.</li>
+</ul>
+</li>
+<li>Example:
+<pre><code class="language-ts">// in igconfig.json
+{
+  &quot;Layout&quot;: {
+    &quot;Toolbar&quot;: &quot;Top;1&quot;, // Toolbar is at top, below thumbnail bar
+    &quot;Gallery&quot;: &quot;Top;0&quot;, // thumbnail bar is at top, above the toolbar
+    &quot;ToolbarContext&quot;: &quot;Bottom&quot;, // contextual toolbar is at the bottom
+  }
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="new-page-navigation-tool">New Page navigation tool</h2>
+<ul>
+<li>Supports for viewing separate image frame.
+<ul>
+<li>Non-animated formats (TIFF, ICO,...).</li>
+<li>Animated formats (GIF, WEBP, APNG,...).</li>
+</ul>
+</li>
+<li>Respects the size and orientation of the image frame.</li>
+<li>Exports all frames.</li>
+</ul>
+<h2 id="new-color-picker-tool">New Color picker tool</h2>
+<ul>
+<li>Shows cursor location on the viewing image.</li>
+<li>Clicks to pick the pixel color.</li>
+<li>Adds support for color formats: RGB, HEX, CMYK, HSL, HSV.</li>
+<li>Added buttons to copy the color code.</li>
+<li>Added a Settings window with options to show alpha values for each color format.</li>
+</ul>
+<h2 id="external-tools-support">External tools support</h2>
+<ul>
+<li>You can download external tools at <a href="https://imageglass.org/tools">https://imageglass.org/tools</a>.</li>
+<li>Created <a href="https://github.com/ImageGlass/ImageGlass.Tools" target="_blank" ref="noopener nofollow">https://github.com/ImageGlass/ImageGlass.Tools</a> library for other 3rd-party apps to communicate with ImageGlass via IPC message events.</li>
+<li>Sends events to the external tools using <code>ImageGlassEvents</code>.</li>
+<li>Sends <code>EnableWindowTopMost</code> as a command-line argument to request the external tool window to be top most.</li>
+<li>Use the <code>ToolSettings</code> setting to store the settings of the built-in tools (Crop tool, Color picker) instead <code>Tools</code>.</li>
+<li>Added support for adding external tools to ImageGlass Tools menu by setting <code>Tools</code> and assigning the tool's hotkeys by setting <code>MenuHotkeys</code>.</li>
+<li>Shows &quot;Tool not found&quot; dialog to allow the user to select the executable path of the tool.</li>
+<li>For more details, please refer to <a href="https://github.com/ImageGlass/ImageGlass.Tools" target="_blank" ref="noopener nofollow">https://github.com/ImageGlass/ImageGlass.Tools</a>.</li>
+</ul>
+<div class="box mt-5"><h2 id="introducing-exifglass-a-new-exiftool-for-imageglass" class="mt-0">Introducing ExifGlass - a new ExifTool for ImageGlass</h2>
+<p>ExifGlass is a brand new EXIF metadata viewing app, designed to work seamlessly with ImageGlass 9, but can also be used as a standalone software on your computer. To use ExifGlass, you need to have ExifTool by Phil Harvey installed on your system.</p>
+<p>For more details, please visit: <a href="https://imageglass.org/tools">https://imageglass.org/tools</a>.</p>
+<p><img src="https://raw.githubusercontent.com/ImageGlass/releases/main/screenshots/v9.0-beta-4/9.0b4_3.webp" alt="ExifGlass" /></p>
+</div>
+<h2 id="download-it-now">Download it now!</h2>
+<p>Please be cautious of scams and only download ImageGlass from our official website. We highly recommend against downloading ImageGlass from any other source to avoid potential security risks. Additionally, if you encounter any bugs, have suggestions, or would like to provide feedback, please use our <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" ref="noopener nofollow">Issues tracker</a>. Reporting issues on social media or other platforms will not be reviewed by our developers.</p>
+<p><a href="https://imageglass.org/release/imageglass-9.0-beta-4-41" class="btn btn-accent">Download ImageGlass Moon 9.0 beta 4</a></p>
+<p>For all new features and details of the changes, please visit: <a href="https://github.com/d2phap/ImageGlass/releases/tag/9.0.4.416" target="_blank" ref="noopener nofollow">https://github.com/d2phap/ImageGlass/releases/tag/9.0.4.416</a>.</p>
