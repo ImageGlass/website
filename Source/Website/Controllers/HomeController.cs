@@ -27,8 +27,8 @@ public class HomeController : BaseController
         ViewData[PageInfo.Page] = "home";
 
         // featured content
-        var pList = await _context.QueryReleaseModels(1, releaseChannel: ReleaseChannel.Stable);
-        var latestStableRelease = pList.FirstOrDefault();
+        var releaseList = await _context.QueryReleaseModels(1, releaseChannel: ReleaseChannel.Stable);
+        var latestStableRelease = releaseList.FirstOrDefault();
 
         // github repo stats
         try

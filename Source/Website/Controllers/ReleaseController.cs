@@ -1,4 +1,5 @@
 ﻿using ImageGlassWeb.Data;
+using ImageGlassWeb.Models;
 using ImageGlassWeb.Utils;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,11 @@ public class ReleaseController : BaseController
     [HttpGet("download")]
     public async Task<IActionResult> Download(int? page)
     {
-        var pList = await _context.QueryReleaseModels(1);
-        if (pList.Count > 0)
+        var releaseList = await _context.QueryReleaseModels(1, releaseChannel: ReleaseChannel.Stable);
+
+        if (releaseList.FirstOrDefault() is ReleaseModel latestStableRelease)
         {
-            return RedirectToAction(nameof(ReleaseDetailPage), new { slugId = pList[0].SlugAndId });
+            return RedirectToAction(nameof(ReleaseDetailPage), new { slugId = latestStableRelease.SlugAndId });
         }
 
         return RedirectToAction(nameof(AllReleasesListingPage));
