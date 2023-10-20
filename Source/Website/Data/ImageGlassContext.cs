@@ -112,7 +112,7 @@ public class ImageGlassContext : DbContext
         var isPreview = preview ?? false;
         var model = await Releases
             .Where(i => i.Id == id && (isPreview || (i.IsVisible ?? false)))
-            .Include(i => i.BinaryFiles)
+            .Include(i => i.BinaryFiles.Where(f => f.IsVisible == true))
             .Include(i => i.Requirement)
             .Include(i => i.News)
             .Select(i => new ReleaseDetailModel(i, isPreview))
