@@ -1,7 +1,7 @@
 ﻿@model ReleaseDetailModel
 
 @{
-  var list = (PaginatedList<NewsModel>?)ViewData[PageInfo.SidebarList];
+  var list = (PaginatedList<ReleaseModel>?)ViewData[PageInfo.SidebarList];
   var screenshots = ((List<GitHubFileModel>?)ViewData["_ReleaseScreenshots"]) ?? new();
 }
 
@@ -177,12 +177,12 @@
         </section>
 
 
-        @* News listing *@
+        @* Release listing *@
         @await Html.PartialAsync("_SidebarList", list, new ViewDataDictionary(ViewData) {
-          { "heading", "The lastest updates" },
-          { "aspController", "News" },
-          { "aspActionListing", nameof(NewsController.AllNewsListingPage) },
-          { "aspActionDetail", nameof(NewsController.NewsDetailPage) },
+          { "heading", "Other releases" },
+          { "aspController", "Release" },
+          { "aspActionListing", nameof(ReleaseController.AllReleasesListingPage) },
+          { "aspActionDetail", nameof(ReleaseController.ReleaseDetailPage) },
         })
       </aside>
     </div>

@@ -61,7 +61,7 @@ public class ReleaseController : BaseController
         ViewData[PageInfo.Thumbnail] = model.Image;
 
         // page data
-        ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
+        ViewData[PageInfo.SidebarList] = await _context.QueryReleaseModels(5);
         if (!string.IsNullOrEmpty(model.ScreenshotsDir))
         {
             ViewData["_ReleaseScreenshots"] = await GitHub.GetFilesAsync("screenshots", model.ScreenshotsDir);
