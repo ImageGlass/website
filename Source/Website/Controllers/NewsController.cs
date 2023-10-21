@@ -52,6 +52,7 @@ public class NewsController : BaseController
 
         ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
 
+
         // get page content
         ViewData["NewsHtmlContent"] = await ContentHelper.GetContentAsync(_appEnv.WebRootPath, @$"News\{model.Id}.html");
 

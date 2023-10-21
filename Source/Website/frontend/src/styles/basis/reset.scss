@@ -398,7 +398,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   border: 0.075rem solid var(--colorBorder);
-  border-radius: var(--border-radius);
+  border-radius: calc(var(--border-radius) * 1.5);
   display: block;
   width: max-content;
   max-width: 100%;
@@ -422,7 +422,7 @@ table {
   }
 
   td, th {
-    padding: 0.25rem 0.5rem;
+    padding: 0.35rem 0.75rem;
     border: 0.075rem solid var(--colorBorder);
   }
 

@@ -25,6 +25,12 @@ public static class ContentHelper
             var path = Path.Combine(wwwroot, ContentDir, relativeFilePath);
             var html = await File.ReadAllTextAsync(path);
 
+            // render ImageGlass Store button
+            html = html.Replace("##IMAGEGLASS_STORE##", """
+                <ms-store-badge tabindex="0" class="btn btn-accent" productid="9N33VZK3C7TH" cid="ig_website_badge" window-mode="full" theme="auto" title="Get ImageGlass from Microsoft Store">
+                </ms-store-badge>
+            """);
+
             return html;
         }
         catch { }
