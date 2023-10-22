@@ -43,6 +43,9 @@
               <li class="nav-item @(_page.Contains("language") ? "nav-item--active" : "")">
                 <a asp-controller="Language" asp-action="LanguageListing">Language packs</a>
               </li>
+              <li class="nav-item @(_page.Contains("tool") ? "nav-item--active" : "")">
+                <a asp-controller="Tool" asp-action="ToolListing">Tools</a>
+              </li>
             </ul>
           </li>
 

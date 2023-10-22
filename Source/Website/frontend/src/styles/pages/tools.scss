@@ -1,0 +1,61 @@
+
+[data-page="download.tool"] {
+  ul.tool-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    li {
+      padding: 0.5rem;
+
+      .tool-image {
+        flex: 1 0 4rem;
+        transition: all ease 300ms;
+      }
+
+      .tool-description {
+        font-size: var(--fs-5);
+      }
+
+      .tool-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        cursor: pointer;
+        padding: 0.5rem;
+
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        text-align: left;
+        color: inherit;
+        transition: all ease 300ms;
+
+        &:hover {
+          transform: translateY(-0.1rem);
+
+          .tool-image {
+            filter: brightness(1.2);
+          }
+        }
+        &:active {
+          transform: translateY(0);
+          transition: all ease 100ms;
+
+          .tool-image {
+            transition: all ease 100ms;
+            filter: brightness(0.75);
+          }
+        }
+      }
+
+      &:hover {
+        transform: translateY(0);
+      }
+    }
+  }
+}

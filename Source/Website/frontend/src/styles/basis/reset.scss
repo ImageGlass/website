@@ -265,7 +265,7 @@ a {
 
 p, blockquote, ul, ol, dl, table, pre, details {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 
 blockquote {
@@ -317,10 +317,6 @@ abbr[title] {
 
 dfn {
   font-style: italic;
-}
-
-small {
-  font-size: 90%;
 }
 
 sub,

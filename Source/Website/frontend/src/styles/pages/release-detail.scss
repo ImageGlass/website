@@ -1,29 +1,5 @@
 
 [data-page="download.release"] {
-  .download-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 15rem);
-    gap: 1rem;
-
-    .option-classic {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0.5rem;
-
-      padding-left: 0.75rem !important;
-      padding-right: 0.75rem !important;
-      max-width: 15rem;
-      white-space: break-spaces;
-      text-align: left;
-
-      .emoji {
-        font-size: 2.5rem;
-        line-height: 1;
-      }
-    }
-  }
-
   .classic-download-options {
     ul {
       list-style: none;

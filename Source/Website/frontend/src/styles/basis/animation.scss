@@ -43,7 +43,7 @@
     transform: translateY(-5vh);
   }
   to {
-    max-height: 100vh;
+    max-height: 100rem;
     opacity: 1;
     transition: max-height ease 400ms,
       opacity ease 600ms,
@@ -57,7 +57,7 @@
 }
 @keyframes aniHeightUp {
   from {
-    max-height: 100vh;
+    max-height: 100rem;
     opacity: 1;
   }
   to {
