@@ -5,7 +5,7 @@
   justify-content: stretch;
 
   margin: auto;
-  padding: 0 0 1rem 0;
+  padding: 0; // must be 0 for smooth animation
   max-height: 90vh;
   max-width: 90vw;
   overflow: hidden;
@@ -31,7 +31,7 @@
   }
 
   .popover-body {
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem;
     overflow-y: auto;
   }
 
