@@ -11,4 +11,14 @@
     <ItemGroup>
         <PackageReference Include="Markdig.Signed" Version="0.33.0" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <EditorConfigFiles Remove="D:\_GITHUB\%40imageglass\website\Source\IgWebHelper\.editorconfig" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <None Include="D:\_GITHUB\@imageglass\website\Source\IgWebHelper\.editorconfig" />
+    </ItemGroup>
 </Project>

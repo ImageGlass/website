@@ -31,8 +31,13 @@ public static class Functions
         // start converting markdown to html
         await Parallel.ForEachAsync(mdFiles, async (filePath, token) =>
         {
-            var mdContent = await File.ReadAllTextAsync(filePath, Encoding.UTF8, token);
-            var html = Helper.ParseMarkdown(mdContent);
+            var fileContent = await File.ReadAllTextAsync(filePath, Encoding.UTF8, token);
+
+            // separate metadata and markdown content
+            var (metaSection, markdownContent) = Helper.ProcessMarkdownContent(fileContent);
+
+            // parse markdown to html then append to the metadata section
+            var html = metaSection + Helper.ParseMarkdown(markdownContent);
 
 
             // the new file name: 33.html
@@ -58,7 +63,7 @@ public static class Functions
             var newFilePath = Path.Combine(destOutDir, newFileName);
             Directory.CreateDirectory(destOutDir);
 
-            await File.WriteAllTextAsync(newFilePath, html, Encoding.UTF8, token);
+            await File.WriteAllTextAsync(newFilePath, (string)html, Encoding.UTF8, token);
         });
     }
 }

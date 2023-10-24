@@ -1,4 +1,14 @@
-# Overview
+```json
+#metadata
+{
+  "Title": "Features",
+  "Description": "ImageGlass is another open source basic image viewer, which, while simple, benefits from the speed that comes with being so lightweight, and is a good choice for Windows users.",
+  "Keywords": ["imageglass features", "imageglass touch support", "imageglass slideshow"]
+}
+#metadata
+```
+
+# ImageGlass features
 ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 80 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.
 
 

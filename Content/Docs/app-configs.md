@@ -1,4 +1,14 @@
-# ImageGlass configuration files
+```json
+#metadata
+{
+  "Title": "Configuration files",
+  "Description": "Learn how to manage ImageGlass using configuration files, defining presets, and even locking specific settings during installation.",
+  "Keywords": ["imageglass config files", "imageglass deploy"]
+}
+#metadata
+```
+
+# Configuration files
 Learn how to manage ImageGlass using configuration files, defining presets, and even locking specific settings during installation.
 
 ## Configuration directories

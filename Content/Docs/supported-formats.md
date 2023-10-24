@@ -1,3 +1,13 @@
+```json
+#metadata
+{
+  "Title": "Supported formats",
+  "Description": "ImageGlass provides support for a wide range of common image formats, courtesy of the ImageMagick library. You have the flexibility to customize the extension list, allowing you to add more file types for viewing in ImageGlass, provided that they are supported by ImageMagick.",
+  "Keywords": ["imageglass supported formats"]
+}
+#metadata
+```
+
 # Supported formats
 ImageGlass provides support for a wide range of common image formats, courtesy of the ImageMagick library. You have the flexibility to customize the extension list, allowing you to add more file types for viewing in ImageGlass, provided that they are supported by ImageMagick.
 

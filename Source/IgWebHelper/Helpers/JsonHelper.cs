@@ -35,7 +35,6 @@ public class JsonHelper
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="json"></param>
-    /// <returns></returns>
     public static T? ParseJson<T>(string json)
     {
         return JsonSerializer.Deserialize<T>(json, JsonOptions);
@@ -47,7 +46,6 @@ public class JsonHelper
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="obj"></param>
-    /// <returns></returns>
     public static string ToJson<T>(T obj)
     {
         return JsonSerializer.Serialize(obj, typeof(T), JsonOptions);
@@ -59,7 +57,6 @@ public class JsonHelper
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="stream"></param>
-    /// <returns></returns>
     public static async Task<T?> ParseJsonAsync<T>(Stream stream)
     {
         return await JsonSerializer.DeserializeAsync<T>(stream, JsonOptions);
@@ -71,7 +68,6 @@ public class JsonHelper
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="jsonFilePath"></param>
-    /// <returns></returns>
     public static T? ReadJson<T>(string jsonFilePath)
     {
         using var stream = File.OpenRead(jsonFilePath);

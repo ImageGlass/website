@@ -1,0 +1,114 @@
+﻿@model string
+
+@{
+  var _page = ViewData[PageInfo.Page]?.ToString() ?? string.Empty;
+  var isExpanded = true;
+}
+
+
+@* Docs listing & content *@
+<div class="container">
+  <div class="row gx-5">
+    @* Docs navigation *@
+    <div class="col-12 col-lg-4 my-5 pt-3">
+      <aside class="sidebar">
+        <section class="sidebar-item">
+          @await Html.PartialAsync("_Ads")
+        </section>
+
+
+        @* Docs navigation *@
+        <section class="docs-nav">
+          <ul class="docs-nav">
+            @* Overview *@
+            <li>
+              <button toggle-el="#nav-overview">Overview</button>
+
+              @{ isExpanded = (_page.Contains("features") || _page.Contains("supported-formats")); }
+              <ul id="nav-overview" @(isExpanded ? "" : "hidden")>
+                <li class="@(_page.Contains("features") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="features">
+                    App features
+                  </a>
+                </li>
+                <li class="@(_page.Contains("supported-formats") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="supported-formats">
+                    Supported formats
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+            @* Personalization *@
+            <li>
+              <button toggle-el="#nav-personalization">Personalization</button>
+
+              @{ isExpanded = (_page.Contains("qqqqqqq") || _page.Contains("qqqqqqq")); }
+              <ul id="nav-personalization" @(isExpanded ? "" : "hidden")>
+                <li class="@(_page.Contains("qqqqqqq") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="qqqqqqq">
+                    Create your theme pack
+                  </a>
+                </li>
+                <li class="@(_page.Contains("qqqqqqq") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="qqqqqqq">
+                    Create extension icon pack
+                  </a>
+                </li>
+                <li class="@(_page.Contains("qqqqqqq") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="qqqqqqq">
+                    Install new language
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+            @* Third-party app Integration *@
+            <li>
+              <button toggle-el="#nav-integration">Third-party app Integration</button>
+
+              @{ isExpanded = (_page.Contains("qqqqqqq") || _page.Contains("qqqqqqq")); }
+              <ul id="nav-integration" @(isExpanded ? "" : "hidden")>
+                <li class="@(_page.Contains("qqqqqqq") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="qqqqqqq">
+                    Build ImageGlass tool
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+            @* For power users *@
+            <li>
+              <button toggle-el="#nav-power-user">For power users</button>
+
+              @{ isExpanded = (_page.Contains("command-line-utilities") || _page.Contains("app-configs")); }
+              <ul id="nav-power-user" @(isExpanded ? "" : "hidden")>
+                <li class="@(_page.Contains("command-line-utilities") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="command-line-utilities">
+                    Command line utilities
+                  </a>
+                </li>
+                <li class="@(_page.Contains("app-configs") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="app-configs">
+                    App config files
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+
+    @* Docs article content *@
+    <div class="col-12 col-lg-8 my-5 aniSlideUp ani-delay-25">
+
+      @await Html.PartialAsync("_MarkdownBody", Model)
+
+    </div>
+  </div>
+</div>
