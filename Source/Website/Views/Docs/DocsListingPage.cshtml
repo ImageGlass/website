@@ -10,3 +10,47 @@
   </div>
 </div>
 
+
+@* Docs listing & content *@
+<div class="container">
+  <div class="row gx-5">
+    @* Docs navigation *@
+    <div class="col-12 col-lg-4 my-5 pt-4 aniSlideUp ani-delay-25">
+      <aside class="sidebar">
+        <section class="sidebar-item">
+          @await Html.PartialAsync("_Ads")
+        </section>
+
+
+        App features
+        - Overview
+        - Supported formats
+        - App settings UI
+
+
+        Personalization
+        - Create your theme pack
+        - Create extension icon pack
+        - Install new language
+
+
+        Third-party app Integration
+        - Build ImageGlass tool
+
+
+        For power users
+        - Command line utilities
+        - App config files
+
+      </aside>
+    </div>
+
+
+    @* Docs article content *@
+    <div class="col-12 col-lg-8 my-5 aniFadeIn">
+
+      @await Html.PartialAsync("_MarkdownBody", ViewData["NewsHtmlContent"])
+
+    </div>
+  </div>
+</div>
