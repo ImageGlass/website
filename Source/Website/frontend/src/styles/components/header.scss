@@ -276,6 +276,11 @@ label[for="chkMobileMenu"] {
     }
   }
 
+  #appHeader {
+    background-color: rgb(var(--colorBg) / 1);
+    backdrop-filter: none;
+  }
+
   .navbar-nav {
     visibility: hidden;
     opacity: 0;
@@ -287,8 +292,8 @@ label[for="chkMobileMenu"] {
     overflow-y: auto;
     padding: 1.25em 0;
 
-    background-color: rgb(var(--colorBg) / 0.95);
-    backdrop-filter: var(--backdrop);
+    background-color: rgb(var(--colorBg) / 1);
+    backdrop-filter: none;
     box-shadow: inset 1px 0 0 0 rgb(var(--colorInvert) / 0.1), // left border,
       var(--shadow); // shadow
 

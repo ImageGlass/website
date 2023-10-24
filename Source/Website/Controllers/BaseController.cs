@@ -25,10 +25,8 @@ public class BaseController : Controller
         con.ViewData[PageInfo.SiteName] = "ImageGlass - A lightweight, versatile image viewer";
 
         con.ViewData[PageInfo.Title] = "ImageGlass - A lightweight, versatile image viewer";
-        con.ViewData[PageInfo.Description] = "ImageGlass is a simple-to-use photo viewer that comes packed with ultimate functions in a nice minimal modern user interface, works with all image formats.";
+        con.ViewData[PageInfo.Description] = "ImageGlass is a feature-rich, simple-to-use app seamlessly integrated with a clean, minimal and modern user interface, works with all image formats.";
         con.ViewData[PageInfo.Keywords] = "free photo viewer, best photo viewer, simple fast image viewer, windows 11 photo viewer, lightweight image viewer, best photo viewer for windows 11, open source image viewer, fast switch between images, photo viewer, minimalist image viewer, quick photo viewer, image converter, extract gif file, alternative windows 10, Irfanview alternatives, animated GIF files, imageglass, duong dieu phap, raw photo viewer, heic viewer, svg viewer, color picker, rapid viewing of pictures";
-
-        con.ViewData[PageInfo.H1] = "ImageGlass is a simple-to-use photo viewer that comes packed with ultimate functions in a nice minimal modern user interface, works with all image formats, includes GIF, SVG, HEIC, WEBP, AVIF,... It is designed to take the place of the photo viewer in Windows 11, 10, especially those installations that may have trouble displaying PNG and GIF files.";
 
         con.ViewData[PageInfo.Author] = "Duong Dieu Phap";
         con.ViewData[PageInfo.Thumbnail] = "https://github.com/ImageGlass/config/raw/main/screenshots/v9.0-beta-2/9.0b2_1.jpg";

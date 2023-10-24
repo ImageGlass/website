@@ -23,12 +23,15 @@ public class HomeController : BaseController
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public async Task<IActionResult> Index()
     {
-        // page info
-        ViewData[PageInfo.Page] = "home";
-
         // featured content
         var releaseList = await _context.QueryReleaseModels(1, releaseChannel: ReleaseChannel.Stable);
         var latestStableRelease = releaseList.FirstOrDefault();
+
+
+        // page info
+        ViewData[PageInfo.Page] = "home";
+        ViewData[PageInfo.Thumbnail] = latestStableRelease?.Image;
+
 
         // github repo stats
         try

@@ -48,7 +48,6 @@ public class NewsController : BaseController
         ViewData[PageInfo.Title] = $"{model.Title} | {ViewData[PageInfo.Name]}";
         ViewData[PageInfo.Description] = model.Description;
         ViewData[PageInfo.Thumbnail] = model.Image;
-        ViewData[PageInfo.H1] = string.Empty; // use the content H1
 
         ViewData[PageInfo.SidebarList] = await _context.QueryNewsModels(5);
 
