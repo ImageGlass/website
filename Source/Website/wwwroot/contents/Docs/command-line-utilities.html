@@ -1,1 +1,59 @@
-﻿
+﻿```json
+#metadata
+{
+  "Title": "Command line utilities",
+  "Description": "ImageGlass provides a Command Line Interface designed to empower users with a set of tools for seamless management and interaction.",
+  "Keywords": ["imageglass command line", "igcmd.exe"]
+}
+#metadata
+```<h1 id="command-line-utilities">Command line utilities</h1>
+<p>ImageGlass provides a Command Line Interface designed to empower users with a set of tools for seamless management and interaction.</p>
+<h2 id="command-lines-for-imageglass.exe">Command lines for <code>ImageGlass.exe</code></h2>
+<p>ImageGlass supports passing settings as command-line arguments. Each command must begin with a <code>/</code>.</p>
+<p>For instance: Open <code>C:\my photos\sky.jpg</code> file without the toolbar and gallery, and with an Acrylic backdrop</p>
+<pre><code class="language-bash">ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop=&quot;Acrylic&quot; &quot;C:\my photos\sky.jpg&quot;
+</code></pre>
+<h2 id="command-lines-for-igcmd.exe">Command lines for <code>igcmd.exe</code></h2>
+<p>Take advantage of <code>igcmd.exe</code> to access a range of additional features. Explore the following command-line options:</p>
+<h3 id="set-wallpaper-string-imgpath-int-style"><code>set-wallpaper &lt;string imgPath&gt; [int style]</code></h3>
+<p>Set the image specified by <code>imgPath</code> as the desktop wallpaper. The optional style parameter allows you to set the wallpaper style. Example:</p>
+<pre><code class="language-bash">igcmd.exe set-wallpaper &quot;C:\my photos\sky.jpg&quot;
+</code></pre>
+<h3 id="set-lock-screen-string-imgpath"><code>set-lock-screen &lt;string imgPath&gt;</code></h3>
+<p>Set the image specified by <code>imgPath</code> as the lock screen background. Example:</p>
+<pre><code class="language-bash">igcmd.exe set-lock-screen &quot;C:\my photos\sky.jpg&quot;
+</code></pre>
+<h3 id="set-default-viewer-string-exts"><code>set-default-viewer [string exts]</code></h3>
+<p>Set default viewer for the extensions. Example:</p>
+<pre><code class="language-bash"># Set ImageGlass as the default photo viewer for PNG, JPG, and WEBP formats
+igcmd.exe set-default-viewer .png;.jpg;.webp
+</code></pre>
+<h3 id="remove-default-viewer-string-exts"><code>remove-default-viewer [string exts]</code></h3>
+<p>Remove ImageGlass as the default viewer for specific file extensions. Example:</p>
+<pre><code class="language-bash"># Remove ImageGlass from being the default photo viewer for PNG, JPG, and WEBP formats
+igcmd.exe remove-default-viewer .png;.jpg;.webp
+</code></pre>
+<h3 id="export-frames-string-filepath"><code>export-frames &lt;string filePath&gt;</code></h3>
+<p>Open a file picker and export image frames from the specified file. Example:</p>
+<pre><code class="language-bash">igcmd.exe export-frames &quot;C:\my photos\dance.webp&quot;
+</code></pre>
+<h3 id="quick-setup"><code>quick-setup</code></h3>
+<p>Open ImageGlass Quick Setup to configure settings. Example:</p>
+<pre><code class="language-bash">igcmd.exe quick-setup
+</code></pre>
+<h3 id="check-for-update"><code>check-for-update</code></h3>
+<p>Check for new updates for ImageGlass. Example:</p>
+<pre><code class="language-bash">igcmd.exe check-for-update
+</code></pre>
+<h3 id="install-languages-string-filepaths"><code>install-languages [string[] filePaths]</code></h3>
+<p>Install language packs for ImageGlass. Example:</p>
+<pre><code class="language-bash">igcmd.exe install-languages &quot;C:\langs\Vietnamese.iglang.json&quot; &quot;C:\langs\Japanese.iglang.json&quot;
+</code></pre>
+<h3 id="install-themes-string-filepaths"><code>install-themes [string[] filePaths]</code></h3>
+<p>Install theme packs for ImageGlass. Example:</p>
+<pre><code class="language-bash">igcmd.exe install-themes &quot;C:\themes\Kobe.Duong-Dieu-Phap.igtheme&quot; &quot;C:\themes\Green-gradient.Duong-Dieu-Phap.igtheme&quot;
+</code></pre>
+<h3 id="uninstall-theme-string-filepath"><code>uninstall-theme &lt;string filePath&gt;</code></h3>
+<p>Uninstall a specific theme pack. Example:</p>
+<pre><code class="language-bash">igcmd.exe uninstall-theme &quot;C:\themes\Green-gradient.Duong-Dieu-Phap.igtheme&quot;
+</code></pre>
