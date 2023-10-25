@@ -14,9 +14,7 @@ ImageGlass provides a Command Line Interface designed to empower users with a se
 
 
 ## Command lines for `ImageGlass.exe`
-ImageGlass supports passing settings as command-line arguments. Each command must begin with a `/`.
-
-For instance: Open `C:\my photos\sky.jpg` file without the toolbar and gallery, and with an Acrylic backdrop
+ImageGlass supports passing settings as command-line arguments. Each command must begin with a `/`. For instance: Open `C:\my photos\sky.jpg` file without the toolbar and gallery, and with an Acrylic backdrop
 ```bash
 ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop="Acrylic" "C:\my photos\sky.jpg"
 ```
