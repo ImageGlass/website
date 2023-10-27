@@ -428,10 +428,19 @@ table {
 
   tr {
     border-top: 0.075rem solid var(--colorBorder);
+    transition: all ease 100ms;
 
     &:nth-child(2n) {
       background-color: rgb(var(--colorInvert) / 0.05);
     }
+
+    &:hover {
+      background-color: rgb(var(--colorAccent2) / 0.1);
+    }
+  }
+
+  thead > tr {
+    background-color: rgb(var(--colorAccent1) / 0.1) !important;
   }
 
   // 1. Removes font-weight bold by inheriting
