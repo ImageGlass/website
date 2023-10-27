@@ -40,52 +40,27 @@
             </li>
 
 
-            @* Personalization *@
-            <li>
-              <button toggle-el="#nav-personalization">Personalization</button>
-
-              @{ isExpanded = (_page.Contains("qqqqqqq") || _page.Contains("qqqqqqq")); }
-              <ul id="nav-personalization" @(isExpanded ? "" : "hidden")>
-                <li class="@(_page.Contains("qqqqqqq") ? "item--active" : "")">
-                  <a asp-action="DocsPage" asp-route-slug="qqqqqqq">
-                    Create your theme pack
-                  </a>
-                </li>
-                <li class="@(_page.Contains("qqqqqqq") ? "item--active" : "")">
-                  <a asp-action="DocsPage" asp-route-slug="qqqqqqq">
-                    Create extension icon pack
-                  </a>
-                </li>
-                <li class="@(_page.Contains("qqqqqqq") ? "item--active" : "")">
-                  <a asp-action="DocsPage" asp-route-slug="qqqqqqq">
-                    Install new language
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
-            @* Third-party app Integration *@
-            <li>
-              <button toggle-el="#nav-integration">Third-party app Integration</button>
-
-              @{ isExpanded = (_page.Contains("qqqqqqq") || _page.Contains("qqqqqqq")); }
-              <ul id="nav-integration" @(isExpanded ? "" : "hidden")>
-                <li class="@(_page.Contains("qqqqqqq") ? "item--active" : "")">
-                  <a asp-action="DocsPage" asp-route-slug="qqqqqqq">
-                    Build ImageGlass tool
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
             @* For power users *@
             <li>
               <button toggle-el="#nav-power-user">For power users</button>
 
-              @{ isExpanded = (_page.Contains("command-line-utilities") || _page.Contains("app-configs")); }
+              @{
+                isExpanded = _page.Contains("theme-pack")
+                  || _page.Contains("tools")
+                  || _page.Contains("command-line-utilities")
+                  || _page.Contains("app-configs");
+              }
               <ul id="nav-power-user" @(isExpanded ? "" : "hidden")>
+                <li class="@(_page.Contains("theme-pack") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="theme-pack">
+                    Create your theme pack
+                  </a>
+                </li>
+                <li class="@(_page.Contains("tools") ? "item--active" : "")">
+                  <a asp-action="DocsPage" asp-route-slug="tools">
+                    Build or integrate ImageGlass with your software
+                  </a>
+                </li>
                 <li class="@(_page.Contains("command-line-utilities") ? "item--active" : "")">
                   <a asp-action="DocsPage" asp-route-slug="command-line-utilities">
                     Command line utilities
