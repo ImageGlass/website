@@ -65,7 +65,7 @@ You can integrate external apps as ImageGlass Tools and assign hotkeys for them 
   + Check the option "Integrated with ImageGlass.Tools" if the tool has an implementation of `ImageGlass.Tools`.
   + Use the command preview to verify the correctness of your inputs.
 - Click the "OK" button to close the dialog, and then click "OK" or "Apply" to save the changes.
-![Use ImageGlass setting to add external tool](https://user-images.githubusercontent.com/3154213/273207911-a90270fb-02fb-4b90-aee4-bd58109365bf.png)
+![Use ImageGlass setting to add external tool](https://github.com/d2phap/ImageGlass/assets/3154213/d8d4d903-6407-41ed-9199-c5bcb2c3242d)
 
 ### Editing the user config file (`igconfig.json`)
 1. Make sure the ImageGlass app is not running.

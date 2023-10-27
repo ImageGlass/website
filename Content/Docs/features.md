@@ -12,11 +12,28 @@
 ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 80 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.
 
 
+## Difference between ImageGlass Classic and Store release
+ImageGlass offers two distinct versions: ImageGlass Classic and ImageGlass Store, each catering to different user preferences and needs.
+- **ImageGlass Classic** serves as the base release, providing all the essential features for seamless image viewing and basic editing.
+- **ImageGlass Store** is offered as a paid release. You will need to pay a small amount after 7-day trial. If you buy it, you'll be supporting its development directly and get the convenience of fast, easy installation onto all of your Windows devices along with fully automatic, behind-the-scenes updates.
+
+Here's a comparison to help you choose the right version for your needs.
+
+| Feature | ImageGlass Classic | ImageGlass Store |
+| -- | -- | -- |
+| All features | **Yes** | **Yes** |
+| Theme, extension icon customization | **Yes** | **Yes** |
+| Price | Free | 7-day trial |
+| Commercial use | Free, recommended to [register](https://imageglass.org/license) | **Yes** |
+| Distribution | [ImageGlass.org](https://imageglass.org) | [Microsoft Store](https://www.microsoft.com/store/productId/9N33VZK3C7TH?ocid=pdpshare)
+| Auto-update | No,<br/>User self-managed | **Yes**,<br/>Seamless auto-update |
+
+
 ## Key features
 Primarily a photo viewer, ImageGlass offers a wide array of features geared towards image viewing, with some limited editing capabilities.
 
 ### Viewing features
-- Supports wide range image formats, thanks to Magick.NET integration. You can explore the list here: [Docs > Supported formats](https://imageglass.org/docs/supported-formats).
+- Supports wide range image formats, thanks to [Magick.NET](https://github.com/dlemstra/Magick.NET) integration. You can explore the list here: [Docs / Supported formats](https://imageglass.org/docs/supported-formats).
 - Enables format conversion for up to 10 different formats.
 - Allows various methods for opening images, including drag-and-drop, pasting from the clipboard (image data, image file, or image file path).
 - Extends support for viewing animated formats, including GIF, WEBP, APNG, SVG (using Webview2).
@@ -52,8 +69,8 @@ While ImageGlass primarily serves as an image viewer, it can open external assoc
 - Customizing keyboard and mouse actions to your preferences.
 - Capability to copy or cut multiple files to the clipboard.
 - The ability to launch the app in a single or multiple instances.
-- Integration with external apps through custom hotkeys.
-- The flexibility to control ImageGlass settings via configuration files, pre-defining, or locking certain settings during installation.
+- Integration with [external apps](https://imageglass.org/docs/imageglass-tools) through custom hotkeys.
+- The flexibility to control ImageGlass settings via [configuration files](https://imageglass.org/docs/app-configs), pre-defining, or locking certain settings during installation.
 
 
 ## Limitations
