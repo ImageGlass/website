@@ -420,6 +420,10 @@ table {
   td, th {
     padding: 0.35rem 0.75rem;
     border: 0.075rem solid var(--colorBorder);
+
+    code {
+      white-space: nowrap;
+    }
   }
 
   tr {

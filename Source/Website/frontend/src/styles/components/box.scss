@@ -9,6 +9,10 @@
   border-radius: calc(var(--border-radius) * 1.5);
   transition: all ease 200ms;
 
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
   &.box-noborder {
     --box-border: transparent !important;
   }

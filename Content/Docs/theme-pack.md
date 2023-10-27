@@ -1,19 +1,19 @@
 ```json
 #metadata
 {
-  "Title": "ImageGlass Theme Pack",
+  "Title": "ImageGlass theme pack",
   "Description": "Learn to create custom themes for ImageGlass effortlessly. Customize icons, colors, and appearance with our step-by-step guide for ImageGlass version 9 and above.",
   "Keywords": ["imageglass theme", "create imageglass theme pack", "imageglass icon extension"]
 }
 #metadata
 ```
 
-# ImageGlass Theme Pack
+# ImageGlass theme pack
 Customize the appearance of ImageGlass by creating your own theme pack. An ImageGlass theme pack is an archive file with a `.igtheme` extension that can be opened with any archive viewer, such as WinRar or 7Zip, or simply change its extension to `.zip` and open it with File Explorer on Windows.
 
 This documentation guides you through creating a theme pack for ImageGlass version 9 or above.
 
-## Theme Pack Structure
+## Theme pack structure
 A theme pack folder should contain the following:
 - 1 `igtheme.json` file: This essential file stores all theme settings and enables ImageGlass to recognize the theme pack.
 - 1 theme preview image file: ImageGlass displays this image file as a theme preview in the Settings dialog.
@@ -47,9 +47,9 @@ For example: `Kobe.Duong-Dieu-Phap`, `2017-Light-Gray.Duong-Dieu-Phap`.
 For example: `Kobe.Duong-Dieu-Phap.igtheme`, `2017-Light-Gray.Duong-Dieu-Phap.igtheme`.
 
 
-## Create a Theme Pack for ImageGlass 9
-### Step 1. Create the Theme Pack Folder Structure
-### Step 2. Create the `igtheme.json` File
+## Create a theme pack for ImageGlass 9
+### Step 1. Create the theme pack folder structure
+### Step 2. Create the `igtheme.json` file
 This is the most crucial file in the theme pack, providing all the necessary SVG icon files to the ImageGlass app, along with other theme information. The structure of this file is in JSON format, detailed as follows:
 ```ts
 {
@@ -72,7 +72,9 @@ This is the most crucial file in the theme pack, providing all the necessary SVG
 }
 ```
 
+::: { .box .d-flex }
 💡 For a complete example of `igtheme.json` file, please refer to [dark/Green-Gradient.Duong-Dieu-Phap/igtheme.json](https://github.com/ImageGlass/Theme/blob/main/themes/dark/Green-Gradient.Duong-Dieu-Phap/igtheme.json).
+:::
 
 #### 🟢 Step 2.1: Section `_Metadata`
 Provides the metadata of the ImageGlass theme pack. Do not alter this section.
@@ -180,9 +182,9 @@ Key name | Example value | Description
 `ZoomOut` | `"ZoomOut.svg"` | The "Zoom out" button
 
 
-### Step 3. Copy Icon and Image Files to the Theme Folder
-### Step 4. Add a Theme Preview Image File as Specified in Step 2.3
-### Step 5. Pack Your Theme
+### Step 3. Copy icon and image files to the theme folder
+### Step 4. Add a theme preview image file as specified in step 2.3
+### Step 5. Pack your theme
 Rename your theme folder to match the naming convention, compress the whole theme folder as a `.zip` file, and change the extension to `.igtheme`.
 
 Example: `Moon-light.Duong-Dieu-Phap.igtheme`.

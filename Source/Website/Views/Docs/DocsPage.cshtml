@@ -2,7 +2,6 @@
 
 @{
   var _page = ViewData[PageInfo.Page]?.ToString() ?? string.Empty;
-  var isExpanded = true;
 }
 
 
@@ -23,9 +22,7 @@
             @* Overview *@
             <li>
               <button toggle-el="#nav-overview">Overview</button>
-
-              @{ isExpanded = (_page.Contains("features") || _page.Contains("supported-formats")); }
-              <ul id="nav-overview" @(isExpanded ? "" : "hidden")>
+              <ul id="nav-overview">
                 <li class="@(_page.Contains("features") ? "item--active" : "")">
                   <a asp-action="DocsPage" asp-route-slug="features">
                     App features
@@ -43,22 +40,15 @@
             @* For power users *@
             <li>
               <button toggle-el="#nav-power-user">For power users</button>
-
-              @{
-                isExpanded = _page.Contains("theme-pack")
-                  || _page.Contains("tools")
-                  || _page.Contains("command-line-utilities")
-                  || _page.Contains("app-configs");
-              }
-              <ul id="nav-power-user" @(isExpanded ? "" : "hidden")>
+              <ul id="nav-power-user">
                 <li class="@(_page.Contains("theme-pack") ? "item--active" : "")">
                   <a asp-action="DocsPage" asp-route-slug="theme-pack">
-                    Create your theme pack
+                    Create ImageGlass theme pack
                   </a>
                 </li>
                 <li class="@(_page.Contains("tools") ? "item--active" : "")">
                   <a asp-action="DocsPage" asp-route-slug="tools">
-                    Build or integrate ImageGlass with your software
+                    Build tools for ImageGlass
                   </a>
                 </li>
                 <li class="@(_page.Contains("command-line-utilities") ? "item--active" : "")">

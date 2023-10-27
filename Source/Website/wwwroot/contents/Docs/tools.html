@@ -1,0 +1,89 @@
+﻿```json
+#metadata
+{
+  "Title": "ImageGlass Tools",
+  "Description": "ImageGlass provides an API for third-party app integration. By utilizing the ImageGlass.Tools library, developers can expand the functionality of ImageGlass.",
+  "Keywords": ["imageglass tools", "imageglass plugin", "imageglass extension"]
+}
+#metadata
+```<h1 id="imageglass-tools">ImageGlass tools</h1>
+<p>ImageGlass provides an API for third-party app integration. By utilizing the ImageGlass.Tools library, developers can expand the functionality of ImageGlass, creating a highly customizable and versatile tool for all image viewing needs.</p>
+<p>You can download tools for ImageGlass 9 at: <a href="https://imageglass.org/tools">https://imageglass.org/tools</a>.</p>
+<h2 id="build-tools-for-imageglass">Build tools for ImageGlass</h2>
+<p>Prerequisites:</p>
+<ul>
+<li>IDE: Visual Studio 2022</li>
+<li>Programming language: C#</li>
+<li>.NET 6 or above</li>
+</ul>
+<p>Follow these simple steps to use the APIs from ImageGlass.Tools:</p>
+<ol>
+<li>Create a new project in Visual Studio.</li>
+<li>Install <a href="https://www.nuget.org/packages/ImageGlass.Tools" target="_blank" ref="noopener nofollow">ImageGlass.Tools</a> nudget package, or add <a href="https://github.com/ImageGlass/ImageGlass.Tools/tree/main/Source/ImageGlass.Tools" target="_blank" ref="noopener nofollow">ImageGlass.Tools.csproj</a> as a reference to your software.</li>
+<li>Create a new instance of ImageGlassTool:</li>
+</ol>
+<pre><code class="language-cs">private readonly ImageGlassTool _igTool = new ImageGlassTool();
+</code></pre>
+<ol start="5">
+<li>Add event listeners to ImageGlass:</li>
+</ol>
+<pre><code class="language-cs">_igTool.ToolMessageReceived += IgTool_ToolMessageReceived;
+_igTool.ToolClosingRequest += IgTool_ToolClosingRequest;
+</code></pre>
+<ol start="6">
+<li>Handle event from ImageGlass:</li>
+</ol>
+<pre><code class="language-cs">private void IgTool_ToolMessageReceived(object? sender, MessageReceivedEventArgs e)
+{
+  if (string.IsNullOrEmpty(e.MessageData)) return;
+
+  if (e.MessageName == ImageGlassEvents.IMAGE_LOADED)
+  {
+    Trace.WriteLine(&quot;Image is loaded&quot;);
+    Trace.WriteLine(e.MessageData);
+  }
+}
+</code></pre>
+<ol start="7">
+<li>Start connecting to ImageGlass:</li>
+</ol>
+<pre><code class="language-cs">await _igTool.ConnectAsync();
+</code></pre>
+<p>Now you have created an app that connects and handles events from ImageGlass. You can also explore a complete app in the <a href="https://github.com/ImageGlass/ImageGlass.Tools/tree/main/Source/DemoApp" target="_blank" ref="noopener nofollow">DemoApp project</a>.</p>
+<h2 id="add-your-tool-to-imageglass">Add your tool to ImageGlass</h2>
+<p>You can integrate external apps as ImageGlass Tools and assign hotkeys for them in ImageGlass 9. These tools will appear under the Tools menu. To achieve this, you can use the app settings UI or directly edit the user config file (<code>igconfig.json</code>).</p>
+<h3 id="using-app-settings-ui">Using app settings UI</h3>
+<ul>
+<li>Open ImageGlass Settings and click on the &quot;Tools&quot; tab.</li>
+<li>Click the &quot;Add...&quot; button to add a new tool.</li>
+<li>Fill in all the fields accordingly.
+<ul>
+<li>In Argument text box, fill <code>&lt;file&gt;</code> to have ImageGlass send the full path of the currently viewed image file to the tool.</li>
+<li>Check the option &quot;Integrated with ImageGlass.Tools&quot; if the tool has an implementation of <code>ImageGlass.Tools</code>.</li>
+<li>Use the command preview to verify the correctness of your inputs.</li>
+</ul>
+</li>
+<li>Click the &quot;OK&quot; button to close the dialog, and then click &quot;OK&quot; or &quot;Apply&quot; to save the changes.
+<img src="https://user-images.githubusercontent.com/3154213/273207911-a90270fb-02fb-4b90-aee4-bd58109365bf.png" alt="Use ImageGlass setting to add external tool" /></li>
+</ul>
+<h3 id="editing-the-user-config-file-igconfig.json">Editing the user config file (<code>igconfig.json</code>)</h3>
+<ol>
+<li>Make sure the ImageGlass app is not running.</li>
+<li>Open the <code>igconfig.json</code> file with a text editor such as Notepad or VS Code.</li>
+<li>In the <code>Tools</code> section of the <code>igconfig.json</code> file, add the following code:</li>
+</ol>
+<pre><code class="language-json">// in igconfig.json
+&quot;Tools&quot;: [
+  {
+    &quot;ToolId&quot;: &quot;Tool_MyDemoApp&quot;, // a unique ID
+    &quot;ToolName&quot;: &quot;My Demo app&quot;, // name of the tool
+    &quot;Executable&quot;: &quot;path\\to\\the\\DemoApp.exe&quot;,
+    &quot;Argument&quot;: &quot;&lt;file&gt;&quot;, // file path to pass to the tool
+    &quot;Hotkeys&quot;: [&quot;X&quot;, &quot;Ctrl+E&quot;], // press X or Ctrl+E to open/close the tool
+    &quot;IsIntegrated&quot;: true|false // true: if the tool supports 'ImageGlass.Tools'
+  }
+]
+</code></pre>
+<ol start="4">
+<li>Save the file and launch ImageGlass.</li>
+</ol>

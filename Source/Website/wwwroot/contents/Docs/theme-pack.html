@@ -1,0 +1,469 @@
+﻿```json
+#metadata
+{
+  "Title": "ImageGlass Theme Pack",
+  "Description": "Learn to create custom themes for ImageGlass effortlessly. Customize icons, colors, and appearance with our step-by-step guide for ImageGlass version 9 and above.",
+  "Keywords": ["imageglass theme", "create imageglass theme pack", "imageglass icon extension"]
+}
+#metadata
+```<h1 id="imageglass-theme-pack">ImageGlass theme pack</h1>
+<p>Customize the appearance of ImageGlass by creating your own theme pack. An ImageGlass theme pack is an archive file with a <code>.igtheme</code> extension that can be opened with any archive viewer, such as WinRar or 7Zip, or simply change its extension to <code>.zip</code> and open it with File Explorer on Windows.</p>
+<p>This documentation guides you through creating a theme pack for ImageGlass version 9 or above.</p>
+<h2 id="theme-pack-structure">Theme pack structure</h2>
+<p>A theme pack folder should contain the following:</p>
+<ul>
+<li>1 <code>igtheme.json</code> file: This essential file stores all theme settings and enables ImageGlass to recognize the theme pack.</li>
+<li>1 theme preview image file: ImageGlass displays this image file as a theme preview in the Settings dialog.</li>
+<li>SVG icon files: These are for toolbar icons, the app logo, and other visual elements.</li>
+</ul>
+<p>All of these files should be placed in a folder named <code>THEME_FOLDER</code>. The structure should resemble the following:</p>
+<pre><code>THEME_PACK.igtheme
+  |- THEME_FOLDER
+    |- igtheme.json
+    |- theme preview image file
+    |- SVG icon files...
+</code></pre>
+<p>The <code>THEME_FOLDER</code> should follow this naming convention:</p>
+<pre><code>&lt;theme-name&gt;.&lt;author-name&gt;
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>theme-name</code> is the name of the theme, separated by hyphens <code>-</code>.</li>
+<li><code>author-name</code> is the name of the author, separated by hyphens <code>-</code>.</li>
+</ul>
+<p>For example: <code>Kobe.Duong-Dieu-Phap</code>, <code>2017-Light-Gray.Duong-Dieu-Phap</code>.</p>
+<p><code>THEME_PACK.igtheme</code> follows a similar convention, with the extension:</p>
+<pre><code>&lt;theme-name&gt;.&lt;author-name&gt;.igtheme
+</code></pre>
+<p>For example: <code>Kobe.Duong-Dieu-Phap.igtheme</code>, <code>2017-Light-Gray.Duong-Dieu-Phap.igtheme</code>.</p>
+<h2 id="create-a-theme-pack-for-imageglass-9">Create a theme pack for ImageGlass 9</h2>
+<h3 id="step-1.create-the-theme-pack-folder-structure">Step 1. Create the theme pack folder structure</h3>
+<h3 id="step-2.create-the-igtheme.json-file">Step 2. Create the <code>igtheme.json</code> file</h3>
+<p>This is the most crucial file in the theme pack, providing all the necessary SVG icon files to the ImageGlass app, along with other theme information. The structure of this file is in JSON format, detailed as follows:</p>
+<pre><code class="language-ts">{
+  &quot;_Metadata&quot;: { // see step 2.1
+    &quot;Description&quot;: &quot;ImageGlass theme configuration file&quot;,
+    &quot;Version&quot;: &quot;9.0&quot;
+  },
+  &quot;Info&quot;: {
+    ... // see step 2.2
+  },
+  &quot;Settings&quot;: {
+    ... // see step 2.3
+  },
+  &quot;Colors&quot;: {
+    ... // see step 2.4
+  },
+  &quot;ToolbarIcons&quot;: {
+    ... // see step 2.5
+  }
+}
+</code></pre>
+<div class="box d-flex"><p>💡 For a complete example of <code>igtheme.json</code> file, please refer to <a href="https://github.com/ImageGlass/Theme/blob/main/themes/dark/Green-Gradient.Duong-Dieu-Phap/igtheme.json" target="_blank" ref="noopener nofollow">dark/Green-Gradient.Duong-Dieu-Phap/igtheme.json</a>.</p>
+</div>
+<h4 id="step-2.1-section_metadata">🟢 Step 2.1: Section <code>_Metadata</code></h4>
+<p>Provides the metadata of the ImageGlass theme pack. Do not alter this section.</p>
+<table>
+<thead>
+<tr>
+<th>Key name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Version</code></td>
+<td><code>&quot;9.0&quot;</code></td>
+<td>Version of the configuration file (do not change it)</td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td><code>&quot;ImageGlass theme configuration file&quot;</code></td>
+<td>A constant description (do not change it)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-2.2-section-info">🟢 Step 2.2: Section <code>Info</code></h4>
+<p>Provides basic information of your theme pack.</p>
+<table>
+<thead>
+<tr>
+<th>Key name</th>
+<th>Example value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Name</code></td>
+<td><code>&quot;Moon light&quot;</code></td>
+<td>The name of your theme, visible in the ImageGlass theme list</td>
+</tr>
+<tr>
+<td><code>Version</code></td>
+<td><code>&quot;1.0&quot;</code></td>
+<td>The version number of your theme</td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td><code>&quot;A Moon light dark theme for ImageGlass&quot;</code></td>
+<td>A short description of your theme</td>
+</tr>
+<tr>
+<td><code>Author</code></td>
+<td><code>&quot;Duong Dieu Phap&quot;</code></td>
+<td>The author who created this theme pack (optional)</td>
+</tr>
+<tr>
+<td><code>Email</code></td>
+<td><code>&quot;phap@example.com&quot;</code></td>
+<td>The author's contact email (optional)</td>
+</tr>
+<tr>
+<td><code>Website</code></td>
+<td><code>&quot;https://example.com&quot;</code></td>
+<td>The author's website (optional)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-2.3-section-settings">🟢 Step 2.3: Section <code>Settings</code></h4>
+<p>Provides general settings of your theme pack.</p>
+<table>
+<thead>
+<tr>
+<th>Key name</th>
+<th>Example value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IsDarkMode</code></td>
+<td><code>true</code></td>
+<td>Theme pack color mode; the default value is <code>true</code></td>
+</tr>
+<tr>
+<td><code>NavButtonLeft</code></td>
+<td><code>&quot;ViewPreviousImage.svg&quot;</code></td>
+<td>The left arrow navigation button SVG icon</td>
+</tr>
+<tr>
+<td><code>NavButtonRight</code></td>
+<td><code>&quot;ViewNextImage.svg&quot;</code></td>
+<td>The right arrow navigation button SVG icon</td>
+</tr>
+<tr>
+<td><code>AppLogo</code></td>
+<td><code>&quot;logo.svg&quot;</code></td>
+<td>The logo of ImageGlass, displayed on the title bar of all windows</td>
+</tr>
+<tr>
+<td><code>PreviewImage</code></td>
+<td><code>&quot;preview.webp&quot;</code></td>
+<td>The preview image of the theme pack; recommended formats include WebP and JPG</td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-2.4-section-colors">🟢 Step 2.4: Section <code>Colors</code></h4>
+<p>Defines the color scheme of ImageGlass. All colors should be in HEX code (web format), including alpha values.</p>
+<p>Example: <code>#fff</code>, <code>#fffa</code>, <code>ffffff</code>, <code>ffffffaa</code>, etc. ImageGlass also supports using the system accent color for your theme pack:</p>
+<ul>
+<li>You can use <code>&quot;accent&quot;</code> as a color value</li>
+<li>You can adjust the alpha value of the accent color using this syntax: <code>&lt;accent&gt;:&lt;alpha&gt;</code>. The <code>alpha</code> value should be from <code>0</code> to <code>255</code>. Example: <code>&quot;accent:70&quot;</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key name</th>
+<th>Example value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BgColor</code></td>
+<td><code>&quot;#151b1f00&quot;</code></td>
+<td>Background color of the viewer</td>
+</tr>
+<tr>
+<td><code>TextColor</code></td>
+<td><code>&quot;#d3d3d3&quot;</code></td>
+<td>Text color of the viewer</td>
+</tr>
+<tr>
+<td><code>ToolbarBgColor</code></td>
+<td><code>&quot;#1E242900&quot;</code></td>
+<td>Background color of the toolbar</td>
+</tr>
+<tr>
+<td><code>ToolbarTextColor</code></td>
+<td><code>&quot;#dedede&quot;</code></td>
+<td>Text color of toolbar buttons</td>
+</tr>
+<tr>
+<td><code>ToolbarItemHoverColor</code></td>
+<td><code>&quot;#ffffff33&quot;</code></td>
+<td>Background color of toolbar buttons when hovered</td>
+</tr>
+<tr>
+<td><code>ToolbarItemActiveColor</code></td>
+<td><code>&quot;#ffffff22&quot;</code></td>
+<td>Background color of toolbar buttons when pressed</td>
+</tr>
+<tr>
+<td><code>ToolbarItemSelectedColor</code></td>
+<td><code>&quot;#ffffff44&quot;</code></td>
+<td>Background color of toolbar buttons when selected</td>
+</tr>
+<tr>
+<td><code>GalleryBgColor</code></td>
+<td><code>&quot;#1E242900&quot;</code></td>
+<td>Background color of the gallery</td>
+</tr>
+<tr>
+<td><code>GalleryTextColor</code></td>
+<td><code>&quot;#dedede&quot;</code></td>
+<td>Text color of gallery thumbnails</td>
+</tr>
+<tr>
+<td><code>GalleryItemHoverColor</code></td>
+<td><code>&quot;#ffffff33&quot;</code></td>
+<td>Background color of gallery thumbnails when hovered</td>
+</tr>
+<tr>
+<td><code>GalleryItemActiveColor</code></td>
+<td><code>&quot;#ffffff22&quot;</code></td>
+<td>Background color of gallery thumbnails when pressed</td>
+</tr>
+<tr>
+<td><code>GalleryItemSelectedColor</code></td>
+<td><code>&quot;#ffffff44&quot;</code></td>
+<td>Background color of gallery thumbnails when selected</td>
+</tr>
+<tr>
+<td><code>MenuBgColor</code></td>
+<td><code>&quot;#1E2429&quot;</code></td>
+<td>Background color of the menu</td>
+</tr>
+<tr>
+<td><code>MenuBgHoverColor</code></td>
+<td><code>&quot;#ffffff15&quot;</code></td>
+<td>Background color of menu items when hovered</td>
+</tr>
+<tr>
+<td><code>MenuTextColor</code></td>
+<td><code>&quot;#dedede&quot;</code></td>
+<td>Text color of menu items</td>
+</tr>
+<tr>
+<td><code>MenuTextHoverColor</code></td>
+<td><code>&quot;#dedede&quot;</code></td>
+<td>Text color of menu item when hovered</td>
+</tr>
+<tr>
+<td><code>NavigationButtonColor</code></td>
+<td><code>&quot;ff000015&quot;</code></td>
+<td>Background color of the navigation arrow buttons</td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-2.5-section-toolbaricons">🟢 Step 2.5: Section <code>ToolbarIcons</code></h4>
+<p>Provides icons for the toolbar. All icon files should be in SVG format for better scaling on high DPI screens.</p>
+<table>
+<thead>
+<tr>
+<th>Key name</th>
+<th>Example value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ActualSize</code></td>
+<td><code>&quot;ActualSize.svg&quot;</code></td>
+<td>The &quot;Actual size&quot; button</td>
+</tr>
+<tr>
+<td><code>AutoZoom</code></td>
+<td><code>&quot;AutoZoom.svg&quot;</code></td>
+<td>The &quot;Auto zoom&quot; button</td>
+</tr>
+<tr>
+<td><code>Checkerboard</code></td>
+<td><code>&quot;Checkerboard.svg&quot;</code></td>
+<td>The &quot;Checkerboard&quot; button</td>
+</tr>
+<tr>
+<td><code>ColorPicker</code></td>
+<td><code>&quot;ColorPicker.svg&quot;</code></td>
+<td>The &quot;Color picker&quot; button</td>
+</tr>
+<tr>
+<td><code>Crop</code></td>
+<td><code>&quot;Crop.svg&quot;</code></td>
+<td>The &quot;Crop image&quot; button</td>
+</tr>
+<tr>
+<td><code>Delete</code></td>
+<td><code>&quot;Delete.svg&quot;</code></td>
+<td>The &quot;Move to the Recycle Bin&quot; button</td>
+</tr>
+<tr>
+<td><code>Edit</code></td>
+<td><code>&quot;Edit.svg&quot;</code></td>
+<td>The &quot;Edit&quot; button</td>
+</tr>
+<tr>
+<td><code>Exit</code></td>
+<td><code>&quot;Exit.svg&quot;</code></td>
+<td>The &quot;Exit&quot; button</td>
+</tr>
+<tr>
+<td><code>Export</code></td>
+<td><code>&quot;Export.svg&quot;</code></td>
+<td>The &quot;Export&quot; button when the &quot;Page navigation&quot; tool is open</td>
+</tr>
+<tr>
+<td><code>FlipHorz</code></td>
+<td><code>&quot;FlipHorz.svg&quot;</code></td>
+<td>The &quot;Flip horizontal&quot; button</td>
+</tr>
+<tr>
+<td><code>FlipVert</code></td>
+<td><code>&quot;FlipVert.svg&quot;</code></td>
+<td>The &quot;Flip vertical&quot; button</td>
+</tr>
+<tr>
+<td><code>FullScreen</code></td>
+<td><code>&quot;FullScreen.svg&quot;</code></td>
+<td>The &quot;Full screen&quot; button</td>
+</tr>
+<tr>
+<td><code>Gallery</code></td>
+<td><code>&quot;Gallery.svg&quot;</code></td>
+<td>The &quot;Gallery&quot; button</td>
+</tr>
+<tr>
+<td><code>LockZoom</code></td>
+<td><code>&quot;LockZoom.svg&quot;</code></td>
+<td>The &quot;Lock zoom ratio&quot; button</td>
+</tr>
+<tr>
+<td><code>MainMenu</code></td>
+<td><code>&quot;MainMenu.svg&quot;</code></td>
+<td>The &quot;Main menu&quot; button</td>
+</tr>
+<tr>
+<td><code>OpenFile</code></td>
+<td><code>&quot;OpenFile.svg&quot;</code></td>
+<td>The &quot;Open file&quot; button</td>
+</tr>
+<tr>
+<td><code>Pause</code></td>
+<td><code>&quot;Pause.svg&quot;</code></td>
+<td>The &quot;Pause&quot; button when the &quot;Page navigation&quot; tool is open</td>
+</tr>
+<tr>
+<td><code>Play</code></td>
+<td><code>&quot;Play.svg&quot;</code></td>
+<td>The &quot;Play&quot; button when the &quot;Page navigation&quot; tool is open</td>
+</tr>
+<tr>
+<td><code>Print</code></td>
+<td><code>&quot;Print.svg&quot;</code></td>
+<td>The &quot;Print&quot; button</td>
+</tr>
+<tr>
+<td><code>Refresh</code></td>
+<td><code>&quot;Refresh.svg&quot;</code></td>
+<td>The &quot;Refresh&quot; button</td>
+</tr>
+<tr>
+<td><code>RotateLeft</code></td>
+<td><code>&quot;RotateLeft.svg&quot;</code></td>
+<td>The &quot;Rotate left&quot; button</td>
+</tr>
+<tr>
+<td><code>RotateRight</code></td>
+<td><code>&quot;RotateRight.svg&quot;</code></td>
+<td>The &quot;Rotate right&quot; button</td>
+</tr>
+<tr>
+<td><code>Save</code></td>
+<td><code>&quot;Save.svg&quot;</code></td>
+<td>The &quot;Save image&quot; button</td>
+</tr>
+<tr>
+<td><code>ScaleToFill</code></td>
+<td><code>&quot;ScaleToFill.svg&quot;</code></td>
+<td>The &quot;Scale to fill&quot; button</td>
+</tr>
+<tr>
+<td><code>ScaleToFit</code></td>
+<td><code>&quot;ScaleToFit.svg&quot;</code></td>
+<td>The &quot;Scale to fit&quot; button</td>
+</tr>
+<tr>
+<td><code>ScaleToHeight</code></td>
+<td><code>&quot;ScaleToHeight.svg&quot;</code></td>
+<td>The &quot;Scale to height&quot; button</td>
+</tr>
+<tr>
+<td><code>ScaleToWidth</code></td>
+<td><code>&quot;ScaleToWidth.svg&quot;</code></td>
+<td>The &quot;Scale to width&quot; button</td>
+</tr>
+<tr>
+<td><code>Slideshow</code></td>
+<td><code>&quot;Slideshow.svg&quot;</code></td>
+<td>The &quot;Slideshow&quot; button</td>
+</tr>
+<tr>
+<td><code>ViewFirstImage</code></td>
+<td><code>&quot;ViewFirstImage.svg&quot;</code></td>
+<td>The &quot;View the first frame&quot; button when the &quot;Page navigation&quot; tool is open</td>
+</tr>
+<tr>
+<td><code>ViewLastImage</code></td>
+<td><code>&quot;ViewLastImage.svg&quot;</code></td>
+<td>The &quot;View the last frame&quot; button when the &quot;Page navigation&quot; tool is open</td>
+</tr>
+<tr>
+<td><code>ViewNextImage</code></td>
+<td><code>&quot;ViewNextImage.svg&quot;</code></td>
+<td>The &quot;View next image&quot; button</td>
+</tr>
+<tr>
+<td><code>ViewPreviousImage</code></td>
+<td><code>&quot;ViewPreviousImage.svg&quot;</code></td>
+<td>The &quot;View previous image&quot; button</td>
+</tr>
+<tr>
+<td><code>WindowFit</code></td>
+<td><code>&quot;WindowFit.svg&quot;</code></td>
+<td>The &quot;Window fit&quot; button</td>
+</tr>
+<tr>
+<td><code>ZoomIn</code></td>
+<td><code>&quot;ZoomIn.svg&quot;</code></td>
+<td>The &quot;Zoom in&quot; button</td>
+</tr>
+<tr>
+<td><code>ZoomOut</code></td>
+<td><code>&quot;ZoomOut.svg&quot;</code></td>
+<td>The &quot;Zoom out&quot; button</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-3.copy-icon-and-image-files-to-the-theme-folder">Step 3. Copy icon and image files to the theme folder</h3>
+<h3 id="step-4.add-a-theme-preview-image-file-as-specified-in-step-2.3">Step 4. Add a theme preview image file as specified in step 2.3</h3>
+<h3 id="step-5.pack-your-theme">Step 5. Pack your theme</h3>
+<p>Rename your theme folder to match the naming convention, compress the whole theme folder as a <code>.zip</code> file, and change the extension to <code>.igtheme</code>.</p>
+<p>Example: <code>Moon-light.Duong-Dieu-Phap.igtheme</code>.</p>
+<h3 id="step-6.share-your-theme">Step 6. Share your theme</h3>
+<p>After creating an impressive theme, don't forget to share it with others. You can:</p>
+<ul>
+<li>Open <a href="https://github.com/ImageGlass/theme/issues" target="_blank" ref="noopener nofollow">an issue here</a>, and attach your fantastic theme; or</li>
+<li>Send your theme pack (<code>.igtheme</code>) to the <code>phap@imageglass.org</code> email.</li>
+</ul>
