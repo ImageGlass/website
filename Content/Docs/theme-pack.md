@@ -91,8 +91,8 @@ Key name | Example value | Description
 `Name` | `"Moon light"` | The name of your theme, visible in the ImageGlass theme list
 `Version` | `"1.0"` | The version number of your theme
 `Description` | `"A Moon light dark theme for ImageGlass"` | A short description of your theme
-`Author` | `"James Black"` | The author who created this theme pack (optional)
-`Email` | `"james.black@gmail.com"` | The author's contact email (optional)
+`Author` | `"Duong Dieu Phap"` | The author who created this theme pack (optional)
+`Email` | `"phap@example.com"` | The author's contact email (optional)
 `Website` | `"https://example.com"` | The author's website (optional)
 
 
