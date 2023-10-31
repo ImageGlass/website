@@ -14,45 +14,43 @@
 </code></pre>
 <h2 id="command-lines-for-igcmd.exe">Command lines for <code>igcmd.exe</code></h2>
 <p>Take advantage of <code>igcmd.exe</code> to access a range of additional features. Explore the following command-line options:</p>
-<h3 id="set-wallpaper-string-imgpath-int-style"><code>set-wallpaper &lt;string imgPath&gt; [int style]</code></h3>
-<p>Set the image specified by <code>imgPath</code> as the desktop wallpaper. The optional style parameter allows you to set the wallpaper style. Example:</p>
+<h3 id="set-wallpaper-string-imgpath-int-style">1. <code>set-wallpaper &lt;string imgPath&gt; [int style]</code></h3>
+<p>Set the image specified by <code>imgPath</code> as the desktop wallpaper. The optional style parameter allows you to set the wallpaper style. For instance:</p>
 <pre><code class="language-bash">igcmd.exe set-wallpaper &quot;C:\my photos\sky.jpg&quot;
 </code></pre>
-<h3 id="set-lock-screen-string-imgpath"><code>set-lock-screen &lt;string imgPath&gt;</code></h3>
-<p>Set the image specified by <code>imgPath</code> as the lock screen background. Example:</p>
+<h3 id="set-lock-screen-string-imgpath">2. <code>set-lock-screen &lt;string imgPath&gt;</code></h3>
+<p>Set the image specified by <code>imgPath</code> as the lock screen background. For instance:</p>
 <pre><code class="language-bash">igcmd.exe set-lock-screen &quot;C:\my photos\sky.jpg&quot;
 </code></pre>
-<h3 id="set-default-viewer-string-exts"><code>set-default-viewer [string exts]</code></h3>
-<p>Set default viewer for the extensions. Example:</p>
-<pre><code class="language-bash"># Set ImageGlass as the default photo viewer for PNG, JPG, and WEBP formats
-igcmd.exe set-default-viewer .png;.jpg;.webp
+<h3 id="set-default-viewer-string-exts">3. <code>set-default-viewer [string exts]</code></h3>
+<p>Set default viewer for the extensions. For instance, to set ImageGlass as the default photo viewer for PNG, JPG, and WEBP formats:</p>
+<pre><code class="language-bash">igcmd.exe set-default-viewer .png;.jpg;.webp
 </code></pre>
-<h3 id="remove-default-viewer-string-exts"><code>remove-default-viewer [string exts]</code></h3>
-<p>Remove ImageGlass as the default viewer for specific file extensions. Example:</p>
-<pre><code class="language-bash"># Remove ImageGlass from being the default photo viewer for PNG, JPG, and WEBP formats
-igcmd.exe remove-default-viewer .png;.jpg;.webp
+<h3 id="remove-default-viewer-string-exts">4. <code>remove-default-viewer [string exts]</code></h3>
+<p>Remove ImageGlass as the default viewer for specific file extensions. For instance, to remove ImageGlass from being the default photo viewer for PNG, JPG, and WEBP formats:</p>
+<pre><code class="language-bash">igcmd.exe remove-default-viewer .png;.jpg;.webp
 </code></pre>
-<h3 id="export-frames-string-filepath"><code>export-frames &lt;string filePath&gt;</code></h3>
-<p>Open a file picker and export image frames from the specified file. Example:</p>
+<h3 id="export-frames-string-filepath">5. <code>export-frames &lt;string filePath&gt;</code></h3>
+<p>Open a file picker and export image frames from the specified file. For instance:</p>
 <pre><code class="language-bash">igcmd.exe export-frames &quot;C:\my photos\dance.webp&quot;
 </code></pre>
-<h3 id="quick-setup"><code>quick-setup</code></h3>
-<p>Open ImageGlass Quick Setup to configure settings. Example:</p>
+<h3 id="quick-setup">6. <code>quick-setup</code></h3>
+<p>Open ImageGlass Quick Setup to configure settings. For instance:</p>
 <pre><code class="language-bash">igcmd.exe quick-setup
 </code></pre>
-<h3 id="check-for-update"><code>check-for-update</code></h3>
-<p>Check for new updates for ImageGlass. Example:</p>
+<h3 id="check-for-update">7. <code>check-for-update</code></h3>
+<p>Check for new updates for ImageGlass. For instance:</p>
 <pre><code class="language-bash">igcmd.exe check-for-update
 </code></pre>
-<h3 id="install-languages-string-filepaths"><code>install-languages [string[] filePaths]</code></h3>
-<p>Install language packs for ImageGlass. Example:</p>
+<h3 id="install-languages-string-filepaths">8. <code>install-languages [string[] filePaths]</code></h3>
+<p>Install language packs for ImageGlass. For instance:</p>
 <pre><code class="language-bash">igcmd.exe install-languages &quot;C:\langs\Vietnamese.iglang.json&quot; &quot;C:\langs\Japanese.iglang.json&quot;
 </code></pre>
-<h3 id="install-themes-string-filepaths"><code>install-themes [string[] filePaths]</code></h3>
-<p>Install theme packs for ImageGlass. Example:</p>
+<h3 id="install-themes-string-filepaths">9. <code>install-themes [string[] filePaths]</code></h3>
+<p>Install theme packs for ImageGlass. For instance:</p>
 <pre><code class="language-bash">igcmd.exe install-themes &quot;C:\themes\Kobe.Duong-Dieu-Phap.igtheme&quot; &quot;C:\themes\Green-gradient.Duong-Dieu-Phap.igtheme&quot;
 </code></pre>
-<h3 id="uninstall-theme-string-filepath"><code>uninstall-theme &lt;string filePath&gt;</code></h3>
-<p>Uninstall a specific theme pack. Example:</p>
+<h3 id="uninstall-theme-string-filepath">10. <code>uninstall-theme &lt;string filePath&gt;</code></h3>
+<p>Uninstall a specific theme pack. For instance:</p>
 <pre><code class="language-bash">igcmd.exe uninstall-theme &quot;C:\themes\Green-gradient.Duong-Dieu-Phap.igtheme&quot;
 </code></pre>

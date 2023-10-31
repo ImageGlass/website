@@ -23,73 +23,71 @@ ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop="Acrylic" "
 ## Command lines for `igcmd.exe`
 Take advantage of `igcmd.exe` to access a range of additional features. Explore the following command-line options:
 
-### `set-wallpaper <string imgPath> [int style]`
-Set the image specified by `imgPath` as the desktop wallpaper. The optional style parameter allows you to set the wallpaper style. Example:
+### 1. `set-wallpaper <string imgPath> [int style]`
+Set the image specified by `imgPath` as the desktop wallpaper. The optional style parameter allows you to set the wallpaper style. For instance:
 ```bash
 igcmd.exe set-wallpaper "C:\my photos\sky.jpg"
 ```
 
 
-### `set-lock-screen <string imgPath>`
-Set the image specified by `imgPath` as the lock screen background. Example:
+### 2. `set-lock-screen <string imgPath>`
+Set the image specified by `imgPath` as the lock screen background. For instance:
 ```bash
 igcmd.exe set-lock-screen "C:\my photos\sky.jpg"
 ```
 
 
-### `set-default-viewer [string exts]`
-Set default viewer for the extensions. Example:
+### 3. `set-default-viewer [string exts]`
+Set default viewer for the extensions. For instance, to set ImageGlass as the default photo viewer for PNG, JPG, and WEBP formats:
 ```bash
-# Set ImageGlass as the default photo viewer for PNG, JPG, and WEBP formats
 igcmd.exe set-default-viewer .png;.jpg;.webp
 ```
 
 
-### `remove-default-viewer [string exts]`
-Remove ImageGlass as the default viewer for specific file extensions. Example:
+### 4. `remove-default-viewer [string exts]`
+Remove ImageGlass as the default viewer for specific file extensions. For instance, to remove ImageGlass from being the default photo viewer for PNG, JPG, and WEBP formats:
 ```bash
-# Remove ImageGlass from being the default photo viewer for PNG, JPG, and WEBP formats
 igcmd.exe remove-default-viewer .png;.jpg;.webp
 ```
 
 
-### `export-frames <string filePath>`
-Open a file picker and export image frames from the specified file. Example:
+### 5. `export-frames <string filePath>`
+Open a file picker and export image frames from the specified file. For instance:
 ```bash
 igcmd.exe export-frames "C:\my photos\dance.webp"
 ```
 
 
-### `quick-setup`
-Open ImageGlass Quick Setup to configure settings. Example:
+### 6. `quick-setup`
+Open ImageGlass Quick Setup to configure settings. For instance:
 ```bash
 igcmd.exe quick-setup
 ```
 
 
-### `check-for-update`
-Check for new updates for ImageGlass. Example:
+### 7. `check-for-update`
+Check for new updates for ImageGlass. For instance:
 ```bash
 igcmd.exe check-for-update
 ```
 
 
-### `install-languages [string[] filePaths]`
-Install language packs for ImageGlass. Example:
+### 8. `install-languages [string[] filePaths]`
+Install language packs for ImageGlass. For instance:
 ```bash
 igcmd.exe install-languages "C:\langs\Vietnamese.iglang.json" "C:\langs\Japanese.iglang.json"
 ```
 
 
-### `install-themes [string[] filePaths]`
-Install theme packs for ImageGlass. Example:
+### 9. `install-themes [string[] filePaths]`
+Install theme packs for ImageGlass. For instance:
 ```bash
 igcmd.exe install-themes "C:\themes\Kobe.Duong-Dieu-Phap.igtheme" "C:\themes\Green-gradient.Duong-Dieu-Phap.igtheme"
 ```
 
 
-### `uninstall-theme <string filePath>`
-Uninstall a specific theme pack. Example:
+### 10. `uninstall-theme <string filePath>`
+Uninstall a specific theme pack. For instance:
 ```bash
 igcmd.exe uninstall-theme "C:\themes\Green-gradient.Duong-Dieu-Phap.igtheme"
 ```

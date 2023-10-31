@@ -14,16 +14,15 @@
 <li><strong>Startup directory (Startup Dir)</strong>: This directory is where ImageGlass.exe is located, also known as the installation directory. For example: <code>C:\Program Files\ImageGlass\</code>.</li>
 <li><strong>Configuration directory (Config Dir)</strong>: This directory houses the ImageGlass settings file (igconfig.json) and other related files. It's typically located in <code>%LocalAppData%\ImageGlass\</code>. In portable mode, the Config Dir is the same as the Startup Dir. If ImageGlass lacks write permissions in the Startup Dir, it will use <code>%LocalAppData%\ImageGlass\</code> instead.</li>
 </ul>
-<h2 id="configuration-files-1">Configuration files</h2>
+<h2 id="manage-imageglass-using-configuration-files">Manage ImageGlass using configuration files</h2>
 <p>ImageGlass recognizes three distinct configuration files, which are loaded in the following sequence:</p>
 <ul>
 <li><code>igconfig.default.json</code>: Located in the Startup Dir, this file specifies default settings that are used if no other settings are available upon the initial launch.</li>
 <li><code>igconfig.json</code>: Found in the Config Dir, this file contains all user-specific settings and is written by ImageGlass after the application is closed. It takes precedence over the settings in the <code>igconfig.default.json</code> file.</li>
 <li><code>igconfig.admin.json</code>: Located in the Startup Dir, this file contains settings that will override all settings in the files mentioned above.</li>
 </ul>
-<p>Additionally, ImageGlass supports passing settings as command-line arguments. Each command must begin with a <code>/</code>. For instance:</p>
-<pre><code class="language-bash"># Launch ImageGlass without the toolbar and gallery, and with an Acrylic backdrop
-ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop=&quot;Acrylic&quot;
+<p>Additionally, ImageGlass supports passing settings as command-line arguments. Each command must begin with a <code>/</code>. For instance, to launch ImageGlass without the toolbar and gallery, and with an Acrylic backdrop:</p>
+<pre><code class="language-bash">ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop=&quot;Acrylic&quot;
 </code></pre>
 <p>ImageGlass systematically searches for these files in the described order and locations. The configuration is constructed from scratch, setting by setting, following these four steps:</p>
 <ol>

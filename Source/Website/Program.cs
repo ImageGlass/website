@@ -20,7 +20,7 @@ builder.Services.AddControllersWithViews(options =>
 {
     options.CacheProfiles.Add("Default", new CacheProfile()
     {
-        Duration = 3600,
+        Duration = 60 * 60 * 24, // 24 hour
         VaryByHeader = "User-Agent",
     });
 });
@@ -42,7 +42,8 @@ if (db is not null)
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // The default HSTS value is 30 days.
+    // You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

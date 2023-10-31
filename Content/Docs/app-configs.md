@@ -17,7 +17,7 @@ When dealing with the working directories in ImageGlass, it's essential to under
 - **Configuration directory (Config Dir)**: This directory houses the ImageGlass settings file (igconfig.json) and other related files. It's typically located in `%LocalAppData%\ImageGlass\`. In portable mode, the Config Dir is the same as the Startup Dir. If ImageGlass lacks write permissions in the Startup Dir, it will use `%LocalAppData%\ImageGlass\` instead.
 
 
-## Configuration files
+## Manage ImageGlass using configuration files
 ImageGlass recognizes three distinct configuration files, which are loaded in the following sequence:
 
 - `igconfig.default.json`: Located in the Startup Dir, this file specifies default settings that are used if no other settings are available upon the initial launch.
@@ -25,9 +25,8 @@ ImageGlass recognizes three distinct configuration files, which are loaded in th
 - `igconfig.admin.json`: Located in the Startup Dir, this file contains settings that will override all settings in the files mentioned above.
 
 
-Additionally, ImageGlass supports passing settings as command-line arguments. Each command must begin with a `/`. For instance:
+Additionally, ImageGlass supports passing settings as command-line arguments. Each command must begin with a `/`. For instance, to launch ImageGlass without the toolbar and gallery, and with an Acrylic backdrop:
 ```bash
-# Launch ImageGlass without the toolbar and gallery, and with an Acrylic backdrop
 ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop="Acrylic"
 ```
 
