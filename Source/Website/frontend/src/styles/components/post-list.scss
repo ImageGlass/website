@@ -49,9 +49,7 @@ body .post-badge {
 
   .post-image-link {
     display: inline-flex;
-    padding: 1px;
-    background-color: rgb(var(--colorBg) / 1);
-    border-radius: calc(var(--border-radius) * 1.5);
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow-base), var(--shadow);
     overflow: hidden;
 
@@ -61,6 +59,7 @@ body .post-badge {
       width: 100%;
       max-width: 35rem; // 560px
       max-height: 25rem; // 400px
+      border-radius: var(--border-radius);
     }
   }
 }

@@ -33,9 +33,7 @@
     max-width: 50%;
     max-height: 100%;
 
-    padding: 1px;
-    background-color: rgb(var(--colorBg) / 1);
-    border-radius: calc(var(--border-radius) * 1.5);
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow-base), var(--shadow);
     overflow: hidden;
 
@@ -44,7 +42,7 @@
     animation-delay: 500ms;
 
     img {
-      border-radius: calc(var(--border-radius) * 1.5);
+      border-radius: var(--border-radius);
       user-select: none;
       -webkit-user-drag: none;
       user-drag: none;
