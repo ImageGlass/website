@@ -43,7 +43,10 @@
       </div>
 
       <a class="home-featured-image" asp-controller="@controller" asp-action="@controllerAction" asp-route-slugId="@slugId">
-        <img src="@Model.Image" alt="@Model.Title" onerror="this.hidden = true" />
+        <picture>
+          <source srcset="~/img/ig_dark.webp" media="(prefers-color-scheme: dark)">
+          <img src="~/img/ig_light.webp" alt="@Model.Title" onerror="this.hidden = true" />
+        </picture>
       </a>
     </div>
   </div>

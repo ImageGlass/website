@@ -11,7 +11,10 @@ var connectionString = builder.Configuration.GetConnectionString("ImageGlassCont
 
 // use MySql DB
 builder.Services.AddDbContext<ImageGlassContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), options =>
+    {
+        options.EnableRetryOnFailure(3);
+    }));
 
 
 // Add services to the container
