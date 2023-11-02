@@ -35,6 +35,10 @@
                 @(Model.Count > 0 ? Model.Count.ToString("N0") : "")
               </span>
             </div>
+
+            <div class="sidebar-item section-quang-cao mt-5 mb-0 aniSlideUp ani-delay-100">
+              @await Html.PartialAsync("_Ads")
+            </div>
           </div>
         </div>
 
@@ -172,11 +176,6 @@
     @* Sidebar *@
     <div class="col-12 col-lg-4 my-5 aniSlideUp ani-delay-50">
       <aside class="sidebar">
-        <section class="sidebar-item">
-          @await Html.PartialAsync("_Ads")
-        </section>
-
-
         @* Release listing *@
         @await Html.PartialAsync("_SidebarList", list, new ViewDataDictionary(ViewData) {
           { "heading", "Other releases" },
