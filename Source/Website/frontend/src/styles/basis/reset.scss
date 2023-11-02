@@ -247,7 +247,7 @@ a {
   &:hover {
     text-decoration-style: wavy;
     text-decoration-thickness: 0.25em;
-    text-decoration-color: rgb(var(--colorAccent2));
+    text-decoration-color: rgb(var(--colorAccent1));
     color: rgb(var(--colorText));
     filter: brightness(1.2);
   }
@@ -374,6 +374,10 @@ img {
 article {
   word-break: break-word;
   word-wrap: break-word;
+
+  img {
+    box-shadow: var(--shadow-base), var(--shadow);
+  }
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 1.75em;
@@ -647,7 +651,7 @@ fieldset {
 
 
 ::selection {
-  background-color: rgb(var(--colorAccent1) / 0.55);
+  background-color: rgb(var(--colorAccent2) / 0.5);
 }
 
 
