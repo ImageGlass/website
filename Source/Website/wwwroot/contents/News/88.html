@@ -1,0 +1,129 @@
+﻿<h1 id="introducing-the-new-imageglass-version-9">Introducing the new ImageGlass, version 9</h1>
+<p>We are excited to unveil the General Availability release of ImageGlass 9.0, and it's packed with exciting new features and enhancements to make your photo viewing experience even better. This major update has been in the works for over three years, and we are proud to present it to our dedicated user community.</p>
+<p><img src="https://raw.githubusercontent.com/ImageGlass/releases/main/screenshots/v9.0/9.0_a.webp" alt="ImageGlass 9.0" /></p>
+<p>Please support this project by <a href="https://github.com/sponsors/d2phap" target="_blank" ref="noopener nofollow">making a donation</a> or purchasing from Microsoft Store:</p>
+<p>##IMAGEGLASS_STORE##</p>
+<h2 id="system-requirements">System requirements</h2>
+<p>ImageGlass 9 drops support for Windows 10 version 1909 (November 2019 Update) and older, including Windows 8.1, 8 and 7. Please note that <strong>32-bit x86 version</strong> is also no longer supported.</p>
+<p>Here are the new requirements:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Recommended</th>
+      <th>Minimum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Windows 10/11 x64 version 22H2</td>
+      <td>Windows 10 x64 version 2004 (20H1)</td>
+    </tr>
+    <tr>
+      <td><a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0" target="_blank" ref="noopener nofollow">.NET
+          Desktop Runtime 8</a></td>
+      <td><a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0" target="_blank" ref="noopener nofollow">.NET
+          Desktop Runtime 6</a></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section" target="_blank"
+          ref="noopener nofollow">WebView2 Runtime x64</a><br>(required for App settings,
+        Quick Setup, Check for Update, About dialog)</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="upgrading-to-version-9">Upgrading to version 9</h2>
+<p>Before upgrading to ImageGlass 9, please take note of the following changes:</p>
+<h3 id="removed-features">Removed features</h3>
+<p>Here are the list of features of version 8 are <u>not available</u> in version 9:</p>
+<ul>
+<li><strong>Exif tool</strong>. You can install <a href="https://imageglass.org/tools">ExifGlass</a> app as an ImageGlass tool for improved EXIF metadata viewing.</li>
+<li><strong>&quot;Start with OS to improve startup speed&quot;</strong> setting: No alternative available.</li>
+<li><strong>&quot;Display viewer scrollbars&quot;</strong> setting:. No alternative available.</li>
+</ul>
+<div class="box box-warning mb-3"><p>⚠️ If you were enabling the setting <strong>&quot;Start with OS to improve startup speed&quot;</strong>, make sure to <u>disable it before</u> upgrading to version 9.</p>
+</div>
+<h3 id="breaking-changes">Breaking changes</h3>
+<ul>
+<li>User config files are now in the JSON format: <code>igconfig.json</code>. ImageGlass 9 cannot import settings from version 8.</li>
+<li>Similarly, theme and language pack also updated to use JSON format. You can download theme packs for version 9 at <a href="https://imageglass.org/themes">Download / Theme packs</a>.</li>
+<li>For power users:
+<ul>
+<li>Version 9 uses <strong>Per-user setting</strong> model which is different from <strong>Per-machine setting</strong> of version 8:
+<ul>
+<li>The app settings are now saved in the <code>%LocalAppData%</code> folder. Refer to <a href="https://imageglass.org/docs/app-configs">Docs / App configuration</a> for more information.</li>
+<li>The app registry uses <code>HKEY_CURRENT_USER</code> for file type associations and app protocol.</li>
+</ul>
+</li>
+<li><code>igtasks.exe</code> has been removed.</li>
+<li>All commands in <code>igcmd.exe</code> have been reworked. Visit <a href="https://imageglass.org/docs/command-line-utilities">Docs / Command line utilities</a> for the updated information.</li>
+<li>To skip the <strong>&quot;ImageGlass Quick Setup&quot;</strong> dialog, set <code>QuickSetupVersion</code> value to any number greater than <code>9</code> in the <code>igconfig.json</code> file.</li>
+</ul>
+</li>
+</ul>
+<h2 id="performance-boost-with-hardware-acceleration">Performance boost with hardware acceleration</h2>
+<p>ImageGlass 9's rendering engine now leverages GPU technology, resulting in significantly improved performance and image quality. Enjoy smooth zooming and panning even for large image dimensions and animated formats.</p>
+<p>Additionally, the use of the newer version of .NET has reduced ImageGlass's startup time, eliminating the need to start with the OS.</p>
+<h2 id="the-new-modern-fluent-intuitive-interface">The new modern, fluent, intuitive interface</h2>
+<p>ImageGlass 9 seamlessly combines functionality with a beautiful design, and it offers customization options to suit your preferences. Two modern theme packs, <code>Kobe</code> and <code>Kobe - Light</code>, come pre-installed. Transition between light and dark modes, adapting effortlessly to your system settings.</p>
+<p>Moreover, Windows 11 users can enjoy transparent backdrop styles, including Mica, Mica Alt, and Acrylic.</p>
+<p><img src="https://raw.githubusercontent.com/ImageGlass/releases/main/screenshots/v9.0/9.0_b1.webp" alt="ImageGlass 9.0" /></p>
+<h3 id="customizable-app-layout">Customizable app layout</h3>
+<p>Customizing the app layout is now easier than ever. You can relocate the Toolbar to the top or bottom, position the Gallery to the sides, and enjoy a multi-column view of thumbnails. Customize the information displayed on the window title bar as per your preference.</p>
+<h3 id="touch-guesture-support">Touch guesture support</h3>
+<p>ImageGlass 9 now includes touch gesture support for zooming and panning images, making the experience more intuitive and interactive. You can also use swipe gestures to scroll through thumbnails in the gallery.</p>
+<h2 id="enhanced-svg-viewing">Enhanced SVG viewing</h2>
+<p>ImageGlass 9 now offers correct scaling for SVG formats thanks to Webview2 integration. You can even interact with animated SVG files, including hovering, clicking, and displaying tooltips.</p>
+<p>This feature comes with <a href="https://imageglass.org/docs/features#limitations">some limitations</a>, you can switch back to the native rendering engine by unchecking the option <strong>&quot;Use Webview2 for viewing SVG format&quot;</strong> in the app settings.</p>
+<h2 id="enhanced-window-modes">Enhanced window modes</h2>
+<p>ImageGlass 9 introduces sleek and performant window modes. You can combine various modes to tailor your viewing experience. The table below shows the window mode combinations available for the main view and slideshow view:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Full screen</th>
+<th>Frameless</th>
+<th>Window fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full screen</td>
+<td>✅</td>
+<td>⬜️</td>
+<td>⬜️</td>
+</tr>
+<tr>
+<td>Frameless</td>
+<td>⬜️</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Window fit</td>
+<td>⬜️</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-new-slideshow-view">The new slideshow view</h3>
+<p>The slideshow view in ImageGlass 9 now opens in a separate window, allowing you to move it to other monitors without interrupting the main app.</p>
+<h2 id="brand-new-built-in-tools">Brand new built-in tools</h2>
+<p><strong>Color Picker tool</strong> now supports the CEILAB color format, making it easy to copy color codes.</p>
+<p><strong>Crop tool</strong> has significant update, supports aspect ratio for cropping image. You can quickly resize the selection area and see the size updated. More options are hidden in Crop tool settings where you can choose the default selection for everytime open the tool.</p>
+<p><strong>Page nativation tool</strong> is now docked on the main window and is customizable in the app settings under the Layout tab. This tool now supports controlling animated images and exporting all image frames to files.</p>
+<p><strong>Exif viewer tool</strong> has been removed in version 9. However, you can install <a href="https://imageglass.org/tools">ExifGlass</a> as an ImageGlass tool for better EXIF metadata viewing.</p>
+<p><img src="https://raw.githubusercontent.com/ImageGlass/releases/main/screenshots/v9.0/9.0_b2.webp" alt="ImageGlass 9.0" /></p>
+<h2 id="external-tool-support">External tool support</h2>
+<p>ImageGlass 9 provides developers with an API to integrate their apps. For more detail, refer to <a href="https://imageglass.xyz/docs/imageglass-tools" target="_blank" ref="noopener nofollow">Docs / Build tools for ImageGlass</a>.</p>
+<p>You can add any apps as an ImageGlass tool and assign hotkeys to open them in the app settings under the Tools tab.</p>
+<h2 id="experiment-features">Experiment features</h2>
+<p>We continue to experiment with additional features that are not yet exposed in the app settings. These include:</p>
+<ul>
+<li>Adding custom toolbar buttons</li>
+<li>Customizing menu hotkeys</li>
+<li>Disabling unwanted ImageGlass features</li>
+</ul>
+<h2 id="get-the-update-now">Get the update now!</h2>
+<p>Please be cautious of scams and only download ImageGlass from our official website. We highly recommend against downloading ImageGlass from any other source to avoid potential security risks. Additionally, if you encounter any bugs, have suggestions, or would like to provide feedback, please use our <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" ref="noopener nofollow">Issues tracker</a>.</p>
+<p><a href="https://imageglass.org/release/imageglass-9-0-46" class="btn btn-accent">Download ImageGlass 9.0</a></p>
