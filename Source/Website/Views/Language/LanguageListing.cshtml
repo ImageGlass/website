@@ -22,7 +22,7 @@
       @foreach (var item in Model)
       {
         <li>
-          <a class="btn" asp-action="DownloadLanguage" asp-route-langid="@(item.LanguageId)" asp-route-langName="@(item.Name)" title="Download @item.Name language pack">
+          <a class="btn" asp-action="DownloadLanguage" asp-route-langId="@(item.LanguageId)" asp-route-langName="@(item.Name)" title="Download @item.Name language pack">
             <div class="lang-img">
               <img height="32" src="~/img/lang/@(item.LanguageId).png" alt="@item.Name" onerror="this.hidden = true" />
             </div>

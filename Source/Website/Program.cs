@@ -27,7 +27,7 @@ builder.Services.AddControllersWithViews(options =>
         VaryByHeader = "User-Agent",
     });
 });
-builder.Services.AddRouting(i => i.LowercaseUrls = true);
+builder.Services.AddRouting();
 
 var app = builder.Build();
 
