@@ -13,7 +13,7 @@ public class UrlController : BaseController
     [HttpGet("url/update")]
     public async Task<ActionResult> GetUpdateAsync()
     {
-        var updateInfoJsonUrl = "https://raw.githubusercontent.com/ImageGlass/config/main/update.json";
+        var updateInfoJsonUrl = "https://raw.githubusercontent.com/ImageGlass/releases/main/update.json";
 
         using var httpClient = new HttpClient();
         var jsonStr = await httpClient.GetStringAsync(updateInfoJsonUrl);
