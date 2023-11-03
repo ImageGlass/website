@@ -12,7 +12,7 @@ public class LanguageController : BaseController
     private readonly HttpClient _client = new();
     private const string CROWNDIN_KEY = "8e2f937a310925530c8755cd7f4b3dc2265a90852d64922212a1a92840f0c9e051ff4c719a9928c2";
     private const int CROWNIN_PROJECT_ID = 209133;
-    private const int CROWNIN_FILE_ID = 44;
+    private const int CROWNIN_FILE_ID = 46; // ImageGlass 9 language pack
 
     private readonly CrowdinApiClient _crowdin = new(new() { AccessToken = CROWNDIN_KEY });
 
