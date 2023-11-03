@@ -72,10 +72,10 @@ public class LanguageController : BaseController
             var contentStream = await _client.GetStreamAsync(downloadLink?.Url);
 
             var fileName = string.IsNullOrEmpty(langName)
-                ? $"{langId}.iglang"
-                : $"{langName} ({langId}).iglang";
+                ? $"{langId}.iglang.json"
+                : $"{langName} ({langId}).iglang.json";
 
-            return File(contentStream, "application/xml", fileName);
+            return File(contentStream, "application/json", fileName);
         }
         catch (HttpRequestException ex)
         {
