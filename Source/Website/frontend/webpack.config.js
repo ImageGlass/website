@@ -9,6 +9,7 @@ const pkJson = require('./package.json');
 const configs = {
   entry: {
     main: './src/main.ts',
+    pageHome: './src/js/pages/pageHome.ts',
     pageReleaseDetail: './src/js/pages/pageReleaseDetail.ts',
   },
   output: {

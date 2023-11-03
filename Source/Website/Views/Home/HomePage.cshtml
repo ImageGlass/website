@@ -25,7 +25,7 @@
     <div class="home-featured-content">
       <div class="home-featured-info">
         <div class="fs-5 opacity-65 aniSlideDown">
-          Introduce
+          Introducing
         </div>
         <h2 class="home-featured-title mt-0 aniSlideDown ani-delay-25">
           <span class="fs-1">@Model.Title</span>
@@ -46,11 +46,14 @@
         </div>
       </div>
 
-      <a class="home-featured-image" asp-controller="@controller" asp-action="@controllerAction" asp-route-slugId="@slugId">
+      <a id="lnkHomeFeature" class="home-featured-image" title="Watch introduction video">
         <picture>
           <source srcset="~/img/ig_dark.webp" media="(prefers-color-scheme: dark)">
           <img src="~/img/ig_light.webp" alt="@Model.Title" onerror="this.hidden = true" />
         </picture>
+
+        <img class="img-ribbon" src="~/img/ribbon.webp" />
+        <img class="img-play" src="~/img/youtube.svg" />
       </a>
     </div>
   </div>
@@ -162,3 +165,7 @@
     @await Html.PartialAsync("_Donation")
   </div>
 </div>
+
+
+@* page script *@
+<script src="~/js/pageHome.js" asp-append-version="true"></script>
