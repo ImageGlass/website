@@ -2,8 +2,8 @@
 using ImageGlassWeb.Data;
 using ImageGlassWeb.Models;
 using ImageGlassWeb.Utils;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using System.Net.Http.Headers;
 
 namespace ImageGlassWeb.Controllers;
@@ -63,9 +63,31 @@ public class HomeController : BaseController
     }
 
 
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    [Route("error/handle-exception")]
+    public IActionResult HandleException()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        // log error
+        var feature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+        if (feature != null)
+        {
+            _logger.LogError(new EventId(), feature.Error, feature.Error.Message, feature.Endpoint);
+        }
+
+        return StatusCode(StatusCodes.Status500InternalServerError);
+    }
+
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    [Route("error/{code}")]
+    public IActionResult Index(int code)
+    {
+        Response.Clear();
+        Response.StatusCode = code;
+
+        ViewData[PageInfo.Page] = "error";
+
+        return View("ErrorPage", code);
     }
 }
