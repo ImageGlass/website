@@ -42,9 +42,11 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   margin-bottom: 1em;
   font-size: var(--fs-1);
+  font-weight: 400;
 }
 h2 {
   font-size: var(--fs-2);
+  font-weight: 400;
 }
 h3 {
   font-size: var(--fs-3);
@@ -236,7 +238,7 @@ a:visited {
   text-decoration-thickness: 0.03125em;
   text-underline-position: under;
   transition: all ease 200ms;
-  color: rgb(var(--colorAccent1));
+  color: rgb(var(--colorAccent1) / 1);
 }
 a {
   img {

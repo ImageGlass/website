@@ -12,6 +12,11 @@ const effectOptions: Partial<IEffectOptions> = {
 };
 
 applyEffect('.navbar-nav .nav-item > a', effectOptions);
+applyEffect('.sponsor-list .sponsor-card', {
+  ...effectOptions,
+  gradientSize: 200,
+  lightColor: 'rgb(var(--colorInvert) / 0.1)',
+});
 applyEffect('.article-list li > a', {
   ...effectOptions,
   gradientSize: 150,

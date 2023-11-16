@@ -1,5 +1,9 @@
 
 [data-page="home"] {
+  h2 {
+    font-weight: 400;
+  }
+
   .home-featured {
     position: relative;
     overflow: hidden;
@@ -174,6 +178,18 @@
           filter: saturate(150%) drop-shadow(0 0 0.15rem #0002) brightness(1.15);
         }
       }
+    }
+  }
+
+
+  .home-sponsors {
+    background-image: url(../img/star-bg.svg);
+
+    .sponsor-list {
+      justify-content: center;
+    }
+    .section-sponsor-description {
+      margin-bottom: 3rem;
     }
   }
 
