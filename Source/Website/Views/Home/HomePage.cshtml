@@ -28,7 +28,7 @@
           Introducing
         </div>
         <h2 class="home-featured-title mt-0 aniSlideDown ani-delay-25">
-          <span class="fs-1">@Model.Title</span>
+          <span class="fs-1 fw-500">@Model.Title</span>
           <sup class="post-badge text-uppercase mt-2 mt-lg-0 fs-6">@Model.ReleaseChannel</sup>
         </h2>
         <div class="aniSlideDown ani-delay-75">
@@ -65,9 +65,16 @@
 
 
 
+@* ------------------ Our sponsors *@
+<div class="container py-5 text-center home-sponsors">
+  @await Html.PartialAsync("_Sponsors")
+</div>
+
+
+
 @* ------------------ Seamless viewing experience *@
 <div class="container py-5 text-center">
-  <h2 class="fw-400">Seamless viewing experience</h2>
+  <h2>Seamless viewing experience</h2>
   <div class="mb-5 opacity-65">
     A feature-rich, simple-to-use app seamlessly integrated with a clean, minimal and modern user interface
   </div>
@@ -121,7 +128,7 @@
 @* ------------------ Open source *@
 <div class="container-fluid home-open-source py-5">
   <div class="container-limit">
-    <h2 class="fw-400 mt-4">Open source image viewer</h2>
+    <h2 class="mt-4">Open source image viewer</h2>
     <div class="mb-5 mx-auto opacity-65" style="max-width: 700px;">
       Explore the world of an open-source image viewer, a feature-rich and customizable solution for all your image viewing needs
     </div>

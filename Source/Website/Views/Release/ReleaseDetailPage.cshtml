@@ -16,7 +16,7 @@
               @Model.UpdatedDate.ToDateString()
             </time>
           </div>
-          <h2 class="post-title fs-1">
+          <h2 class="post-title fs-1 fw-500">
             @Model.Title
           </h2>
           <div class="post-description">
@@ -163,6 +163,12 @@
             </div>
           </div>
         </div>
+      </section>
+
+
+      @* Sponsors *@
+      <section class="mb-5">
+        @await Html.PartialAsync("_Sponsors")
       </section>
 
 

@@ -5,16 +5,14 @@
 
 @* Featured content *@
 <div class="container-fluid bg-surface py-5">
-  <div class="container">
-    <div class="container-limit aniFadeIn">
-      <h2 class="fs-1 mt-0">ImageGlass Tools</h2>
-      <div>
-        A collection of external tools that can be downloaded and installed to enhance your experience with ImageGlass
-        9.
-        <br />
-        If you want to integrate your software with ImageGlass, you can check out at
-        <a asp-controller="Docs" asp-action="DocsPage" asp-route-slug="imageglass-tools">Docs / ImageGlass Tools</a>.
-      </div>
+  <div class="container aniFadeIn">
+    <h2 class="fs-1 mt-0">ImageGlass Tools</h2>
+    <div>
+      A collection of external tools that can be downloaded and installed to enhance your experience with ImageGlass
+      9.
+      <br />
+      If you want to integrate your software with ImageGlass, you can check out at
+      <a asp-controller="Docs" asp-action="DocsPage" asp-route-slug="imageglass-tools">Docs / ImageGlass Tools</a>.
     </div>
   </div>
 </div>
@@ -24,7 +22,7 @@
 <div class="container">
   <div class="row gx-5">
     <div class="col-12 col-lg-8 my-5 aniSlideUp ani-delay-25">
-      <div class="mb-3">Available tools:</div>
+      <h2 class="mb-4">Available tools</h2>
 
       <ul class="tool-list mb-5">
         @* ExigGlass tool *@
@@ -79,6 +77,10 @@
       </section>
 
       <section class="mt-5 pt-md-5">
+        @await Html.PartialAsync("_Sponsors")
+      </section>
+
+      <section class="mt-5">
         @await Html.PartialAsync("_Donation")
       </section>
     </div>
