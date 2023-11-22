@@ -73,7 +73,7 @@ public class LanguageController : BaseController
 
             var fileName = string.IsNullOrEmpty(langName)
                 ? $"{langId}.iglang.json"
-                : $"{langName} ({langId}).iglang.json";
+                : $"{langName}.iglang.json";
 
             return File(contentStream, "application/json", fileName);
         }
