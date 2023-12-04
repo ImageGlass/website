@@ -25,7 +25,7 @@ public class HomeController : BaseController
     {
         // featured content
         var releaseList = await _context.QueryReleaseModels(1, releaseChannel: ReleaseChannel.Stable);
-        var latestStableRelease = releaseList.FirstOrDefault();
+        var latestStableRelease = releaseList.FirstOrDefault(i => !i.Version.StartsWith('8'));
 
 
         // page info
@@ -57,7 +57,10 @@ public class HomeController : BaseController
                 ViewData["_RepoSubscribersCount"] = subscribersCount;
             }
         }
-        catch { }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, ex.Message);
+        }
 
         return View("HomePage", latestStableRelease);
     }
