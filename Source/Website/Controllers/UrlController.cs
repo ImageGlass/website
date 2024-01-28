@@ -19,7 +19,7 @@ public class UrlController : BaseController
 
 
     /// <summary>
-    /// Gets update information.
+    /// Gets update information (v8.6+).
     /// </summary>
     [HttpGet("url/update")]
     public async Task<ActionResult> GetUpdateAsync()
