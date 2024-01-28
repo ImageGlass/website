@@ -109,7 +109,8 @@
         <h2 id="downloads">Downloads</h2>
         <div class="mb-5">
           <p>
-            <a href="https://www.microsoft.com/store/productId/9N33VZK3C7TH" target="_blank" rel="noopener noreferrer">ImageGlass Store</a>
+            <a href="https://apps.microsoft.com/detail/9N33VZK3C7TH?launch=true&cid=ig_website_badge&mode=full"
+              target="_blank" rel="noopener noreferrer">ImageGlass Store</a>
             provides the convenience of fast, easy installation onto all of your Windows devices along with fully automatic,
             behind-the-scenes updates with all the newest features, improvements, and fixes.
             Discover the difference at <a asp-controller="Docs" asp-action="DocsPage" asp-route-slug="features">Docs / Features</a>.
@@ -117,20 +118,31 @@
           <p class="d-flex ps-2 box box-warning">
             <span class="me-2 fs-2 lh-normal">💡</span>
             <span>
-              Alternatively, you can make the payment via donation,
-              then <a asp-controller="About" asp-action="Index" asp-fragment="contact" target="_blank" title="Open contact">leave me a message</a>,
-              I will promptly send you the code.
+              Alternatively, you can make the payment via
+              <a target="_blank" rel="noopener noreferrer" href="https://buy.stripe.com/00g29Obf75ZWfCgdQQ"><img class="ms-1" src="~/img/stripelogo.svg" height="20" alt="Stripe" /></a>, I will promptly send you the code.
+
+              <br/>
+              <a class="btn btn-accent-2 mt-1" target="_blank" rel="noopener noreferrer"
+                href="https://buy.stripe.com/00g29Obf75ZWfCgdQQ">
+                Pay with
+                <img class="ms-2" src="~/img/stripelogo.svg" height="22" alt="Stripe"
+                  style="filter: brightness(0) opacity(0.75);" />
+              </a>
             </span>
           </p>
 
 
           @* Download options *@
           <div class="download-options mt-3 mb-3">
-            <ms-store-badge tabindex="0" class="btn btn-accent" productid="9N33VZK3C7TH" cid="ig_website_badge" window-mode="full" theme="auto" title="Get ImageGlass from Microsoft Store">
-            </ms-store-badge>
+            <a class="btn btn-accent btn-download-option" target="_blank" rel="noopener noreferrer"
+              href="https://apps.microsoft.com/detail/9N33VZK3C7TH?launch=true&cid=ig_website_badge&mode=full"
+              title="Get ImageGlass from Microsoft Store">
+              <img src="~/img/mslogo.svg" width="40" height="40" alt="Microsoft logo" />
+              <span>Get ImageGlass<br/>from Microsoft Store</span>
+            </a>
 
-            <button class="btn option-classic" type="button" toggle-el="#classic-download" title="Get ImageGlass Classic">
-              <span class="emoji">📦</span>
+            <button class="btn btn-download-option option-classic" type="button" toggle-el="#classic-download" title="Get ImageGlass Classic">
+              <img src="~/img/package.svg" width="48" height="48" alt="Classic" />
               <span>Get<br/>ImageGlass Classic</span>
             </button>
           </div>
@@ -163,12 +175,6 @@
             </div>
           </div>
         </div>
-      </section>
-
-
-      @* Sponsors *@
-      <section class="mb-5">
-        @await Html.PartialAsync("_Sponsors")
       </section>
 
 

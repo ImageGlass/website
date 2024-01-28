@@ -27,8 +27,12 @@ public static class ContentHelper
 
             // render ImageGlass Store button
             html = html.Replace("##IMAGEGLASS_STORE##", """
-                <ms-store-badge tabindex="0" class="btn btn-accent" productid="9N33VZK3C7TH" cid="ig_website_badge" window-mode="full" theme="auto" title="Get ImageGlass from Microsoft Store">
-                </ms-store-badge>
+                <a class="btn btn-accent btn-download-option" target="_blank" rel="noopener noreferrer"
+                    href="https://apps.microsoft.com/detail/9N33VZK3C7TH?launch=true&cid=ig_website_badge&mode=full"
+                    title="Get ImageGlass from Microsoft Store">
+                    <img src="https://imageglass.org/img/mslogo.svg" width="40" height="40" alt="Microsoft logo" />
+                    <span>Get ImageGlass<br/>from Microsoft Store</span>
+                </a>
             """);
 
             return html;

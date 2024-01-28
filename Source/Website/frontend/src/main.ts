@@ -62,22 +62,6 @@ queryAll('[scroll-to-el]').forEach(el => {
 });
 
 
-// Events for MS Store badge
-const storeBadgeEls = queryAll('ms-store-badge');
-storeBadgeEls.forEach(el => {
-  const productId = el.getAttribute('productid');
-  const campaignId = el.getAttribute('cid') || '';
-  const url = `https://www.microsoft.com/store/productId/${productId}?cid=${campaignId}&referrer=appbadge&source=ig_website`;
-
-  el.addEventListener('keydown', (e) => {
-    if (e.key === 'Space' || e.key === 'Enter') {
-      e.preventDefault();
-      openUrl(url);
-    }
-  });
-});
-
-
 // popover: add closing animation
 queryAll('[popover]').forEach(el => {
   el.addEventListener('beforetoggle', async (e: ToggleEvent) => {
