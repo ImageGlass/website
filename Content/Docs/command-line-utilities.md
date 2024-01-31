@@ -43,7 +43,7 @@ Set default viewer for the extensions. For instance, to set ImageGlass as the de
 igcmd.exe set-default-viewer .png;.jpg;.webp
 ```
 
-If passing `--per-machine` option, ImageGlass will use `HKEY_LOCAL_MACHINE` registry key instead of `HKEY_LOCAL_USER`.
+If passing `--per-machine` option, ImageGlass will use `HKEY_LOCAL_MACHINE` registry key instead of `HKEY_CURRENT_USER`.
 
 
 ### 4. `remove-default-viewer [string exts] [--per-machine]`
@@ -52,7 +52,7 @@ Remove ImageGlass as the default viewer for specific file extensions. For instan
 igcmd.exe remove-default-viewer .png;.jpg;.webp
 ```
 
-If passing `--per-machine` option, ImageGlass will use `HKEY_LOCAL_MACHINE` registry key instead of `HKEY_LOCAL_USER`.
+If passing `--per-machine` option, ImageGlass will use `HKEY_LOCAL_MACHINE` registry key instead of `HKEY_CURRENT_USER`.
 
 
 ### 5. `export-frames <string filePath>`

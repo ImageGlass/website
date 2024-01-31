@@ -26,12 +26,12 @@
 <p>Set default viewer for the extensions. For instance, to set ImageGlass as the default photo viewer for PNG, JPG, and WEBP formats:</p>
 <pre><code class="language-bash">igcmd.exe set-default-viewer .png;.jpg;.webp
 </code></pre>
-<p>If passing <code>--per-machine</code> option, ImageGlass will use <code>HKEY_LOCAL_MACHINE</code> registry key instead of <code>HKEY_LOCAL_USER</code>.</p>
+<p>If passing <code>--per-machine</code> option, ImageGlass will use <code>HKEY_LOCAL_MACHINE</code> registry key instead of <code>HKEY_CURRENT_USER</code>.</p>
 <h3 id="remove-default-viewer-string-exts-per-machine">4. <code>remove-default-viewer [string exts] [--per-machine]</code></h3>
 <p>Remove ImageGlass as the default viewer for specific file extensions. For instance, to remove ImageGlass from being the default photo viewer for PNG, JPG, and WEBP formats:</p>
 <pre><code class="language-bash">igcmd.exe remove-default-viewer .png;.jpg;.webp
 </code></pre>
-<p>If passing <code>--per-machine</code> option, ImageGlass will use <code>HKEY_LOCAL_MACHINE</code> registry key instead of <code>HKEY_LOCAL_USER</code>.</p>
+<p>If passing <code>--per-machine</code> option, ImageGlass will use <code>HKEY_LOCAL_MACHINE</code> registry key instead of <code>HKEY_CURRENT_USER</code>.</p>
 <h3 id="export-frames-string-filepath">5. <code>export-frames &lt;string filePath&gt;</code></h3>
 <p>Open a file picker and export image frames from the specified file. For instance:</p>
 <pre><code class="language-bash">igcmd.exe export-frames &quot;C:\my photos\dance.webp&quot;
