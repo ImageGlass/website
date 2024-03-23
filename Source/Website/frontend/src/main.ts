@@ -1,5 +1,5 @@
 ﻿import { IEffectOptions, applyEffect } from 'fluent-reveal-effect';
-import { animateElementVisibility, openUrl, pause, query, queryAll, scrollToTop } from './js/modules/helper';
+import { animateElementVisibility, pause, query, queryAll, scrollToTop } from './js/modules/helper';
 
 import './styles/main.scss';
 

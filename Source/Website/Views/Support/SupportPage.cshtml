@@ -4,7 +4,7 @@
   <div class="container aniFadeIn">
     <h2 class="fs-1 mt-0">Support</h2>
     <div>
-      Looking for Answers or Support?<br/>
+      Looking for answers or support?<br/>
       You're in the right place! Find all the ImageGlass customer and technical support you need right here.
     </div>
   </div>
@@ -13,77 +13,102 @@
 
 @* Support options *@
 <div class="container py-5 mx-auto">
-  <div class="container-limit">
-    <div class="row gx-5 gx-md-4 gx-lg-5 justify-content-center support-options">
-      @* Premium support *@
-      <div class="col-12 col-lg-6 mb-4 mb-md-0 aniSlideUp ani-delay-25">
-        <div class="box box-warning p-3 p-md-4">
-          <h2 id="premium-support" class="mt-0 text-warning">Premium Support 🌟</h2>
-          <div class="mb-4">
-            Receive exclusive support directly from the creator of ImageGlass.
-          </div>
+  @* Community support *@
+  <div class="community-support aniSlideUp ani-delay-25">
+    <h2 id="community-support" class="mt-0">Community Support</h2>
+    <div class="mb-4">
+      Join the ImageGlass community for assistance and support.
+    </div>
 
-          <div>
-            <h4 class="text-warning">Get help with your issues</h4>
-            <p class="fs-5 opacity-65 mb-4">
-              Receive prioritized assistance for your issues via email, Discord chat, or a dedicated 1-hour video consultation.
-            </p>
+    @* Ads *@
+    <div class="mb-3">
+      <div class="sidebar-item section-quang-cao">
+        @await Html.PartialAsync("_Ads")
+      </div>
+    </div>
 
-            <h4 class="text-warning">Custom installer creation for your organization</h4>
-            <p class="fs-5 opacity-65 mb-4">
-              Customize ImageGlass to your organization's needs, allowing you to seamlessly adjust features, incorporate branding, and fine-tune settings for the best experience.
-            </p>
+    <div class="section-community-support">
+      <a class="btn" href="https://github.com/d2phap/ImageGlass/issues" target="_blank" rel="noopener noreferrer">
+        <svg class="svg-black" width="64" height="64"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20">
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000">
+              <g id="icons" transform="translate(56.000000, 160.000000)">
+                <path
+                  d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
+                  id="github-[#142]">
 
-            <h4 class="text-warning">Implement custom features as per your requests</h4>
-            <p class="fs-5 opacity-65 mb-4">
-              Personalize ImageGlass to your specific needs by requesting custom features that align with your workflow.
-            </p>
-          </div>
+                </path>
+              </g>
+            </g>
+          </g>
+        </svg>
 
-          <div class="mt-4">
-            <a class="btn btn-accent bg-warning"
-              href="mailto:phap@imageglass.org?subject=ImageGlass%20Premium%20support&body=Hi%20Phap%2C%0D%0A%0D%0A%0D%0A">
-              Contact us
-            </a>
-          </div>
-        </div>
+        <span class="text-info">GitHub Issues</span>
+        <span class="support-description">
+          Stay updated on the development progress, and report bugs using GitHub account
+        </span>
+      </a>
+
+
+      <a class="btn" href="https://discord.com/channels/818852544859209748/818852544859209751" target="_blank" rel="noopener noreferrer">
+        <svg width="64" height="64" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.799988 30.8C0.799988 14.2266 14.2266 0.799988 30.8 0.799988C47.3734 0.799988 60.8 14.2266 60.8 30.8C60.8 47.3734 47.3734 60.8 30.8 60.8C14.2266 60.765 0.799988 47.3384 0.799988 30.8Z" fill="#5865F2"/>
+          <path d="M44.2965 18.5972C41.744 17.4433 39.0867 16.6042 36.3244 16.1496C35.9748 16.779 35.5902 17.5832 35.3105 18.2475C32.3734 17.793 29.4014 17.793 26.4643 18.2475C26.1496 17.5133 25.8 16.814 25.4154 16.1496C22.6531 16.6042 19.9608 17.4433 17.4433 18.6321C12.4084 26.1496 11.0447 33.4573 11.7091 40.6951C14.6811 42.8979 17.9678 44.5762 21.4993 45.6251C22.3035 44.5412 23.0028 43.4224 23.5972 42.2335C22.4433 41.814 21.3594 41.2895 20.3105 40.6601C20.5902 40.4503 20.8349 40.2405 21.1147 40.0307C27.3035 42.9678 34.5063 42.9678 40.6951 40.0307C40.9748 40.2405 41.2196 40.4503 41.4993 40.6601C40.4503 41.2895 39.3314 41.814 38.1776 42.2335C38.772 43.4224 39.4713 44.5412 40.2755 45.6251C43.807 44.5412 47.1286 42.8979 50.0657 40.6951C50.8349 32.3035 48.6671 25.0307 44.2965 18.5972ZM24.4363 36.2196C22.5133 36.2196 20.9748 34.4713 20.9748 32.3384C20.9748 30.2056 22.5133 28.4224 24.4363 28.4224C26.3944 28.4224 27.9328 30.1706 27.9328 32.3384C27.8979 34.4713 26.3944 36.2196 24.4363 36.2196ZM37.3035 36.2196C35.3804 36.2196 33.8419 34.4713 33.8419 32.3384C33.8419 30.2056 35.3804 28.4224 37.3035 28.4224C39.2615 28.4224 40.8 30.1706 40.765 32.3384C40.73 34.5063 39.2265 36.2196 37.3035 36.2196Z" fill="white"/>
+        </svg>
+
+        <span class="text-info">ImageGlass Discord</span>
+        <span class="support-description">
+          Connect with Discord community to engage in discussions about ImageGlass
+        </span>
+      </a>
+
+
+      <a class="btn" href="https://groups.google.com/forum/#!forum/imageglass" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Google_Groups_icon.png/240px-Google_Groups_icon.png" width="48" height="48" style="background-color: #fff; border-radius: 100%; padding: 8px;" />
+
+        <span class="text-info">Google Group</span>
+        <span class="support-description">
+          Join in Google group to ask questions, get helps about ImageGlass
+        </span>
+      </a>
+    </div>
+  </div>
+
+
+  @* Paid support *@
+  <div class="aniSlideUp ani-delay-50 mt-5">
+    <div class="box p-3 p-md-4" style="--box-border: rgb(var(--bgInfo) / 0.25);">
+      <h2 id="premium-support" class="mt-0 text-info">Paid Support ⭐</h2>
+      <div class="mb-4">
+        Unlock premium assistance directly from the creator of ImageGlass
       </div>
 
+      <h4>Here's our 4-step process</h4>
+      <ol>
+        <li class="mb-2">
+          <b>Contact Us</b><br/>
+          Reach out to us with your specific requirements
+        </li>
+        <li class="mb-2">
+          <b>Get a Quote</b><br/>
+          Receive a detailed quote outlining the scope of work
+        </li>
+        <li class="mb-2">
+          <b>Payment</b><br/>
+          Securely complete payment for the requested service with <i>Stripe</i>
+        </li>
+        <li>
+          <b>Resolution</b><br/>
+          Sit back as we promptly address and resolve your requests
+        </li>
+      </ol>
 
-      @* Community support *@
-      <div class="col-12 col-lg-auto community-support mt-4 aniSlideUp ani-delay-50">
-        <h2 id="community-support" class="mt-0">Community Support</h2>
-        <div class="mb-4">
-          Join the ImageGlass community for assistance and support.
-        </div>
-
-        @* Ads *@
-        <div class="mb-3">
-          <div class="sidebar-item section-quang-cao">
-            @await Html.PartialAsync("_Ads")
-          </div>
-        </div>
-
-        <div class="section-community-support">
-          <a class="btn" href="https://github.com/d2phap/ImageGlass/issues" target="_blank" rel="noopener noreferrer">
-            <span class="text-info">GitHub Issues</span>
-            <span class="support-description">
-              Stay updated on the development progress, share feedback, and report bugs using your GitHub account
-            </span>
-          </a>
-          <a class="btn" href="https://groups.google.com/forum/#!forum/imageglass" target="_blank" rel="noopener noreferrer">
-            <span class="text-accent2">Google Forum</span>
-            <span class="support-description">
-              Use your Google account to ask questions and stay informed about the latest ImageGlass updates
-            </span>
-          </a>
-          <a class="btn" href="https://discord.com/channels/818852544859209748/818852544859209751" target="_blank" rel="noopener noreferrer">
-            <span>ImageGlass Discord</span>
-            <span class="support-description">
-              Connect with community to engage in discussions about ImageGlass and receive valuable support
-            </span>
-          </a>
-        </div>
+      <div class="mt-4">
+        <a class="btn btn-accent bg-info"
+          href="mailto:phap@imageglass.org?subject=ImageGlass%20Paid%20Support&body=Hi%20Phap%2C%0D%0A%0D%0A%0D%0A">
+          Contact Us
+        </a>
       </div>
     </div>
   </div>

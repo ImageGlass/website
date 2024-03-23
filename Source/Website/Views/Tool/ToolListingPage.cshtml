@@ -22,7 +22,7 @@
 <div class="container">
   <div class="row gx-5">
     <div class="col-12 col-lg-8 my-5 aniSlideUp ani-delay-25">
-      <h2 class="mb-4">Available tools</h2>
+      <h2 class="mb-4">Available Tools</h2>
 
       <ul class="tool-list mb-5">
         @* ExigGlass tool *@
@@ -71,11 +71,11 @@
 
 
       <section>
-        <h3>How to add an external tool to ImageGlass</h3>
+        <h3>How to add a Tool to ImageGlass</h3>
         <div>
           Refer to
           <a asp-controller="Docs" asp-action="DocsPage" asp-route-slug="imageglass-tools" asp-fragment="add-your-tool-to-imageglass">
-            Docs / ImageGlass Tools / Add your tool to ImageGlass
+            Docs / ImageGlass Tools / Add Your Tool to ImageGlass
           </a>.
         </div>
       </section>
@@ -99,7 +99,7 @@
 
         @* News listing *@
         @await Html.PartialAsync("_SidebarList", list, new ViewDataDictionary(ViewData) {
-          { "heading", "The lastest updates" },
+          { "heading", "The Lastest Updates" },
           { "aspController", "News" },
           { "aspActionListing", nameof(NewsController.AllNewsListingPage) },
           { "aspActionDetail", nameof(NewsController.NewsDetailPage) },

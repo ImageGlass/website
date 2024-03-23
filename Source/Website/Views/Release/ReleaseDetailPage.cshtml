@@ -190,7 +190,7 @@
       <aside class="sidebar">
         @* Release listing *@
         @await Html.PartialAsync("_SidebarList", list, new ViewDataDictionary(ViewData) {
-          { "heading", "Other releases" },
+          { "heading", "Other Releases" },
           { "aspController", "Release" },
           { "aspActionListing", nameof(ReleaseController.AllReleasesListingPage) },
           { "aspActionDetail", nameof(ReleaseController.ReleaseDetailPage) },

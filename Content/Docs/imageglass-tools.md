@@ -1,19 +1,19 @@
 ```json
 #metadata
 {
-  "Title": "ImageGlass tools",
+  "Title": "ImageGlass Tools",
   "Description": "ImageGlass provides an API for third-party app integration. By utilizing the ImageGlass.Tools library, developers can expand the functionality of ImageGlass.",
   "Keywords": ["imageglass tools", "imageglass plugin", "imageglass extension"]
 }
 #metadata
 ```
 
-# ImageGlass tools
+# ImageGlass Tools
 ImageGlass provides an API for third-party app integration. By utilizing the ImageGlass.Tools library, developers can expand the functionality of ImageGlass, creating a highly customizable and versatile tool for all image viewing needs.
 
 You can download tools for ImageGlass 9 at: https://imageglass.org/tools.
 
-## Build tools for ImageGlass
+## Build Tools for ImageGlass
 Prerequisites:
 - IDE: Visual Studio 2022
 - Programming language: C#
@@ -54,10 +54,10 @@ Follow these simple steps to use the APIs from ImageGlass.Tools:
 Now you have created an app that connects and handles events from ImageGlass. You can also explore a complete app in the [DemoApp project](https://github.com/ImageGlass/ImageGlass.Tools/tree/main/Source/DemoApp).
 
 
-## Add your tool to ImageGlass
+## Add Your Tool to ImageGlass
 You can integrate external apps as ImageGlass Tools and assign hotkeys for them in ImageGlass 9. These tools will appear under the Tools menu. To achieve this, you can use the app settings UI or directly edit the user config file (`igconfig.json`).
 
-### Using app settings UI
+### Using App Settings UI
 - Open ImageGlass Settings and click on the "Tools" tab.
 - Click the "Add..." button to add a new tool.
 - Fill in all the fields accordingly.
@@ -67,7 +67,7 @@ You can integrate external apps as ImageGlass Tools and assign hotkeys for them 
 - Click the "OK" button to close the dialog, and then click "OK" or "Apply" to save the changes.
 ![Use ImageGlass setting to add external tool](https://github.com/d2phap/ImageGlass/assets/3154213/d8d4d903-6407-41ed-9199-c5bcb2c3242d)
 
-### Editing the user config file (`igconfig.json`)
+### Editing The User Config Dile (`igconfig.json`)
 1. Make sure the ImageGlass app is not running.
 2. Open the `igconfig.json` file with a text editor such as Notepad or VS Code.
 3. In the `Tools` section of the `igconfig.json` file, add the following code:

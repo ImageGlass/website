@@ -6,7 +6,7 @@ export declare const openUrl: (url: string) => void;
 /**
  * Gets the first matched element with the query selector.
  */
-export declare const query: <T = HTMLElement>(selector: string, parentEl?: HTMLElement) => T;
+export declare const query: <T = HTMLElement>(selector: string, parentEl?: HTMLElement) => T | null;
 /**
  * Gets all matched elements with the query selector.
  */

@@ -29,7 +29,7 @@
 
         @* News listing *@
         @await Html.PartialAsync("_SidebarList", list, new ViewDataDictionary(ViewData) {
-          { "heading", "The lastest updates" },
+          { "heading", "The Lastest Updates" },
           { "aspController", "News" },
           { "aspActionListing", nameof(NewsController.AllNewsListingPage) },
           { "aspActionDetail", nameof(NewsController.NewsDetailPage) },

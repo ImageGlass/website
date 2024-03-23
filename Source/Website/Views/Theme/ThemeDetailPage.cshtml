@@ -55,7 +55,7 @@
   <div class="row gx-5">
     <div class="col-12 col-lg-8 my-5 aniSlideUp ani-delay-25">
       <section>
-        <h2 id="theme-information">Theme information</h2>
+        <h2 id="theme-information">Theme Information</h2>
         <div class="mb-4">@Model.Description</div>
         <ul>
           <li>Color mode: <span class="post-badge">@(Model.IsDarkMode ? "Dark" : "Light")</span></li>
@@ -81,7 +81,7 @@
       <aside class="sidebar">
         @* Theme listing *@
         @await Html.PartialAsync("_SidebarList", list, new ViewDataDictionary(ViewData) {
-          { "heading", "More theme packs" },
+          { "heading", "More Theme Packs" },
           { "aspController", "Theme" },
           { "aspActionListing", nameof(ThemeController.ThemePackListingPage) },
           { "aspActionDetail", nameof(ThemeController.ThemeDetailPage) },

@@ -1,7 +1,7 @@
 ```json
 #metadata
 {
-  "Title": "Command line utilities",
+  "Title": "Command Line Utilities",
   "Description": "ImageGlass provides a Command Line Interface designed to empower users with a set of tools for seamless management and interaction.",
   "Keywords": ["imageglass command line", "igcmd.exe"]
 }
@@ -9,18 +9,18 @@
 ```
 
 
-# Command line utilities
+# Command Line Utilities
 ImageGlass provides a Command Line Interface designed to empower users with a set of tools for seamless management and interaction.
 
 
-## Command lines for `ImageGlass.exe`
+## Command Lines for `ImageGlass.exe`
 ImageGlass supports passing settings as command-line arguments. Each command must begin with a `/`. For instance: Open `C:\my photos\sky.jpg` file without the toolbar and gallery, and with an Acrylic backdrop
 ```bash
 ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop="Acrylic" "C:\my photos\sky.jpg"
 ```
 
 
-## Command lines for `igcmd.exe`
+## Command Lines for `igcmd.exe`
 Take advantage of `igcmd.exe` to access a range of additional features. Explore the following command-line options:
 
 ### 1. `set-wallpaper <string imgPath> [int style]`

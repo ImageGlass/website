@@ -1,23 +1,23 @@
 ```json
 #metadata
 {
-  "Title": "Configuration files",
+  "Title": "Configuration Files",
   "Description": "Learn how to manage ImageGlass using configuration files, defining presets, and even locking specific settings during installation.",
   "Keywords": ["imageglass config files", "imageglass deploy"]
 }
 #metadata
 ```
 
-# Configuration files
+# Configuration Files
 Learn how to manage ImageGlass using configuration files, defining presets, and even locking specific settings during installation.
 
-## Configuration directories
+## Configuration Directories
 When dealing with the working directories in ImageGlass, it's essential to understand two key phrases:
 - **Startup directory (Startup Dir)**: This directory is where ImageGlass.exe is located, also known as the installation directory. For example: `C:\Program Files\ImageGlass\`.
 - **Configuration directory (Config Dir)**: This directory houses the ImageGlass settings file (igconfig.json) and other related files. It's typically located in `%LocalAppData%\ImageGlass\`. In portable mode, the Config Dir is the same as the Startup Dir. If ImageGlass lacks write permissions in the Startup Dir, it will use `%LocalAppData%\ImageGlass\` instead.
 
 
-## Manage ImageGlass using configuration files
+## Manage ImageGlass Using Configuration Files
 ImageGlass recognizes three distinct configuration files, which are loaded in the following sequence:
 
 - `igconfig.default.json`: Located in the Startup Dir, this file specifies default settings that are used if no other settings are available upon the initial launch.

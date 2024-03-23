@@ -2,16 +2,17 @@
 [data-page="support"] {
   .section-community-support {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 
     a {
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
-      max-width: 25rem;
+      padding: 1rem 0.5rem;
+      width: 15rem;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       white-space: normal;
+      text-align: center;
+      gap: 0.5rem;
 
       .support-description {
         font-size: var(--fs-5);
@@ -19,6 +20,14 @@
         line-height: 1.5;
         opacity: 0.65;
         margin-top: 0.25rem;
+      }
+
+      .svg-black {
+        filter: invert(1);
+
+        @media screen and (prefers-color-scheme: light) {
+          filter: invert(0);
+        }
       }
     }
   }
