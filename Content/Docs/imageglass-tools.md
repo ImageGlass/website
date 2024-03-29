@@ -57,7 +57,7 @@ Now you have created an app that connects and handles events from ImageGlass. Yo
 ## Add Your Tool to ImageGlass
 You can integrate external apps as ImageGlass Tools and assign hotkeys for them in ImageGlass 9. These tools will appear under the Tools menu. To achieve this, you can use the app settings UI or directly edit the user config file (`igconfig.json`).
 
-### Using App Settings UI
+### Method 1: Using App Settings UI
 - Open ImageGlass Settings and click on the "Tools" tab.
 - Click the "Add..." button to add a new tool.
 - Fill in all the fields accordingly.
@@ -67,7 +67,7 @@ You can integrate external apps as ImageGlass Tools and assign hotkeys for them 
 - Click the "OK" button to close the dialog, and then click "OK" or "Apply" to save the changes.
 ![Use ImageGlass setting to add external tool](https://github.com/d2phap/ImageGlass/assets/3154213/d8d4d903-6407-41ed-9199-c5bcb2c3242d)
 
-### Editing The User Config Dile (`igconfig.json`)
+### Method 2: Editing The User Config File (`igconfig.json`)
 1. Make sure the ImageGlass app is not running.
 2. Open the `igconfig.json` file with a text editor such as Notepad or VS Code.
 3. In the `Tools` section of the `igconfig.json` file, add the following code:
