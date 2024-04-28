@@ -16,11 +16,12 @@ public class ReleaseController : BaseController
 
 
     [HttpGet("download")]
-    public async Task<IActionResult> Download(int? page)
+    public async Task<IActionResult> Download()
     {
-        var releaseList = await _context.QueryReleaseModels(1, releaseChannel: ReleaseChannel.Stable);
+        var releaseList = await _context.QueryReleaseModels(10, releaseChannel: ReleaseChannel.Stable);
+        var latestStableRelease = releaseList.FirstOrDefault(i => !i.Version.StartsWith('8'));
 
-        if (releaseList.FirstOrDefault() is ReleaseModel latestStableRelease)
+        if (latestStableRelease != null)
         {
             return RedirectToAction(nameof(ReleaseDetailPage), new { slugId = latestStableRelease.SlugAndId });
         }
