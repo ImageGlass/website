@@ -29,6 +29,47 @@ public class UrlController : BaseController
         using var httpClient = new HttpClient();
         var jsonStr = await httpClient.GetStringAsync(updateInfoJsonUrl);
 
+        // get the source version
+        _ = Request.Query.TryGetValue("version", out var paramVersions);
+        var fromVersion = paramVersions.FirstOrDefault();
+        if (!string.IsNullOrWhiteSpace(fromVersion))
+        {
+            var srcVersion = new Version(fromVersion);
+
+            // only update v8.11- to v8.12
+            if (srcVersion < new Version("8.12"))
+            {
+                jsonStr = """
+                {
+                    "apiVersion": 1.1,
+                    "releases": {
+                        "kobe": {
+                            "version": "8.12.4.30",
+                            "title": "ImageGlass 8.12 Update - The Last ImageGlass 8",
+                            "description": "Small & the last update for version 8. It's recommended to switch to ImageGlass 9 to access the latest features and improvements.",
+                            "changelogUrl": "https://imageglass.org/news/announcing-imageglass-8-12-the-last-imageglass-8-90",
+                            "publishedDate": "2024/04/28 23:12:11"
+                        },
+                        "moon": {
+                            "version": "8.12.4.30",
+                            "title": "ImageGlass 8.12 Update - The Last ImageGlass 8",
+                            "description": "Small & the last update for version 8. It's recommended to switch to ImageGlass 9 to access the latest features and improvements.",
+                            "changelogUrl": "https://imageglass.org/news/announcing-imageglass-8-12-the-last-imageglass-8-90",
+                            "publishedDate": "2024/04/28 23:12:11"
+                        },
+                        "spider": {
+                            "version": "8.12.4.30",
+                            "title": "ImageGlass 8.12 Update - The Last ImageGlass 8",
+                            "description": "Small & the last update for version 8. It's recommended to switch to ImageGlass 9 to access the latest features and improvements.",
+                            "changelogUrl": "https://imageglass.org/news/announcing-imageglass-8-12-the-last-imageglass-8-90",
+                            "publishedDate": "2024/04/28 23:12:11"
+                        }
+                    }
+                }
+                """;
+            }
+        }
+
         return Content(jsonStr, "application/json", Encoding.UTF8);
     }
 
