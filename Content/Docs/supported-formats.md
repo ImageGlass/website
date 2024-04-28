@@ -15,7 +15,7 @@ ImageGlass provides support for a wide range of common image formats, courtesy o
 | -- | -- | -- | -- |
 | ai | 🟢 |   | Required [Ghostscript](https://ghostscript.com/download/gsdnld.html) installed |
 | apng | 🟢 |   |   |
-| avif | 🟢 |   |   |
+| avif | 🟢 | 🟢 |   |
 | b64 | 🟢 | 🟢 | Base-64 text file |
 | bmp | 🟢 | 🟢 |   |
 | bpg | 🟢 |   | Required [BPG tools for Windows](https://bellard.org/bpg/) installed |
