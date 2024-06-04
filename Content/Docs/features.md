@@ -54,11 +54,13 @@ Primarily a photo viewer, ImageGlass offers a wide array of features geared towa
 - Supports viewing image information and EXIF metadata (using ExifGlass tool).
 - Offers diverse sorting options for images, including File Explorer's sort order (with certain limitations).
 - Supports color management.
+- Supports viewing one or more color channels simultaneously.
 
 
 ### Editing Features
 While ImageGlass primarily serves as an image viewer, it can open external associated apps for more advanced editing capabilities. There are numerous excellent software options available for in-depth image editing. ImageGlass includes some basic editing features, such as:
 - Support for rotating, flipping, and cropping the viewed image.
+- Support for lossless compression (since version 9.1). 
 - Seamless association with third-party apps for extensive editing.
 
 
@@ -74,11 +76,11 @@ While ImageGlass primarily serves as an image viewer, it can open external assoc
 
 
 ## Limitations
-- **Maximum image dimensions**: The maximum image dimension that ImageGlass can natively open is 16,380 x 16,380 pixels. For larger images, they will be scaled down to fit within these dimensions.
+- **Maximum image dimensions**: The maximum image dimension that ImageGlass can natively open is 16,384 x 16,384 pixels. For larger images, they will be scaled down to fit within these dimensions.
 - **SVG viewing**: By default, ImageGlass uses WebView2 to view scalable SVG files.
   + Some features are unavailable when using WebView2, including Rotation, Flipping, Color picker, Cropping, Page navigation, Copy image data, Print, Set as Desktop/Lock screen, View image channels, Export image frames, and more.
   + You can switch back to the native engine by unchecking the option **"Use WebView2 for viewing SVG format"** in the app settings.
 - **Window backdrop**: The window backdrop setting only works on Windows 11.
 - **File Explorer sort order**: ImageGlass can detect and follow the File Explorer's sort order if
   + The folder window is open.
-  + The sort order is by name, file extension, or file size.
+  + The sort order is by name, file extension, file size, or EXIF rating (since version 9.1).

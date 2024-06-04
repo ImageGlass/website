@@ -84,11 +84,13 @@
 <li>Supports viewing image information and EXIF metadata (using ExifGlass tool).</li>
 <li>Offers diverse sorting options for images, including File Explorer's sort order (with certain limitations).</li>
 <li>Supports color management.</li>
+<li>Supports viewing one or more color channels simultaneously.</li>
 </ul>
 <h3 id="editing-features">Editing Features</h3>
 <p>While ImageGlass primarily serves as an image viewer, it can open external associated apps for more advanced editing capabilities. There are numerous excellent software options available for in-depth image editing. ImageGlass includes some basic editing features, such as:</p>
 <ul>
 <li>Support for rotating, flipping, and cropping the viewed image.</li>
+<li>Support for lossless compression (since version 9.1).</li>
 <li>Seamless association with third-party apps for extensive editing.</li>
 </ul>
 <h3 id="other-features">Other Features</h3>
@@ -104,7 +106,7 @@
 </ul>
 <h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>Maximum image dimensions</strong>: The maximum image dimension that ImageGlass can natively open is 16,380 x 16,380 pixels. For larger images, they will be scaled down to fit within these dimensions.</li>
+<li><strong>Maximum image dimensions</strong>: The maximum image dimension that ImageGlass can natively open is 16,384 x 16,384 pixels. For larger images, they will be scaled down to fit within these dimensions.</li>
 <li><strong>SVG viewing</strong>: By default, ImageGlass uses WebView2 to view scalable SVG files.
 <ul>
 <li>Some features are unavailable when using WebView2, including Rotation, Flipping, Color picker, Cropping, Page navigation, Copy image data, Print, Set as Desktop/Lock screen, View image channels, Export image frames, and more.</li>
@@ -115,7 +117,7 @@
 <li><strong>File Explorer sort order</strong>: ImageGlass can detect and follow the File Explorer's sort order if
 <ul>
 <li>The folder window is open.</li>
-<li>The sort order is by name, file extension, or file size.</li>
+<li>The sort order is by name, file extension, file size, or EXIF rating (since version 9.1).</li>
 </ul>
 </li>
 </ul>

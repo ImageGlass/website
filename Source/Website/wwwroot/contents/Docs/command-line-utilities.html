@@ -12,6 +12,7 @@
 <p>ImageGlass supports passing settings as command-line arguments. Each command must begin with a <code>/</code>. For instance: Open <code>C:\my photos\sky.jpg</code> file without the toolbar and gallery, and with an Acrylic backdrop</p>
 <pre><code class="language-bash">ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop=&quot;Acrylic&quot; &quot;C:\my photos\sky.jpg&quot;
 </code></pre>
+<p>Since version 9.1, passing <code>--startup-boost</code> argument to run ImageGlass in Startup Boost mode.</p>
 <h2 id="command-lines-for-igcmd.exe">Command Lines for <code>igcmd.exe</code></h2>
 <p>Take advantage of <code>igcmd.exe</code> to access a range of additional features. Explore the following command-line options:</p>
 <h3 id="set-wallpaper-string-imgpath-int-style">1. <code>set-wallpaper &lt;string imgPath&gt; [int style]</code></h3>
@@ -55,4 +56,12 @@
 <h3 id="uninstall-theme-string-filepath">10. <code>uninstall-theme &lt;string filePath&gt;</code></h3>
 <p>Uninstall a specific theme pack. For instance:</p>
 <pre><code class="language-bash">igcmd.exe uninstall-theme &quot;C:\themes\Green-gradient.Duong-Dieu-Phap.igtheme&quot;
+</code></pre>
+<h3 id="set-startup-boost">11. <code>set-startup-boost</code></h3>
+<p>Enable Startup Boost mode, required version 9.1+. For instance:</p>
+<pre><code class="language-bash">igcmd.exe set-startup-boost
+</code></pre>
+<h3 id="remove-startup-boost">12. <code>remove-startup-boost</code></h3>
+<p>Disable Startup Boost mode, required version 9.1+. For instance:</p>
+<pre><code class="language-bash">igcmd.exe remove-startup-boost
 </code></pre>

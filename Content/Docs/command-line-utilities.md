@@ -19,6 +19,8 @@ ImageGlass supports passing settings as command-line arguments. Each command mus
 ImageGlass.exe /ShowToolbar=false /ShowGallery=false /WindowBackdrop="Acrylic" "C:\my photos\sky.jpg"
 ```
 
+Since version 9.1, passing `--startup-boost` argument to run ImageGlass in Startup Boost mode.
+
 
 ## Command Lines for `igcmd.exe`
 Take advantage of `igcmd.exe` to access a range of additional features. Explore the following command-line options:
@@ -94,4 +96,16 @@ igcmd.exe install-themes "C:\themes\Kobe.Duong-Dieu-Phap.igtheme" "C:\themes\Gre
 Uninstall a specific theme pack. For instance:
 ```bash
 igcmd.exe uninstall-theme "C:\themes\Green-gradient.Duong-Dieu-Phap.igtheme"
+```
+
+### 11. `set-startup-boost`
+Enable Startup Boost mode, required version 9.1+. For instance:
+```bash
+igcmd.exe set-startup-boost
+```
+
+### 12. `remove-startup-boost`
+Disable Startup Boost mode, required version 9.1+. For instance:
+```bash
+igcmd.exe remove-startup-boost
 ```
