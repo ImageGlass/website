@@ -1,6 +1,15 @@
 ﻿<h1 id="announcing-imageglass-8.5">Announcing ImageGlass 8.5</h1>
 <p><img src="https://github.com/ImageGlass/config/blob/main/screenshots/v8.5/8.5_1.jpg?raw=true" alt="ImageGlass 8.5" /></p>
 <p>ImageGlass 8.5 supports QOI image format, fixes bugs and improves startup time.</p>
+<h2 id="vulnerability-report">⚠️ Vulnerability Report</h2>
+<div class="box box-danger mb-3">
+<ul>
+<li>Severity: Hight 8.8/10</li>
+<li>Name: <a href="https://github.com/advisories/GHSA-j7hp-h8jx-5ppr" target="_blank" ref="noopener nofollow">CVE-2023-4863 | libwebp: OOB write in BuildHuffmanTable</a></li>
+<li>Affected versions: v8.8 or below</li>
+</ul>
+<p>ImageGlass 8 is end of life, there is no public updates or patches released to address it. You may opt for the <a href="https://imageglass.org/support">Paid Support Service</a> for a fee, or upgrade to ImageGlass 9 (free).</p>
+</div>
 <h2 id="qoi-image-format">QOI image format</h2>
 <p>ImageGlass supports QOI image format thanks to Magick.NET 8.6. If you're upgrading from the older version, you can manually add <code>.qoi</code> extension to the supported list in Settings &gt; File type associations.</p>
 <h2 id="stability-improvement">Stability improvement</h2>
