@@ -46,21 +46,21 @@ public class UrlController : BaseController
                         "kobe": {
                             "version": "8.12.4.30",
                             "title": "ImageGlass 8.12 - The Last ImageGlass 8",
-                            "description": "The last public update for version 8.\r\n\r\n[WARNING] Vulnerability Report:\r\n- Severity: Hight 7.5/10\r\n- Name: Microsoft Security Advisory CVE-2024-30105 | .NET Denial of Service Vulnerability\r\n- Affected versions: v8.12.4.30 or below\r\n\r\nImageGlass 8 is end of life, no public updates or patches released to address this. You may opt for the Paid Support Service for a fee, or upgrade to ImageGlass 9 (free).",
+                            "description": "The last public update for version 8.\r\n\r\n[WARNING] Vulnerability Report:\r\n- Severity: High 7.5/10\r\n- Name: Microsoft Security Advisory CVE-2024-30105 | .NET Denial of Service Vulnerability\r\n- Affected versions: v8.12.4.30 or below\r\n\r\nImageGlass 8 is end of life, no public updates or patches released to address this. You may opt for the Paid Support Service for a fee, or upgrade to ImageGlass 9 (free).",
                             "changelogUrl": "https://imageglass.org/news/announcing-imageglass-8-12-the-last-imageglass-8-90",
                             "publishedDate": "2024/04/28 23:12:11"
                         },
                         "moon": {
                             "version": "8.12.4.30",
                             "title": "ImageGlass 8.12 - The Last ImageGlass 8",
-                            "description": "The last public update for version 8.\r\n\r\n[WARNING] Vulnerability Report:\r\n- Severity: Hight 7.5/10\r\n- Name: Microsoft Security Advisory CVE-2024-30105 | .NET Denial of Service Vulnerability\r\n- Affected versions: v8.12.4.30 or below\r\n\r\nImageGlass 8 is end of life, no public updates or patches released to address this. You may opt for the Paid Support Service for a fee, or upgrade to ImageGlass 9 (free).",
+                            "description": "The last public update for version 8.\r\n\r\n[WARNING] Vulnerability Report:\r\n- Severity: High 7.5/10\r\n- Name: Microsoft Security Advisory CVE-2024-30105 | .NET Denial of Service Vulnerability\r\n- Affected versions: v8.12.4.30 or below\r\n\r\nImageGlass 8 is end of life, no public updates or patches released to address this. You may opt for the Paid Support Service for a fee, or upgrade to ImageGlass 9 (free).",
                             "changelogUrl": "https://imageglass.org/news/announcing-imageglass-8-12-the-last-imageglass-8-90",
                             "publishedDate": "2024/04/28 23:12:11"
                         },
                         "spider": {
                             "version": "8.12.4.30",
                             "title": "ImageGlass 8.12 - The Last ImageGlass 8",
-                            "description": "The last public update for version 8.\r\n\r\n[WARNING] Vulnerability Report:\r\n- Severity: Hight 7.5/10\r\n- Name: Microsoft Security Advisory CVE-2024-30105 | .NET Denial of Service Vulnerability\r\n- Affected versions: v8.12.4.30 or below\r\n\r\nImageGlass 8 is end of life, no public updates or patches released to address this. You may opt for the Paid Support Service for a fee, or upgrade to ImageGlass 9 (free).",
+                            "description": "The last public update for version 8.\r\n\r\n[WARNING] Vulnerability Report:\r\n- Severity: High 7.5/10\r\n- Name: Microsoft Security Advisory CVE-2024-30105 | .NET Denial of Service Vulnerability\r\n- Affected versions: v8.12.4.30 or below\r\n\r\nImageGlass 8 is end of life, no public updates or patches released to address this. You may opt for the Paid Support Service for a fee, or upgrade to ImageGlass 9 (free).",
                             "changelogUrl": "https://imageglass.org/news/announcing-imageglass-8-12-the-last-imageglass-8-90",
                             "publishedDate": "2024/04/28 23:12:11"
                         }
