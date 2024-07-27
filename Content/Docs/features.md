@@ -19,14 +19,15 @@ ImageGlass offers two distinct versions: ImageGlass Classic and ImageGlass Store
 
 Here's a comparison to help you choose the right version for your needs.
 
-| Feature | ImageGlass Classic | ImageGlass Store |
+|  | ImageGlass Classic | [ImageGlass Store](https://apps.microsoft.com/detail/9N33VZK3C7TH?launch=true&cid=GitHubRelease&mode=full) | 
 | -- | -- | -- |
-| All features | **Yes** | **Yes** |
-| Theme, extension icon customization | **Yes** | **Yes** |
-| Price | Free | 7-day trial |
-| Commercial use | Free, recommended to [register](https://imageglass.org/license) | **Yes** |
-| Distribution | [ImageGlass.org](https://imageglass.org) | [Microsoft Store](https://www.microsoft.com/store/productId/9N33VZK3C7TH?ocid=pdpshare)
-| Auto-update | No,<br/>User self-managed | **Yes**,<br/>Seamless auto-update |
+| [All features](https://imageglass.org/docs/features), <br/>including Explorer sort order | ✅ | ✅ |
+| [Advanced configs<br/>for Power users](https://imageglass.org/docs/app-configs) | ✅ | ✅ |
+| Distribution | 🌐 [ImageGlass.org](https://imageglass.org) and various sources | 🛍️ [Microsoft Store](https://apps.microsoft.com/detail/9N33VZK3C7TH?launch=true&cid=GitHubRelease&mode=full) only |
+| Price | 🆓 Free | 🪙 Fee, with a 7-day trial |
+| Commercial use | ✅, Recommended to [register](https://imageglass.org/license) | ✅ |
+| Auto-update | ❌, User-managed | ✅, Seamless auto-updates |
+| Hotfix update | ❌, Available in official releases only | ✅, Available as soon as they are fixed |
 
 
 ## Key Features

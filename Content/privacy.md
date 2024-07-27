@@ -1,23 +1,29 @@
 # Privacy information
-Our privacy information covers two distinct entities: the software that is installed onto your computer, and this website. Please be noted that this privacy information may be updated without notice.
+This Privacy Policy applies to two entities: the ImageGlass software and this website. Please note that this policy may be updated without prior notice.
 
-*Last update: Jan 22th, 2022*
+*Last update: July 27th, 2024*
 
 
 ## Software
-There are currently two (2) releases of ImageGlass: "Microsoft Store" and "Classic". The Microsoft Store release is available on Microsoft Store while the Classic release is downloadable from this website.
+There are two versions of ImageGlass: the "Microsoft Store" version and the "Classic" version. The Microsoft Store version is available on the Microsoft Store, while the Classic version can be downloaded from this website.
 
-Both releases of ImageGlass will anonymously append a query string when you open a link from the software to this website. This allows us to count how many installations there are for each version of ImageGlass, and how many install/update attempts were successful or not.
+### Data Collection and Transmission
+ImageGlass software does not collect or transmit any personal information. The only data transmission occurs during update checks, which involve downloading a small file from the website. This process is anonymous and can be disabled in the Settings dialog.
 
+Additionally, when you open a link from the software to this website, ImageGlass appends an anonymous query string to the URL. This helps us display website content tailored to your software version.
 
 ::: { .ps-3 }
-### Microsoft Store release
-ImageGlass, as a software, does not, in any way, collect or transmit any personal information. In fact, no information (personal or not) is ever collected or transmitted except as described in the above paragraph for the purpose of checking for and installing updates.
+#### Classic version
+The Classic version of ImageGlass does not collect any information beyond what is mentioned above.
 
-### Classic release
-ImageGlass, as a software, periodically checks for updates. This is done by downloading a small file from the website and is anonymous. You can disable this from the Settings dialog.
+#### Microsoft Store version
+The Microsoft Store version of ImageGlass does not collect any information directly. However, Microsoft may collect certain information anonymously as part of their store services.
 :::
 
 
 ## Website
-This site is monetized with Carbon Ads. They may use cookies to collect information in the course of ads being served on this website. They may use information about your visits to this and other websites in order to provide advertisements about goods and services deemed to possibly be of interest to you.
+This website utilizes third-party services, including Carbon Ads and Google Analytics, for monetization and traffic analysis.
+- Carbon Ads: Carbon Ads may use cookies to collect information during ad delivery. This information may include details about your visits to this and other websites, which helps provide advertisements that may be relevant to your interests.
+- Google Analytics: Google Analytics tracks and reports website traffic to help us understand how visitors interact with our site. This service may also use cookies to collect information about your use of the website, including your IP address and browsing behavior.
+
+These third-party services are governed by their own privacy policies, which you can review for more detailed information on their data practices.
