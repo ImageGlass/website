@@ -37,7 +37,7 @@ public static class Helper
                 var attrs = link.GetAttributes();
 
                 attrs.AddPropertyIfNotExist("target", "_blank");
-                attrs.AddPropertyIfNotExist("ref", "noopener nofollow");
+                attrs.AddPropertyIfNotExist("rel", "noopener nofollow");
             }
         }
 
@@ -50,7 +50,7 @@ public static class Helper
                 var attrs = link.GetAttributes();
 
                 attrs.AddPropertyIfNotExist("target", "_blank");
-                attrs.AddPropertyIfNotExist("ref", "noopener nofollow");
+                attrs.AddPropertyIfNotExist("rel", "noopener nofollow");
             }
         }
 
