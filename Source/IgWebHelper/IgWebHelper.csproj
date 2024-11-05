@@ -9,7 +9,7 @@
 
 
     <ItemGroup>
-        <PackageReference Include="Markdig.Signed" Version="0.37.0" />
+        <PackageReference Include="Markdig.Signed" Version="0.38.0" />
     </ItemGroup>
 
 

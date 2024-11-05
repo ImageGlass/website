@@ -25,6 +25,9 @@
           <li class="nav-item @(_page.StartsWith("news") ? "nav-item--active" : "")">
             <a asp-controller="News" asp-action="AllNewsListingPage">News</a>
           </li>
+          <li class="nav-item">
+            <a href="https://d2phap.medium.com" target="_blank" rel="nofollow noopener noreferrer">Blog</a>
+          </li>
 
           <li class="nav-item nav-submenu @(_page.StartsWith("download") ? "nav-item--active" : "")">
             <a asp-controller="Release" asp-action="Download">Download</a>
