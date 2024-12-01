@@ -9,7 +9,7 @@
 ```
 
 # ImageGlass Features
-ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 80 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.
+ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 85 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.
 
 
 ## Difference Between ImageGlass Classic and Store Release
@@ -25,9 +25,9 @@ Here's a comparison to help you choose the right version for your needs.
 | [Advanced configs<br/>for Power users](https://imageglass.org/docs/app-configs) | ✅ | ✅ |
 | Distribution | 🌐 [ImageGlass.org](https://imageglass.org) and various sources | 🛍️ [Microsoft Store](https://apps.microsoft.com/detail/9N33VZK3C7TH?launch=true&cid=GitHubRelease&mode=full) only |
 | Price | 🆓 Free | 🪙 Fee, with a 7-day trial |
-| Commercial use | ✅, Recommended to [register](https://imageglass.org/license) | ✅ |
-| Auto-update | ❌, User-managed | ✅, Seamless auto-updates |
-| Hotfix update | ❌, Available in official releases only | ✅, Available as soon as they are fixed |
+| Commercial use | ✅ Recommended to [register](https://imageglass.org/license) | ✅ |
+| Auto-update | ❌ User-managed | ✅ Seamless auto-updates |
+| Hotfix update | ❌ Available in official releases only | ✅ Available as soon as they are fixed |
 
 
 ## Key Features
@@ -62,6 +62,7 @@ Primarily a photo viewer, ImageGlass offers a wide array of features geared towa
 While ImageGlass primarily serves as an image viewer, it can open external associated apps for more advanced editing capabilities. There are numerous excellent software options available for in-depth image editing. ImageGlass includes some basic editing features, such as:
 - Support for rotating, flipping, and cropping the viewed image.
 - Support for lossless compression (since version 9.1). 
+- Support for resizing image (since versiom 9.2).
 - Seamless association with third-party apps for extensive editing.
 
 
@@ -77,7 +78,7 @@ While ImageGlass primarily serves as an image viewer, it can open external assoc
 
 
 ## Limitations
-- **Maximum image dimensions**: The maximum image dimension that ImageGlass can natively open is 16,384 x 16,384 pixels. For larger images, they will be scaled down to fit within these dimensions.
+- **Maximum image dimensions**: The maximum image dimension that ImageGlass can natively open is 16,384 x 16,384 pixels. Since version 9.2, for larger images, they will be displayed in full resolution using Direct2D Software Rendering.
 - **SVG viewing**: By default, ImageGlass uses WebView2 to view scalable SVG files.
   + Some features are unavailable when using WebView2, including Rotation, Flipping, Color picker, Cropping, Page navigation, Copy image data, Print, Set as Desktop/Lock screen, View image channels, Export image frames, and more.
   + You can switch back to the native engine by unchecking the option **"Use WebView2 for viewing SVG format"** in the app settings.
