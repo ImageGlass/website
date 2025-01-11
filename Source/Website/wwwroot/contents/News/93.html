@@ -1,0 +1,54 @@
+﻿<h1 id="announcing-imageglass-9.2-maroon-4">Announcing ImageGlass 9.2 - Maroon 4</h1>
+<p>We're excited to unveil ImageGlass 9.2, a major release filled with new features, enhancements, and updates to elevate your image viewing and editing experience.</p>
+<p>Please support this project by <a href="https://github.com/sponsors/d2phap" target="_blank" rel="noopener nofollow">making a donation</a> or purchasing from Microsoft Store:</p>
+<p>##IMAGEGLASS_STORE##</p>
+<h2 id="whats-new-in-imageglass-9.2">What's New in ImageGlass 9.2</h2>
+<h3 id="new-resize-image-tool">New Resize Image Tool</h3>
+<p>One of the most-requested features is finally here! The new <strong>Resize Image</strong> tool lets you scale images up to 16,384 pixels using the robust <a href="https://photosauce.net" target="_blank" rel="noopener nofollow">PhotoSauce.MagicScaler</a> library. You can select from a variety of resampling methods to ensure the perfect balance between image quality and performance.</p>
+<p><img src="https://github.com/user-attachments/assets/99e24035-8c07-40dc-bef3-85ba8a127455" alt="ImageGlass Resize Tool" /></p>
+<p>How to access:</p>
+<ul>
+<li>Go to <em>Main Menu &gt; Tools &gt; Resize Image</em></li>
+<li>Use the shortcut: <kbd>Alt+R</kbd></li>
+</ul>
+<p><strong>Note</strong>: Like other editing tools, resized images are saved without metadata (e.g., EXIF data).</p>
+<h3 id="crop-image-tool-2.0-pixel-level-precision">Crop Image Tool 2.0: Pixel-Level Precision</h3>
+<p>User feedback has been central to this upgrade. The revamped <strong>Crop Image</strong> tool brings pixel-level precision while making the interface more intuitive and responsive.</p>
+<p><img src="https://github.com/user-attachments/assets/e327fd60-461e-41d0-83fc-5abd84cfea8c" alt="ImageGlass Crop Tool" /></p>
+<p>Improvements include:</p>
+<ul>
+<li>Cursor updates for better clarity while cropping.</li>
+<li>Cropping selections align exactly with the image source.</li>
+<li>Zooming and panning won't disrupt your selection.</li>
+<li>Selection areas can now be resized from any edge or corner.</li>
+<li>Snap-to-pixel precision for fine control over cropping boundaries.</li>
+<li>Selections remain active even when clicking outside them.</li>
+<li>Default selections respect aspect ratios and crop settings.</li>
+</ul>
+<h3 id="webview2-runtime-now-optional">WebView2 Runtime: Now Optional</h3>
+<p>With ImageGlass 9.2, the WebView2 Runtime is now an optional feature. If it's not installed, ImageGlass will bypass the <strong>Quick Setup</strong> dialog and notify you with a warning popup, complete with a download link for missing components.</p>
+<p>This change gives you more flexibility, especially in environments where WebView2 isn't available or needed.</p>
+<p><strong>Note</strong>: Without WebView2 Runtime, certain features (e.g., Settings window, SVG rasterization,...) are unavailable.</p>
+<h3 id="support-for-larger-image-dimensions">Support for Larger Image Dimensions</h3>
+<p>ImageGlass now supports images larger than 16,384 pixels by leveraging Direct2D Software Rendering. Unlike previous versions that automatically scaled down large images, version 9.2 allows you to view these files in their full resolution, preserving every detail.</p>
+<h3 id="enhanced-custom-actions">Enhanced Custom Actions</h3>
+<p>In ImageGlass, you can create a custom action and assign it to a toolbar button or a tool in Tools menu.</p>
+<p>New capabilities include:</p>
+<ul>
+<li>Use app protocols (e.g., <code>ms-photos:viewer?fileName=&lt;file&gt;</code>) to integrate other apps seamlessly.</li>
+<li>Assign hotkeys to custom toolbar buttons for quicker access.</li>
+</ul>
+<p><strong>New API</strong>: The <code>IG_ApplySettings(string json)</code> API enables you to apply settings directly from a JSON configuration, making it easier to tweak and apply preferences programmatically.</p>
+<p><img src="https://github.com/user-attachments/assets/a05ebaf6-251b-4e8d-9d19-08e92d04b6f0" alt="ImageGlass custom toolbar button" /></p>
+<h3 id="other-improvements">Other Improvements</h3>
+<p>We've made several enhancements to improve your experience:</p>
+<ul>
+<li>Auto-sorts new images based on current sort order.</li>
+<li>Slideshow intervals now support less than 1 second.</li>
+<li>Added custom zoom for slideshows.</li>
+</ul>
+<p>This version also includes bug fixes, such as improved hotkey support for non-English languages.</p>
+<h2 id="get-the-update-now">Get the update now!</h2>
+<p>Please be cautious of scams and only download ImageGlass from our official website. We highly recommend against downloading ImageGlass from any other source to avoid potential security risks. Additionally, if you encounter any bugs, have suggestions, or would like to provide feedback, please use our <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" rel="noopener nofollow">Issues tracker</a>.</p>
+<p><a href="https://imageglass.org/release/imageglass-9-2-0-1208-56" class="btn btn-accent">Download ImageGlass 9.2</a></p>
+<p>For the complete changes see the <a href="https://github.com/d2phap/ImageGlass/releases/tag/9.2.0.1208" target="_blank" rel="noopener nofollow">changelog</a>.</p>
