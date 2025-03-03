@@ -12,7 +12,7 @@
       9.
       <br />
       If you want to integrate your software with ImageGlass, you can check out at
-      <a asp-controller="Docs" asp-action="DocsPage" asp-route-slug="imageglass-tools">Docs / ImageGlass Tools</a>.
+      <a asp-controller="Docs" asp-action="DocsPage" asp-route-slug="imageglass-tools">Docs > ImageGlass Tools</a>.
     </div>
   </div>
 </div>
@@ -75,7 +75,7 @@
         <div>
           Refer to
           <a asp-controller="Docs" asp-action="DocsPage" asp-route-slug="imageglass-tools" asp-fragment="add-your-tool-to-imageglass">
-            Docs / ImageGlass Tools / Add Your Tool to ImageGlass
+            Docs > ImageGlass Tools > Add Your Tool to ImageGlass
           </a>.
         </div>
       </section>
@@ -92,9 +92,8 @@
 
     <div class="col-12 col-lg-4 mb-5 mt-0 mt-lg-5 pt-4 aniSlideUp ani-delay-50">
       <aside class="sidebar">
-        <section class="sidebar-item">
-          @await Html.PartialAsync("_Ads")
-        </section>
+        @await Html.PartialAsync("_Ads")
+        @await Html.PartialAsync("_AdsCarbon")
 
 
         @* News listing *@

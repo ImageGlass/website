@@ -27,12 +27,6 @@
     flex-direction: column;
   }
 
-  .home-featured-title {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25em;
-  }
-
   .home-featured-image {
     max-width: 50%;
     max-height: 100%;
@@ -118,10 +112,6 @@
     justify-content: center;
     gap: 5vw;
     width: 100%;
-  }
-
-  .section-quang-cao {
-    backdrop-filter: var(--backdrop);
   }
 
   .svg-bg {

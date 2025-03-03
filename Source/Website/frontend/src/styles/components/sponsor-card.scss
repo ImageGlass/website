@@ -61,6 +61,29 @@
       transition: all ease 100ms;
     }
   }
+
+
+  &.card-style--0 {
+    padding: 0;
+    max-width: 400px;
+
+    .card-image {
+      flex-basis: 130px;
+      height: 100px;
+    }
+
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 0.875rem;
+      padding-right: 0.5rem;
+    }
+
+    &:hover {
+      transform: none;
+    }
+  }
 }
 
 

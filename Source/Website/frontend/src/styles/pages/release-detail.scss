@@ -30,5 +30,16 @@
         }
       }
     }
+
+
+    .external-downloads {
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      column-gap: 0.5rem;
+
+      .col-download-source {
+        text-wrap: nowrap;
+      }
+    }
   }
 }

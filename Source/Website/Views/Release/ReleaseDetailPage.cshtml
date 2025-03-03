@@ -36,7 +36,7 @@
               </span>
             </div>
 
-            <div class="sidebar-item section-quang-cao mt-5 mb-0 aniSlideUp ani-delay-100">
+            <div class="mt-5 aniSlideUp ani-delay-100">
               @await Html.PartialAsync("_Ads")
             </div>
           </div>
@@ -146,7 +146,7 @@
               <h3 class="my-0">ImageGlass Classic</h3>
             </div>
             <div class="popover-body">
-              <div class="mb-2">Select a release:</div>
+              <div class="mb-2">Direct links</div>
               <ul>
                 @foreach (var file in @Model.BinaryFiles)
                 {
@@ -164,6 +164,20 @@
                   </li>
                 }
               </ul>
+
+
+              <div class="mt-4 mb-2">From Package manager (maintained by community)</div>
+              <div class="external-downloads ms-3">
+                <div class="col-download-source">👉🏽 Winget</div>
+                <div><code>winget install -e --id DuongDieuPhap.ImageGlass</code></div>
+                <div class="col-download-source">
+                  👉🏽
+                  <a href="https://community.chocolatey.org/packages/imageglass" target="_blank" rel="noopener noreferrer">Chocolatey</a>
+                </div>
+                <div>
+                  <code>choco install imageglass</code>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -180,6 +194,8 @@
     @* Sidebar *@
     <div class="col-12 col-lg-4 my-5 aniSlideUp ani-delay-50">
       <aside class="sidebar">
+        @await Html.PartialAsync("_AdsCarbon")
+
         @* Release listing *@
         @await Html.PartialAsync("_SidebarList", list, new ViewDataDictionary(ViewData) {
           { "heading", "Other Releases" },

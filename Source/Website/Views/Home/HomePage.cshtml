@@ -11,9 +11,9 @@
     controllerAction = nameof(NewsController.NewsDetailPage);
   }
 
-  var starsCount = 8000;
-  var forksCount = 500;
-  var subscribersCount = 87;
+  var starsCount = 8800;
+  var forksCount = 532;
+  var subscribersCount = 89;
 
   if (int.TryParse(ViewData["_RepoStarsCount"]?.ToString(), out var gStarsCount))
   {
@@ -37,9 +37,11 @@
         <div class="fs-5 opacity-65 aniSlideDown">
           Introducing
         </div>
-        <h2 class="home-featured-title mt-0 aniSlideDown ani-delay-25">
-          <span class="fs-1 fw-500">@Model.Title</span>
-          <sup class="post-badge text-uppercase mt-2 mt-lg-0 fs-6">@Model.ReleaseChannel</sup>
+        <h2 class="home-featured-title fs-1 fw-500 mt-0 aniSlideDown ani-delay-25">
+          <span>@Model.Title</span>
+          <span>
+            <sup class="post-badge text-uppercase fs-6">@Model.ReleaseChannel</sup>
+          </span>
         </h2>
         <div class="aniSlideDown ani-delay-75">
           A lightweight, versatile image viewer
@@ -51,7 +53,7 @@
           </a>
         </div>
 
-        <div class="sidebar-item section-quang-cao mt-5 mb-0 aniSlideUp ani-delay-175">
+        <div class="mt-5 aniSlideUp ani-delay-175">
           @await Html.PartialAsync("_Ads")
         </div>
       </div>
@@ -148,7 +150,7 @@
 
     <ul class="repo-stats">
       <li>
-        <div class="number">5.5M+</div>
+        <div class="number">5.7M+</div>
         <div>Downloads</div>
       </li>
       <li>

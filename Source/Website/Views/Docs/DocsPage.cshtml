@@ -11,9 +11,7 @@
     @* Docs navigation *@
     <div class="col-12 col-lg-4 mb-5 mt-0 mt-lg-5 pt-3">
       <aside class="sidebar">
-        <section class="sidebar-item">
-          @await Html.PartialAsync("_Ads")
-        </section>
+        @await Html.PartialAsync("_Ads")
 
 
         @* Docs navigation *@
@@ -65,6 +63,10 @@
             </li>
           </ul>
         </section>
+
+
+        @await Html.PartialAsync("_AdsCarbon")
+
       </aside>
     </div>
 
