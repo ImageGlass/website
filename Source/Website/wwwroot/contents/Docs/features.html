@@ -65,7 +65,7 @@
 <p>Primarily a photo viewer, ImageGlass offers a wide array of features geared towards image viewing, with some limited editing capabilities.</p>
 <h3 id="viewing-features">Viewing Features</h3>
 <ul>
-<li>Supports wide range image formats, thanks to <a href="https://github.com/dlemstra/Magick.NET" target="_blank" rel="noopener nofollow">Magick.NET</a> integration. You can explore the list here: <a href="https://imageglass.org/docs/supported-formats">Docs / Supported formats</a>.</li>
+<li>Supports wide range image formats, thanks to <a href="https://github.com/dlemstra/Magick.NET" target="_blank" rel="noopener nofollow">Magick.NET</a> integration. You can explore the list here: <a href="https://imageglass.org/docs/supported-formats">Docs &gt; Supported formats</a>.</li>
 <li>Enables format conversion for up to 10 different formats.</li>
 <li>Allows various methods for opening images, including drag-and-drop, pasting from the clipboard (image data, image file, or image file path).</li>
 <li>Extends support for viewing animated formats, including GIF, WEBP, APNG, SVG (using WebView2).</li>
@@ -86,6 +86,7 @@
 <li>Features a slideshow view in a separate window with a countdown timer.</li>
 <li>Provides fast thumbnail previews, which can be displayed in the current viewing folder.</li>
 <li>Includes a built-in Color Picker tool with support for various color formats.</li>
+<li>Supports viewing embedded motion video from JPEG format (since version 9.3).</li>
 <li>Supports viewing image information and EXIF metadata (using ExifGlass tool).</li>
 <li>Offers diverse sorting options for images, including File Explorer's sort order (with certain limitations).</li>
 <li>Supports color management.</li>
@@ -112,7 +113,6 @@
 </ul>
 <h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>Maximum image dimensions</strong>: The maximum image dimension that ImageGlass can natively open is 16,384 x 16,384 pixels. Since version 9.2, for larger images, they will be displayed in full resolution using Direct2D Software Rendering.</li>
 <li><strong>SVG viewing</strong>: By default, ImageGlass uses WebView2 to view scalable SVG files.
 <ul>
 <li>Some features are unavailable when using WebView2, including Rotation, Flipping, Color picker, Cropping, Page navigation, Copy image data, Print, Set as Desktop/Lock screen, View image channels, Export image frames, and more.</li>

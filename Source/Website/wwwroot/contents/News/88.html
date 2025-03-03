@@ -15,13 +15,18 @@
 <li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0" target="_blank" rel="noopener nofollow">.NET Desktop Runtime 8 (64-bit)</a></li>
 <li><a href="https://go.microsoft.com/fwlink/p/?LinkId=2124703" target="_blank" rel="noopener nofollow">WebView2 Runtime 64-bit v119.0.2151 or later</a></li>
 </ul>
+<p>Updates:</p>
+<ul>
+<li>Since version 9.2: WebView2 Runtime is optional</li>
+<li>Since version 9.3: .NET Desktop Runtime 8 is not required.</li>
+</ul>
 <h2 id="upgrading-to-version-9">Upgrading to version 9</h2>
 <p>Before upgrading to ImageGlass 9, please take note of the following changes:</p>
 <h3 id="removed-features">Removed features</h3>
 <p>Here is the list of features of version 8 are <u>not available</u> in version 9:</p>
 <ul>
 <li><strong>Exif tool</strong>. You can install <a href="https://imageglass.org/tools">ExifGlass</a> app as an ImageGlass tool for improved EXIF metadata viewing.</li>
-<li><strong>&quot;Start with OS to improve startup speed&quot;</strong> setting: No alternative available.</li>
+<li><strong>&quot;Start with OS to improve startup speed&quot;</strong> setting: <del>No alternative available</del> Requires version 9.2 or above.</li>
 <li><strong>&quot;Display viewer scrollbars&quot;</strong> setting:. No alternative available.</li>
 </ul>
 <div class="box box-warning mb-3"><p>⚠️ If you were enabling the setting <strong>&quot;Start with OS to improve startup speed&quot;</strong>, make sure to <u>disable it before</u> upgrading to version 9.</p>
@@ -29,17 +34,17 @@
 <h3 id="breaking-changes">Breaking changes</h3>
 <ul>
 <li>User config files are now in the JSON format: <code>igconfig.json</code>. ImageGlass 9 cannot import settings from version 8.</li>
-<li>Similarly, theme and language pack also updated to use JSON format. You can download theme packs for version 9 at <a href="https://imageglass.org/themes">Download / Theme packs</a>.</li>
+<li>Similarly, theme and language pack also updated to use JSON format. You can download theme packs for version 9 at <a href="https://imageglass.org/themes">Download &gt; Theme packs</a>.</li>
 <li>For power users:
 <ul>
 <li>Version 9 uses <strong>Per-user setting</strong> model which is different from <strong>Per-machine setting</strong> of version 8:
 <ul>
-<li>The app settings are now saved in the <code>%LocalAppData%</code> folder. Refer to <a href="https://imageglass.org/docs/app-configs">Docs / App configuration</a> for more information.</li>
-<li>The app registry uses <code>HKEY_CURRENT_USER</code> for file type associations and app protocol.</li>
+<li>The app settings are now saved in the <code>%LocalAppData%</code> folder. Refer to <a href="https://imageglass.org/docs/app-configs">Docs &gt; App configuration</a> for more information.</li>
+<li>The app registry uses <code>HKEY_CURRENT_USER</code> for file type associations and app protocol. Since version 9.3, <code>HKEY_LOCAL_MACHINE</code> is used instead.</li>
 </ul>
 </li>
 <li><code>igtasks.exe</code> has been removed.</li>
-<li>All commands in <code>igcmd.exe</code> have been reworked. Visit <a href="https://imageglass.org/docs/command-line-utilities">Docs / Command line utilities</a> for the updated information.</li>
+<li>All commands in <code>igcmd.exe</code> have been reworked. Visit <a href="https://imageglass.org/docs/command-line-utilities">Docs &gt; Command line utilities</a> for the updated information.</li>
 <li>To skip the <strong>&quot;ImageGlass Quick Setup&quot;</strong> dialog, set <code>QuickSetupVersion</code> value to any number greater than <code>9</code> in the <code>igconfig.json</code> file.</li>
 </ul>
 </li>
@@ -99,7 +104,7 @@
 <p><strong>Exif viewer tool</strong> has been removed in version 9. However, you can install <a href="https://imageglass.org/tools">ExifGlass</a> as an ImageGlass tool for better EXIF metadata viewing.</p>
 <p><img src="https://raw.githubusercontent.com/ImageGlass/releases/main/screenshots/v9.0/9.0_b2.webp" alt="ImageGlass 9.0" /></p>
 <h2 id="external-tool-support">External tool support</h2>
-<p>ImageGlass 9 provides developers with an API to integrate their apps. For more detail, refer to <a href="https://imageglass.org/docs/imageglass-tools">Docs / Build tools for ImageGlass</a>.</p>
+<p>ImageGlass 9 provides developers with an API to integrate their apps. For more detail, refer to <a href="https://imageglass.org/docs/imageglass-tools">Docs &gt; Build tools for ImageGlass</a>.</p>
 <p>You can add any apps as an ImageGlass tool and assign hotkeys to open them in the app settings under the Tools tab.</p>
 <h2 id="experiment-features">Experiment features</h2>
 <p>We continue to experiment with additional features that are not yet exposed in the app settings. These include:</p>

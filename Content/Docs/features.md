@@ -34,7 +34,7 @@ Here's a comparison to help you choose the right version for your needs.
 Primarily a photo viewer, ImageGlass offers a wide array of features geared towards image viewing, with some limited editing capabilities.
 
 ### Viewing Features
-- Supports wide range image formats, thanks to [Magick.NET](https://github.com/dlemstra/Magick.NET) integration. You can explore the list here: [Docs / Supported formats](https://imageglass.org/docs/supported-formats).
+- Supports wide range image formats, thanks to [Magick.NET](https://github.com/dlemstra/Magick.NET) integration. You can explore the list here: [Docs > Supported formats](https://imageglass.org/docs/supported-formats).
 - Enables format conversion for up to 10 different formats.
 - Allows various methods for opening images, including drag-and-drop, pasting from the clipboard (image data, image file, or image file path).
 - Extends support for viewing animated formats, including GIF, WEBP, APNG, SVG (using WebView2).
@@ -52,6 +52,7 @@ Primarily a photo viewer, ImageGlass offers a wide array of features geared towa
 - Features a slideshow view in a separate window with a countdown timer.
 - Provides fast thumbnail previews, which can be displayed in the current viewing folder.
 - Includes a built-in Color Picker tool with support for various color formats.
+- Supports viewing embedded motion video from JPEG format (since version 9.3).
 - Supports viewing image information and EXIF metadata (using ExifGlass tool).
 - Offers diverse sorting options for images, including File Explorer's sort order (with certain limitations).
 - Supports color management.
@@ -78,7 +79,6 @@ While ImageGlass primarily serves as an image viewer, it can open external assoc
 
 
 ## Limitations
-- **Maximum image dimensions**: The maximum image dimension that ImageGlass can natively open is 16,384 x 16,384 pixels. Since version 9.2, for larger images, they will be displayed in full resolution using Direct2D Software Rendering.
 - **SVG viewing**: By default, ImageGlass uses WebView2 to view scalable SVG files.
   + Some features are unavailable when using WebView2, including Rotation, Flipping, Color picker, Cropping, Page navigation, Copy image data, Print, Set as Desktop/Lock screen, View image channels, Export image frames, and more.
   + You can switch back to the native engine by unchecking the option **"Use WebView2 for viewing SVG format"** in the app settings.
