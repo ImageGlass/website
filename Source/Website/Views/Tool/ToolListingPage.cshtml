@@ -92,7 +92,9 @@
 
     <div class="col-12 col-lg-4 mb-5 mt-0 mt-lg-5 pt-4 aniSlideUp ani-delay-50">
       <aside class="sidebar">
-        @await Html.PartialAsync("_Ads")
+        @await Html.PartialAsync("_Ads", new ViewDataDictionary(ViewData) {
+          { "adLinkRel", "dofollow" },
+        })
         @await Html.PartialAsync("_AdsCarbon")
 
 

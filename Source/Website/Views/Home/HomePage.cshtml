@@ -11,8 +11,8 @@
     controllerAction = nameof(NewsController.NewsDetailPage);
   }
 
-  var starsCount = 9015;
-  var forksCount = 544;
+  var starsCount = 9650;
+  var forksCount = 575;
   var subscribersCount = 90;
 
   if (int.TryParse(ViewData["_RepoStarsCount"]?.ToString(), out var gStarsCount))
@@ -54,7 +54,9 @@
         </div>
 
         <div class="mt-5 aniSlideUp ani-delay-175">
-          @await Html.PartialAsync("_Ads")
+          @await Html.PartialAsync("_Ads", new ViewDataDictionary(ViewData) {
+            { "adLinkRel", "dofollow" },
+          })
         </div>
       </div>
 

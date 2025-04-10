@@ -1,12 +1,14 @@
-﻿
+﻿@{
+  var adLinkRel = ViewData["adLinkRel"]?.ToString() ?? "nofollow";
+}
+
 @* Sponsor Ads *@
 <div class="mb-4">
   <div class="mb-1" style="font-size: 0.75rem;">
     ✨ <span class="opacity-75">Sponsor</span>
   </div>
 
-
-  <a class="sponsor-card card-style--0" href="https://www.aiarty.com/ai-image-matting/background-remover.htm?ttref=2503-aim-bgrem-vend-db-imgs-ly" target="_blank" rel="noopener noreferrer" title="Aiarty Image Matting [Free]">
+  <a class="sponsor-card card-style--0" href="https://www.aiarty.com/ai-image-matting/background-remover.htm?ttref=2503-aim-bgrem-vend-db-imgs-ly" target="_blank" rel="noopener noreferrer @adLinkRel" title="Aiarty Image Matting [Free]">
     <span class="card-image">
       <img src="~/img/sponsors/aiarty-image-matting-banner.jpg" alt="Aiarty Image Matting [Free]">
     </span>
