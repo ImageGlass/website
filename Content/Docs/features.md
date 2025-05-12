@@ -9,7 +9,7 @@
 ```
 
 # ImageGlass Features
-ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 85 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.
+ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 88 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.
 
 
 ## Difference Between ImageGlass Classic and Store Release
@@ -79,10 +79,13 @@ While ImageGlass primarily serves as an image viewer, it can open external assoc
 
 
 ## Limitations
-- **SVG viewing**: By default, ImageGlass uses WebView2 to view scalable SVG files.
+- **SVG Viewing**: By default, ImageGlass uses WebView2 to view scalable SVG files.
   + Some features are unavailable when using WebView2, including Rotation, Flipping, Color picker, Cropping, Page navigation, Copy image data, Print, Set as Desktop/Lock screen, View image channels, Export image frames, and more.
   + You can switch back to the native engine by unchecking the option **"Use WebView2 for viewing SVG format"** in the app settings.
-- **Window backdrop**: The window backdrop setting only works on Windows 11.
-- **File Explorer sort order**: ImageGlass can detect and follow the File Explorer's sort order if
-  + The folder window is open.
-  + The sort order is by name, file extension, file size, or EXIF rating (since version 9.1).
+- **Window Backdrop**: The window backdrop setting only works on Windows 11.
+- **File Explorer Sort Order**: The related File Explorer window needs to remain open (it can be minimized) for this to work properly.
+  + Prior to version 9.3, only Explorer's sorting by name, file extension, file size, or EXIF rating (added in version 9.1) are supported.
+  + Since version 9.3, ImageGlass completely supports Explorer's sort order — including:
+    - All column-based sort types (e.g., name, date, type, rating)
+    - Support for search result and `.search-ms` saved searches
+    - Syncing the image list with Explorer's view

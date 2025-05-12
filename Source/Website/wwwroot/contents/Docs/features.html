@@ -7,7 +7,7 @@
 }
 #metadata
 ```<h1 id="imageglass-features">ImageGlass Features</h1>
-<p>ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 85 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.</p>
+<p>ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 88 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.</p>
 <h2 id="difference-between-imageglass-classic-and-store-release">Difference Between ImageGlass Classic and Store Release</h2>
 <p>ImageGlass offers two distinct versions: ImageGlass Classic and ImageGlass Store, each catering to different user preferences and needs.</p>
 <ul>
@@ -113,17 +113,23 @@
 </ul>
 <h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>SVG viewing</strong>: By default, ImageGlass uses WebView2 to view scalable SVG files.
+<li><strong>SVG Viewing</strong>: By default, ImageGlass uses WebView2 to view scalable SVG files.
 <ul>
 <li>Some features are unavailable when using WebView2, including Rotation, Flipping, Color picker, Cropping, Page navigation, Copy image data, Print, Set as Desktop/Lock screen, View image channels, Export image frames, and more.</li>
 <li>You can switch back to the native engine by unchecking the option <strong>&quot;Use WebView2 for viewing SVG format&quot;</strong> in the app settings.</li>
 </ul>
 </li>
-<li><strong>Window backdrop</strong>: The window backdrop setting only works on Windows 11.</li>
-<li><strong>File Explorer sort order</strong>: ImageGlass can detect and follow the File Explorer's sort order if
+<li><strong>Window Backdrop</strong>: The window backdrop setting only works on Windows 11.</li>
+<li><strong>File Explorer Sort Order</strong>: The related File Explorer window needs to remain open (it can be minimized) for this to work properly.
 <ul>
-<li>The folder window is open.</li>
-<li>The sort order is by name, file extension, file size, or EXIF rating (since version 9.1).</li>
+<li>Prior to version 9.3, only Explorer's sorting by name, file extension, file size, or EXIF rating (added in version 9.1) are supported.</li>
+<li>Since version 9.3, ImageGlass completely supports Explorer's sort order — including:
+<ul>
+<li>All column-based sort types (e.g., name, date, type, rating)</li>
+<li>Support for search result and <code>.search-ms</code> saved searches</li>
+<li>Syncing the image list with Explorer's view</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
