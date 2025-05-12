@@ -29,6 +29,23 @@ public class SupportController : BaseController
     }
 
 
+    [HttpGet("donate")]
+    [ResponseCache(CacheProfileName = "Default")]
+    public async Task<IActionResult> DonatePage()
+    {
+        // page info
+        ViewData[PageInfo.Page] = "support.donate";
+        ViewData[PageInfo.Title] = $"Donate | {ViewData[PageInfo.Name]}";
+        ViewData[PageInfo.Description] = "If you love ImageGlass, you can show your support here!";
+        ViewData[PageInfo.Keywords] = $"imageglass donation, {ViewData[PageInfo.Keywords]}";
+
+        // get page content
+        var htmlContent = await ContentHelper.GetContentAsync(_appEnv.WebRootPath, "donate.html");
+
+        return View("MarkdownPage", htmlContent);
+    }
+
+
     [HttpGet("privacy")]
     [ResponseCache(CacheProfileName = "Default")]
     public async Task<IActionResult> PrivacyPage()
