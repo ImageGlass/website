@@ -64,7 +64,7 @@ public class LanguageController : BaseController
             var downloadLink = await _crowdin.Translations.ExportProjectTranslation(CROWNIN_PROJECT_ID, new ExportProjectTranslationRequest()
             {
                 TargetLanguageId = langId,
-                FileIds = new int[] { CROWNIN_FILE_ID },
+                FileIds = new long[] { CROWNIN_FILE_ID },
             });
 
 
