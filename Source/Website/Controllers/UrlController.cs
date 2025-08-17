@@ -31,15 +31,20 @@ public class UrlController : BaseController
 
         // get the source version
         _ = Request.Query.TryGetValue("version", out var paramVersions);
-        var fromVersion = paramVersions.FirstOrDefault();
-        if (!string.IsNullOrWhiteSpace(fromVersion))
-        {
-            var srcVersion = new Version(fromVersion);
+        var fromVersion = paramVersions.FirstOrDefault() ?? "";
+        Version? srcVersion = null;
 
-            // only update v8.11- to v8.12
-            if (srcVersion < new Version("8.12"))
-            {
-                jsonStr = """
+        try
+        {
+            srcVersion = new Version(fromVersion);
+        }
+        catch { }
+
+
+        // only update v8.11- to v8.12
+        if (srcVersion != null && srcVersion < new Version(8, 12))
+        {
+            jsonStr = """
                 {
                     "apiVersion": 1.1,
                     "releases": {
@@ -67,7 +72,7 @@ public class UrlController : BaseController
                     }
                 }
                 """;
-            }
+
         }
 
         return Content(jsonStr, "application/json", Encoding.UTF8);
