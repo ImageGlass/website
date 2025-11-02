@@ -15,7 +15,7 @@ ImageGlass provides support for a wide range of common image formats, courtesy o
 | -- | -- | -- | -- |
 | ai | 🟢 |   | Required [Ghostscript](https://ghostscript.com/download/gsdnld.html) installed |
 | apng | 🟢 |   |   |
-| avif | 🟢 | 🟢 |   |
+| avif | 🟢 | 🟢 | Non-animated |
 | b64 | 🟢 | 🟢 | Base-64 text file |
 | bmp | 🟢 | 🟢 |   |
 | bpg | 🟢 |   | Required [BPG tools for Windows](https://bellard.org/bpg/) installed |
@@ -30,15 +30,15 @@ ImageGlass provides support for a wide range of common image formats, courtesy o
 | fits | 🟢 |   |   |
 | gif | 🟢 | 🟢 |   |
 | hdr | 🟢 |   |   |
-| heic | 🟢 |   | Non-animated format |
-| heif | 🟢 |   | Non-animated format |
+| heic | 🟢 |   | Non-animated |
+| heif | 🟢 |   | Non-animated |
 | ico | 🟢 | 🟢 |   |
 | jfif | 🟢 |   |   |
 | jp2 | 🟢 |   |   |
 | jpe | 🟢 |   |   |
 | jpeg | 🟢 |   |   |
 | jpg | 🟢 | 🟢 |   |
-| jxl | 🟢 | 🟢 | Non-animated format |
+| jxl | 🟢 | 🟢 | Non-animated |
 | mjpeg | 🟢 |   |   |
 | pbm | 🟢 |   |   |
 | pcx | 🟢 |   |   |

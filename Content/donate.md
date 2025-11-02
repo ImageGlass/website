@@ -9,6 +9,11 @@ If you find ImageGlass useful and would like to support its ongoing development,
 - Testing and quality assurance
 - New features, improvements, and bug fixes
 
+## Partnership
+
+We're open to partnerships with sponsors, developers, and the community to make ImageGlass even better. Whether it's through sponsorship, tech integration, or collaboration, we'd love to hear from you – contact us to explore partnership opportunities.
+
+[Contact Us](mailto:phap@imageglass.org?subject=ImageGlass%20Partnership&body=Hi%20Phap%2C%0D%0A%0D%0A%0D%0A){ .btn .btn-accent }
 
 ## Ways to Support
 
