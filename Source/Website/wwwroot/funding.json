@@ -1,0 +1,121 @@
+{
+  "version": "v1.0.0",
+  "entity": {
+    "type": "individual",
+    "role": "owner",
+    "name": "Phap D.",
+    "email": "ddphap@gmail.com",
+    "phone": "",
+    "description": "I am the creator and maintainer of ImageGlass, a lightweight, versatile image viewer for Windows. Since its first release in 2010, ImageGlass has grown into an open-source project used by millions of users worldwide. The project is developed and maintained independently, relying on community contributions and sponsorships for sustainability.",
+    "webpageUrl": {
+      "url": "https://imageglass.org"
+    }
+  },
+  "projects": [
+    {
+      "guid": "imageglass",
+      "name": "ImageGlass",
+      "description": "ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 90 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.",
+      "webpageUrl": {
+        "url": "https://imageglass.org"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/d2phap/ImageGlass",
+        "wellKnown": "https://github.com/d2phap/ImageGlass/blob/develop/.github/.well-known/funding-manifest-urls"
+      },
+      "licenses": [
+        "spdx:GPL-3.0"
+      ],
+      "tags": [
+        "windows",
+        "photography",
+        "graphics",
+        "productivity",
+        "image-viewer",
+        "graphics",
+        "open-source-software",
+        "csharp",
+        "desktop-app",
+        "web-design"
+      ]
+    },
+    {
+      "guid": "exifglass",
+      "name": "ExifGlass",
+      "description": "ExifGlass is an EXIF metadata viewing tool, designed to work seamlessly with ImageGlass, but can also be used as a standalone software on your computer. To use ExifGlass, you need to have ExifTool by Phil Harvey installed on your system. With ExifGlass, you can easily access a comprehensive overview of the technical details associated with your images, including camera settings, location data, and more. This tool is particularly useful for professional photographers or anyone interested in the technical aspects of digital photography. Whether you use ExifGlass as a standalone software or in conjunction with ImageGlass, it provides a convenient and efficient way to view and manage the metadata associated with your images.",
+      "webpageUrl": {
+        "url": "https://github.com/d2phap/ExifGlass"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/d2phap/ExifGlass",
+        "wellKnown": "https://github.com/d2phap/ExifGlass/blob/main/.github/.well-known/funding-manifest-urls"
+      },
+      "licenses": [
+        "spdx:GPL-3.0"
+      ],
+      "tags": [
+        "windows",
+        "photography",
+        "graphics",
+        "productivity",
+        "exif-viewer",
+        "graphics",
+        "open-source-software",
+        "csharp",
+        "desktop-app",
+        "web-design"
+      ]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "github-sponsors",
+        "type": "payment-provider",
+        "address": "https://github.com/sponsors/d2phap",
+        "description": "Make a quick one-time donation or become a monthly sponsor and choose from tiered rewards."
+      },
+      {
+        "guid": "stripe-donation",
+        "type": "payment-provider",
+        "address": "https://donate.stripe.com/6oE15Kab3740du828a",
+        "description": "Make a quick, secure one-time donation via Stripe. No account required."
+      },
+      {
+        "guid": "other-methods",
+        "type": "payment-provider",
+        "address": "https://imageglass.org/donate",
+        "description": "Explore other ways to support."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "monthly-support",
+        "status": "active",
+        "name": "Monthly Support",
+        "description": "Support the development and maintenance with a recurring monthly contribution.",
+        "amount": 0,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors"
+        ]
+      },
+      {
+        "guid": "one-time-donation",
+        "status": "active",
+        "name": "One-time Donation",
+        "description": "Pay anything you wish to show your goodwill for the project.",
+        "amount": 0,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": [
+          "github-sponsors",
+          "stripe-donation",
+          "other-methods"
+        ]
+      }
+    ],
+    "history": []
+  }
+}
