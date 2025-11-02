@@ -19,6 +19,7 @@ If you find ImageGlass useful and would like to support its ongoing development,
 | 🐙 | [GitHub Sponsor](https://github.com/sponsors/d2phap) | Make a quick one-time donation or become a monthly sponsor and choose from tiered rewards. |
 | 🎁 | [Patreon](https://patreon.com/d2phap) | Join as a patron to unlock tier-based benefits and get exclusive updates while supporting monthly. |
 | 💸 | [Paypal](https://www.paypal.me/d2phap) | An easy way to send a donation of any amount. |
+| 💰 | [OpenPledge](https://app.openpledge.io/repositories/d2phap/ImageGlass) | Pledge funds toward specific ImageGlass issues or feature requests. |
 
 
 Should you opt for [GitHub Sponsor](https://github.com/sponsors/d2phap) or [Patreon](https://patreon.com/d2phap), be sure to explore the tier-specific benefits on offer.
