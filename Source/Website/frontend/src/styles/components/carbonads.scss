@@ -4,10 +4,10 @@
 }
 
 
-.section-quang-cao {
+.section-ads {
   max-width: 25rem;
 }
-.quang-cao {
+.ads-container {
   min-height: calc(100px);
 }
 #carbonads {
@@ -48,7 +48,8 @@
     perspective: 200px;
 
     img {
-      border-radius: var(--border-radius);
+      border-radius: calc(var(--border-radius) * 1.5);
+      corner-shape: superellipse(var(--corner-shape));
       transition: all ease 300ms;
     }
   }

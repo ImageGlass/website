@@ -8,6 +8,7 @@
   margin-bottom: 1.5rem;
   background-color: var(--bgSurface);
   border-radius: calc(var(--border-radius) * 1.5);
+  corner-shape: superellipse(var(--corner-shape));
   border: 0.075rem solid var(--colorBorder);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
@@ -34,6 +35,7 @@
   &> li {
     margin-bottom: 0.25em;
     border-radius: var(--border-radius);
+    corner-shape: superellipse(var(--corner-shape));
 
     &> a {
       display: flex;
@@ -41,6 +43,7 @@
       padding: 0.4em 0.5em 0.5em 0.5em;
       text-decoration-line: none;
       border-radius: var(--border-radius);
+      corner-shape: superellipse(var(--corner-shape));
       transition: all ease 300ms;
 
       time {
@@ -95,6 +98,7 @@
         width: 0.5rem;
         height: 0.5rem;
         border-radius: 100%;
+        corner-shape: superellipse(var(--corner-shape));
         background-color: rgb(var(--colorAccent2) / 0.65);
         top: 0.25rem;
         right: 0.25rem;

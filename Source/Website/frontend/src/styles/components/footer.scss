@@ -13,6 +13,7 @@
     margin-left: 0.25em;
     padding: 0.5em;
     border-radius: var(--border-radius);
+    corner-shape: superellipse(var(--corner-shape));
     transition: all ease 300ms;
 
     &:first-of-type {

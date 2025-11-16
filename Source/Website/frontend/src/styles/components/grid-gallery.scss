@@ -16,7 +16,8 @@
     img {
       height: auto !important;
       width: 100% !important;
-      border-radius: var(--border-radius);
+      border-radius: calc(var(--border-radius) * 0.25);
+      corner-shape: superellipse(var(--corner-shape));
       box-shadow: var(--shadow-base), var(--shadow-sm);
       transition: all 300ms ease;
     }
@@ -131,6 +132,7 @@
       max-width: 90vw;
       max-height: 90vh;
       border-radius: calc(var(--border-radius) * 1.5);
+      corner-shape: superellipse(var(--corner-shape));
       box-shadow: var(--shadow-base), var(--shadow-sm), var(--shadow);
     }
   }

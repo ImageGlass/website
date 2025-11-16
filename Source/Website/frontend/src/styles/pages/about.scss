@@ -17,13 +17,15 @@
       max-width: 18rem;
       padding: 1px;
       background-color: rgb(var(--colorBg) / 1);
-      border-radius: calc(var(--border-radius) * 15);
+      border-radius: calc(var(--border-radius) * 7);
+      corner-shape: superellipse(var(--corner-shape));
       box-shadow: var(--shadow-base), var(--shadow);
       overflow: hidden;
       filter: url("#svgWaterEffect");
 
       img {
-        border-radius: calc(var(--border-radius) * 15);
+        border-radius: calc(var(--border-radius) * 7);
+        corner-shape: superellipse(var(--corner-shape));
         user-select: none;
         -webkit-user-drag: none;
         user-drag: none;

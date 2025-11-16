@@ -5,6 +5,7 @@
   background: rgb(var(--colorBg));
   border: 1px solid transparent;
   border-radius: var(--scrollBarSize-px);
+  corner-shape: superellipse(var(--corner-shape));
   cursor: pointer;
 
   &:hover {
@@ -19,6 +20,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgb(var(--colorText) / 0.3);
   border-radius: var(--scrollBarSize-px);
+  corner-shape: superellipse(var(--corner-shape));
   border-color: transparent;
   border-style: solid;
   border-width: calc((var(--scrollBarSize-px) / 2.25) - 1px);

@@ -57,6 +57,7 @@
         white-space: nowrap;
         text-decoration-line: none;
         border-radius: calc(var(--border-radius) * 1.5);
+        corner-shape: superellipse(var(--corner-shape));
         transition: all ease 300ms;
 
         &:focus-visible + ul {
@@ -112,6 +113,7 @@
         transform: translateY(-1em) scale(0.9) rotateX(-15deg);
         border: 0.075rem solid rgb(var(--colorInvert) / 0.175);
         border-radius: calc(var(--border-radius) * 1.5);
+        corner-shape: superellipse(var(--corner-shape));
 
         background-color: rgb(var(--colorBg) / 1);
         box-shadow:
@@ -171,6 +173,7 @@ label[for="chkMobileMenu"] {
   margin-bottom: 0;
   margin-left: auto;
   border-radius: var(--border-radius);
+  corner-shape: superellipse(var(--corner-shape));
 
   flex-direction: column;
   justify-content: center;
@@ -200,6 +203,7 @@ label[for="chkMobileMenu"] {
 
     background-color: rgb(var(--colorText) / 1);
     border-radius: 0.125em;
+    corner-shape: superellipse(var(--corner-shape));
 
     transform-origin: 0.25em 0;
     transition:

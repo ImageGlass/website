@@ -32,6 +32,7 @@
 
       background-color: var(--bgSurface);
       border-radius: calc(var(--border-radius) * 1.5);
+      corner-shape: superellipse(var(--corner-shape));
       border: 0.075rem solid transparent;
 
       &:hover {

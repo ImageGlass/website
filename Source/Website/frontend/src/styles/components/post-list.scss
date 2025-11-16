@@ -14,6 +14,7 @@ body .post-badge {
   text-wrap: nowrap;
 
   border-radius: 100rem;
+  corner-shape: superellipse(var(--corner-shape));
   background-color: var(--bgSurface);
 }
 
@@ -50,7 +51,8 @@ body .post-badge {
 
   .post-image-link {
     display: inline-flex;
-    border-radius: var(--border-radius);
+    border-radius: calc(var(--border-radius) * 0.25);
+    corner-shape: superellipse(var(--corner-shape));
     box-shadow: var(--shadow-base), var(--shadow);
     overflow: hidden;
 
@@ -60,7 +62,8 @@ body .post-badge {
       width: 100%;
       max-width: 35rem; // 560px
       max-height: 25rem; // 400px
-      border-radius: var(--border-radius);
+      border-radius: calc(var(--border-radius) * 0.25);
+      corner-shape: superellipse(var(--corner-shape));
     }
   }
 }
@@ -91,7 +94,8 @@ body .post-badge {
 
   background-color: rgb(var(--colorBg) / 1);
   border: 0.075rem solid rgb(var(--colorInvert) / 0.1);
-  border-radius: calc(var(--border-radius) * 1.5);
+  border-radius: calc(var(--border-radius) * 2);
+  corner-shape: superellipse(var(--corner-shape));
   box-shadow: var(--shadow-base), var(--shadow-sm);
 
   overflow: hidden;
@@ -107,9 +111,11 @@ body .post-badge {
 
     img {
       width: 100%;
-      border-radius: 0;
       object-fit: cover;
       transition: all ease 300ms;
+
+      border-radius: calc(var(--border-radius) * 2) calc(var(--border-radius) * 2) 0 0;
+      corner-shape: superellipse(var(--corner-shape));
     }
 
     .post-badge {
@@ -120,6 +126,7 @@ body .post-badge {
 
       color: #fff;
       border-radius: 100rem 0 0 100rem;
+      corner-shape: superellipse(var(--corner-shape));
       background-color: rgb(var(--colorAccent1) / 0.8);
       backdrop-filter: var(--backdrop);
 
@@ -162,7 +169,8 @@ body .post-badge {
     .post-image img {
       filter: brightness(1.2);
       transform: scale(0.925);
-      border-radius: calc(var(--border-radius) * 1);
+      border-radius: calc(var(--border-radius) * 2);
+      corner-shape: superellipse(var(--corner-shape));
       box-shadow: var(--shadow-base), var(--shadow), var(--shadow-sm);
     }
   }

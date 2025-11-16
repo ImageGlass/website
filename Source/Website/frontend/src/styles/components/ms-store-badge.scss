@@ -26,6 +26,7 @@
 
   img {
     border-radius: 2px;
+    corner-shape: superellipse(var(--corner-shape));
     filter: drop-shadow(0 0 0.15rem #0004);
   }
   .emoji {
