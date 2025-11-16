@@ -9,7 +9,7 @@
 ```
 
 # ImageGlass Features
-ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 88 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.
+ImageGlass is a feature-rich, simple-to-use software designed for seamless viewing of images in a clean, modern and intuitive interface. With support for over 90 common image formats including WEBP, GIF, SVG, PNG, JXL, HEIC, RAW formats,... ImageGlass also offers advanced features that cater to the needs of both regular users and designers, making it the excellent tool to enhance workflow efficiency.
 
 
 ## Difference Between ImageGlass Classic and Store Release
