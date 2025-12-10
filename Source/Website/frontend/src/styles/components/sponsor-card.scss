@@ -70,7 +70,8 @@
   }
 
 
-  &.card-style--0 {
+  &.card-style--0,
+  &.card-style--1 {
     padding: 0;
     max-width: 400px;
 
@@ -89,6 +90,16 @@
 
     &:hover {
       transform: none;
+    }
+  }
+
+  &.card-style--1 {
+    max-width: none;
+
+    &:hover {
+      img, svg {
+        transform: none;
+      }
     }
   }
 }

@@ -1,0 +1,38 @@
+﻿<h1 id="announcing-imageglass-9.4">Announcing ImageGlass 9.4</h1>
+<p>We are excited to announce the release of ImageGlass 9.4, the newest version of our open-source photo viewer.
+This update brings fresh features, performance upgrades, and important fixes.</p>
+<p>You can help this project by <a href="https://imageglass.org/donate">making a donation</a> or purchasing from Microsoft Store:</p>
+<p>##IMAGEGLASS_STORE##</p>
+<h2 id="whats-new-in-imageglass-9.4">What's New in ImageGlass 9.4</h2>
+<h3 id="security-core-improvements">Security &amp; Core Improvements</h3>
+<p>This release is built on .NET 10, delivering faster performance and long-term stability. We have upgraded <code>libwebp</code> to v1.6 for improved WebP support, and updated Magick.NET to v14.9.1, resolving several security advisories:</p>
+<ul>
+<li><a href="https://github.com/advisories/GHSA-vmhh-8rxq-fp9g" target="_blank" rel="noopener nofollow">CVE-2025-53015</a></li>
+<li><a href="https://github.com/advisories/GHSA-cjc8-g9w8-chfw" target="_blank" rel="noopener nofollow">CVE-2025-55004</a></li>
+<li><a href="https://github.com/advisories/GHSA-qp29-wxp5-wh82" target="_blank" rel="noopener nofollow">CVE-2025-55154</a></li>
+<li><a href="https://github.com/advisories/GHSA-9ccg-6pjw-x645" target="_blank" rel="noopener nofollow">CVE-2025-55298</a></li>
+<li><a href="https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-wpp4-vqfq-v4hp" target="_blank" rel="noopener nofollow">CVE-2025-62594</a></li>
+</ul>
+<p>Other refinements include:</p>
+<ul>
+<li>The &quot;Set default photo viewer&quot; function now respects per-user installations.</li>
+<li>GIF playback improvements, with a default 10ms frame delay applied when none is specified.</li>
+<li>Quick Setup, Settings, and About windows now follow system font sizes.</li>
+<li>Dark mode has been polished for native controls, making the interface more consistent and easier on the eyes.</li>
+</ul>
+<h3 id="smarter-svg-and-format-support">Smarter SVG and Format Support</h3>
+<p>ImageGlass 9.4 enhances SVG support by showing the relative paths of embedded images when using WebView2.
+We've also expanded default format recognition – <code>.HIF</code> is now supported out of the box to keep pace with modern camera standards.</p>
+<h3 id="other-improvements-and-fixes">Other Improvements and Fixes</h3>
+<p>We have fixed several issues reported by the community to make ImageGlass more stable:</p>
+<ul>
+<li>Drag-and-drop of gallery thumbnails now works correctly after renaming images.</li>
+<li>Individual color channel views render properly in all scenarios.</li>
+<li>Multipage TiffG4 files with .FAX extensions can now be printed and paged through without issue.</li>
+<li>Rotating an image no longer causes stretched or cropped displays when switching view channels.</li>
+</ul>
+<p>A full list of changes and bugfixes is available in the <a href="https://github.com/d2phap/ImageGlass/releases/tag/9.4.0.1120" target="_blank" rel="noopener nofollow">release notes</a>.</p>
+<h2 id="get-the-update-now">Get the update now!</h2>
+<p>Please be cautious of scams and only download ImageGlass from our official website. We highly recommend against downloading ImageGlass from any other source to avoid potential security risks.</p>
+<p>Additionally, if you encounter any bugs, have suggestions, or would like to provide feedback, please use our <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" rel="noopener nofollow">Issues tracker</a>.</p>
+<p><a href="https://imageglass.org/release/imageglass-9-4-0-1120-60" class="btn btn-accent">Download ImageGlass 9.4</a></p>
