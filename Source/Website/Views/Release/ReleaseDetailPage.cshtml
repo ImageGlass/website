@@ -126,12 +126,15 @@
 
           @* Download options *@
           <div class="download-options mt-3 mb-3">
-            <a class="btn btn-accent btn-download-option" target="_blank" rel="noopener noreferrer"
-              href="https://apps.microsoft.com/detail/9N33VZK3C7TH?launch=true&cid=ig_website_badge&mode=full"
-              title="Get ImageGlass from Microsoft Store">
-              <img src="~/img/mslogo.svg" width="40" height="40" alt="Microsoft logo" />
-              <span>Get ImageGlass<br/>from Microsoft Store</span>
-            </a>
+            @if (Model.ReleaseChannel == ReleaseChannel.Stable)
+            {
+              <a class="btn btn-accent btn-download-option" target="_blank" rel="noopener noreferrer"
+                href="https://apps.microsoft.com/detail/9N33VZK3C7TH?launch=true&cid=ig_website_badge&mode=full"
+                title="Get ImageGlass from Microsoft Store">
+                <img src="~/img/mslogo.svg" width="40" height="40" alt="Microsoft logo" />
+                <span>Get ImageGlass<br/>from Microsoft Store</span>
+              </a>
+            }
 
             <button class="btn btn-download-option option-classic" type="button" toggle-el="#classic-download" title="Get ImageGlass Classic">
               <img src="~/img/package.svg" width="48" height="48" alt="Classic" />
@@ -166,18 +169,14 @@
               </ul>
 
 
-              <div class="mt-4 mb-2">From Package manager (maintained by community)</div>
-              <div class="external-downloads ms-3">
-                <div class="col-download-source">👉🏽 Winget</div>
-                <div><code>winget install -e --id DuongDieuPhap.ImageGlass</code></div>
-                <div class="col-download-source">
-                  👉🏽
-                  <a href="https://community.chocolatey.org/packages/imageglass" target="_blank" rel="noopener noreferrer">Chocolatey</a>
+              @if (Model.ReleaseChannel == ReleaseChannel.Stable)
+              {
+                <div class="mt-4 mb-2">From Package manager (maintained by community)</div>
+                <div class="external-downloads ms-3">
+                  <div class="col-download-source">👉🏽 Winget</div>
+                  <div><code>winget install -e --id DuongDieuPhap.ImageGlass</code></div>
                 </div>
-                <div>
-                  <code>choco install imageglass</code>
-                </div>
-              </div>
+              }
             </div>
           </div>
         </div>
