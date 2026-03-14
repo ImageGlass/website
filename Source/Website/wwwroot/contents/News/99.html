@@ -1,0 +1,125 @@
+﻿<h1 id="imageglass-10-beta-1-is-here">ImageGlass 10 Beta 1 Is Here!</h1>
+<p>ImageGlass 10 Beta 1 is now available. This release marks a major milestone: a modern foundation, a performance-first direction, and a clear path forward for the project.</p>
+<p>ImageGlass 10 is a complete rewrite from the ground up using a modern .NET stack and the Avalonia UI framework. This shift moves the application beyond Windows to run natively across multiple platforms from a single, unified codebase.</p>
+<p><img src="https://raw.githubusercontent.com/ImageGlass/releases/refs/heads/main/screenshots/v10-beta-1/10.0b1_1.webp" alt="ImageGlass 10 Beta 1" /></p>
+<h2 id="performance-reimagined">1. Performance Reimagined</h2>
+<h3 id="snappier-startup-with-native-aot">Snappier Startup with Native AOT</h3>
+<p>Startup overhead is significantly reduced in this version. By utilizing Native AOT (Ahead-of-Time) compilation, the application is pre-compiled into a native binary for the target hardware. This eliminates JIT (Just-In-Time) compilation delays, resulting in a much faster path from launch to the first image.</p>
+<h3 id="blazing-fast-image-navigation">Blazing-Fast Image Navigation</h3>
+<p>The internal navigation engine is optimized for high-speed browsing through large directories. An asynchronous I/O pipeline handles image switching without UI lag, ensuring that transitions between files remain immediate even during rapid scrolling.</p>
+<h3 id="better-large-image-support">Better Large-Image Support</h3>
+<p>Stability and responsiveness are prioritized for high-resolution files, massive wallpapers, and professional artwork. Panning and zooming remain fluid for huge image dimensions. While the capacity to load extremely large files depends on available system RAM and the supported formats of the rendering engine codecs (SkiaSharp and Magick.NET), the engine is designed to make heavy workloads feel practical and stable.</p>
+<h3 id="flexible-hardware-aware-caching">Flexible &amp; Hardware-Aware Caching</h3>
+<p>The caching system is fully adjustable to match specific hardware configurations:</p>
+<ul>
+<li>Memory Budget: Define a hard limit on RAM usage for image caching.</li>
+<li>Custom Limits: Control the maximum file size or pixel dimensions allowed in the cache.</li>
+<li>Predictive Loading: The engine pre-loads images based on browsing patterns to eliminate loading delays.</li>
+</ul>
+<h3 id="enhanced-color-picker">Enhanced Color Picker</h3>
+<p>The Color Picker has been re-engineered to provide a faster and more accurate sampling experience:</p>
+<ul>
+<li>Live Sampling: Real-time color updates directly under the cursor.</li>
+<li>Expanded Formats: Instant copying to HEX, RGB, HSL, HSV, CMYK, or CIELAB.</li>
+<li>Alpha Support: Configurable transparency inclusion for professional workflows.</li>
+</ul>
+<h3 id="redesigned-slideshow-mode">Redesigned Slideshow Mode</h3>
+<p>The slideshow engine is now more reliable and easier to control. It features explicit Start, Stop, and Pause behaviors, along with improved randomization and loop logic for viewing massive image collections.</p>
+<h2 id="platform-support-limitations">2. Platform Support &amp; Limitations</h2>
+<h3 id="cross-platform-support">Cross-Platform Support! 🎉</h3>
+<p>Powered by Avalonia, ImageGlass 10 brings a consistent, high-performance experience to: Windows, MacOS, Linux. This architecture ensures that features and performance optimizations are delivered simultaneously to all supported operating systems.</p>
+<ul>
+<li><strong>Windows</strong>: v10.0.17763.0 (1809) or later (x64, arm64)</li>
+<li><strong>Linux</strong>: x64 (Version based on Avalonia)</li>
+<li><strong>macOS</strong>: arm64 (Version based on Avalonia)</li>
+</ul>
+<h3 id="limitations">Limitations</h3>
+<p>While the core viewing experience is unified across all systems, certain features rely on deep operating system integration and currently have limited support in this Beta release.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Windows</th>
+<th>macOS</th>
+<th>Linux</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Window Fit Mode</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Frameless Mode</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Realtime Engine: File Add/Rename/Delete</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Realtime Engine: File Content Changed</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Window Backdrop</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>File &gt; Open With</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>File &gt; Print</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Image &gt; Loading orders &gt; Use Explorer sort order</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Image &gt; Set as Lock Screen</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Help &gt; Set / Remove Default Photo Viewer</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-code-signing">3. Security &amp; Code Signing</h2>
+<p>In this Beta 1 release, the binary files are not digitally signed.</p>
+<p>The previous Code Signing Certificate (OV) has expired. Due to new industry regulations, obtaining a replacement now requires mandatory hardware-based key storage (FIPS-compliant tokens). Between the certificate costs, hardware, and international shipping, the expense has risen to approximately $430 for 1 year.</p>
+<p>As a solo developer project, these new requirements present a significant financial barrier. While I am exploring ways to renew the certificate and restore signed binaries, the project currently relies on community support to cover these infrastructure costs. If you would like to help maintain these security standards for ImageGlass, please consider supporting the project through official channels.</p>
+<h2 id="roadmap-context-2026-update">4. Roadmap Context (2026 Update)</h2>
+<p>ImageGlass 10 is the primary focus for all future growth.</p>
+<ul>
+<li>ImageGlass 9 has entered maintenance mode and will receive critical bug-fix updates only.</li>
+<li>ImageGlass 10 is now in Beta for early testing and refinement.</li>
+<li>Transition Plan: Public support for version 9 will conclude 6 months after ImageGlass 10 reaches General Availability (GA).</li>
+</ul>
+<p>For more information, please read <a href="https://imageglass.org/news/imageglass-roadmap-update-2026-98">ImageGlass Roadmap Update – 2026</a>.</p>
+<h2 id="try-imageglass-10-beta-1">5. Try ImageGlass 10 Beta 1!</h2>
+<p>Please be cautious of scams and only download ImageGlass from the official website. I highly recommend against downloading ImageGlass from any other source to avoid potential security risks.</p>
+<p>Additionally, if you encounter any bugs, have suggestions, or would like to provide feedback, please use <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" rel="noopener nofollow">GitHub Issues tracker</a>.</p>
+<p><a href="https://imageglass.org/release/imageglass-10-beta-1-62" class="btn btn-accent">Download ImageGlass 10 Beta 1</a></p>
