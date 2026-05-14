@@ -52,10 +52,6 @@ public class HomeController : BaseController
             {
                 ViewData["_RepoForksCount"] = forksCount;
             }
-            if (repoDict.TryGetValue("subscribers_count", out var subscribersCount))
-            {
-                ViewData["_RepoSubscribersCount"] = subscribersCount;
-            }
         }
         catch (Exception ex)
         {

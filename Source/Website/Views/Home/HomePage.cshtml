@@ -11,9 +11,8 @@
     controllerAction = nameof(NewsController.NewsDetailPage);
   }
 
-  var starsCount = 12500;
-  var forksCount = 681;
-  var subscribersCount = 96;
+  var starsCount = 13100;
+  var forksCount = 700;
 
   if (int.TryParse(ViewData["_RepoStarsCount"]?.ToString(), out var gStarsCount))
   {
@@ -23,11 +22,8 @@
   {
     if (gForksCount > 0) forksCount = gForksCount;
   }
-  if (int.TryParse(ViewData["_RepoSubscribersCount"]?.ToString(), out var gSubscribersCount))
-  {
-    if (gSubscribersCount > 0) subscribersCount = gSubscribersCount;
-  }
 }
+
 
 @* ------------------ Featured content *@
 <div class="container-fluid bg-surface home-featured">
@@ -152,7 +148,7 @@
 
     <ul class="repo-stats">
       <li>
-        <div class="number">6.8M+</div>
+        <div class="number">7M+</div>
         <div>Downloads</div>
       </li>
       <li>
@@ -164,8 +160,8 @@
         <div>Forks</div>
       </li>
       <li>
-        <div class="number">@subscribersCount.ToString("N0")</div>
-        <div>Subscribers</div>
+        <div class="number">@(DateTime.UtcNow.Year - 2010)</div>
+        <div>Years Active</div>
       </li>
     </ul>
 
