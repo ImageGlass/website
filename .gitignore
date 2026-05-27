@@ -355,3 +355,9 @@ MigrationBackup/
 
 
 _Output/
+/.playwright-mcp
+/.turbo
+/apps
+/.claude
+/.agents
+/.github/prompts
