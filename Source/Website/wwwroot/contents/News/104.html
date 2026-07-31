@@ -1,0 +1,33 @@
+﻿<h1 id="announcing-imageglass-9.6">Announcing ImageGlass 9.6</h1>
+<p>I am pleased to announce the release of ImageGlass 9.6. Version 9 is in maintenance mode, so this is a focused stability update: an updated imaging engine, a higher default cache limit for large photos, and fixes for a few reported format and tool issues.</p>
+<p>You can help this project by <a href="https://imageglass.org/donate">making a donation</a> or purchasing from Microsoft Store:</p>
+<p>##IMAGEGLASS_STORE##</p>
+<div class="box box-danger mb-3"><p><strong>⚠️ Security Alert: Fake Repositories and AI Threat Mitigation</strong></p>
+<p>Automated malicious campaigns are actively deploying AI tools to impersonate trusted software. They stand up fake GitHub profiles and standalone Gists designed to trick users into downloading compromised packages. Please enforce the following verification steps on every installation:</p>
+<ul>
+<li><strong>Only use official channels</strong>: Always download ImageGlass directly from the official website (<a href="https://imageglass.org">https://imageglass.org</a>). Never download binaries from third-party mirrors, unverified GitHub forks, or standalone GitHub Gists.</li>
+<li><strong>Verify the repository source:</strong> The only authentic spaces for this project on GitHub are the official <a href="https://github.com/d2phap/ImageGlass" target="_blank" rel="noopener nofollow">d2phap/ImageGlass</a> repository and the <a href="https://github.com/ImageGlass" target="_blank" rel="noopener nofollow">ImageGlass Organization</a>. Any other profile or fork promising 'portable patches', 'extended releases', or alternative mirrors is completely unauthorized and highly likely to contain malware.</li>
+<li><strong>Check the URL</strong>: Double-check your browser address bar to ensure you are not visiting a typosquatted domain.</li>
+</ul>
+<p>If you identify an unauthorized mirror, submit a report immediately to help keep the community safe.</p>
+</div>
+<h2 id="improvements">Improvements</h2>
+<ul>
+<li>Updated Magick.NET to version 14.16.0.</li>
+<li><strong>Larger Images Stay Cached</strong>: The default value of <code>ImageBoosterCacheMaxDimension</code> is now 9000, so high-resolution photos are cached and browsed smoothly without having to change a setting first.</li>
+</ul>
+<h2 id="bugfixes">Bugfixes</h2>
+<ul>
+<li><strong>Multi-frame HEIC</strong>: Fixed a Magick MaxItems policy limit that prevented multiframe HEIC files from opening.</li>
+<li><strong>JXL Format</strong>: Resolved an issue where certain JPEG XL images failed to load.</li>
+<li><strong>Crop Tool</strong>: Fixed the Crop tool being unable to select the whole image after an edit was applied.</li>
+</ul>
+<p>A full list of changes and bugfixes is available in the <a href="https://github.com/d2phap/ImageGlass/releases/tag/9.6.0.801" target="_blank" rel="noopener nofollow">release notes</a>.</p>
+<h2 id="what-is-next-for-imageglass-10">What Is Next for ImageGlass 10</h2>
+<p>ImageGlass 10 has reached its <a href="https://imageglass.org/news/announcing-imageglass-10-rc-102">Release Candidate stage</a>. It is built from the ground up on a modern .NET stack and the Avalonia UI framework, running natively on Windows, macOS, and Linux from a single codebase, and it brings a refreshed Fluent 2 design, a complete native Settings interface, a new Quick Setup experience, and hardened plugin security.</p>
+<p>Alongside the RC, I have published the <a href="https://imageglass.org/news/imageglass-10-release-plans-103">ImageGlass 10 Release Plans</a>. That post explains how the app will be offered at its stable release: ImageGlass Classic stays free and open source under the GNU GPLv3, and an optional ImageGlass Pro edition will add an advanced workflow and administration layer for people and organizations who want it. It also covers the move from the MSI installer to MSIX and ZIP packages on Windows, and it points to an open discussion where your feedback is welcome before the final release.</p>
+<p>Version 9 keeps receiving bugfixes and stability updates in the meantime, so you can stay on it for as long as it suits your workflow.</p>
+<h2 id="get-the-update-now">Get the Update Now</h2>
+<p>Please be cautious of scams and only download ImageGlass from the official website. I highly recommend against downloading ImageGlass from any other source to avoid potential security risks.</p>
+<p>Additionally, if you encounter any bugs, have suggestions, or would like to provide feedback, please use <a href="https://github.com/d2phap/ImageGlass/issues" target="_blank" rel="noopener nofollow">GitHub Issues tracker</a>.</p>
+<p><a href="https://imageglass.org/release/imageglass-9-6-0-801-66" class="btn btn-accent">Download ImageGlass 9.6</a></p>
